@@ -1,0 +1,247 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<ajt_grp>
+		<fr>Entrez un nom pour ce groupe.</fr>
+		<es>Ingrese un nombre para este grupo.</es>
+		<pt>Digite um nome para este grupo.</pt>
+	</ajt_grp>
+	<ajt_jrn>
+		<fr>Entrez un nombre de jours sans services.</fr>
+		<es>Ingrese un numero de jornadas sin servicios.</es>
+		<pt>Digite um número de jornadas sem serviços.</pt>
+	</ajt_jrn>
+	<ajt_bss>
+		<fr>Ajouter base(s)?&#xA;Utiliser ';' et '-' pour ajouter plusieurs bases. &#xA;(ex: 2-4;6 => bases 2,3,4,6.)</fr>
+		<es>¿Añadir base(s)?&#xA;Usar ';' y '-' para añadir varias bases. &#xA;(ej: 2-4;6 => bases 2,3,4,6.)</es>
+	</ajt_bss>
+	<ajt_rmn>
+		<fr>Sélectionner une seule base!</fr>
+		<es>Selecionar una sola base!</es>
+	</ajt_rmn>
+	<grd_crc>
+		<fr>Entrez un nom pour GARDER ce circuit dans le catalogue.</fr>
+		<es>Ingrese un nombre para GUARDAR este circuito en el catalogo.</es>
+	</grd_crc>
+	<grd_mdl>
+		<fr>Entrez un nom pour GARDER ce module dans le catalogue.</fr>
+		<es>Ingrese un nombre para GUARDAR este modulo en el catalogo.</es>
+	</grd_mdl>
+	<grd_jrn>
+		<fr>Entrez un nom pour GARDER cette journée dans le catalogue.</fr>
+		<es>Ingrese un nombre para GUARDAR esta jornada en el catalogo.</es>
+	</grd_jrn>
+	<grd_prs>
+		<fr>Entrez un nom pour GARDER cette prestation dans le catalogue.</fr>
+		<es>Ingrese un nombre para GUARDAR esta prestación en el catalogo.</es>
+	</grd_prs>
+	<grd_hbr>
+		<fr>Entrez un nom pour GARDER cet hébergement dans le catalogue.</fr>
+		<es>Ingrese un nombre para GUARDAR este alojamiento en el catalogo.</es>
+	</grd_hbr>
+	<grd_srv>
+		<fr>Entrez un nom pour GARDER ce service dans le catalogue.</fr>
+		<es>Ingrese un nombre para GUARDAR este servicio en el catalogo.</es>
+	</grd_srv>
+	<grd>
+		<fr>Enregistré!</fr>
+		<es>Guardado!</es>
+	</grd>
+	<grd2>
+		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
+		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
+	</grd2>
+	<cnf>
+		<fr>Circuit confirmé! Etes-vous sûr?</fr>
+		<es>Circuito confirmado! Está seguro?</es>
+	</cnf>
+	<ord>
+		<fr>Valeur incorrecte!</fr>
+		<es>Valor incorrecto!</es>
+	</ord>
+	<act_txt_crc>
+		<fr>ACTUALISER les textes de ce circuit?</fr>
+		<es>ACTUALIZAR los textos de este circuito?</es>
+	</act_txt_crc>
+	<act_txt_mdl>
+		<fr>ACTUALISER les textes de ce module?</fr>
+		<es>ACTUALIZAR los textos de este modulo?</es>
+	</act_txt_mdl>
+	<act_txt_jrn>
+		<fr>ACTUALISER les textes de cette journée?</fr>
+		<es>ACTUALIZAR los textos de esta jornada?</es>
+	</act_txt_jrn>
+	<act_txt_prs>
+		<fr>ACTUALISER les textes de cette prestation?</fr>
+		<es>ACTUALIZAR los textos de esta prestación?</es>
+	</act_txt_prs>
+	<act_txt_hbr>
+		<fr>ACTUALISER les textes de cet hébergement?</fr>
+		<es>ACTUALIZAR los textos de este alojamiento?</es>
+	</act_txt_hbr>
+	<act_txt_srv>
+		<fr>ACTUALISER les textes de ce service?</fr>
+		<es>ACTUALIZAR los textos de este servicio?</es>
+	</act_txt_srv>
+	<act_trf_crc>
+		<fr>ACTUALISER les tarifs de ce circuit?</fr>
+		<es>ACTUALIZAR las tarifas de este circuito?</es>
+	</act_trf_crc>
+	<act_trf_mdl>
+		<fr>ACTUALISER les tarifs de ce module?</fr>
+		<es>ACTUALIZAR las tarifas de este modulo?</es>
+	</act_trf_mdl>
+	<act_trf_jrn>
+		<fr>ACTUALISER les tarifs de cette journée?</fr>
+		<es>ACTUALIZAR las tarifas de esta jornada?</es>
+	</act_trf_jrn>
+	<act_trf_prs>
+		<fr>ACTUALISER les tarifs de cette prestation?</fr>
+		<es>ACTUALIZAR las tarifas de esta prestación?</es>
+	</act_trf_prs>
+	<act_trf_hbr>
+		<fr>ACTUALISER les tarifs de cet hébergement?</fr>
+		<es>ACTUALIZAR las tarifas de este alojamiento?</es>
+	</act_trf_hbr>
+	<act_trf_srv>
+		<fr>ACTUALISER les tarifs de ce service?</fr>
+		<es>ACTUALIZAR las tarifas de este servicio?</es>
+	</act_trf_srv>
+	<act_elem_crc>
+		<fr>Cette option remplacera tous les éléments présents dans ce circuit?&#xA;Toutes les informations seront perdues!</fr>
+		<es>Esta opción remplazara todos los elementos presentes en este circuito?&#xA;Todas las informaciones se borrarán!</es>
+	</act_elem_crc>
+	<act_elem_mdl>
+		<fr>ACTUALISER les éléments de ce module?</fr>
+		<es>ACTUALIZAR los elementos en este modulo?</es>
+	</act_elem_mdl>
+	<act_elem_jrn>
+		<fr>ACTUALISER les éléments de cette journée?</fr>
+		<es>ACTUALIZAR los elementos en esta jornada?</es>
+	</act_elem_jrn>
+	<act_elem_prs>
+		<fr>Cette option remplacera tous les éléments présents dans cette prestation?&#xA;Toutes les informations seront perdues!</fr>
+		<es>Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;Todas las informaciones se borrarán!</es>
+	</act_elem_prs>
+	<hbr_def>
+		<fr>Sélectionner les hôtels par défaut pour chaque hébergement non défini de ce circuit?</fr>
+		<es>Seleccionar los hoteles por defecto para cada alojamiento no definido en este circuito?</es>
+	</hbr_def>
+	<chk_cnf>
+		<fr>Définir des dates pour ce circuit.</fr>
+		<es>Definir fechas para este circuito.</es>
+	</chk_cnf>
+	<chk_cnf>
+		<fr>Sélectionner une seule base ou garder les hébergements dans le catalogue pour le(s) module(s): </fr>
+		<es>Selecionar una sola base o guardar los alojamientos en el catalogo para el(los) modulo(s): </es>
+	</chk_cnf>
+	<cnf_ok>
+		<fr>CONFIRMER ce devis?</fr>
+		<es>CONFIRMAR esta cotización?</es>
+	</cnf_ok>
+	<fus>
+		<fr>Les tarifs des modules suivants devraient être actualisés (changement de dates).</fr>
+		<es>Las tarifas de los modulos siguientes deberían ser actualizadas (cambio de fechas).</es>
+	</fus>
+	<trsf1>
+		<fr>Erreur!&#xA;Le module précédent a des tarifs séparés ou est fusionné.</fr>
+		<es>Error!&#xA;El modulo anterior tiene tarifas separadas o está fusionado.</es>
+	</trsf1>
+	<trsf2>
+		<fr>Erreur! Le module suivant a des tarifs indépendants.</fr>
+		<es>Error! El modulo siguiente tiene tarifas independientes.</es>
+	</trsf2>
+	<alt_cnf>
+		<fr>Les prestations en option n'ont pas été confirmées!</fr>
+		<es>Las prestaciones en opción no fueron confirmadas!</es>
+	</alt_cnf>
+	<src_prs>
+		<fr> autre(s) journée(s)?</fr>
+		<es> otra(s) jornada(s)?</es>
+	</src_prs>
+	<src_prs>
+		<fr>Ajouter cette même prestation en option pour la(les) </fr>
+		<es>Añadir esta misma prestación en opción para la(s) </es>
+	</src_prs>
+	<src_prs>
+		<fr>Sélectionner cette même prestation pour la(les) </fr>
+		<es>Seleccionar esta misma prestación para la(s) </es>
+	</src_prs>
+	<src_prs>
+		<fr>Désélectionner cette même prestation pour la(les) </fr>
+		<es>Deseleccionar esta misma prestación para la(s) </es>
+	</src_prs>
+	<src_prs>
+		<fr>Supprimer cette même prestation pour la(les) </fr>
+		<es>Suprimir esta misma prestación para la(s) </es>
+	</src_prs>
+	<src_prs>
+		<fr>Appliquer ce statut au(x)  </fr>
+		<es>Aplicar este estado a la(s) </es>
+	</src_prs>
+	<sup_mdl>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER ce module?</fr>
+		<es>Está seguro de querer SUPRIMIR este modulo?</es>
+	</sup_mdl>
+	<sup_jrn>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER cette journée?</fr>
+		<es>Está seguro de querer SUPRIMIR esta jornada?</es>
+	</sup_jrn>
+	<sup_prs>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER cette prestation?</fr>
+		<es>Está seguro de querer SUPRIMIR esta prestación ?</es>
+	</sup_prs>
+	<sup_hbr>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER cet hébergement?</fr>
+		<es>Está seguro de querer SUPRIMIR este alojamiento?</es>
+	</sup_hbr>
+	<sup_srv>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER ce service?</fr>
+		<es>Está seguro de querer SUPRIMIR este servicio?</es>
+	</sup_srv>
+	<sup_res>
+		<fr>Réservations en cours pour cet élément!</fr>
+		<es>¡Reservaciones en curso para este elemento!</es>
+		<pt>Reservas em curso para este item!</pt>
+	</sup_res>
+	<sup_bss>
+		<fr>Base(s) a supprimer?&#xA;Utiliser ';' et '-' pour supprimer plusieurs bases.&#xA;(ex: 2-4;6 => bases 2,3,4,6.)</fr>
+		<es>Base(s) para suprimir?&#xA;Usar ';' y '-' para suprimir varias bases. &#xA;(ej: 2-4;6 => bases 2,3,4,6.)</es>
+	</sup_bss>
+	<sup_bss>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER cette(ces) base(s)?&#xA;</fr>
+		<es>Está seguro de querer SUPRIMIR esta(s) base(s)?&#xA;</es>
+	</sup_bss>
+	<sup_rmn>
+		<fr>Etes-vous sûr de vouloir SUPPRIMER ce rooming?&#xA;</fr>
+		<es>Está seguro de querer SUPRIMIR este rooming?&#xA;</es>
+	</sup_rmn>
+	<sup_cat_crc>
+		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de ce circuit?</fr>
+		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de este circuito?</es>
+	</sup_cat_crc>
+	<sup_cat_mdl>
+		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de ce module?</fr>
+		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de este modulo?</es>
+	</sup_cat_mdl>
+	<sup_cat_jrn>
+		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de cette journée?</fr>
+		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de esta jornada?</es>
+	</sup_cat_jrn>
+	<sup_cat_prs>
+		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de cette prestation?</fr>
+		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de esta prestación?</es>
+	</sup_cat_prs>
+	<sup_cat_hbr>
+		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de cet hébergement?</fr>
+		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de este alojamiento?</es>
+	</sup_cat_hbr>
+	<sup_cat_srv>
+		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de ce service?</fr>
+		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de este servicio?</es>
+	</sup_cat_srv>
+	<chk_rch>
+		<fr>TEXTE(S) NON SAUVEGARDE(S)!&#xA;Les modifications seront perdues?</fr>
+		<es>TEXTO(S) SIN GUARDAR!&#xA;Las modificaciones serán descartadas?</es>
+	</chk_rch>
+</textes>

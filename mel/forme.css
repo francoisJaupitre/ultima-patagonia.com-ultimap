@@ -1,0 +1,127 @@
+table{width: 100%}
+
+select{width: 100px;}
+
+#container{
+  height: 100%;
+  overflow-y: hidden;
+}
+
+#vue_mel{
+  height: 100%;
+  width: 80%;
+  float: right;
+  background-color: white;
+}
+
+#vue_lec{
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: unset;
+  height: 100%;
+  width: 65%;
+  float: right;
+}
+
+#vue_map{
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: gainsboro;
+  height: 100%;
+  text-align: left;
+  text-align-last: left;
+  min-height: 100%;
+  margin-right: 0px;
+  margin-left: auto;
+  border: 4px groove rgba(211,211,211,0.3);
+}
+
+#vue_box{
+  overflow-x: hidden;
+  text-align: left;
+  text-align-last: left;
+  min-height: 100%;
+  overflow-y: auto;
+  height: 100%;
+}
+
+#src_mel{
+  background-color: gainsboro;
+  width: 100%
+}
+
+.drag{
+  float: left;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  height: 100%;
+  cursor: w-resize;
+}
+
+.li_map{padding: 0 10px 1px 10px;}
+
+.li_map div{
+  float:right;
+  background: gray;
+  font-size: small;
+  color: white;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.dof{
+  display: block;
+  overflow-x: hidden;
+  font-size: 20px;
+}
+
+.fsm{font-size: 13.5px;}
+
+.mpl{
+  margin: 0;
+  padding-left: 0;
+}
+
+.frpl{
+  float: right;
+  padding-left: 5px;
+}
+
+.dboxh{
+  display: block;
+  overflow-x: hidden;
+}
+
+.dboh{
+  display: block;
+  overflow: hidden;
+}
+
+.hoh{
+  height: 28px;
+  overflow: hidden;
+}
+
+.t2m3bp{
+  text-align: left;
+  text-align-last: left;
+  min-height: 100%;
+  margin-right: 0px;
+  margin-left: auto;
+  border: 4px groove rgba(211,211,211,0.3);
+  padding: 10px;
+}
+
+.tb_box{
+  width: 100%;
+	margin-right: 0px;
+	margin-left: auto;
+	border: 4px groove rgba(211,211,211,0.3);
+	padding: 10px;
+  height: 90px;
+  table-layout: fixed;
+}

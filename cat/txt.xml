@@ -1,0 +1,683 @@
+<?php xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<crc>
+		<fr>CIRCUIT</fr>
+		<es>CIRCUITO</es>
+		<pt>CIRCUITO</pt>
+	</crc>
+	<crcs>
+		<fr>CIRCUITS</fr>
+		<es>CIRCUITOS</es>
+		<pt>CIRCUITOS</pt>
+	</crcs>
+	<nocrc>
+		<fr>SANS CIRCUITS</fr>
+		<es>SIN CIRCUITOS</es>
+		<pt>SEM CIRCUITOS</pt>
+	</nocrc>
+	<mdl>
+		<fr>MODULE</fr>
+		<es>MODULO</es>
+		<pt>MODULO</pt>
+	</mdl>
+	<mdls>
+		<fr>MODULES</fr>
+		<es>MODULOS</es>
+		<pt>MODULOS</pt>
+	</mdls>
+	<nomdl>
+		<fr>SANS MODULES</fr>
+		<es>SIN MODULOS</es>
+		<pt>SEM MODULOS</pt>
+	</nomdl>
+	<ajtmdl>
+		<fr>AJOUTER UN MODULE</fr>
+		<es>AÑADIR UN MODULO</es>
+		<pt>ADIR UM MODULO</pt>
+	</ajtmdl>
+	<jrn>
+		<fr>JOURNEE</fr>
+		<es>JORNADA</es>
+		<pt>JORNADA</pt>
+	</jrn>
+	<jrns>
+		<fr>JOURNEES</fr>
+		<es>JORNADAS</es>
+		<pt>JORNADAS</pt>
+	</jrns>
+	<nojrn>
+		<fr>SANS JOURNEES</fr>
+		<es>SIN JORNADAS</es>
+		<pt>SEM JORNADAS</pt>
+	</nojrn>
+	<ajtjrn>
+		<fr>AJOUTER UNE JOURNEE</fr>
+		<es>AÑADIR UNE JORNADA</es>
+		<pt>ADIR UMA JORNADA</pt>
+	</ajtjrn>
+	<prs>
+		<fr>PRESTATION</fr>
+		<es>PRESTACION</es>
+		<pt>PRESTAÇÃO</pt>
+	</prs>
+	<prss>
+		<fr>PRESTATIONS</fr>
+		<es>PRESTACIONES</es>
+		<pt>PRESTAÇÃOS</pt>
+	</prss>
+	<noprs>
+		<fr>SANS PRESTATIONS</fr>
+		<es>SIN PRESTACIONES</es>
+		<pt>SEM PRESTAÇÃOS</pt>
+	</noprs>
+	<ajtprs>
+		<fr>AJOUTER UNE PRESTATION</fr>
+		<es>AÑADIR UNA PRESTACION</es>
+		<pt>ADIR UMA PRESTAÇÃO</pt>
+	</ajtprs>
+	<srv>
+		<fr>SERVICE</fr>
+		<es>SERVICIO</es>
+		<pt>SERVIÇO</pt>
+	</srv>
+	<srvs>
+		<fr>SERVICES</fr>
+		<es>SERVICIOS</es>
+		<pt>SERVIÇOS</pt>
+	</srvs>
+	<nosrv>
+		<fr>SANS SERVICES</fr>
+		<es>SIN SERVICIOS</es>
+		<pt>SEM SERVIÇOS</pt>
+	</nosrv>
+	<hbr>
+		<fr>HEBERGEMENT</fr>
+		<es>ALOJAMIENTO</es>
+		<pt>ALOJAMENTO</pt>
+	</hbr>
+	<hbrs>
+		<fr>HEBERGEMENTS</fr>
+		<es>ALOJAMIENTOS</es>
+		<pt>ALOJAMENTOS</pt>
+	</hbrs>
+	<cnf>
+		<fr>CONFIRMATIONS</fr>
+		<es>CONFIRMACIONES</es>
+		<pt>CONFIRMAÇÕES</pt>
+	</cnf>
+	<dev>
+		<fr>DEVIS</fr>
+		<es>COTIZACIONES</es>
+		<pt>COTAÇÃOES</pt>
+	</dev>
+	<fin>
+		<fr>CONFIRMATIONS ARCHIVES</fr>
+		<es>CONFIRMACIONES ARCHIVADAS</es>
+		<pt>CONFIRMAÇÕES ARQUIVADAS</pt>
+	</fin>
+	<arc>
+		<fr>DEVIS ARCHIVES</fr>
+		<es>COTIZACIONES ARCHIVADAS</es>
+		<pt>COTAÇÃOES ARQUIVADAS</pt>
+	</arc>
+	<nodev>
+		<fr>SANS DEVIS</fr>
+		<es>SIN COTIZACIONES</es>
+		<pt>SEM COTAÇÃOES</pt>
+	</nodev>
+	<apt>
+		<fr>AEROPORT</fr>
+		<es>AEROPUERTO</es>
+		<pt>AEROPORTO</pt>
+	</apt>
+	<clt>
+		<fr>CLIENT</fr>
+		<es>CLIENTE</es>
+		<pt>CLIENTE</pt>
+	</clt>
+	<clts>
+		<fr>CLIENTS</fr>
+		<es>CLIENTES</es>
+		<pt>CLIENTES</pt>
+	</clts>
+	<frn>
+		<fr>PRESTATAIRE</fr>
+		<es>PROVEEDOR</es>
+		<pt>FORNECEDOR</pt>
+	</frn>
+	<frn2>
+		<fr>PREST.</fr>
+		<es>PROV.</es>
+		<pt>FORN.</pt>
+	</frn2>
+	<titre>
+		<fr>TITRE</fr>
+		<es>TITULO</es>
+		<pt>TITULO</pt>
+	</titre>
+	<pic>
+		<fr>PHOTO</fr>
+		<es>FOTO</es>
+		<pt>FOTO</pt>
+	</pic>
+	<pics>
+		<fr>PHOTOS</fr>
+		<es>FOTOS</es>
+		<pt>FOTOS</pt>
+	</pics>
+	<nopic>
+		<fr>SANS PHOTOS</fr>
+		<es>SIN FOTOS</es>
+		<pt>SEM FOTOS</pt>
+	</nopic>
+	<rgn>
+		<fr>RÉGION</fr>
+		<es>REGION</es>
+		<pt>REGIÃO</pt>
+	</rgn>
+	<rgns>
+		<fr>RÉGIONS</fr>
+		<es>REGIONES</es>
+		<pt>REGIÕES</pt>
+	</rgns>
+	<vll>
+		<fr>VILLE</fr>
+		<es>CIUDAD</es>
+		<pt>CIDADE</pt>
+	</vll>
+	<vlls>
+		<fr>VILLES</fr>
+		<es>CIUDADES</es>
+		<pt>CIDADES</pt>
+	</vlls>
+	<vlldep>
+		<fr>VILLE DEPART</fr>
+		<es>CIUDAD PARTIDA</es>
+		<pt>CIDADES PARTIDA</pt>
+	</vlldep>
+	<lieu>
+		<fr>LIEU</fr>
+		<es>LUGAR</es>
+		<pt>LUGAR</pt>
+	</lieu>
+	<lieux>
+		<fr>LIEUX</fr>
+		<es>LUGARES</es>
+		<pt>LUGARES</pt>
+	</lieux>
+	<resa>
+		<fr>RESAS.</fr>
+		<es>RESERVAS</es>
+		<pt>RESERVAS</pt>
+	</resa>
+	<bnq>
+		<fr>BANQUE</fr>
+		<es>BANCO</es>
+		<pt>BANCO</pt>
+	</bnq>
+	<cmd>
+		<fr>COMMANDES</fr>
+		<es>COMANDOS</es>
+		<pt>COMANDOS</pt>
+	</cmd>
+	<ajtdev>
+		<fr>CREER DEVIS</fr>
+		<es>CREAR COTIZACION</es>
+		<pt>CRIAR COTAÇAÕ</pt>
+	</ajtdev>
+	<cop>
+		<fr>COPIER</fr>
+		<es>COPIAR</es>
+		<pt>COPIAR</pt>
+	</cop>
+	<cop2>
+		<fr>COPIE SIMPLE</fr>
+		<es>COPIA SIMPLE</es>
+		<pt>COPIA SIMPLE</pt>
+	</cop2>
+	<del>
+		<fr>SUPPRIMER</fr>
+		<es>BORRAR</es>
+		<pt>APAGAR</pt>
+	</del>
+	<web_edt>
+		<fr>EDITER</fr>
+		<es>EDITAR</es>
+		<pt>EDITAR</pt>
+	</web_edt>
+	<web_pub>
+		<fr>PUBLIER</fr>
+		<es>PUBLICAR</es>
+		<pt>PUBLICAR</pt>
+	</web_pub>
+	<ajt>
+		<fr>AJOUTER</fr>
+		<es>AÑADIR</es>
+		<pt>ADIR</pt>
+	</ajt>
+	<opn>
+		<fr>OUVRIR</fr>
+		<es>ABRIR</es>
+		<pt>ABRIR</pt>
+	</opn>
+	<lng>
+		<fr>LANGUE</fr>
+		<es>IDIOMA</es>
+		<pt>IDIOMA</pt>
+	</lng>
+	<fus>
+		<fr>FUSIONNER MODULES</fr>
+		<es>FUSIONAR MODULOS</es>
+		<pt>FUSIONAR MODULOS</pt>
+	</fus>
+	<rgm>
+		<fr>REGIME</fr>
+		<es>REGIMEN</es>
+		<pt>REGIME</pt>
+	</rgm>
+	<chm>
+		<fr>CHAMBRE</fr>
+		<es>HABITACION</es>
+		<pt>QUARTO</pt>
+	</chm>
+	<chms>
+		<fr>CHAMBRES</fr>
+		<es>HABITACIONES</es>
+		<pt>QUARTOS</pt>
+	</chms>
+	<nodef>
+		<fr>NON DEFINI</fr>
+		<es>SIN DEFINIR</es>
+		<pt>SEM DEFINIR</pt>
+	</nodef>
+	<ajtopt>
+		<fr>AJOUTER OPTION</fr>
+		<es>AÑADIR OPCION</es>
+		<pt>ADIR OPÇÃO</pt>
+	</ajtopt>
+	<srcopt>
+		<fr>CHERCHER OPTIONS</fr>
+		<es>BUSCAR OPCIONES</es>
+		<pt>PROCURAR OPÇÕES</pt>
+	</srcopt>
+	<nooptjrn>
+		<fr>AUCUNE OPTION DISPONIBLE POUR CETTE JOURNEE</fr>
+		<es>NO EXISTE OPCION DISPONIBLE PARA ESTA JORNADA</es>
+		<pt>NÃO EXISTE OPÇÃO DISPONIVEL PARA ESTA JORNADA</pt>
+	</nooptjrn>
+	<nooptprs>
+		<fr>AUCUNE OPTION DISPONIBLE POUR CETTE PRESTATION</fr>
+		<es>NO EXISTE OPCION DISPONIBLE PARA ESTA PRESTACION</es>
+		<pt>NÃO EXISTE OPÇÃO DISPONIVEL PARA ESTA PRESTAÇÃO</pt>
+	</nooptprs>
+	<tyclt>
+		<fr>TYPE CLIENT</fr>
+		<es>TIPO CLIENTE</es>
+		<pt>TIPO CLIENTE</pt>
+	</tyclt>
+	<grp>
+		<fr>GROUPES</fr>
+		<es>GRUPOS</es>
+		<pt>GRUPOS</pt>
+	</grp>
+	<crr>
+		<fr>DEVISE</fr>
+		<es>DIVISA</es>
+		<pt>MOEDAS</pt>
+	</crr>
+	<email>
+		<fr>EMAIL RESAS</fr>
+		<es>EMAIL RESERVAS</es>
+		<pt>EMAIL RESERVAS</pt>
+	</email>
+	<email_frt>
+		<fr>EMAIL RECEPTION</fr>
+		<es>EMAIL RECEPCION</es>
+		<pt>EMAIL RECEPCION</pt>
+	</email_frt>
+	<contact>
+		<fr>CONTACT</fr>
+		<es>CONTACTO</es>
+		<pt>CONTACTO</pt>
+	</contact>
+	<tel>
+		<fr>TELEPHONE</fr>
+		<es>TELEFONO</es>
+		<pt>TELEFONE</pt>
+	</tel>
+	<adresse>
+		<fr>ADRESSE</fr>
+		<es>DIRECCION</es>
+		<pt>ENDEREÇO</pt>
+	</adresse>
+	<notes>
+		<fr>NOTES</fr>
+		<es>NOTAS</es>
+		<pt>NOTAS</pt>
+	</notes>
+	<infos>
+		<fr>INFOS&#xA;DEVIS</fr>
+		<es>INFOS&#xA;COTIZACION</es>
+		<pt>INFOS&#xA;COTAÇÃO</pt>
+	</infos>
+	<altdev>
+		<fr>ALERTE&#xA;DEVIS</fr>
+		<es>ALERTA&#xA;COTIZACION</es>
+		<pt>ALERTA&#xA;COTAÇÃO</pt>
+	</altdev>
+	<nvtrf>
+		<fr>NOUVEAUX TARIFS</fr>
+		<es>NUEVAS TARIFAS</es>
+		<pt>NOVOS PREÇOS</pt>
+	</nvtrf>
+	<lstrg>
+		<fr>LISTE ROUGE</fr>
+		<es>LISTA ROJA</es>
+		<pt>LISTA VERMELHA</pt>
+	</lstrg>
+	<ferme>
+		<fr>FERMÉ</fr>
+		<es>CERRADO</es>
+		<pt>FECHADO</pt>
+	</ferme>
+	<ref>
+		<fr>REF.&#xA;RESAS.</fr>
+		<es>REF.&#xA;RESERVAS</es>
+		<pt>REF.&#xA;RESERVAS</pt>
+	</ref>
+	<res>
+		<fr>RESERVATIONS</fr>
+		<es>RESERVACIONES</es>
+		<pt>RESERVAS</pt>
+	</res>
+	<vch>
+		<fr>VOUCHERS</fr>
+		<es>VOUCHERS</es>
+		<pt>VOUCHERS</pt>
+	</vch>
+	<infosbnq>
+		<fr>INFOS BANCAIRES</fr>
+		<es>DATOS BANCARIOS</es>
+		<pt>DADOS BANCARIOS</pt>
+	</infosbnq>
+	<frsfin>
+		<fr>FRAIS FINANCIERS</fr>
+		<es>GASTOS FINANCIEROS</es>
+		<pt>GASTOS FINANCEIROS</pt>
+	</frsfin>
+	<ctg>
+		<fr>CATEGORIE</fr>
+		<es>CATEGORIA</es>
+		<pt>CATEGORIA</pt>
+	</ctg>
+	<ctgs>
+		<fr>CATEGORIES</fr>
+		<es>CATEGORIAS</es>
+		<pt>CATEGORIAS</pt>
+	</ctgs>
+	<pay>
+		<fr>PAIEMENTS</fr>
+		<es>PAGOS</es>
+		<pt>PAGAMENTOS</pt>
+	</pay>
+	<conditions>
+		<fr>CONDITIONS</fr>
+		<es>CONDICIONES</es>
+		<pt>CONDIÇÕES</pt>
+	</conditions>
+	<jours>
+		<fr>JOURS</fr>
+		<es>DIAS</es>
+		<pt>DIAS</pt>
+	</jours>
+	<defsrv>
+		<fr>DEFINI POUR LES TARIFS DE CES SERVICES</fr>
+		<es>DEFINIDO PARA LAS TARIFAS DE ESTOS SERVICIOS</es>
+		<pt>DEFINIDO PARA AS TAXAS DE ESTES SERVIÇOS</pt>
+	</defsrv>
+	<defhbr>
+		<fr>DEFINI POUR CES HEBERGEMENTS</fr>
+		<es>DEFINIDO PARA ESOS ALOJAMIENTOS</es>
+		<pt>DEFINIDO PARA AS TAXAS DE ESTES ALOJAMENTOS</pt>
+	</defhbr>
+	<nodefsrv>
+		<fr>AUCUN TARIFS DE SERVICES DEFINIS</fr>
+		<es>NO HAY TARIFAS DE SERVICIOS DEFINIDAS</es>
+		<pt>SEM TASAS DE SERVIÇOS DEFINIDAS</pt>
+	</nodefsrv>
+	<nodefhbr>
+		<fr>AUCUN HEBERGEMENT DEFINI</fr>
+		<es>NO HAY ALOJAMIENTOS DEFINIDOS</es>
+		<pt>SEM ALOJAMENTOS DEFINIDOS</pt>
+	</nodefhbr>
+	<telhbr>
+		<fr>TEL HEBERGEMENT</fr>
+		<es>TEL ALOJAMIENTO</es>
+		<pt>TEL ALOJAMENTO</pt>
+	</telhbr>
+	<checkinout>
+		<fr>CHECK IN / OUT</fr>
+		<es>CHECK IN / OUT</es>
+		<pt>CHECK IN / OUT</pt>
+	</checkinout>
+	<nbr>
+		<fr>NOMBRE</fr>
+		<es>NUMERO</es>
+		<pt>NUMERO</pt>
+	</nbr>
+	<cpc>
+		<fr>CAPACITE</fr>
+		<es>CAPACIDAD</es>
+		<pt>CAPACIDADE</pt>
+	</cpc>
+	<dtmin>
+		<fr>DATE&#xA;MINI.</fr>
+		<es>FECHA&#xA;MINI.</es>
+		<pt>DATA&#xA;MINI.</pt>
+	</dtmin>
+	<dtmax>
+		<fr>DATE&#xA;MAXI.</fr>
+		<es>FECHA&#xA;MAXI.</es>
+		<pt>DATA&#xA;MAXI.</pt>
+	</dtmax>
+	<est>
+		<fr>EST.</fr>
+		<es>EST.</es>
+		<pt>EST.</pt>
+	</est>
+	<sgl>
+		<fr>SGL</fr>
+		<es>SGL</es>
+		<pt>SGL</pt>
+	</sgl>
+	<dbl>
+		<fr>DBL</fr>
+		<es>DBL</es>
+		<pt>DBL</pt>
+	</dbl>
+	<tpl>
+		<fr>TPL</fr>
+		<es>TPL</es>
+		<pt>TPL</pt>
+	</tpl>
+	<qdp>
+		<fr>QDP</fr>
+		<es>CDP</es>
+		<pt>QDP</pt>
+	</qdp>
+	<rack>
+		<fr>RACK</fr>
+		<es>RACK</es>
+		<pt>RACK</pt>
+	</rack>
+	<net>
+		<fr>NET</fr>
+		<es>NETO</es>
+		<pt>NETO</pt>
+	</net>
+	<rgmadditionnels>
+		<fr>REGIMES ADDITIONNELS</fr>
+		<es>REGIMENES ADICIONALES</es>
+		<pt>REGIMES ADICIONALES</pt>
+	</rgmadditionnels>
+	<unique>
+		<fr>UNIQUE</fr>
+		<es>UNICO</es>
+		<pt>UNICO</pt>
+	</unique>
+	<telres>
+		<fr>TEL RESAS.</fr>
+		<es>TEL RESERVAS</es>
+		<pt>TEL RESERVAS</pt>
+	</telres>
+	<web>
+		<fr>WEB</fr>
+		<es>WEB</es>
+		<pt>WEB</pt>
+	</web>
+	<mrk>
+		<fr>AFFICHER</fr>
+		<es>MOSTRAR</es>
+		<pt>MOSTRAR</pt>
+	</mrk>
+	<rpr>
+		<fr>REPERE</fr>
+		<es>MARCA</es>
+		<pt>MARCO</pt>
+	</rpr>
+	<rbk>
+		<fr>CARNET DE BORD</fr>
+		<en>ROADBOOK</en>
+		<es>CUADERNO DE VIAJE</es>
+	</rbk>
+	<out>
+		<fr>OUT</fr>
+		<es>OUT</es>
+		<pt>OUT</pt>
+	</out>
+	<duree>
+		<fr>DUREE</fr>
+		<es>DURACION</es>
+		<pt>DURAÇÃO</pt>
+	</duree>
+	<bsmin>
+		<fr>BASE&#xA;MIN</fr>
+		<es>BASE&#xA;MIN</es>
+		<pt>BASE&#xA;MIN</pt>
+	</bsmin>
+	<bsmax>
+		<fr>BASE&#xA;MAX</fr>
+		<es>BASE&#xA;MAX</es>
+		<pt>BASE&#xA;MAX</pt>
+	</bsmax>
+	<trfcoll>
+		<fr>TRF&#xA;COLLEC</fr>
+		<es>TRF&#xA;CMPRTD</es>
+		<pt>TAXA&#xA;CMPRTD</pt>
+	</trfcoll>
+	<trfrack>
+		<fr>TARIF&#xA;RACK</fr>
+		<es>TARIFA&#xA;RACK</es>
+		<pt>TAXA&#xA;RACK</pt>
+	</trfrack>
+	<trfnet>
+		<fr>TARIF&#xA;NET</fr>
+		<es>TARIFA&#xA;NETO</es>
+		<pt>TAXA&#xA;NETO</pt>
+	</trfnet>
+	<com>
+		<fr>COM.</fr>
+		<es>COM.</es>
+		<pt>COM.</pt>
+	</com>
+	<pays>
+		<fr>PAYS</fr>
+		<es>PAIS</es>
+		<pt>PAIS</pt>
+	</pays>
+	<dsc>
+		<fr>DESCRIPTION</fr>
+		<es>DESCRIPCION</es>
+	</dsc>
+	<defhbr>
+		<fr>HEBERGEMENT PAR DEFAUT</fr>
+		<es>ALOJAMIENTO POR DEFECTO</es>
+		<pt>ALOJAMENTO POR PADRÃO</pt>
+	</defhbr>
+	<nodsp>
+		<fr>SANS DISPONIBILITE</fr>
+		<es>SIN DISPONIBILIDAD</es>
+		<pt>SEM DISPONIBILIDADE</pt>
+	</nodsp>
+	<phdate>
+		<fr>jj/mm/aaaa</fr>
+		<es>dd/mm/aaaa</es>
+		<pt>dd/mm/aaaa</pt>
+	</phdate>
+	<phtitre>
+		<fr>titre</fr>
+		<es>titulo</es>
+		<pt>titulo</pt>
+	</phtitre>
+	<errval>
+		<fr>Erreur valeur!</fr>
+		<es>Error valor!</es>
+		<pt>Erro valor!</pt>
+	</errval>
+	<errwebuid>
+		<fr>Identifiant déjà utilisé!</fr>
+		<es>¡Identificador ya usado!</es>
+		<pt>Identificador já usado!</pt>
+	</errwebuid>
+	<errbss>
+		<fr>Erreur base!</fr>
+		<es>Error base!</es>
+		<pt>Erro base!</pt>
+	</errbss>
+	<errbss2>
+		<fr>Erreur! Cette base existe déjà!</fr>
+		<es>Error! Ya existe esta base!</es>
+		<pt>Erro! Esta base já existe!</pt>
+	</errbss2>
+	<errbss3>
+		<fr>Erreur! Recoupement de bases!</fr>
+		<es>Error! Cruzamiento de bases!</es>
+		<pt>Erro! Cruzamento de bases!</pt>
+	</errbss3>
+	<errdat>
+		<fr>Erreur date!</fr>
+		<es>Error fecha!</es>
+		<pt>Erro data!</pt>
+	</errdat>
+	<errdat2>
+		<fr>Erreur! Cette date existe deja!</fr>
+		<es>Error! Ya existe esta fecha!</es>
+		<pt>Erro! Esta data já existe!</pt>
+	</errdat2>
+	<errdat3>
+		<fr>Erreur! Recoupement de dates!</fr>
+		<es>Error! Cruzamiento de fechas!</es>
+		<pt>Erro! Cruzamento de datas!</pt>
+	</errdat3>
+	<del_chm>
+		<fr>SUPRESSION ANNULEE!&#xA;Chambre définie dans la(es) prestation(s):&#xA;</fr>
+		<es>SUPRESION CANCELADA!&#xA;Habitación definida en la(s) prestación(es):&#xA;</es>
+		<pt>SUPRESSÃO CANCELADA!&#xA;Quarto definido na(s) prestação(es):&#xA;</pt>
+	</del_chm>
+	<del_frn_vll>
+		<fr>SUPRESSION ANNULEE!&#xA;Fournisseur defini pour un(des) tarif(s) de services dans cette ville.</fr>
+		<es>SUPRESION CANCELADA!&#xA;Proveedor definido para una(s) tarifa(s) de servicios en esta ciudad.</es>
+		<pt>SUPRESSÃO CANCELADA!&#xA;Fornecedor definido para uma(s) taxa(s) de serviços nesta cidade.</pt>
+	</del_frn_vll>
+	<del_frn_ctg>
+		<fr>SUPRESSION ANNULEE!&#xA;Fournisseur defini pour un(des) tarif(s) de services dans cette catégorie.</fr>
+		<es>SUPRESION CANCELADA!&#xA;Proveedor definido para una(s) tarifa(s) de servicios en esta categoria.</es>
+		<pt>SUPRESSÃO CANCELADA!&#xA;Fornecedor definido para uma(s) taxa(s) de serviços nesta categoria.</pt>
+	</del_frn_ctg>
+	<web_err>
+		<fr>PUBLICATION ANNULEE!&#xA;Cet url est peut-être déjà utilisé.</fr>
+		<es>PUBLICACIÓN CANCELADA!&#xA;Es posible que esta URL ya esté en uso.</es>
+		<pt>PUBLICAÇÃO CANCELADA!&#xA;Este URL já pode estar em uso.</pt>
+	</web_err>
+</textes>

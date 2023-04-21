@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<ope>
+		<fr>OPERATIONS</fr>
+		<es>OPERACIONES</es>
+	</ope>
+	<encours>
+		<fr>EN COURS</fr>
+		<es>EN CURSO</es>
+	</encours>
+	<archives>
+		<fr>ARCHIVES</fr>
+		<es>ARCHIVADAS</es>
+	</archives>
+	<grp>
+		<fr>GROUPES</fr>
+		<es>GRUPOS</es>
+	</grp>
+	<phdate>
+		<fr>jj/mm/aaaa</fr>
+		<es>dd/mm/aaaa</es>
+	</phdate>
+	<prs>
+		<fr>PRESTATIONS</fr>
+		<es>PRESTACIONES</es>
+	</prs>
+	<vll>
+		<fr>VILLES</fr>
+		<es>CIUDADES</es>
+	</vll>
+	<ctg>
+		<fr>CATEGORIES</fr>
+		<es>CATEGORIAS</es>
+	</ctg>
+	<srv>
+		<fr>SERVICES</fr>
+		<es>SERVICIOS</es>
+	</srv>
+	<hbr>
+		<fr>HEBERGEMENTS</fr>
+		<es>ALOJAMIENTOS</es>
+	</hbr>
+	<chm>
+		<fr>CHAMBRES</fr>
+		<es>HABITACIONES</es>
+	</chm>
+	<frn>
+		<fr>FOURNISSEURS</fr>
+		<es>PROVEEDORES</es>
+	</frn>
+	<res>
+		<fr>RESERVATIONS</fr>
+		<es>RESERVACIONES</es>
+	</res>
+	<nodef>
+		<fr>NON DEFINI</fr>
+		<es>SIN DEFINIR</es>
+	</nodef>
+	<libre>
+		<fr>LIBRE</fr>
+		<es>LIBRE</es>
+	</libre>
+	<codrva>
+		<fr>code rva</fr>
+		<es>codigo rva</es>
+	</codrva>
+	<commandes>
+		<fr>COMMANDES</fr>
+		<es>COMANDOS</es>
+	</commandes>
+	<opn>
+		<fr>OUVRIR</fr>
+		<es>ABRIR</es>
+	</opn>
+	<mails>
+		<fr>EMAILS RESAS</fr>
+		<es>EMAILS RESAS</es>
+	</mails>
+	<lst_res>
+		<fr>LISTE RESAS</fr>
+		<es>LISTA RESAS</es>
+	</lst_res>
+	<ajt>
+		<fr>AJOUTER</fr>
+		<es>AÑADIR</es>
+	</ajt>
+	<cat>
+		<fr>CATALOGUE</fr>
+		<es>CATALOGO</es>
+	</cat>
+</textes>

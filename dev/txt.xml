@@ -1,0 +1,746 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<bss>
+		<fr>BASE(S)</fr>
+		<es>BASE(S)</es>
+	</bss>
+	<confi>
+		<fr>CONFIRME</fr>
+		<es>CONFIRMADO</es>
+	</confi>
+	<sgl>
+		<fr>SGL</fr>
+		<es>SGL</es>
+	</sgl>
+	<dbl>
+		<fr>DBL</fr>
+		<es>DBL</es>
+	</dbl>f
+	<tpl>
+		<fr>TPL</fr>
+		<es>TPL</es>
+	</tpl>
+	<qdp>
+		<fr>QDP</fr>
+		<es>CPL</es>
+	</qdp>
+	<rack>
+		<fr>RACK</fr>
+		<es>RACK</es>
+	</rack>
+	<net>
+		<fr>NET</fr>
+		<es>NETO</es>
+	</net>
+	<trf>
+		<fr>TARIFS</fr>
+		<es>TARIFA</es>
+	</trf>
+	<cst>
+		<fr>COUT</fr>
+		<es>COSTO</es>
+	</cst>
+	<com>
+		<fr>COM</fr>
+		<es>COM</es>
+	</com>
+	<min>
+		<fr>MIN</fr>
+		<es>MIN</es>
+	</min>
+	<max>
+		<fr>MAX</fr>
+		<es>MAX</es>
+	</max>
+	<ptl>
+		<fr>+1(TL)</fr>
+		<es>+1(TL)</es>
+	</ptl>
+	<psg>
+		<fr>+1(SGL)</fr>
+		<es>+1(SGL)</es>
+	</psg>
+	<mat>
+		<fr>MAT</fr>
+		<es>MAT</es>
+	</mat>
+	<twin>
+		<fr>TWIN</fr>
+		<es>TWIN</es>
+	</twin>
+	<room>
+		<fr>ROOM</fr>
+		<es>ROOM</es>
+	</room>
+	<frn>
+		<fr>FOURNISSEUR</fr>
+		<es>PROVEEDOR</es>
+	</frn>
+	<frns>
+		<fr>FOURNISSEURS</fr>
+		<es>PROVEEDORES</es>
+	</frns>
+	<res>
+		<fr>RESERVATION</fr>
+		<es>RESERVACION</es>
+	</res>
+	<ress>
+		<fr>RESERVATIONS</fr>
+		<es>RESERVACIONES</es>
+	</ress>
+	<paxs>
+		<fr>PAXS &amp; ROOMING</fr>
+		<es>PAXS &amp; ROOMING</es>
+	</paxs>
+	<dev>
+		<fr>DEVIS</fr>
+		<es>COTIZACION</es>
+	</dev>
+	<cnf>
+		<fr>CONFIRMATION</fr>
+		<es>CONFIRMACION</es>
+	</cnf>
+	<pay>
+		<fr>PAIEMENTS</fr>
+		<es>PAGOS</es>
+	</pay>
+	<dif>
+		<fr>DIFFERENCES</fr>
+		<es>DIFFERENCIAS</es>
+	</dif>
+	<delai>
+		<fr>ECHEANCES</fr>
+		<es>PLAZOS</es>
+	</delai>
+	<cat>
+		<fr>CATALOGUE</fr>
+		<es>CATALOGO</es>
+	</cat>
+	<lst_hbr>
+		<fr>LISTE HEBERGEMENTS</fr>
+		<es>LISTA ALOJAMIENTOS</es>
+	</lst_hbr>
+	<lst_frn>
+		<fr>LISTE PRESTATAIRES</fr>
+		<es>LISTA PROVEEDDORES</es>
+	</lst_frn>
+	<lst_pax>
+		<fr>LISTE PAXS</fr>
+		<es>LISTA PAXS</es>
+	</lst_pax>
+	<lst_srv>
+		<fr>LISTE SERVICES</fr>
+		<es>LISTA SERVICIOS</es>
+	</lst_srv>
+	<lst_res>
+		<fr>LISTE RESAS</fr>
+		<es>LISTA RESAS</es>
+	</lst_res>
+	<vch>
+		<fr>VOUCHERS</fr>
+		<es>VOUCHERS</es>
+	</vch>
+	<mailshbr>
+		<fr>EMAILS HEBERGEMENTS</fr>
+		<es>EMAILS ALOJAMIENTOS</es>
+	</mailshbr>
+	<mailsfrn>
+		<fr>EMAILS FOURNISSEURS</fr>
+		<es>EMAILS PROVEEDORES</es>
+	</mailsfrn>
+	<mailsres>
+		<fr>EMAILS RESAS</fr>
+		<es>EMAILS RESAS</es>
+	</mailsres>
+	<vll>
+		<fr>VILLE</fr>
+		<es>CIUDAD</es>
+	</vll>
+	<vlls>
+		<fr>VILLES</fr>
+		<es>CIUDADES</es>
+	</vlls>
+	<hbr>
+		<fr>HEBERGEMENT</fr>
+		<es>ALOJAMIENTO</es>
+	</hbr>
+	<hbrs>
+		<fr>HEBERGEMENTS</fr>
+		<es>ALOJAMIENTOS</es>
+	</hbrs>
+	<chm>
+		<fr>CHAMBRE</fr>
+		<es>HABITACION</es>
+	</chm>
+	<chms>
+		<fr>CHAMBRES</fr>
+		<es>HABITACIONES</es>
+	</chms>
+	<srv>
+		<fr>SERVICE</fr>
+		<es>SERVICIO</es>
+	</srv>
+	<srvs>
+		<fr>SERVICES</fr>
+		<es>SERVICIOS</es>
+	</srvs>
+	<nosrv>
+		<fr>SANS SERVICES</fr>
+		<es>SIN SERVICIOS</es>
+	</nosrv>
+	<nonom>
+		<fr>sans nom</fr>
+		<es>sin nombre</es>
+	</nonom>
+	<ctg>
+		<fr>CATEGORIE</fr>
+		<es>CATEGORIA</es>
+	</ctg>
+	<ctgs>
+		<fr>CATEGORIES</fr>
+		<es>CATEGORIAS</es>
+	</ctgs>
+	<nodef>
+		<fr>NON DEFINI</fr>
+		<es>SIN DEFINIR</es>
+	</nodef>
+	<cotnocnf>
+		<fr>NON CONFIRME - INCLUS DANS TARIFS</fr>
+		<es>SIN CONFIRMAR - INCLUIDO EN TARIFAS</es>
+	</cotnocnf>
+	<libre>
+		<fr>LIBRE</fr>
+		<es>LIBRE</es>
+	</libre>
+	<rgm>
+		<fr>REGIME</fr>
+		<es>REGIMEN</es>
+	</rgm>
+	<creer>
+		<fr>CREER</fr>
+		<es>CREAR</es>
+	</creer>
+	<fecha>
+		<fr>DATE</fr>
+		<es>FECHA</es>
+	</fecha>
+	<opt>
+		<fr>OPTION</fr>
+		<es>OPCION</es>
+	</opt>
+	<srcopt>
+		<fr>CHERCHER OPTIONS</fr>
+		<es>BUSCAR OPCIONES</es>
+	</srcopt>
+	<rpl>
+		<fr>REMPLACER</fr>
+		<es>REEMPLAZAR</es>
+		<pt>SUBSTITUIR</pt>
+	</rpl>
+	<rpljrn>
+		<fr>REMPLACER CETTE JOURNEE</fr>
+		<es>REEMPLAZAR ESTA JORNADA</es>
+	</rpljrn>
+	<ajt>
+		<fr>AJOUTER</fr>
+		<es>AÑADIR</es>
+	</ajt>
+	<ajtbss>
+		<fr>AJOUTER BASE</fr>
+		<es>AÑADIR BASE</es>
+	</ajtbss>
+	<ajtmdl>
+		<fr>AJOUTER UN MODULE A CE CIRCUIT</fr>
+		<es>AÑADIR UN MODULO A ESTE CIRCUITO</es>
+	</ajtmdl>
+	<ajtjrn>
+		<fr>AJOUTER UNE JOURNEE A CE MODULE</fr>
+		<es>AÑADIR UNA JORNADA A ESTE MODULO</es>
+	</ajtjrn>
+	<ajtprs>
+		<fr>INCLURE UNE PRESTATION</fr>
+		<es>INCLUIR UNA PRESTACION </es>
+	</ajtprs>
+	<ajtopthbr>
+		<fr>AJOUTER OPTION HEBERGEMENT</fr>
+		<es>AÑADIR OPCION ALOJAMIENTO</es>
+	</ajtopthbr>
+	<ajtpay>
+		<fr>AJOUTER PAIEMENT</fr>
+		<es>AÑADIR PAGO</es>
+	</ajtpay>
+	<ajtopt>
+		<fr>AJOUTER OPTION</fr>
+		<es>AÑADIR OPCION</es>
+	</ajtopt>
+	<ajtoptcat>
+		<fr>AJOUTER OPTION CATALOGUE</fr>
+		<es>AÑADIR OPCION CATALOGO</es>
+	</ajtoptcat>
+	<opn>
+		<fr>OUVRIR</fr>
+		<es>ABRIR</es>
+	</opn>
+	<supbss>
+		<fr>SUPPRIMER BASE</fr>
+		<es>SUPRIMIR BASE</es>
+	</supbss>
+	<err>
+		<rmn>
+			<fr>ERREUR ROOMING</fr>
+			<es>ERROR ROOMING</es>
+		</rmn>
+		<crc>
+			<fr>ERREUR DE TEXTES POUR LE CIRCUIT:&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA EL CIRCUITO:&#xA;</es>
+		</crc>
+		<mdl>
+			<fr>ERREUR DE TEXTES POUR LE(S) MODULE(S):&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA EL(LOS) MODULO(S):&#xA;</es>
+		</mdl>
+		<jrn>
+			<fr>ERREUR DE TEXTES POUR LE(S) JOURNEE(S):&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA LA(S) JORNADA(S):&#xA;</es>
+		</jrn>
+		<prs>
+			<fr>ERREUR DE TEXTES POUR LE(S) PRESTATION(S):&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA LA(S) PRESTACION(ES):&#xA;</es>
+		</prs>
+		<hbr>
+			<fr>ERREUR DE TARIFS POUR LE(S) HEBERGEMENT(S):&#xA;</fr>
+			<es>ERROR DE TARIFAS PARA EL(LOS) ALOJAMIENTO(S):&#xA;</es>
+		</hbr>
+		<mrq_bss>
+			<fr>ATTENTION! DIFFERENCES SUR LES TYPES DE MARGE OU POURCENTAGES POUR CETTE(CES) NOUVELLE(S) BASE(S)!&#xA;</fr>
+			<es>ATENCION! DIFFERENCIAS DE TIPOS DE MARGEN O DE PORCENTAJES PARA ESTA(S) NUEVA(S) BASE(S)!&#xA;</es>
+		</mrq_bss>
+		<srv>
+			<fr>ERREUR DE TARIFS POUR LE(S) SERVICE(S):&#xA;</fr>
+			<es>ERROR DE TARIFAS PARA EL(LOS) SERVICIO(S):&#xA;</es>
+		</srv>
+		<crr>
+			<fr>ERREUR DE DEVISES POUR LES TARIFS DU(ES) SERVICE(S):</fr>
+			<es>ERROR DE DIVISAS PARA LAS TARIFAS DEL(DE LOS) SERVICIO(S)</es>
+		</crr>
+		<alrt>
+			<fr>LES TARIFS DU(DES) MODULE(S) </fr>
+			<es>LAS TARIFAS DEL(LOS) MODULO(S) </es>
+		</alrt>
+		<alrt2>
+			<fr> DEVRAIENT ETRE ACTUALISES!</fr>
+			<es> DEBERIAN SER ACTUALIZADAS!</es>
+		</alrt2>
+		<nvtrf>
+			<fr>NOUVEAUX TARIFS DISPONIBLES POUR:</fr>
+			<es>NUEVAS TARIFAS DISPONIBLES PARA:</es>
+		</nvtrf>
+	</err>
+	<hbr_def>
+		<msg1>
+			<fr>NUITEE(S) DEFINIE(S)&#xA;</fr>
+			<es>NOCHE(S) DEFINIDA(S)&#xA;</es>
+		</msg1>
+		<msg2>
+			<fr>NUITEE(S) NON DEFINIE(S)&#xA;</fr>
+			<es>NOCHE(S) NO DEFINIDA(S)&#xA;</es>
+		</msg2>
+		<msg3>
+			<fr>ERREUR TARIFS HEBERGEMENT:&#xA;</fr>
+			<es>ERROR TARIFAS ALOJAMIENTO:&#xA;</es>
+		</msg3>
+	</hbr_def>
+	<srv_sel>
+		<fr>SERVICES SELECTIONNÉS. Devis : sélectionner une seule base.</fr>
+		<es>SERVICIOS SELECCIONADOS. Cotización : seleccionar una sola base.</es>
+	</srv_sel>
+	<hbr_sel>
+		<fr>HEBERGEMENTS SELECTIONNÉS. Devis : définir rooming.</fr>
+		<es>ALOJAMIENTOS SELECCIONADOS. Cotización : definir rooming.</es>
+	</hbr_sel>
+	<hbr_opt>
+		<fr>HEBERGEMENTS EN OPTION. Devis : définir rooming.</fr>
+		<es>ALOJAMIENTOS OPCIONALES. Cotización : definir rooming.</es>
+	</hbr_opt>
+	<jour>
+		<fr>JOUR</fr>
+		<es>DIA</es>
+	</jour>
+	<jours>
+		<fr>JOURS</fr>
+		<es>DIAS</es>
+		<Mon>
+			<fr>LUNDI</fr>
+			<es>LUNES</es>
+		</Mon>
+		<Tue>
+			<fr>MARDI</fr>
+			<es>MARTES</es>
+		</Tue>
+		<Wed>
+			<fr>MERCREDI</fr>
+			<es>MIERCOLES</es>
+		</Wed>
+		<Thu>
+			<fr>JEUDI</fr>
+			<es>JUEVES</es>
+		</Thu>
+		<Fri>
+			<fr>VENDREDI</fr>
+			<es>VIERNES</es>
+		</Fri>
+		<Sat>
+			<fr>SAMEDI</fr>
+			<es>SABADO</es>
+		</Sat>
+		<Sun>
+			<fr>DIMANCHE</fr>
+			<es>DOMINGO</es>
+		</Sun>
+	</jours>
+	<titre>
+		<fr>TITRE</fr>
+		<es>TITULO</es>
+	</titre>
+	<mrq>
+		<fr>MARQUE</fr>
+		<es>MARKUP</es>
+	</mrq>
+	<comm>
+		<fr>COMMISSION CEDEE</fr>
+		<es>COMISION CEDIDA</es>
+	</comm>
+	<mrq_hbr>
+		<fr>MARKUP HEBERGEMENTS</fr>
+		<es>MARKUP ALOJAMIENTOS</es>
+	</mrq_hbr>
+	<frs>
+		<fr>FRAIS</fr>
+		<es>GASTOS</es>
+	</frs>
+	<dsc>
+		<fr>DESCRIPTION</fr>
+		<es>DESCRIPCION</es>
+	</dsc>
+	<notes>
+		<fr>NOTES</fr>
+		<es>NOTAS</es>
+	</notes>
+	<internes>
+		<fr>INTERNES</fr>
+		<es>INTERNAS</es>
+	</internes>
+
+<!--TRIER DOUBLONS A CONTINUATION-->
+	<crc>
+		<fr>CIRCUIT</fr>
+		<es>CIRCUITO</es>
+	</crc>
+	<crcnom>
+		<fr>nom circuit catalogue</fr>
+		<es>nombre circuito catalogo</es>
+	</crcnom>
+	<infos>
+		<fr>INFOS</fr>
+		<es>INFO</es>
+	</infos>
+	<groupe>
+		<fr>GROUPE</fr>
+		<es>GRUPO</es>
+	</groupe>
+	<version>
+		<fr>VERSION</fr>
+		<es>VERSION</es>
+	</version>
+	<periode>
+		<fr>PERIODE</fr>
+		<es>PERIODO</es>
+	</periode>
+	<rgn>
+		<fr>REGION</fr>
+		<es>REGION</es>
+	</rgn>
+	<pic>
+		<fr>PHOTO</fr>
+		<es>FOTO</es>
+	</pic>
+	<nopic>
+		<fr>SANS PHOTO</fr>
+		<es>SIN FOTO</es>
+	</nopic>
+	<mdl>
+		<fr>MODULE</fr>
+		<es>MODULO</es>
+	</mdl>
+	<mdlnom>
+		<fr>nom module catalogue</fr>
+		<es>nombre modulo catalogo</es>
+	</mdlnom>
+	<trfmdl>
+		<fr>TARIFS SEPARES POUR CE MODULE:</fr>
+		<es>TARIFAS SEPARADAS PARA ESTE MODULO:</es>
+	</trfmdl>
+	<jrn>
+		<fr>JOURNEE</fr>
+		<es>JORNADA</es>
+	</jrn>
+	<jrns>
+		<fr>JOURNEES</fr>
+		<es>JORNADAS</es>
+	</jrns>
+	<jrnnom>
+		<fr>nom journée catalogue</fr>
+		<es>nombre jornada catalogo</es>
+	</jrnnom>
+	<nooptjrn>
+		<fr>AUCUNE OPTION DISPONIBLE POUR CETTE JOURNEE</fr>
+		<es>NO EXISTE OPCION DISPONIBLE PARA ESTA JORNADA</es>
+	</nooptjrn>
+	<nooptjrn2>
+		<fr>AUCUNE OPTION PREVUE POUR CETTE JOURNEE DANS CE MODULE SELON LE CATALOGUE</fr>
+		<es>NO EXISTE OPCION PREVISTA PARA ESTA JORNADA EN ESTE MODULO SEGÚN CATALOGO</es>
+	</nooptjrn2>
+	<phdate>
+		<fr>jj/mm/aaaa</fr>
+		<es>dd/mm/aaaa</es>
+	</phdate>
+	<prs>
+		<fr>PRESTATION</fr>
+		<es>PRESTACION</es>
+	</prs>
+	<prss>
+		<fr>PRESTATIONS</fr>
+		<es>PRESTACIONES</es>
+	</prss>
+	<prsnom>
+		<fr>nom prestation catalogue</fr>
+		<es>nombre prestacion catalogo</es>
+	</prsnom>
+	<prstx>
+		<fr>Taux de change au moment de la confirmation pour le calcul de la colonne DEVIS dans le cadre RESERVATIONS</fr>
+		<es>Tipo de cambio al confirmar para el calculo de la columna COTIZACIÓN en el cuadro RESERVACIONES</es>
+	</prstx>
+	<supcatprs>
+		<fr>QUITTER LE LIEN CATALOGUE DE CETTE PRESTATION POUR HABILITER AJOUT ET SUPPRESSION DE SERVICES ET HEBERGEMENTS</fr>
+		<es>QUITAR EL VINCULO CATALOGO DE ESTA PRESTACION PARA PODER AÑADIR O SUPRIMIR SERVICIOS Y ALOJAMIENTOS</es>
+	</supcatprs>
+	<nooptprs>
+		<fr>AUCUNE OPTION POSSIBLE POUR CETTE PRESTATION</fr>
+		<es>NO EXISTE OPCION POSIBLE PARA ESTA PRESTACION</es>
+	</nooptprs>
+	<nooptprs1>
+		<fr>AUCUNE OPTION PREVUE POUR CETTE PRESTATION DANS CETTE JOURNEE SELON LE CATALOGUE</fr>
+		<es>NO EXISTE OPCION PREVISTA PARA ESTA PRESTACION EN ESTA JORNADA SEGUN CATALOGO</es>
+	</nooptprs1>
+	<nooptprs2>
+		<fr>AUCUNE OPTION DE PRESTATION SUPPLEMENTAIRE PREVUE DANS CETTE JOURNEE SELON LE CATALOGUE</fr>
+		<es>NO EXISTE OPCION PRESTACION ADICIONAL PREVISTA EN ESTA JORNADA SEGUN EL CATALOGO</es>
+	</nooptprs2>
+	<trfopt>
+		<fr>TRF/OPT</fr>
+		<es>TRF/OPC</es>
+	</trfopt>
+	<crr>
+		<fr>DEVISE</fr>
+		<es>DIVISA</es>
+	</crr>
+	<resas>
+		<fr>RESAS</fr>
+		<es>RESAS</es>
+	</resas>
+	<codrva>
+		<fr>code rva</fr>
+		<es>codigo rva</es>
+	</codrva>
+	<infrva>
+		<fr>info resa</fr>
+		<es>info resa</es>
+	</infrva>
+	<pax>
+		<nom>
+			<fr>NOMS</fr>
+			<es>APELLIDOS</es>
+		</nom>
+		<pre>
+			<fr>PRENOMS</fr>
+			<es>NOMBRES</es>
+		</pre>
+		<dob>
+			<fr>DATE DE NAISSANCE</fr>
+			<es>FECHA DE NACIMIENTO</es>
+		</dob>
+		<psp>
+			<fr>PASSEPORT</fr>
+			<es>PASAPORTE</es>
+		</psp>
+		<exp>
+			<fr>DATE D'EXPIRATION</fr>
+			<es>FECHA DE VENCIMIENTO</es>
+		</exp>
+		<rooming>
+			<fr>ROOMING</fr>
+			<es>ROOMING</es>
+		</rooming>
+		<ncn>
+			<fr>NATIONALITE</fr>
+			<es>NACIONALIDAD</es>
+		</ncn>
+		<info>
+			<fr>INFO</fr>
+			<es>INFO</es>
+		</info>
+	</pax>
+	<ajtpax>
+		<fr>AJOUT PASSAGER</fr>
+		<es>AÑADIR PASAJERO</es>
+	</ajtpax>
+	<nopax>
+		<fr>AUCUN PASSAGER RESTANT</fr>
+		<es>NINGUN PASAJERO RESTANTE</es>
+	</nopax>
+	<vuetrf>
+		<fr>VOIR TARIFS</fr>
+		<es>VER TARIFAS</es>
+	</vuetrf>
+	<vueprg>
+		<fr>VOIR PROGRAMME</fr>
+		<es>VER PROGRAMA</es>
+	</vueprg>
+	<vuerbk>
+		<fr>VOIR CARNET DE BORD</fr>
+		<es>VER CUADERNO DE VIAJE</es>
+	</vuerbk>
+	<acttrf>
+		<fr>ACTUALISER TARIFS</fr>
+		<es>ACTUALIZAR TARIFAS</es>
+	</acttrf>
+	<acttxt>
+		<fr>ACTUALISER TEXTES</fr>
+		<es>ACTUALIZAR TEXTOS</es>
+	</acttxt>
+	<vrs>
+		<fr>NOUVELLE VERSION</fr>
+		<es>NUEVA VERSION</es>
+	</vrs>
+	<conf>
+		<fr>CONFIRMER</fr>
+		<es>CONFIRMAR</es>
+	</conf>
+	<grd>
+		<fr>GARDER DANS LE CATALOGUE</fr>
+		<es>GUARDAR EN EL CATALOGO</es>
+	</grd>
+	<doc>
+		<fr>DOCUMENTS</fr>
+		<es>DOCUMENTOS</es>
+	</doc>
+	<vchhbr>
+		<fr>VOUCHERS HEBERGEMENTS</fr>
+		<es>VOUCHERS ALOJAMIENTOS</es>
+	</vchhbr>
+	<vchfrn>
+		<fr>VOUCHERS PRESTATAIRES</fr>
+		<es>VOUCHERS PROVEEDORES</es>
+	</vchfrn>
+	<actmdl>
+		<fr>ACTUALISER MODULES</fr>
+		<es>ACTUALIZAR MODULOS</es>
+	</actmdl>
+	<actjrn>
+		<fr>ACTUALISER JOURNEES</fr>
+		<es>ACTUALIZAR JORNADAS</es>
+	</actjrn>
+	<actprs>
+		<fr>ACTUALISER PRESTATIONS</fr>
+		<es>ACTUALIZAR PRESTACIONES</es>
+	</actprs>
+	<actelem>
+		<fr>ACTUALISER ELEMENTS</fr>
+		<es>ACTUALIZAR ELEMENTOS</es>
+	</actelem>
+	<aff>
+		<fr>AFFICHAGE</fr>
+		<es>VISTA</es>
+	</aff>
+	<maxmdl>
+		<fr>MAXIMISER MODULES</fr>
+		<es>MAXIMIZAR MODULOS</es>
+	</maxmdl>
+	<minmdl>
+		<fr>MINIMISER MODULES</fr>
+		<es>MINIMIZAR MODULOS</es>
+	</minmdl>
+	<maxjrn>
+		<fr>MAXIMISER JOURNEES</fr>
+		<es>MAXIMIZAR JORNADAS</es>
+	</maxjrn>
+	<minjrn>
+		<fr>MINIMISER JOURNEES</fr>
+		<es>MINIMIZAR JORNADAS</es>
+	</minjrn>
+	<hbrdef>
+		<fr>DEFINIR HEBERGEMENTS</fr>
+		<es>DEFINIR ALOJAMIENTOS</es>
+	</hbrdef>
+	<supcat>
+		<fr>QUITTER LIEN</fr>
+		<es>QUITAR VINCULO</es>
+	</supcat>
+	<trsfmdl>
+		<fr>TRANSFERER JOURNEES A MODULE PRECEDENT</fr>
+		<es>TRANSFERIR JORNADAS A MODULO ANTERIOR</es>
+	</trsfmdl>
+	<trsfjrnavt>
+		<fr>TRANSFERER A MODULE PRECEDENT</fr>
+		<es>TRANSFERIR A MODULO ANTERIOR</es>
+	</trsfjrnavt>
+	<trsfjrnapr>
+		<fr>TRANSFERER A MODULE SUIVANT</fr>
+		<es>TRANSFERIR A MODULO SIGUIENTE</es>
+	</trsfjrnapr>
+	<trsfprsavt>
+		<fr>TRANSFERER A JOURNEE ANTERIEURE</fr>
+		<es>TRANSFERIR A JORNADA ANTERIOR</es>
+	</trsfprsavt>
+	<trsfprsapr>
+		<fr>TRANSFERER A JOURNEE SUIVANTE</fr>
+		<es>TRANSFERIR A JORNADA SIGUIENTE</es>
+	</trsfprsapr>
+	<sup>
+		<fr>SUPPRIMER</fr>
+		<es>SUPRIMIR</es>
+	</sup>
+	<fus>
+		<fr>FUSIONNER MODULES</fr>
+		<es>FUSIONAR MODULOS</es>
+	</fus>
+	<majhbr>
+		<fr>CHANGER HEBERGEMENT</fr>
+		<es>CAMBIAR ALOJAMIENTO </es>
+	</majhbr>
+	<majchm>
+		<fr>CHANGER CHAMBRE</fr>
+		<es>CAMBIAR HABITACION</es>
+	</majchm>
+	<est0>
+		<fr>MARQUER COMME TARIFS EXACTS</fr>
+		<es>SEÑALAR COMO TARIFAS EXACTAS</es>
+	</est0>
+	<est1>
+		<fr>MARQUER COMME TARIFS ESTIMATIFS</fr>
+		<es>SEÑALAR COMO TARIFAS ESTIMATIVAS</es>
+	</est1>
+	<grdhbr>
+		<fr>GARDER HEBERGEMENT DANS LE CATALOGUE</fr>
+		<es>GUARDAR ALOJAMIENTO EN EL CATALOGO</es>
+	</grdhbr>
+	<grdchm>
+		<fr>GARDER CHAMBRE DANS LE CATALOGUE</fr>
+		<es>GUARDAR HABITACION EN EL CATALOGO</es>
+	</grdchm>
+	<cmd>
+		<fr>COMMANDES</fr>
+		<es>COMANDOS</es>
+		<pt>COMANDOS</pt>
+	</cmd>
+</textes>

@@ -1,0 +1,82 @@
+footer{
+	position: fixed;
+	bottom: 65px;
+	left: 20px;
+}
+.bck{
+	width: 100%;
+	min-height: 100%;
+	background: black;
+	padding: 10px 0;
+}
+.set{
+	float: left;
+	position: fixed;
+	background: white;
+	padding: 10px;
+	width: 300px;
+}
+.pge{
+	min-height: 1000px;
+	margin: 10px 10px auto 330px;
+	background: white;
+}
+.hd1{
+	border-top: 1px solid #2D4CA4;
+	border-bottom: 1px solid #2D4CA4;
+	padding: 0 10px;
+	width: 100%;
+}
+.fs1{
+	font: normal 11px Helvetica;
+	color: #808080;
+	text-align: center;
+}
+.fs2{
+	font: bold 15px Helvetica;
+	color:#2D4CA4;
+	text-align: center;
+}
+.fs3{
+	font: normal 15px Helvetica;
+	color:#2D4CA4;
+	text-align: center;
+}
+.fs4{
+	font: normal 13px Helvetica;
+	color:#606060;
+}
+.fs7{
+	font: normal 13px Helvetica;
+	color:#808080;
+}
+.fs8{
+	font: normal 22px Helvetica;
+	color:#333399;
+	text-align: justify;
+	border-bottom: 2px solid #333399;
+}
+.fs9{
+	font: bold 13px Helvetica;
+	color:#000000;
+	text-align: justify;
+	white-space: nowrap;
+}
+.fs10{
+	font: normal 22px Helvetica;
+	color:#2D4CA4;
+	text-align: right;
+}
+.fs11{
+	font: bold 13px Helvetica;
+	color:#808080;
+}
+.fs_mdl{font: normal 20px Helvetica;}
+.fs_mdl3{font: normal 13px Helvetica;}
+.fs_jrn{font: bold 13px Helvetica;}
+.ts2{
+	margin: 10px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+.color-red{color:red;}

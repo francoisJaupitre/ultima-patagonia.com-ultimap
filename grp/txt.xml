@@ -1,0 +1,105 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<grp>
+		<fr>GROUPE</fr>
+		<es>GRUPO</es>
+	</grp>
+	<clt>
+		<fr>CLIENT</fr>
+		<es>CLIENTE</es>
+	</clt>
+	<notes>
+		<fr>NOTES</fr>
+		<es>NOTAS</es>
+		<pt>NOTAS</pt>
+	</notes>
+	<cnf>
+		<fr>CONFIRMATIONS</fr>
+		<es>CONFIRMACIONES</es>
+		<pt>CONFIRMAÇÕES</pt>
+	</cnf>
+	<dev>
+		<fr>DEVIS</fr>
+		<es>COTIZACIONES</es>
+		<pt>COTAÇÃOES</pt>
+	</dev>
+	<fin>
+		<fr>CONFIRMATIONS ARCHIVES</fr>
+		<es>CONFIRMACIONES ARCHIVADAS</es>
+		<pt>CONFIRMAÇÕES ARQUIVADAS</pt>
+	</fin>
+	<arc>
+		<fr>DEVIS ARCHIVES</fr>
+		<es>COTIZACIONES ARCHIVADAS</es>
+		<pt>COTAÇÃOES ARQUIVADAS</pt>
+	</arc>
+	<nodev>
+		<fr>SANS DEVIS</fr>
+		<es>SIN COTIZACIONES</es>
+		<pt>SEM COTAÇÃOES</pt>
+	</nodev>
+	<nodef>
+		<fr>NON DEFINI</fr>
+		<es>SIN DEFINIR</es>
+	</nodef>
+	<pax>
+		<nom>
+			<fr>NOMS</fr>
+			<es>APELLIDOS</es>
+		</nom>
+		<pre>
+			<fr>PRENOMS</fr>
+			<es>NOMBRES</es>
+		</pre>
+		<dob>
+			<fr>DATE DE NAISSANCE</fr>
+			<es>FECHA DE NACIMIENTO</es>
+		</dob>
+		<psp>
+			<fr>PASSEPORT</fr>
+			<es>PASAPORTE</es>
+		</psp>
+		<exp>
+			<fr>DATE D'EXPIRATION</fr>
+			<es>FECHA DE VENCIMIENTO</es>
+		</exp>
+		<ncn>
+			<fr>NATIONALITE</fr>
+			<es>NACIONALIDAD</es>
+		</ncn>
+		<info>
+			<fr>INFO</fr>
+			<es>INFO</es>
+		</info>
+	</pax>
+	<tsk>
+		<fr>TACHES</fr>
+		<es>TAREAS</es>
+		<pt>TAREFAS</pt>
+	</tsk>
+	<fac>
+		<fr>FACTURES</fr>
+		<es>FACTURAS</es>
+		<pt>FACTURAS</pt>
+	</fac>
+	<res>
+		<fr>RESERVATIONS</fr>
+		<es>RESERVACIONES</es>
+		<pt>RESERVAS</pt>
+	</res>
+	<hbr>
+		<fr>HEBERGEMENTS</fr>
+		<es>ALOJAMIENTOS</es>
+		<pt>ALOJAMENTOS</pt>
+	</hbr>
+	<frn>
+		<fr>FOURNISSEURS</fr>
+		<es>PROVEEDORES</es>
+		<pt>FORNECEDORES</pt>
+	</frn>
+	<sup_pax>
+		<fr>SUPRESSION ANNULEE!&#xA;Présent dans un(des) devis ou confirmations.</fr>
+		<es>¡SUPRESION CANCELADA!&#xA;Presente en un(varios) cotizaciones ou confirmaciones.</es>
+	</sup_pax>
+</textes>

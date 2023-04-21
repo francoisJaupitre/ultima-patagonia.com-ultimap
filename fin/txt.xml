@@ -1,0 +1,39 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<fin>
+		<fr>FINANCES</fr>
+		<es>FINANZAS</es>
+		<pt>FINANÇAS</pt>
+	</fin>
+	<ecr>
+		<fr>ECRITURES</fr>
+		<es>ESCRITURAS</es>
+		<pt>ESCRITURAS</pt>
+	</ecr>
+	<trs>
+		<fr>TRESORERIE</fr>
+		<es>TESORERIA</es>
+		<pt>TESOURARIA</pt>
+	</trs>
+	<rsl>
+		<fr>RESULTATS</fr>
+		<es>RESULTADOS</es>
+		<pt>RESULTADOS</pt>
+	</rsl>
+	<bln>
+		<fr>BILANS</fr>
+		<es>BALANCES</es>
+		<pt>BALANÇAS</pt>
+	</bln>
+	<grp>
+		<fr>GROUPES</fr>
+		<es>GRUPOS</es>
+		<pt>GRUPOS</pt>
+	</grp>
+	<cmd>
+		<fr>COMMANDES</fr>
+		<es>COMANDOS</es>
+		<pt>COMANDOS</pt>
+	</cmd>
+</textes>

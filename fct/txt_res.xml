@@ -1,0 +1,49 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<nom>
+		<fr>Nom</fr>
+		<en>Surname</en>
+		<es>Apellido</es>
+	</nom>
+	<pre>
+		<fr>Prénom</fr>
+		<en>Name</en>
+		<es>Nombre</es>
+	</pre>
+	<dob>
+		<fr>Date de naissance</fr>
+		<en>Birthdate</en>
+		<es>Fecha de nacimiento</es>
+	</dob>
+	<psp>
+		<fr>psp</fr>
+		<en>Passport</en>
+		<es>Pasaporte</es>
+	</psp>
+	<exp>
+		<fr>Date d'expiration</fr>
+		<en>Date of expiry</en>
+		<es>Fecha de vencimiento</es>
+	</exp>
+	<ncn>
+		<fr>Nacionalité</fr>
+		<en>Nacionality</en>
+		<es>Nacionalidad</es>
+	</ncn>
+	<rmn>
+		<fr>Rooming</fr>
+		<en>Rooming</en>
+		<es>Rooming</es>
+	</rmn>
+	<info>
+		<fr>Info</fr>
+		<en>Info</en>
+		<es>Info</es>
+	</info>
+	<no_rmn>
+		<fr>Rooming non défini!</fr>
+		<en>Undefined rooming!</en>
+		<es>Rooming sin definir!</es>
+	</no_rmn>
+</textes>

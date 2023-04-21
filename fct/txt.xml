@@ -1,0 +1,481 @@
+﻿<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<trf_dbl>
+		<fr>Tarifs en chambre double.</fr>
+		<en>Double room rates.</en>
+		<es>Tarifas en habitación doble.</es>
+	</trf_dbl>
+	<trf_psg>
+		<fr>Tour-leader en chambre simple.</fr>
+		<en>Tour-leader in a single room.</en>
+		<es>Tour-leader en habitación single.</es>
+	</trf_psg>
+	<trf_ptl>
+		<fr>Tour-leader en chambre double.</fr>
+		<en>Tour-leader in a double room.</en>
+		<es>Tour-leader en habitación double.</es>
+	</trf_ptl>
+	<lst_hbr>
+		<fr>LISTE DES HEBERGEMENTS</fr>
+		<es>LISTA DE ALOJAMIENTOS</es>
+	</lst_hbr>
+	<hbr_sel>
+		<fr>HEBERGEMENTS SELECTIONNES</fr>
+		<es>ALOJAMIENTOS SELECCIONADOS</es>
+	</hbr_sel>
+	<hbr_opt>
+		<fr>HEBERGEMENTS EN OPTION</fr>
+		<es>ALOJAMIENTOS OPCIONALES</es>
+	</hbr_opt>
+	<en_opt>
+		<fr>EN OPTION</fr>
+		<es>OPCIONALES</es>
+	</en_opt>
+	<mdl>
+		<fr>MODULE</fr>
+		<es>MODULO</es>
+	</mdl>
+	<crc>
+		<fr>CIRCUIT</fr>
+		<es>CIRCUITO</es>
+	</crc>
+	<base>
+		<fr>BASE </fr>
+		<es>BASE </es>
+	</base>
+	<bases>
+		<fr>BASES </fr>
+		<es>BASES </es>
+	</bases>
+	<jour>
+		<fr>JOUR</fr>
+		<es>DIA</es>
+	</jour>
+	<jours>
+		<fr>JOURS</fr>
+		<es>DIAS</es>
+	</jours>
+	<villes>
+		<fr>VILLES</fr>
+		<es>CIUDADES</es>
+	</villes>
+	<categories>
+		<fr>CATEGORIES</fr>
+		<es>CATEGORIAS</es>
+	</categories>
+	<hebergements>
+		<fr>HEBERGEMENTS</fr>
+		<es>ALOJAMIENTOS</es>
+	</hebergements>
+	<chambres>
+		<fr>CHAMBRES</fr>
+		<es>HABITACIONES</es>
+	</chambres>
+	<libre>
+		<fr>LIBRE</fr>
+		<es>LIBRE</es>
+	</libre>
+	<dbl>
+		<fr>CH. DOUBLE</fr>
+		<es>HAB. DOBLE</es>
+	</dbl>
+	<sgl>
+		<fr>CH. SINGLE</fr>
+		<es>HAB. SINGLE</es>
+	</sgl>
+	<tpl>
+		<fr>CH. TRIPLE</fr>
+		<es>HAB. TRIPLE</es>
+	</tpl>
+	<qdp>
+		<fr>CH. QUADRUPLE</fr>
+		<es>HAB. CUADRUPLE</es>
+	</qdp>
+	<nd>
+		<fr>N/D</fr>
+		<es>S/D</es>
+	</nd>
+	<trf>
+		<act>
+			<fr>ACTUALISER CALCUL TARIFS</fr>
+			<es>ACTUALIZAR CALCULO TARIFAS</es>
+		</act>
+		<trf>
+			<fr>TARIFS</fr>
+			<es>TARIFAS</es>
+		</trf>
+		<supsgl>
+			<fr>SUP. SINGLE :</fr>
+			<es>SUP. SINGLE :</es>
+		</supsgl>
+		<redtpl>
+			<fr>RED. TRIPLE :</fr>
+			<es>RED. TRIPLE :</es>
+		</redtpl>
+		<redqdp>
+			<fr>RED. QUADRUPLE :</fr>
+			<es>RED. CUADRUPLE :</es>
+		</redqdp>
+		<parpers>
+			<fr>/PERS.</fr>
+			<es>/PERS.</es>
+		</parpers>
+		<supplements>
+			<fr>SUPPLEMENTS</fr>
+			<es>SUPLEMENTOS</es>
+		</supplements>
+		<msg1>
+			<fr>TARIFS VALABLE POUR UNE DATE D'ARRIVEE ENTRE LE </fr>
+			<es>TARIFAS VALIDAS PARA UNA LLEGADA ENTRE EL </es>
+		</msg1>
+		<msg2>
+			<fr> ET LE </fr>
+			<es> Y EL </es>
+		</msg2>
+		<dt_trf>
+			<fr>TARIFS DETAILLÉS PRESTATIONS INCLUSES</fr>
+			<es>TARIFAS DETALLADAS PRESTACIONES INCLUIDAS</es>
+		</dt_trf>
+		<map1>
+			<fr>CARTE SELON CATALOGUE JOURNEES</fr>
+			<es>MAPA SEGUN CATALOGO JORNADAS</es>
+		</map1>
+		<map2>
+			<fr>CARTE SELON CATALOGUE PRESTATIONS</fr>
+			<es>MAPA SEGUN CATALOGO PRESTACIONES</es>
+		</map2>
+	</trf>
+	<prg>
+		<prg>
+			<fr>PROG</fr>
+			<es>PROG</es>
+		</prg>
+		<rbk>
+			<fr>RDBK</fr>
+			<es>RDBK</es>
+		</rbk>
+		<act>
+			<fr>ACTUALISER APERCU</fr>
+			<es>ACTUALIZAR VISTA PREVIA</es>
+		</act>
+		<pdf>
+			<fr>EXPORTER PDF</fr>
+			<es>EXPORTAR PDF</es>
+		</pdf>
+		<docx>
+			<fr>EXPORTER DOCX</fr>
+			<es>EXPORTAR DOCX</es>
+		</docx>
+	</prg>
+	<err>
+		<trf>
+			<fr>ERREUR TARIFS </fr>
+			<es>ERROR TARIFAS </es>
+		</trf>
+		<hbr_def>
+			<fr>HEBERGEMENT NON DEFINI, JOUR </fr>
+			<es>ALOJAMIENTO SIN DEFINIR, DIA </es>
+		</hbr_def>
+		<hbr_db>
+			<fr>VALEUR INCORRECTE POUR UN TARIF CHAMBRE DOUBLE, JOUR </fr>
+			<es>VALOR INCORRECTO PARA UNA TARIFA HABITACION DOBLE, DIA </es>
+		</hbr_db>
+		<hbr_sel>
+			<fr>PAS D'HEBERGEMENT SELECTIONNE, JOUR </fr>
+			<es>SIN ALOJAMIENTO SELECCIONADO, DIA </es>
+		</hbr_sel>
+		<hbr_dup>
+			<fr>HEBERGEMENT DUPLIQUE, JOUR </fr>
+			<es>ALOJAMIENTO DUPLICADO, DIA </es>
+		</hbr_dup>
+		<hbr_sg>
+			<fr>VALEUR INCORRECTE POUR UN TARIF CHAMBRE SIMPLE, JOUR </fr>
+			<es>VALOR INCORRECTO PARA UNA TARIFA HABITACION SINGLE, DIA </es>
+		</hbr_sg>
+		<hbr_tp>
+			<fr>VALEUR INCORRECTE POUR UN TARIF CHAMBRE TRIPLE, JOUR </fr>
+			<es>VALOR INCORRECTO PARA UNA TARIFA HABITACION TRIPLE, DIA </es>
+		</hbr_tp>
+		<hbr_qd>
+			<fr>VALEUR INCORRECTE POUR UN TARIF CHAMBRE QUADRUPLE, JOUR </fr>
+			<es>VALOR INCORRECTO PARA UNA TARIFA HABITACION CUADRUPLE, DIA </es>
+		</hbr_qd>
+		<srv_jrn>
+			<fr>ERREUR TARIF SERVICE!</fr>
+			<es>¡ERROR TARIFA SERVICIO!</es>
+		</srv_jrn>
+		<chm>
+			<fr>ERREUR CHAMBRE!</fr>
+			<es>¡ERROR HABITACION!</es>
+		</chm>
+		<hbr>
+			<fr>ERREUR HEBERGEMENT!</fr>
+			<es>¡ERROR ALOJAMIENTO!</es>
+		</hbr>
+		<trf>
+			<fr>ERREUR TARIF!</fr>
+			<es>¡ERROR TARIFA!</es>
+		</trf>
+		<srv>
+			<fr>ERREUR SERVICE!</fr>
+			<es>¡ERROR SERVICIO!</es>
+		</srv>
+		<opt_srv>
+			<fr>ERREUR TARIF SERVICE EN OPTION!</fr>
+			<es>¡ERROR TARIFA SERVICIO OPCIONAL!</es>
+		</opt_srv>
+	</err>
+	<del>
+		<grp>
+			<fr>SUPRESSION ANNULEE!&#xA;Présent dans devis, confirmations et/ou finances.</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Presente en cotizaciones, confirmaciones y/o finanzas.</es>
+		</grp>
+		<fin>
+			<fr>SUPRESSION ANNULEE!&#xA;Présent dans finances.</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Presente en finanzas.</es>
+		</fin>
+		<mdl>
+			<fr>SUPRESSION ANNULEE!&#xA;Module défini dans le(s) circuit(s):&#xA;</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Modulo definido en el(los) circuito(s):&#xA;</es>
+		</mdl>
+		<mdl2>
+			<fr>SUPRESSION ANNULEE!&#xA;Module en ligne</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Modulo online</es>
+		</mdl2>
+		<jrn>
+			<fr>SUPRESSION ANNULEE!&#xA;Journée définie dans le(s) module(s):&#xA;"</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Jornada definida en el(los) modulo(s):&#xA;</es>
+		</jrn>
+		<prs>
+			<fr>SUPRESSION ANNULEE!&#xA;Prestation définie dans la(les) journée(s):&#xA;</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Prestación definida en la(s) jornada(s):&#xA;</es>
+		</prs>
+		<srv>
+			<fr>SUPRESSION ANNULEE!&#xA;Service défini dans la(les) prestation(s):&#xA;</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Servicio definido en la(s) prestación(es):&#xA;</es>
+		</srv>
+		<hbr>
+			<fr>SUPRESSION ANNULEE!&#xA;Hébergement défini dans la(es) prestation(s):&#xA;"</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Alojamiento definido en la(s) prestación(es):&#xA;</es>
+		</hbr>
+		<hbr_def>
+			<fr>SUPRESSION ANNULEE!&#xA;Hébergement défini par défaut dans la ville:&#xA;</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Alojamiento definido por defecto en la ciudad:&#xA;</es>
+		</hbr_def>
+		<clt_crc>
+			<fr>SUPRESSION ANNULEE!&#xA;Client défini dans le(s) circuit(s):&#xA;</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Cliente definido en el(los) circuito(s):&#xA;</es>
+		</clt_crc>
+		<clt_dev>
+			<fr>SUPRESSION ANNULEE!&#xA;Client défini dans le(s) groupe(s):&#xA;</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Cliente definido en el(los) grupo(s):&#xA;</es>
+		</clt_dev>
+		<frn>
+			<fr>SUPRESSION ANNULEE!&#xA;Fournisseur défini un(des) programme(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Proveedor definido en (un) programa(s).</es>
+		</frn>
+		<pic>
+			<fr>SUPRESSION ANNULEE!&#xA;Photo définie dans une(des) journée(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Foto definida en (una) jornada(s).</es>
+		</pic>
+		<rgn>
+			<fr>SUPRESSION ANNULEE!&#xA;Région définie dans une(des) ville(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Region definida en (una) ciudad(es).</es>
+		</rgn>
+		<vll_lieu>
+			<fr>SUPRESSION ANNULEE!&#xA;Ville définie dans un(des) lieu(x).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Ciudad definida en (un) lugar(es).</es>
+		</vll_lieu>
+		<vll_frn>
+			<fr>SUPRESSION ANNULEE!&#xA;Ville définie dans un(des) fournisseur(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Ciudad definida en (un) proveedor(es).</es>
+		</vll_frn>
+		<vll_hbr>
+			<fr>SUPRESSION ANNULEE!&#xA;Ville définie dans un(des) hebergement(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Ciudad definida en (un) alojamiento(s).</es>
+		</vll_hbr>
+		<vll_srv>
+			<fr>SUPRESSION ANNULEE!&#xA;Ville définie dans un(des) service(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Ciudad definida en (un) servicio(s).</es>
+		</vll_srv>
+		<vll_jrn>
+			<fr>SUPRESSION ANNULEE!&#xA;Ville définie dans une(des) journee(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Ciudad definida en (una) jornada(s).</es>
+		</vll_jrn>
+		<lieu>
+			<fr>SUPRESSION ANNULEE!&#xA;Lieu défini dans une(des) prestation(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Lugar definido en (una) prestación(es).</es>
+		</lieu>
+		<bnq_hbr>
+			<fr>SUPRESSION ANNULEE!&#xA;Banque définie dans un(des) hébergement(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Banco definido en (un) alojamiento(s).</es>
+		</bnq_hbr>
+		<bnq_frn>
+			<fr>SUPRESSION ANNULEE!&#xA;Banque définie dans un(des) fournisseur(s).</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Banco definido en (un) proveedor(es).</es>
+		</bnq_frn>
+	</del>
+	<mail>
+		<fr>RESERVER PAR</fr>
+		<es>RESERVAR POR</es>
+		<pt>RESERVAR POR</pt>
+	</mail>
+	<vch>
+		<fr>AUCUN VOUCHER A EMETTRE</fr>
+		<es>NO HAY VOUCHER PARA EMITIR</es>
+	</vch>
+	<mel_frn>
+		<msg1>
+			<fr>Erreur! Email fournisseur </fr>
+			<es>¡Error! Email proveedor </es>
+		</msg1>
+		<msg2>
+			<fr> non enregistré dans le catalogue.&#xA;</fr>
+			<es> no guardado en el catalogo.&#xA;</es>
+		</msg2>
+		<msg3>
+			<fr>Réservations services, fournisseur </fr>
+			<es>Reservaciones servicios, proveedor </es>
+		</msg3>
+		<msg4>
+			<fr> envoyées&#xA;</fr>
+			<es> enviadas&#xA;</es>
+		</msg4>
+		<msg5>
+			<fr>TOTAL </fr>
+			<es>TOTAL </es>
+		</msg5>
+		<msg6>
+			<fr> EMAILS DE RESERVATIONS ENVOYES.</fr>
+			<es> EMAILS DE RESERVACIONES ENVIADOS.</es>
+		</msg6>
+		<msg7>
+			<fr>RESERVATIONS DEJA ENVOYEES OU AUCUN FOURNISSEUR SELECTIONNE!</fr>
+			<es>¡RESERVACIONES YA ENVIADAS O NINGUN PROVEEDOR SELECCIONADO!</es>
+		</msg7>
+		<msg8>
+			<fr>Erreur! prestation non enregistrée dans le catalogue, fournisseur </fr>
+			<es>¡Error! Prestación no guardada en el catalogo, proveedor</es>
+		</msg8>
+	</mel_frn>
+	<res_frn>
+		<msg1>
+			<fr>Sélectionner une seule base pour le circuit</fr>
+			<es>Seleccionar una sola base para el circuito</es>
+		</msg1>
+		<msg2>
+			<fr>Sélectionner une seule base pour le module </fr>
+			<es>Seleccionar una sola base para el modulo </es>
+		</msg2>
+		<msg3>
+			<fr>Erreur! Date non définie, jour </fr>
+			<es>¡Error! Fecha no definida, día </es>
+		</msg3>
+		<msg4>
+			<fr>Erreur! Fournisseur non défini, jour </fr>
+			<es>¡Error! Proveedor sin definir, día </es>
+		</msg4>
+		<msg5>
+			<fr>Erreur! Prestation non enregistrée dans le catalogue, jour </fr>
+			<es>¡Error! Prestación no guardada en el catalogo, día </es>
+		</msg5>
+		<msg6>
+			<fr>Service de</fr>
+			<en>Service of</en>
+			<es>Servicio de</es>
+			<pt>Serviço de</pt>
+			<de>Service von</de>
+		</msg6>
+		<hs>
+			<fr>h</fr>
+			<en>hr</en>
+			<es>hs</es>
+		</hs>
+		<jours>
+			<fr>jours</fr>
+			<en>days</en>
+			<es>días</es>
+			<pt>dias</pt>
+			<de>tage</de>
+		</jours>
+		<duree>
+			<fr>Durée</fr>
+			<en>Duration</en>
+			<es>Duración</es>
+			<pt>Duração</pt>
+			<de>Dauer</de>
+		</duree>
+		<compris>
+			<fr>COMPRIS</fr>
+			<en>INCLUDED</en>
+			<es>INCLUIDO</es>
+			<pt>INCLUÍDO</pt>
+			<de>INBEGRIFFEN</de>
+		</compris>
+	</res_frn>
+	<mel_hbr>
+		<msg1>
+			<fr>Erreur email hébergement </fr>
+			<es>Error email alojamiento </es>
+		</msg1>
+		<msg2>
+			<fr> non enregistré dans le catalogue.&#xA;</fr>
+			<es> no guardado en el catalogo.&#xA;</es>
+		</msg2>
+		<msg3>
+			<fr>Réservations hébergement </fr>
+			<es>Reservaciones alojamiento </es>
+		</msg3>
+		<msg4>
+			<fr> envoyées&#xA;</fr>
+			<es> enviadas&#xA;</es>
+		</msg4>
+		<msg5>
+			<fr>TOTAL </fr>
+			<es>TOTAL </es>
+		</msg5>
+		<msg6>
+			<fr> EMAILS DE RESERVATIONS ENVOYES.</fr>
+			<es> EMAILS DE RESERVACIONES ENVIADOS.</es>
+		</msg6>
+		<msg7>
+			<fr>RESERVATIONS DEJA ENVOYEES OU AUCUN HEBERGEMENT SELECTIONNE!</fr>
+			<es>¡RESERVACIONES YA ENVIADAS O NINGUN ALOJAMIENTO SELECCIONADO!</es>
+		</msg7>
+	</mel_hbr>
+	<res_hbr>
+		<msg1>
+			<fr>Erreur! Sélectionner une seule base pour le circuit.&#xA;</fr>
+			<es>¡Error! Seleccionar una sola base para el circuito.&#xA;</es>
+		</msg1>
+		<msg2>
+			<fr>Erreur! Rooming non défini pour le module </fr>
+			<es>¡Error! Rooming sin definir para el modulo </es>
+		</msg2>
+		<msg3>
+			<fr>Erreur! Selectionner une seule base pour le module</fr>
+			<es>¡Error! Seleccionar una sola base para el modulo</es>
+		</msg3>
+		<msg4>
+			<fr>Erreur! Rooming non défini pour le circuit </fr>
+			<es>¡Error! Rooming sin definir para el circuito </es>
+		</msg4>
+		<msg5>
+			<fr>Erreur date! jour</fr>
+			<es>¡Error fecha! día</es>
+		</msg5>
+		<msg6>
+			<fr>Erreur! Hébergement non défini ou non enregistré dans le catalogue, jour</fr>
+			<es>¡Error! Alojamiento sin definir o no guardado en el catalogo, día</es>
+		</msg6>
+		<msg7>
+			<fr>Erreur! Chambre non définie ou non enregistrée dans le catalogue, jour</fr>
+			<es>¡Error! Habitación no definida o no guardada en el catalogo, día</es>
+		</msg7>
+		<msg8>
+			<fr>Erreur! Catégorie d'hôtel non définie</fr>
+			<es>¡Error! Categoria del hotel no definida</es>
+		</msg8>
+	</res_hbr>
+</textes>

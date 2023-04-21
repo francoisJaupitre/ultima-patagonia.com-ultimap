@@ -1,0 +1,296 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<footer1>(+54 9) 294 434 2815 / contact@ultima-patagonia.com / www.ultima-patagonia.com</footer1>
+	<footer2>Ultima Patagonia - Empresa de Viajes y Turismo - Legajo: 18395</footer2>
+	<bandeau>
+		<fr>Votre programme :</fr>
+		<en>Your program :</en>
+		<es>Su programa :</es>
+	</bandeau>
+	<jour>
+		<fr>Jour</fr>
+		<en>Day</en>
+		<es>Día</es>
+	</jour>
+	<jours>
+		<fr>Jours</fr>
+		<en>Days</en>
+		<es>Días</es>
+	</jours>
+	<hs>
+		<fr>h</fr>
+		<en>hr</en>
+		<es>hs</es>
+	</hs>
+	<duree>
+		<fr>Durée</fr>
+		<en>Duration</en>
+		<es>Duración</es>
+		<pt>Duração</pt>
+		<de>Dauer</de>
+	</duree>
+	<sem>
+		<Mon>
+			<fr>lundi</fr>
+			<en>monday</en>
+			<es>lunes</es>
+		</Mon>
+		<Tue>
+			<fr>mardi</fr>
+			<en>tuesday</en>
+			<es>martes</es>
+		</Tue>
+		<Wed>
+			<fr>mercredi</fr>
+			<en>wednesday</en>
+			<es>miércoles</es>
+		</Wed>
+		<Thu>
+			<fr>jeudi</fr>
+			<en>thursday</en>
+			<es>jueves</es>
+		</Thu>
+		<Fri>
+			<fr>vendredi</fr>
+			<en>friday</en>
+			<es>viernes</es>
+		</Fri>
+		<Sat>
+			<fr>samedi</fr>
+			<en>saturday</en>
+			<es>sábado</es>
+		</Sat>
+		<Sun>
+			<fr>dimanche</fr>
+			<en>sunday</en>
+			<es>domingo</es>
+		</Sun>
+	</sem>
+	<inc>
+		<fr>COMPRIS</fr>
+		<en>INCLUDED</en>
+		<es>INCLUIDO</es>
+	</inc>
+	<noinc>
+		<fr>NON COMPRIS</fr>
+		<en>NOT INCLUDED</en>
+		<es>NO INCLUIDO</es>
+	</noinc>
+	<trf>
+		<fr>TARIFS (en</fr>
+		<en>RATES (in</en>
+		<es>TARIFAS (en</es>
+	</trf>
+	<pers>
+		<fr>par personne)</fr>
+		<en>per person)</en>
+		<es>por persona)</es>
+	</pers>
+	<pers2>
+		<fr>/pers.</fr>
+		<en>/pers.</en>
+		<es>/pers.</es>
+	</pers2>
+	<mdl>
+		<fr>MODULE</fr>
+		<en>MODULE</en>
+		<es>MODULO</es>
+	</mdl>
+	<crc>
+		<fr>CIRCUIT</fr>
+		<en>CIRCUIT</en>
+		<es>CIRCUITO</es>
+	</crc>
+	<base>
+		<fr>Base</fr>
+		<en>Base</en>
+		<es>Base</es>
+	</base>
+	<bases>
+		<fr>Bases</fr>
+		<en>Bases</en>
+		<es>Bases</es>
+	</bases>
+	<sup_sgl>
+		<fr>Supplément chambre simple</fr>
+		<en>Single room supplement</en>
+		<es>Suplemento habitación single</es>
+	</sup_sgl>
+	<red_tpl>
+		<fr>Réduction chambre triple</fr>
+		<en>Triple room reduction</en>
+		<es>Reducción habitación triple</es>
+	</red_tpl>
+	<red_qdp>
+		<fr>Réduction chambre quadruple</fr>
+		<en>Quadruple  room reduction</en>
+		<es>Reducción habitación cuádruple</es>
+	</red_qdp>
+	<trf_dbl>
+		<fr>Tarifs en chambre double.</fr>
+		<en>Double room rates.</en>
+		<es>Tarifas en habitación doble.</es>
+	</trf_dbl>
+	<trf_dbl1>
+		<fr>Vols internationaux et domestiques non compris.</fr>
+		<en>International and domestic flights are not included.</en>
+		<es>Vuelos internacionales e internos no incluidos.</es>
+	</trf_dbl1>
+	<trf_dbl2>
+		<fr>Vols internationaux non compris.</fr>
+		<en>International flights are not included.</en>
+		<es>Vuelos internacionales no incluidos.</es>
+	</trf_dbl2>
+	<trf_psg>
+		<fr>Tour-leader en chambre simple.</fr>
+		<en>Tour-leader in a single room.</en>
+		<es>Tour-leader en habitación single.</es>
+	</trf_psg>
+	<trf_ptl>
+		<fr>Tour-leader en chambre double.</fr>
+		<en>Tour-leader in a double room.</en>
+		<es>Tour-leader en habitación double.</es>
+	</trf_ptl>
+	<vols_dom>
+		<fr>VOLS DOMESTIQUES COMPRIS</fr>
+		<en>INTERNAL FLIGHTS INCLUDED</en>
+		<es>VUELOS INTERNOS INCLUIDOS</es>
+	</vols_dom>
+	<lst_vol>
+		<fr>VOLS INTERIEURS</fr>
+		<en>INTERNAL FLIGHTS</en>
+		<es>VUELOS INTERNOS</es>
+	</lst_vol>
+	<trf_est>
+		<fr>Tarifs estimatifs à confirmer au moment de la réservation.</fr>
+		<en>These are estimated rates which should be confirmed at the time of booking.</en>
+		<es>Tarifas estimativas a confirmar al momento de concretar la reserva.</es>
+	</trf_est>
+	<lst_hbr>
+		<fr>LISTE DE VOS HEBERGEMENTS</fr>
+		<en>LIST OF YOUR ACCOMMODATIONS</en>
+		<es>LISTA DE SUS ALOJAMIENTOS</es>
+	</lst_hbr>
+	<vll>
+		<fr>VILLES</fr>
+		<en>CITIES</en>
+		<es>CIUDADES</es>
+	</vll>
+	<ctg>
+		<fr>CATEGORIES</fr>
+		<en>CATEGORIES</en>
+		<es>CATEGORIA</es>
+	</ctg>
+	<hbr>
+		<fr>HEBERGEMENTS</fr>
+		<en>ACCOMODATIONS</en>
+		<es>ALOJAMIENTOS</es>
+	</hbr>
+	<chm>
+		<fr>CHAMBRES</fr>
+		<en>ROOMS</en>
+		<es>HABITACIONES</es>
+	</chm>
+	<libre>
+		<fr>LIBRE</fr>
+		<en>FREE</en>
+		<es>LIBRE</es>
+	</libre>
+	<sup>
+		<fr>SUPPLEMENTS</fr>
+		<en>SUPPLEMENTS</en>
+		<es>SUPPLEMENTOS</es>
+	</sup>
+	<dbl>
+		<fr>CH. DOUBLE</fr>
+		<en>DOBLE ROOM</en>
+		<es>HAB. DOBLE</es>
+	</dbl>
+	<sgl>
+		<fr>CH. SIMPLE</fr>
+		<en>SINGLE ROOM</en>
+		<es>HAB. SIMPLE</es>
+	</sgl>
+	<tpl>
+		<fr>CH. TRIPLE</fr>
+		<en>TRIPLE ROOM</en>
+		<es>HAB. TRIPLE</es>
+	</tpl>
+	<qdp>
+		<fr>CH. QUADRUPLE</fr>
+		<en>QUADRUPLE ROOM</en>
+		<es>HAB. CUADRUPLE</es>
+	</qdp>
+	<nd>
+		<fr>N/D</fr>
+		<en>N/A</en>
+		<es>S/D</es>
+	</nd>
+	<hbr_opt>
+		<fr>HEBERGEMENTS EN OPTION</fr>
+		<en>OPTIONAL ACCOMMODATIONS</en>
+		<es>ALOJAMIENTOS OPCIONALES</es>
+	</hbr_opt>
+	<saut>
+		<fr>SAUT DE LIGNE :</fr>
+		<en>LINEBREAK :</en>
+		<es>SALTO DE PAGINA :</es>
+	</saut>
+	<saut_avt>
+		<fr>AVANT TABLEAU DES HEBERGEMENTS</fr>
+		<en>BEFORE ACCOMODATION TABLE</en>
+		<es>ANTES CUADRO DE ALOJAMIENTOS</es>
+	</saut_avt>
+	<saut_apr>
+		<fr>APRES TABLEAU DES HEBERGEMENTS</fr>
+		<en>AFTER ACCOMODATION TABLE</en>
+		<es>DESPUES CUADRO DE ALOJAMIENTOS</es>
+	</saut_apr>
+	<en_opt>
+		<fr>EN OPTION</fr>
+		<en>OPTIONAL</en>
+		<es>OPCIONALES</es>
+	</en_opt>
+	<hbr_sel>
+		<fr>HEBERGEMENTS SELECTIONNÉS</fr>
+		<en>SELECTED ACCOMMODATIONS</en>
+		<es>ALOJAMIENTOS SELECCIONADOS</es>
+	</hbr_sel>
+	<dt_trf>
+		<fr>TARIFS DETAILLÉS</fr>
+		<en>DETAILLED RATES</en>
+		<es>TARIFAS DETALLADAS</es>
+	</dt_trf>
+	<urg>
+		<fr>EN CAS D'URGENCE</fr>
+		<en>IN CASE OF EMERGENCY</en>
+		<es>EN CASO DE EMERGENCIA</es>
+	</urg>
+	<dt_urg>
+		<fr>En cas d'imprévu lors de votre voyage (grèves, retards, accidents de la route, etc.), un numéro de téléphone portable d'urgence est à votre disposition pour joindre un membre de notre équipe en Argentine : +54 9 294 434 28 15</fr>
+		<en>In case of an unforeseen event during your trip (strikes, delays, road accidents, etc.), emergency mobile phone number is available to reach a member of our team in Argentina : +54 9 294 434 28 15</en>
+		<es>En caso de imprevisto durante su viaje (paros, demoras, accidentes de ruta, etc.), un numero de telefono celular de emergencia está a su disposición para contactar a un miembro de nuestro equipo en Argentina : +54 9 294 434 28 15</es>
+	</dt_urg>
+	<iti>
+		<fr>VOTRE ITINÉRAIRE</fr>
+		<en>YOUR ITINERARY</en>
+		<es>SU ITINERARIO</es>
+	</iti>
+	<vue_trf>
+		<fr>AFFICHER TARIFS</fr>
+		<en>DISPLAY RATES</en>
+		<es>MOSTRAR TARIFAS</es>
+	</vue_trf>
+	<cnf>
+		<fr>CONFIRME</fr>
+		<en>CONFIRMED</en>
+		<es>CONFIRMADO</es>
+	</cnf>
+	<rbk>
+		<fr>CARNET DE BORD</fr>
+		<en>ROADBOOK</en>
+		<es>CUADERNO DE VIAJE</es>
+	</rbk>
+
+</textes>

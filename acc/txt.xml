@@ -1,0 +1,767 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<acc>
+		<fr>ACCUEIL</fr>
+		<es>INICIO</es>
+		<pt>INÍCIO</pt>
+	</acc>
+	<dev>
+		<fr>DEVIS</fr>
+		<es>COTIZACIONES</es>
+		<pt>COTAÇÃOES</pt>
+	</dev>
+	<cnf>
+		<fr>CONFIRMATIONS</fr>
+		<es>CONFIRMACIONES</es>
+		<pt>CONFIRMAÇÕES</pt>
+	</cnf>
+	<res>
+		<fr>RESERVATIONS</fr>
+		<es>RESERVACIONES</es>
+		<pt>RESERVAS</pt>
+	</res>
+	<encours>
+		<fr>EN COURS</fr>
+		<es>EN CURSO</es>
+		<pt>EM CURSO</pt>
+	</encours>
+	<archives>
+		<fr>ARCHIVES</fr>
+		<es>ARCHIVADAS</es>
+		<pt>ARQUIVADOS</pt>
+	</archives>
+	<hom>
+		<fr>ACCUEIL</fr>
+		<es>INICIO</es>
+		<pt>INÍCIO</pt>
+	</hom>
+	<ope>
+		<fr>OPERATIONS</fr>
+		<es>OPERACIONES</es>
+		<pt>OPERAÇÕES</pt>
+	</ope>
+	<tsk>
+		<fr>PLAN D'ACTION</fr>
+		<es>PLAN DE ACCION</es>
+		<pt>PLANO DE ACÇÃO</pt>
+	</tsk>
+	<nom>
+		<fr>NOMS</fr>
+		<es>APELLIDO</es>
+		<pt>SOBRENOME</pt>
+	</nom>
+	<pre>
+		<fr>PRENOM</fr>
+		<es>NOMBRE</es>
+		<pt>NOME</pt>
+	</pre>
+	<mail>
+		<fr>EMAIL</fr>
+		<es>EMAIL</es>
+		<pt>EMAIL</pt>
+	</mail>
+	<tel>
+		<fr>TELEPHONE</fr>
+		<es>TELEFONO</es>
+		<pt>TELEFONE</pt>
+	</tel>
+	<adresse>
+		<fr>ADRESSE</fr>
+		<es>DIRECCION</es>
+		<pt>ENDEREÇO</pt>
+	</adresse>
+	<adresse>
+		<fr>ADRESSE</fr>
+		<es>DIRECCION</es>
+		<pt>ENDEREÇO</pt>
+	</adresse>
+	<prv>
+		<fr>PROVENANCE</fr>
+		<es>PROCEDENCIA</es>
+		<pt>PROVENIENCIA</pt>
+	</prv>
+	<respon>
+		<fr>RESPONSABLE</fr>
+		<es>ENCARGADO</es>
+		<pt>RESPONSÁVEL</pt>
+	</respon>
+	<ajt_ctc>
+		<fr>AJOUTER CONTACT</fr>
+		<es>AÑADIR CONTACTO</es>
+		<pt>ADIR CONTACTO</pt>
+	</ajt_ctc>
+	<ajt_ech>
+		<fr>AJOUTER ECHANGE</fr>
+		<es>AÑADIR INTERCAMBIO</es>
+		<pt>ADIR INTERCAMBIO</pt>
+	</ajt_ech>
+	<periode>
+		<fr>PERIODE</fr>
+		<es>PERIODO</es>
+		<pt>PERÍODO</pt>
+	</periode>
+	<duree>
+		<fr>DUREE</fr>
+		<es>DURACION</es>
+		<pt>DURAÇÃO</pt>
+	</duree>
+	<nombre>
+		<fr>NOMBRE PAXS</fr>
+		<es>NUMERO PAXS</es>
+		<pt>NUMERO PAXS</pt>
+	</nombre>
+	<canal>
+		<fr>CANAL</fr>
+		<es>CANAL</es>
+		<pt>CANAL</pt>
+	</canal>
+	<motscles>
+		<fr>MOTS-CLÉS</fr>
+		<es>PALABRAS CLAVE</es>
+		<pt>PALAVRAS CHAVE</pt>
+	</motscles>
+	<delai>
+		<fr>ECHEANCE</fr>
+		<es>PLAZO</es>
+		<pt>PRAZO</pt>
+	</delai>
+	<action>
+		<fr>ACTIONS</fr>
+		<es>ACCIONES</es>
+		<pt>ACÇÃOES</pt>
+	</action>
+	<statut>
+		<fr>STATUT ECHANGE</fr>
+		<es>ESTADO INTERCAMBIO</es>
+		<pt>ESTATUTO INTERCAMBIO</pt>
+	</statut>
+	<commen>
+		<fr>COMMENTAIRES</fr>
+		<es>COMENTARIOS</es>
+		<pt>COMENTÁRIOS</pt>
+	</commen>
+	<grp>
+		<fr>GROUPES</fr>
+		<es>GRUPOS</es>
+		<pt>GRUPOS</pt>
+	</grp>
+	<cat>
+		<fr>CATALOGUE</fr>
+		<es>CATALOGO</es>
+		<pt>CATÁLOGO</pt>
+	</cat>
+	<pay>
+		<fr>PAIEMENTS</fr>
+		<es>PAGOS</es>
+		<pt>PAGAMENTOS</pt>
+	</pay>
+	<crm>
+		<fr>CRM</fr>
+		<es>CRM</es>
+		<pt>CRM</pt>
+	</crm>
+	<cal>
+		<fr>CALENDRIER DES RESEAUX SOCIAUX</fr>
+		<es>CALENDARIO DE REDES SOCIALES</es>
+		<pt>CALENDÁRIO DE REDES SOCIAIS</pt>
+	</cal>
+	<web>
+		<fr>SITE WEB</fr>
+		<es>SITIO WEB</es>
+		<pt>SÍTIO WEB</pt>
+	</web>
+	<cmp>
+		<fr>COMPTABILITE</fr>
+		<es>CONTABILIDAD</es>
+		<pt>CONTABILIDADE</pt>
+	</cmp>
+	<fin>
+		<fr>FINANCES</fr>
+		<es>FINANZAS</es>
+		<pt>FINANÇAS</pt>
+	</fin>
+	<dcm>
+		<fr>DECIMALES</fr>
+		<es>DECIMALES</es>
+		<pt>DECIMAIS</pt>
+	</dcm>
+	<cfg>
+		<fr>CONFIGURATION</fr>
+		<es>CONFIGURACION</es>
+		<pt>CONFIGURAÇÃO</pt>
+	</cfg>
+	<now>
+		<fr>EN COURS</fr>
+		<es>EN CURSO</es>
+		<pt>EM CURSO</pt>
+	</now>
+	<arc>
+		<fr>ARCHIVES</fr>
+		<es>ARCHIVOS</es>
+		<pt>ARQUIVOS</pt>
+	</arc>
+	<cfm>
+		<fr>CONFIRMES</fr>
+		<es>CONFIRMADOS</es>
+		<pt>CONFIRMADOS</pt>
+	</cfm>
+	<fac>
+		<fr>FACTURES</fr>
+		<es>FACTURAS</es>
+		<pt>FACTURAS</pt>
+	</fac>
+	<clc>
+		<fr>CALCULS</fr>
+		<es>CALCULS</es>
+		<pt>CALCULOS</pt>
+	</clc>
+	<rsm>
+		<fr>RESUME</fr>
+		<es>RESUMEN</es>
+		<pt>RESUMO</pt>
+	</rsm>
+	<crc>
+		<fr>CIRCUITS</fr>
+		<es>CIRCUITOS</es>
+		<pt>CIRCUITOS</pt>
+	</crc>
+	<mdl>
+		<fr>MODULES</fr>
+		<es>MODULOS</es>
+		<pt>MODULOS</pt>
+	</mdl>
+	<jrn>
+		<fr>JOURNEES</fr>
+		<es>JORNADAS</es>
+		<pt>JORNADAS</pt>
+	</jrn>
+	<prs>
+		<fr>PRESTATIONS</fr>
+		<es>PRESTACIONES</es>
+		<pt>PRESTAÇÃOS</pt>
+	</prs>
+	<hbr>
+		<fr>HEBERGEMENTS</fr>
+		<es>ALOJAMIENTOS</es>
+		<pt>ALOJAMENTOS</pt>
+	</hbr>
+	<srv>
+		<fr>SERVICES</fr>
+		<es>SERVICIOS</es>
+		<pt>SERVIÇOS</pt>
+	</srv>
+	<frn>
+		<fr>PRESTATAIRES</fr>
+		<es>PROVEEDORES</es>
+		<pt>FORNECEDORES</pt>
+	</frn>
+	<clt>
+		<fr>CLIENTS</fr>
+		<es>CLIENTES</es>
+		<pt>CLIENTES</pt>
+	</clt>
+	<pic>
+		<fr>PHOTOS</fr>
+		<es>FOTOS</es>
+		<pt>FOTOS</pt>
+	</pic>
+	<rgn>
+		<fr>REGIONS</fr>
+		<es>REGIONES</es>
+		<pt>REGIÕES</pt>
+	</rgn>
+	<vll>
+		<fr>VILLES</fr>
+		<es>CIUDADES</es>
+		<pt>CIDADES</pt>
+	</vll>
+	<lieu>
+		<fr>LIEUX</fr>
+		<es>LUGARES</es>
+		<pt>LUGARES</pt>
+	</lieu>
+	<bnq>
+		<fr>BANQUES</fr>
+		<es>BANCOS</es>
+		<pt>BANCOS</pt>
+	</bnq>
+	<pays>
+		<fr>PAYS</fr>
+		<es>PAÍS</es>
+		<pt>PAÍS</pt>
+	</pays>
+	<ecr>
+		<fr>ECRITURES</fr>
+		<es>ESCRITURAS</es>
+		<pt>ESCRITURAS</pt>
+	</ecr>
+	<trs>
+		<fr>TRESORERIE </fr>
+		<es>TESORERÍA</es>
+		<pt>TESOURARIA</pt>
+	</trs>
+	<rsl>
+		<fr>RESULTATS </fr>
+		<es>RESULTADOS</es>
+		<pt>RESULTADOS</pt>
+	</rsl>
+	<bln>
+		<fr>BILANS</fr>
+		<es>BALANCES</es>
+		<pt>BALANCETES</pt>
+	</bln>
+	<lst>
+		<acc>
+			<bonjour>
+				<fr>Bonjour</fr>
+				<es>¡Hola</es>
+				<pt>Olá</pt>
+			</bonjour>
+			<date>
+				<fr>Nous sommes le</fr>
+				<es>Hoy es</es>
+				<pt>Hoje é</pt>
+			</date>
+			<heure>
+				<fr>Il est</fr>
+				<es>Son las</es>
+				<pt>É</pt>
+			</heure>
+			<france>
+				<fr>en France</fr>
+				<es>en Francia</es>
+				<pt>na França</pt>
+			</france>
+			<en>
+				<fr>en</fr>
+				<es>en</es>
+				<pt>em</pt>
+			</en>
+			<ip>
+				<fr>Ton IP est</fr>
+				<es>Tu IP es</es>
+				<pt>O seu IP é</pt>
+			</ip>
+			<stats>
+				<fr>STATS</fr>
+				<es>ESTADISTICAS</es>
+				<pt>ESTATÍSTICAS</pt>
+			</stats>
+			<elemno>
+				<fr>ELEMENT(S) DU CATALOGUE A COMPLETER</fr>
+				<es>ELEMENTO(S) DEL CATALOGO PARA COMPLETAR</es>
+				<pt>ELEMENTO(S) DO CATALOGO PARA COMPLETAR</pt>
+			</elemno>
+			<mdlno>
+				<fr>MODULE(S) SANS REGION DEFINIE</fr>
+				<es>MODULO(S) SIN REGION DEFINIDA</es>
+				<pt>MÓDULO(S) SEM REGIÃO DEFINIDA</pt>
+			</mdlno>
+			<jrnno>
+				<fr>JOURNEE(S) SANS VILLE DEFINIE</fr>
+				<es>JORNADA(S) SIN CIUDAD DEFINIDA</es>
+				<pt>JORNADA(S) SEM CIDADE DEFINIDA</pt>
+			</jrnno>
+			<prsnolieu>
+				<fr>PRESTATION(S) SANS LIEU DEFINI</fr>
+				<es>PRESTACION(ES) SIN LUGAR DEFINIDO</es>
+				<pt>PRESTAÇÃO(S) SEM LUGAR DEFINIDO</pt>
+			</prsnolieu>
+			<prsnoctg>
+				<fr>PRESTATION(S) SANS CATEGORIE DEFINIE</fr>
+				<es>PRESTACION(ES) SIN CATEGORIA DEFINIDA</es>
+				<pt>PRESTAÇÃO(S) SEM CATEGORIA DEFINIDA</pt>
+			</prsnoctg>
+			<srvnovll>
+				<fr>SERVICE(S) SANS VILLE DEFINIE</fr>
+				<es>SERVICIO(S) SIN CIUDAD DEFINIDA</es>
+				<pt>SERVIÇOS(S) SEM CIDADE DEFINIDA</pt>
+			</srvnovll>
+			<srvnoctg>
+				<fr>SERVICE(S) SANS CATEGORIE DEFINIE</fr>
+				<es>SERVICIO(S) SIN CATEGORIA DEFINIDA</es>
+				<pt>SERVIÇO(S) SEM CATEGORIA DEFINIDA</pt>
+			</srvnoctg>
+			<hbrno>
+				<fr>HEBERGEMENT(S) SANS VILLE DEFINIE</fr>
+				<es>ALOJAMIENTO(S) SIN CIUDAD DEFINIDA</es>
+				<pt>ALOJAMENTO(S) SEM CIDADE DEFINIDA</pt>
+			</hbrno>
+			<cltno>
+				<fr>CLIENT(S) SANS CATEGORIE DEFINIE</fr>
+				<es>CLIENTE(S) SIN CATEGORIA DEFINIDA</es>
+				<pt>CLIENTE(S) SEM CATEGORIA DEFINIDA</pt>
+			</cltno>
+			<frnnovll>
+				<fr>PRESTATAIRE(S) SANS VILLE DEFINI</fr>
+				<es>PROVEEDOR(ES) SIN CIUDADE DEFINIDA</es>
+				<pt>FORNECEDOR(ES) SEM CIDADE DEFINIDA</pt>
+			</frnnovll>
+			<frnnoctg>
+				<fr>PRESTATAIRE(S) SANS CATEGORIE DEFINIE</fr>
+				<es>PROVEEDOR(ES) SIN CATEGORIA DEFINIDA</es>
+				<pt>FORNECEDOR(ES) SEM CATEGORIA DEFINIDA</pt>
+			</frnnoctg>
+			<picno>
+				<fr>PHOTO(S) SANS REGION DEFINIE</fr>
+				<es>FOTO(S) SIN REGION DEFINIDA</es>
+				<pt>FOTO(S) SEM REGIÃO DEFINIDA</pt>
+			</picno>
+			<vllnorgn>
+				<fr>VILLE(S) SANS REGION DEFINIE</fr>
+				<es>CIUDADE(S) SIN REGION DEFINIDA</es>
+				<pt>CIDADE(S) SEM REGIÃO DEFINIDA</pt>
+			</vllnorgn>
+			<vllnopays>
+				<fr>VILLE(S) SANS PAYS DEFINI</fr>
+				<es>CIUDADE(S) SIN PAÍS DEFINIDO</es>
+				<pt>CIDADE(S) SEM PAÍS DEFINIDO</pt>
+			</vllnopays>
+			<lieuno>
+				<fr>LIEU(X) SANS VILLE DEFINIE</fr>
+				<es>LUGAR(ES) SIN CIUDAD DEFINIDA</es>
+				<pt>LUGAR(ES) SEM CIDADE DEFINIDA</pt>
+			</lieuno>
+			<bnqno>
+				<fr>BANQUE(S) SANS PAYS DEFINI</fr>
+				<es>BANCO(S) SIN PAÍS DEFINIDO</es>
+				<pt>BANCO(S) SEM PAÍS DEFINIDO</pt>
+			</bnqno>
+			<elemweb>
+				<fr>ELEMENT(S) A METTRE A JOUR SUR LE SITE</fr>
+				<es>ELEMENTO(S) PARA ACTUALIZAR EN EL WEBSITE</es>
+				<pt>ITEM(S) PARA ATUALIZAR NO SITE</pt>
+			</elemweb>
+			<crcweb>
+				<fr>CIRCUIT(S)</fr>
+				<es>CIRCUITO(S)</es>
+				<pt>CIRCUITO(S)</pt>
+			</crcweb>
+			<mdlweb>
+				<fr>MODULE(S)</fr>
+				<es>MODULO(S)</es>
+				<pt>MÓDULO(S)</pt>
+			</mdlweb>
+			<resenv>
+				<fr>RERSERVATIONS ENVOYEES</fr>
+				<es>RESERVACIONES ENVIADAS</es>
+				<pt>RESERVAS ENVIADAS</pt>
+			</resenv>
+			<resaut>
+				<fr>AUTRES RERSERVATIONS</fr>
+				<es>OTRAS RESERVACIONES</es>
+				<pt>OUTRAS RESERVAS</pt>
+			</resaut>
+			<exp>
+				<fr>EXPORTER</fr>
+				<es>EXPORTAR</es>
+				<pt>EXPORTAR</pt>
+			</exp>
+		</acc>
+		<dev>
+			<duree>
+				<fr>DUREE</fr>
+				<es>DURACION</es>
+				<pt>DURAÇÃO</pt>
+			</duree>
+			<datecreation>
+				<fr>CREATION</fr>
+				<es>CREACION</es>
+				<pt>CRIAÇÃO</pt>
+			</datecreation>
+			<dateconfirmation>
+				<fr>CONFIRM.</fr>
+				<es>CONFIRM.</es>
+				<pt>CONFIRM.</pt>
+			</dateconfirmation>
+			<datearrivee>
+				<fr>ARRIVEE</fr>
+				<es>ARRIBO</es>
+				<pt>CHEGADA</pt>
+			</datearrivee>
+			<datedepart>
+				<fr>DEPART</fr>
+				<es>PARTIDA</es>
+				<pt>PARTIDA</pt>
+			</datedepart>
+			<jours>
+				<fr> jours</fr>
+				<es> días</es>
+				<pt> dias</pt>
+			</jours>
+		</dev>
+		<cat>
+			<titre>
+				<fr>TITRE</fr>
+				<es>TITULO</es>
+				<pt>TITULO</pt>
+			</titre>
+			<ctg>
+				<fr>CATEGORIES</fr>
+				<es>CATEGORIAS</es>
+				<pt>CATEGORIAS</pt>
+			</ctg>
+			<datemaxi>
+				<fr>DATE MAXI</fr>
+				<es>FECHA MAX</es>
+				<pt>DATA MAXI</pt>
+			</datemaxi>
+			<nvtrf>
+				<fr>NOUVEAUX TARIFS</fr>
+				<es>NUEVAS TARIFAS</es>
+				<pt>NOVOS PREÇOS</pt>
+			</nvtrf>
+		</cat>
+		<cfg>
+			<devises>
+				<fr>DEVISES</fr>
+				<es>DIVISAS</es>
+				<pt>MOEDAS</pt>
+			</devises>
+			<ajouter>
+				<fr>AJOUTER</fr>
+				<es>AÑADIR</es>
+				<pt>ADIR</pt>
+			</ajouter>
+			<caisses>
+				<fr>CAISSES</fr>
+				<es>CAJAS</es>
+				<pt>CAIXAS</pt>
+			</caisses>
+			<tarif>
+				<fr>CALCUL DE TARIFS</fr>
+				<es>CALCULO DE TARIFAS</es>
+				<pt>CÁLCULO DAS TAXAS</pt>
+			</tarif>
+			<typemarque>
+				<fr>TYPE DE MARQUE</fr>
+				<es>TIPO DE MARGEN</es>
+				<pt>TIPO DE MARGEM</pt>
+			</typemarque>
+			<tauxmarque>
+				<fr>TAUX DE MARGE CALCULE SUR LE PRIX DE VENTE DES SERVICES (MARKUP)</fr>
+				<es>TASA DE MARGEN CALCULADA SOBRE EL PRECIO DE VENTA DE LOS SERVICIOS (MARKUP)</es>
+				<pt>TAXA DE MARGEM CALCULADA NO PREÇO DE VENDA DOS SERVIÇOS (MARKUP)</pt>
+			</tauxmarque>
+			<tauxcom>
+				<fr>TAUX DE COMMISSION CÉDÉE POUR PRIX RACKS</fr>
+				<es>COMISION CEDIDA PARA PRECIOS RACKS</es>
+				<pt>CORTESIA DA COMISSÃO PARA PREÇOS RACKS</pt>
+			</tauxcom>
+			<marquehbr>
+				<fr>MARKUP SUR HEBERGEMENTS POUR PRIX NETS</fr>
+				<es>MARKUP SOBRE ALOJAMIENTOS PARA PRECIOS NETOS</es>
+				<pt>MARKUP SOBRE ALOJAMENTOS PARA PREÇOS NETOS</pt>
+			</marquehbr>
+			<frais>
+				<fr>FRAIS</fr>
+				<es>GASTOS</es>
+				<pt>DESPESAS</pt>
+			</frais>
+			<dat_min>
+				<fr>DATE INITIALE DE FINANCES</fr>
+				<es>FECHA INICIAL DE FINANZAS</es>
+				<pt>DATA INICIAL DE FINANÇAS</pt>
+			</dat_min>
+			<crr_fin>
+				<fr>DEVISE DE FINANCES</fr>
+				<es>MONEDA DE FINANZAS</es>
+				<pt>MOEDA DE FINANÇAS</pt>
+			</crr_fin>
+			<crr_cmp>
+				<fr>DEVISE COMPTABLE</fr>
+				<es>MONEDA CONTABLE</es>
+				<pt>MOEDA CONTÁBIL</pt>
+			</crr_cmp>
+			<excfsc>
+				<fr>EXERCICE FISCAL&#xA;PREMIER BILAN</fr>
+				<es>EJERCICIO FISCAL&#xA;PRIMER BALANCE</es>
+				<pt>EXERCÍCIO TRIBUTÁRIO&#xA;PRIMEIRO BALANCETE</pt>
+			</excfsc>
+			<ini>
+				<fr>INVESTISSEMENT&#xA;INITIAL</fr>
+				<es>INVERSION&#xA;INCIAL</es>
+				<pt>INVESTIMENTO&#xA;INCIAL</pt>
+			</ini>
+			<inv>
+				<fr>AUTRES INVESTISSEMENTS</fr>
+				<es>OTRAS INVERSIONES</es>
+				<pt>OUTROS INVESTIMENTOS</pt>
+			</inv>
+			<dvs>
+				<fr>MONTANTS</fr>
+				<es>MONTOS</es>
+				<pt>MONTANTES</pt>
+			</dvs>
+			<nodef>
+				<fr>NON DEFINI</fr>
+				<es>SIN DEFINIR</es>
+				<pt>SEM DEFINIR</pt>
+			</nodef>
+			<dates>
+				<fr>DATES</fr>
+				<es>FECHAS</es>
+				<pt>DATAS</pt>
+			</dates>
+			<pst>
+				<fr>POSTES</fr>
+				<es>PUESTOS</es>
+				<pt>POSTS</pt>
+			</pst>
+			<pst0>
+				<fr>fixe</fr>
+				<es>fijo</es>
+				<pt>fixo</pt>
+			</pst0>
+			<pst1>
+				<fr>opérationnel</fr>
+				<es>operacional</es>
+				<pt>operacional</pt>
+			</pst1>
+			<pst2>
+				<fr>commercial</fr>
+				<es>comercial</es>
+				<pt>comercial</pt>
+			</pst2>
+			<phdate>
+				<fr>jj/mm/aaaa</fr>
+				<es>dd/mm/aaaa</es>
+				<pt>dd/mm/aaaa</pt>
+			</phdate>
+			<langue>
+				<fr>LANGUES</fr>
+				<es>IDIOMAS</es>
+				<pt>IDIOMAS</pt>
+			</langue>
+			<utilisateur>
+				<fr>UTILISATEUR</fr>
+				<es>USUARIO</es>
+				<pt>USUÁRIO</pt>
+			</utilisateur>
+			<programme>
+				<fr>PROGRAMMES</fr>
+				<es>PROGRAMAS</es>
+				<pt>PROGRAMAS</pt>
+			</programme>
+			<mail>
+				<fr>EMAIL</fr>
+				<es>EMAIL</es>
+				<pt>EMAIL</pt>
+			</mail>
+		</cfg>
+	</lst>
+	<cmd>
+		<commandes>
+			<fr>COMMANDES</fr>
+			<es>COMANDOS</es>
+			<pt>COMANDOS</pt>
+		</commandes>
+		<voirtarifs>
+			<fr>VOIR TARIFS</fr>
+			<es>VER TARIFAS</es>
+			<pt>VER TAXAS</pt>
+		</voirtarifs>
+		<voirprogramme>
+			<fr>VOIR PROGRAMME</fr>
+			<es>VER PROGRAMA</es>
+			<pt>VER PROGRAMA</pt>
+		</voirprogramme>
+		<lst_pax>
+			<fr>LISTE PAXS</fr>
+			<es>LISTA PAXS</es>
+			<pt>LISTA PAXS</pt>
+		</lst_pax>
+		<archiver>
+			<fr>ARCHIVER</fr>
+			<es>ARCHIVAR</es>
+			<pt>ARQUIVAR</pt>
+		</archiver>
+		<annuler>
+			<fr>ANNULER</fr>
+			<es>ANULAR</es>
+			<pt>CANCELAR</pt>
+		</annuler>
+		<restaurer>
+			<fr>RESTAURER</fr>
+			<es>RESTAURAR</es>
+			<pt>RESTAURAR</pt>
+		</restaurer>
+		<supprimer>
+			<fr>SUPPRIMER</fr>
+			<es>BORRAR</es>
+			<pt>APAGAR</pt>
+		</supprimer>
+		<creerdevis>
+			<fr>CREER DEVIS</fr>
+			<es>CREAR COTIZACION</es>
+			<pt>CRIAR COTAÇAÕ</pt>
+		</creerdevis>
+		<apercu>
+			<fr>APERCU</fr>
+			<es>VISTA PREVIA</es>
+			<pt>VISTA PRÉVIA</pt>
+		</apercu>
+		<imprimer>
+			<fr>IMPRIMER</fr>
+			<es>IMPRIMIR</es>
+			<pt>PRINT</pt>
+		</imprimer>
+		<vrs>
+			<fr>NOUVELLE VERSION</fr>
+			<es>NUEVA VERSION</es>
+			<pt>NOVA VERSÃO</pt>
+		</vrs>
+		<copier>
+			<fr>COPIER</fr>
+			<es>COPIAR</es>
+			<pt>COPIAR</pt>
+		</copier>
+		<elements>
+			<fr>POUR TOUS LES ELEMENTS SELECTIONNES</fr>
+			<es>PARA TODOS LOS ELEMENTOS SELECCIONADOS</es>
+			<pt>PARA TODOS OS ITENS SELECCIONADOS</pt>
+		</elements>
+	</cmd>
+	<sup>
+		<css>
+			<fr>SUPRESSION ANNULEE!&#xA;Utilisé dans des flux de trésorerie ou investissements.</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Usada en flujos de caja o inversión.</es>
+			<pt>SUPRESAO CANCELADA!&#xA;Usada em fluxos de caixa o investimento.</pt>
+		</css>
+		<pst>
+			<fr>SUPRESSION ANNULEE!&#xA;Définie dans des budgets.</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Definida en presupuestos.</es>
+			<pt>SUPRESAO CANCELADA!&#xA;Definida em orçamentos.</pt>
+		</pst>
+		<ctg_clt>
+			<fr>SUPRESSION ANNULEE!&#xA;Définie pour des clients.</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Definida para clientes.</es>
+			<pt>SUPRESAO CANCELADA!&#xA;Definida em clientes.</pt>
+		</ctg_clt>
+		<ctg_clt>
+			<fr>SUPRESSION ANNULEE!&#xA;Définie pour des tâches.</fr>
+			<es>¡SUPRESION CANCELADA!&#xA;Definida para tareas.</es>
+			<pt>SUPRESAO CANCELADA!&#xA;Definida em tareas.</pt>
+		</ctg_clt>
+	</sup>
+	<errbss>
+		<fr>Erreur base!</fr>
+		<es>Error base!</es>
+		<pt>Erro base!</pt>
+	</errbss>
+	<errbss2>
+		<fr>Erreur! Cette base existe deja!</fr>
+		<es>Error! Ya existe esta base!</es>
+		<pt>Erro! Esta base já existe!</pt>
+	</errbss2>
+	<errbss3>
+		<fr>Erreur! Recoupement de bases!</fr>
+		<es>Error! Cruzamiento de bases!</es>
+		<pt>Erro! Cruzamento de bases!</pt>
+	</errbss3>
+	<del_pls_grp>
+		<fr>Supression annulée pour certains groupes!&#xA;Présent(s) dans devis, confirmations et/ou finances.</fr>
+		<es>¡Supresión cancelada para algunos grupos!&#xA;Presente(s) en cotizaciones, confirmaciones y/o finanzas.</es>
+	</del_pls_grp>
+</textes>

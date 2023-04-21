@@ -1,0 +1,5 @@
+AuthUserFile /Applications/XAMPP/xamppfiles/htdocs/ultimap/.htpasswd
+AuthType Basic
+AuthName "IDENTIFIANTS ULTIMAP"
+require valid-user
+AddDefaultCharset UTF-8

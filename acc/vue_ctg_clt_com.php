@@ -1,0 +1,1 @@
+<input type="text" <?php if(!$aut['mrq']){echo ' disabled';} ?> style="width: 30px" value="<?php echo number_format($com*100,2,'.',''); ?>" onChange="maj('cfg_ctg_clt','com',this.value.replace(',','.')/100,<?php echo $id ?>)" />%

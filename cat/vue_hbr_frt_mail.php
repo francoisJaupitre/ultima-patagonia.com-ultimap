@@ -1,0 +1,1 @@
+<span <?php if(!empty($mail_frt_hbr)) { ?> class="lnk" onclick="setTimeout( function () {location.href='mailto:<?php echo $mail_frt_hbr; ?>';} , 1000 );" <?php } ?>><?php echo $txt->email_frt->$id_lng; ?></span>

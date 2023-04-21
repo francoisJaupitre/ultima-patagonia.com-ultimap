@@ -1,0 +1,29 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<cmp>
+		<fr>COMPTABILITE</fr>
+		<es>CONTABILIDAD</es>
+		<pt>CONTABILIDADE</pt>
+	</cmp>
+	<fac>
+		<fr>FACTURES</fr>
+		<es>FACTURAS</es>
+		<pt>FATURAS</pt>
+	</fac>
+	<clc>
+		<fr>CALCULS</fr>
+		<es>CALCULOS</es>
+		<pt>CÁLCULOS</pt>
+	</clc>
+	<rsm>
+		<fr>RESUME</fr>
+		<es>RESUMEN</es>
+		<pt>RESUMO</pt>
+	</rsm>
+	<cmd>
+		<fr>COMMANDES</fr>
+		<es>COMANDOS</es>
+		<pt>COMANDOS</pt>
+	</cmd>
+</textes>

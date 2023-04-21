@@ -1,0 +1,89 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<vch>
+		<fr>VOUCHER</fr>
+		<en>VOUCHER</en>
+		<es>VOUCHER</es>
+	</vch>
+	<msg1>
+		<fr>Ultima Patagonia</fr>
+		<en>Ultima Patagonia</en>
+		<es>Ultima Patagonia</es>
+	</msg1>
+	<msg2>
+		<fr>Ultima Patagonia - Empresa de Viajes y Turismo - Legajo: 18395</fr>
+		<en>Ultima Patagonia - Empresa de Viajes y Turismo - Legajo: 18395</en>
+		<es>Ultima Patagonia - Empresa de Viajes y Turismo - Legajo: 18395</es>
+	</msg2>
+	<msg3>
+		<fr>(+54 9) 294 434 2815</fr>
+		<en>(+54 9) 294 434 2815</en>
+		<es>(+54 9) 294 434 2815</es>
+	</msg3>
+	<msg4>
+		<fr>reservas@ultima-patagonia.com</fr>
+		<en>reservas@ultima-patagonia.com</en>
+		<es>reservas@ultima-patagonia.com</es>
+	</msg4>
+	<rva>
+		<fr>Reservation</fr>
+		<en>Reserva</en>
+		<es>Reserva</es>
+	</rva>
+	<sir>
+		<fr>Mmes, MM</fr>
+		<en>Mesdames, Messrs</en>
+		<es>Sras, Sres</es>
+	</sir>
+	<hs>
+		<fr>h</fr>
+		<en>hr</en>
+		<es>hs</es>
+	</hs>
+	<ctg>
+		<fr>Categorie</fr>
+		<en>Category</en>
+		<es>Categoría</es>
+	</ctg>
+		<checkin>
+		<fr>Check-in</fr>
+		<en>Check-in</en>
+		<es>Check-in</es>
+	</checkin>
+	<checkout>
+		<fr>Check-out</fr>
+		<en>Check-out</en>
+		<es>Check-out</es>
+	</checkout>
+	<rgm>
+		<fr>Régime</fr>
+		<en>Regime</en>
+		<es>Regimen</es>
+	</rgm>
+	<early>
+		<fr>EARLY CHECK-IN</fr>
+		<en>EARLY CHECK-IN</en>
+		<es>EARLY CHECK-IN</es>
+	</early>
+	<late>
+		<fr>LATE CHECK-OUT</fr>
+		<en>LATE CHECK-OUT</en>
+		<es>LATE CHECK-OUT</es>
+	</late>
+	<ttr_hbr>
+		<fr>Vouchers_hebergements</fr>
+		<en>Accomodation_vouchers</en>
+		<es>Vouchers_alojamientos</es>
+	</ttr_hbr>
+	<guia>
+		<fr>GUIDE</fr>
+		<en>GUIDE</en>
+		<es>GUIA</es>
+	</guia>
+	<ttr_frn>
+		<fr>Vouchers_prestataires</fr>
+		<en>Providers_vouchers</en>
+		<es>Vouchers_proveedores</es>
+	</ttr_frn>
+</textes>

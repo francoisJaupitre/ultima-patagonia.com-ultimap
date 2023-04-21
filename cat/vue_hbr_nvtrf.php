@@ -1,0 +1,1 @@
+<input type="checkbox" autocomplete="off" <?php if(!$aut['cat']) {echo ' disabled';} ?> <?php if ($dt_hbr['nvtrf']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_hbr','nvtrf','1',<?php echo $id ?>)}else{maj('cat_hbr','nvtrf','0',<?php echo $id ?>)};" />

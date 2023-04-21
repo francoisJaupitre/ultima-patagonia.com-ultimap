@@ -1,0 +1,38 @@
+MIME-Version: 1.0
+From: TEMPLATE_FROM_ADDRESS
+To: TEMPLATE_TO_ADDRESS
+CC: TEMPLATE_CC_ADDRESS
+Reply-To: TEMPLATE_RT_ADDRESS
+Subject: TEMPLATE_SUBJECT
+X-Unsent: 1
+X-Uniform-Type-Identifier: com.apple.mail-draft
+Content-Type: multipart/mixed; boundary="080107000800000609090108"
+
+--080107000800000609090108
+Content-Type: multipart/related; boundary="090303020209010600070908"
+
+--090303020209010600070908
+Content-Type: multipart/alternative; boundary="090303020209000609090108"
+
+--090303020209000609090108
+Content-Type: text/plain;
+
+TEMPLATE_PLAIN
+
+--090303020209000609090108
+Content-Type: text/html;
+
+TEMPLATE_BODY
+--090303020209000609090108--
+
+--090303020209010600070908
+Content-Type: image/jpgeg;name="logo.jpg"
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;filename="logo.jpg"
+Content-ID: <logo.jpg@ultima-patagonia.com>
+
+TEMPLATE_ATTACH_CONTENT
+
+--090303020209010600070908--
+
+--080107000800000609090108--

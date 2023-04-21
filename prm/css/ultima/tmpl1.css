@@ -1,0 +1,160 @@
+@page {margin: 70px 0px 70px 0px;}/*interne dompdf*/
+.pge{
+  width: 798px;
+  padding: 70px 0px 70px 0px;
+}
+.break-after{page-break-after: always;}
+.div0{margin-top: 0px;}
+.bg-black{background-color: #4F4642;}
+.text-white{color: rgb(238,231,224);}
+.h1{
+  height: 108px;
+  line-height: 108px;
+  font-family: "Calibri Light", "Arial";
+  font-size: 21px;
+  text-shadow: -1px -1px #000000;
+  letter-spacing: 0.5px;
+}
+.div1{
+  margin: auto;
+  width: 342px;
+}
+.sp0{
+  display: inline-block;
+  vertical-align: middle;
+}
+.m-auto{margin: auto;}
+.tb0{width: 540px;}
+.td0{width: 387px;}
+.tb1{
+  border: 1px solid black;
+  width: 380px;
+  font-family: "Times","serif";
+  padding: 18px 20px 15px 20px;
+  margin-top: 10px;
+}
+.text-center{text-align: center;}
+.td1{
+  font-size: 14pt;
+  font-family: Times Serif;
+  font-weight: bold;
+  line-height: 34px;
+  letter-spacing: 0.5px;
+}
+.td2{
+  font-size: 12pt;
+  font-family: Times Serif;
+  line-height: 37.5px;
+}
+.td2 ul {
+  list-style-type: none;
+  margin: 0;
+}
+.td2 li:before {
+  content: '\2014';
+  position: absolute;
+  margin-left: -30px;
+}
+.td3{width: 147px;}
+.footer{
+  position: absolute;
+  padding: 0 100px 0 100px;
+  bottom: -10px;
+}
+.footer p{
+  font-family: "Helvetica";
+  font-size: 8pt;
+}
+.header{
+  position: fixed;
+  padding: 15px, 0, 0, 15px;
+  top: -70px;
+}
+.header span{
+  position: relative;
+  margin-top: -40px;
+  margin-left: -140px;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 10pt;
+}
+.div2{margin-top: 0px;}
+.div3{
+  margin: auto;
+  width: 278px;
+}
+.h2{
+  height: 55px;
+  line-height: 55px;
+  font-family: "Calibri Light", "Arial";
+  font-size: 26px;
+  text-shadow: -1px -1px #000000;
+  letter-spacing: 0.5px;
+}
+.div4{
+  margin: 20px 45px 0 60px;
+  font-family: "Times","serif";
+}
+.fs_mdl1, .fs5, .fs13{
+  font: bold 13px Times;
+  text-align: justify;
+}
+.fs6{
+	font: normal 13px Times;
+	text-align: justify;
+}
+.fs12, .fs_mdl2{
+	font: italic 13px Times;
+	text-align: justify;
+}
+.cs6{
+	font: bold 13px Times;
+	color:#000000;
+	text-align: center;
+	padding: 5px;
+	border: 1px solid #006699;
+}
+.cs7{
+	font: normal 13px Times;
+	color:#000000;
+	text-align: center;
+	padding: 5px;
+	border: 1px solid #006699;
+}
+.div5{
+  margin: auto;
+  width: 289px;
+}
+.div6{
+  margin: auto;
+  width: 279px;
+}
+.div7{
+  margin: auto;
+  width: 421px;
+}
+.div8{
+  margin: auto;
+  width: 90px;
+}
+.div9{
+  margin: auto;
+  width: 364px;
+}
+.div10{
+  margin: auto;
+  width: 219px;
+}
+.div11{
+  margin: auto;
+  width: 468px;
+}
+.div12{
+  margin: auto;
+  width: 217px;
+}
+.div13{
+  margin: auto;
+  width: 220px;
+}
+ul.dashed {list-style-type: '- ';}
+.underline{text-decoration: underline;}

@@ -1,0 +1,1 @@
+<div class="nosel lnk" onclick="window.parent.opn_frm('cat/ctr.php?cbl=clt&id=<?php echo $clt_grp; ?>');"><?php echo $clt[$clt_grp]; ?></div>

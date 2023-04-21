@@ -1,0 +1,14 @@
+<?phpphpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+	<menu>
+		<fr>MENU</fr>
+		<es>MENÚ</es>
+		<pt>MENU</pt>
+	</menu>
+	<mel>
+		<fr>COURRIEL</fr>
+		<es>CORREO</es>
+		<pt>MAIL</pt>
+	</mel>
+</textes>
