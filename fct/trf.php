@@ -885,7 +885,6 @@ while($dt_mdl = ftc_ass($rq_mdl)) {
 				if($id_cat_prs>0) {
 					if(isset($trf_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs])) {$trf_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs] += $trf_db_sel_hbr_opt_prs - $trf_db_sel_hbr;}
 					else {$trf_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs] = $trf_db_sel_hbr_opt_prs - $trf_db_sel_hbr;}
-					$trf_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs] += $trf_db_sel_hbr_opt_prs - $trf_db_sel_hbr;
 					if(isset($cst_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs])) {$cst_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs] += $cst_db_sel_hbr_opt_prs - $cst_db_sel_hbr;}
 					else {$cst_db_hbr_opt_prs_cat[$id_trf][$id_cat_prs] = $cst_db_sel_hbr_opt_prs - $cst_db_sel_hbr;}
 					if(isset($trf_sg_hbr_opt_prs_cat[$id_trf][$id_cat_prs])) {$trf_sg_hbr_opt_prs_cat[$id_trf][$id_cat_prs] += $trf_sg_sel_hbr_opt_prs - $trf_sg_sel_hbr;}
