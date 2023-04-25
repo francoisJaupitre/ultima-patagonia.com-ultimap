@@ -123,7 +123,7 @@ function chk_mdl(id_dev_mdl) {
 			$("#vue_dsc_rmn_dt_end_mdl_"+id_dev_mdl).stop(true,true).slideDown();
 			$('input[type=number]').on('wheel', function(e) {return false;});
 		});
-		$("#vue_dt_mdl_"+id_dev_mdl).removeClass();
+		$("#vue_dt_mdl_"+id_dev_mdl).removeClass().addClass('dboa');
 		unload('DEV chk_mdl');
 	}
 	else{
@@ -137,7 +137,7 @@ function chk_mdl(id_dev_mdl) {
 			document.getElementById("vue_end_mdl_"+id_dev_mdl).innerHTML = a2[0];
 			$("#vue_dsc_rmn_dt_end_mdl_"+id_dev_mdl).stop(true,true).slideDown();
 		});
-		$("#vue_dt_mdl_"+id_dev_mdl).addClass('cat_jrn');
+		$("#vue_dt_mdl_"+id_dev_mdl).addClass('cat_jrn dboa');
 		unload('DEV chk_mdl');
 	}
 

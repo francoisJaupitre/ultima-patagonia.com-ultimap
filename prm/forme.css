@@ -563,6 +563,10 @@ header ul li a:hover {color: #0000C3;}
 	max-width: 330px;
 }
 .dib {display: inline-block;}
+.dboa {
+    overflow: auto;
+    display: block;
+}
 .vat {vertical-align: top;}
 .vam {vertical-align: middle;}
 .vab {vertical-align: bottom;}

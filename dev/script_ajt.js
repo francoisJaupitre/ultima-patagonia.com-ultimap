@@ -47,7 +47,7 @@ function ajt_mdl(id_cat_mdl,id_cat_crc,id_rgn){
 					txt += " class='up_mdl"+id_cat_mdl+"'";
 					window.parent.act_frm('mdl_dev'+id_cat_mdl);
 				}
-				txt += "></tr><tr id='vue_trf_mdl_"+rsp[0]+"'></tr></table><div id='vue_dsc_rmn_dt_end_mdl_"+rsp[0]+"'><span id='vue_dsc_mdl_"+rsp[0]+"'></span><span id='vue_rmn_mdl_"+rsp[0]+"'></span><span id='vue_dt_mdl_"+rsp[0]+"'></span><div id='vue_end_mdl_"+rsp[0]+"' class='text-center'></div></div></div><br />";
+				txt += "></tr><tr id='vue_trf_mdl_"+rsp[0]+"'></tr></table><div id='vue_dsc_rmn_dt_end_mdl_"+rsp[0]+"'><span id='vue_dsc_mdl_"+rsp[0]+"'></span><span id='vue_rmn_mdl_"+rsp[0]+"'></span><span id='vue_dt_mdl_"+rsp[0]+"' class='dboa'></span><div id='vue_end_mdl_"+rsp[0]+"' class='text-center'></div></div></div><br />";
 				div.innerHTML = txt;
 				div.style.display = 'none';
 				document.getElementById("vue_dt_crc").appendChild(div);
