@@ -17,9 +17,27 @@ footer{
 	width: 300px;
 }
 .pge{
+	width: 800px;
+	padding: 40px 0 65px 0;
 	min-height: 1000px;
 	margin: 10px 10px auto 330px;
 	background: white;
+}
+.bg-blue{background-color: #C5D7DF;}
+.div1{
+	font: normal 18px Helvetica;
+	color:#333399;
+	text-align: center;
+	padding : 10px 0 5px 0;
+}
+.div2{
+	font: normal 15px Helvetica;
+	color:#606060;
+	text-align: center;
+	padding : 5px 0 10px 0;
+}
+.div3{
+	margin: 0 45px 25px 60px;
 }
 .hd1{
 	border-top: 1px solid #2D4CA4;
@@ -45,6 +63,11 @@ footer{
 .fs4{
 	font: normal 13px Helvetica;
 	color:#606060;
+}
+.fs6{
+	font: normal 13px Helvetica;
+	color:#000000;
+	text-align: justify;
 }
 .fs7{
 	font: normal 13px Helvetica;
