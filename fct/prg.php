@@ -109,7 +109,19 @@ while($dt_mdl = ftc_ass($rq_mdl)){
 	elseif($cbl=='crc'){$rq_max_jrn = sel_quo("MAX(ord)","cat_mdl_jrn","id_mdl",$id_mdl);}
 	if($cbl!='mdl'){$max_jrn = ftc_num($rq_max_jrn);}
 	if($cbl=='dev'){$rq_jrn = sel_quo("*","dev_jrn",array("opt","id_mdl"),array("1",$id_mdl),"ord");}
-	else{$rq_jrn = sel_quo("cat_jrn.id,cat_jrn_txt.titre,cat_jrn_txt.dsc,cat_mdl_jrn.ord","cat_jrn INNER JOIN cat_mdl_jrn ON cat_jrn.id = cat_mdl_jrn.id_jrn LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg=".$lgg_id,array("opt","id_mdl"),array("1",$id_mdl),"ord");}
+	else{
+		if(!empty($dt_mdl['sel_mdl_jrn']))
+		{
+			$sel_mdl_jrn = explode(",",$dt_mdl['sel_mdl_jrn']);
+			$rq_jrn = sel_whe("cat_jrn.id,cat_jrn_txt.titre,cat_jrn_txt.dsc,cat_mdl_jrn.ord","cat_jrn INNER JOIN cat_mdl_jrn ON cat_jrn.id = cat_mdl_jrn.id_jrn LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg=".$lgg_id,"id_mdl=".$id_mdl." AND (opt=1 OR cat_jrn.id IN (".implode(',',$sel_mdl_jrn).")) ","ord");
+		}
+		else
+		{
+			unset($sel_mdl_jrn);
+			$rq_jrn = sel_quo("cat_jrn.id,cat_jrn_txt.titre,cat_jrn_txt.dsc,cat_mdl_jrn.ord","cat_jrn INNER JOIN cat_mdl_jrn ON cat_jrn.id = cat_mdl_jrn.id_jrn LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg=".$lgg_id,array("opt","id_mdl"),array("1",$id_mdl),"ord");
+		}
+
+	}
 	while($dt_jrn = ftc_ass($rq_jrn)){
 		$id_jrn = $dt_jrn['id'];
 		if($cbl!='mdl' and $dt_mdl['fus'] and $dt_jrn['ord']==$max_jrn[0] and $lst_mdl['ord'][$id_mdl]!=$max_mdl[0]){
