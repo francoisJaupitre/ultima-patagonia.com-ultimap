@@ -1,5 +1,6 @@
 <div style="page-break-inside: avoid">
-  <span class="fs5"><?php echo $txt_prg->en_opt->$id_lgg; ?></span>
+  <span class="fs5">
+    <?php echo $txt_prg->en_opt->$id_lgg; ?></span>
   <br/><br/>
 <?php
 $flg_trf_mdl = true;
@@ -48,15 +49,27 @@ while($dt_mdl = ftc_ass($rq_mdl)){
             $prx = $trf_opt_srv[$id_trf][$j][$i];
 ?>
       <tr>
-        <td style="padding: 0px 5px;" class="fs6">
 <?php
-            echo $txt_prg->base->$id_lgg.' '.$base;
-            if($ptl){echo '&#43;1';}
-            echo ' :';
-            if($err_trf_opt_srv[$id_trf][$j][$i]){echo '<span class="color-red">'.$txt->err->opt_srv->$id_lng.'</span>';}
+						if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+						{
+?>
+			  <td style="padding: 0px 5px;" class="fs6">
+<?php
+              echo $txt_prg->base->$id_lgg.' '.$base;
+              if($ptl){echo '&#43;1';}
+              echo ' :';
+
 ?>
         </td>
-        <td style="padding: 0px 5px;" class="fs9"><?php echo number_format($prx,0,',',' '); ?></td>
+<?php
+						}
+?>
+        <td style="padding: 0px 5px;" class="fs9">
+<?php
+            if($err_trf_opt_srv[$id_trf][$j][$i]){echo '<span class="color-red">'.$txt->err->opt_srv->$id_lng.'</span>';}
+            echo number_format($prx,0,',',' ');
+?>
+        </td>
         <td style="padding: 0px 5px;" class="fs6"><?php echo $prm_crr_nom[$dt_crc['crr']].$txt_prg->pers2->$id_lgg; ?></td>
       </tr>
 <?php
@@ -122,7 +135,22 @@ while($dt_mdl = ftc_ass($rq_mdl)){
             else{$base = $txt_prg->bases->$id_lgg.' '.$bss[$id_trf][0].'-'.$bss[$id_trf][count($bss[$id_trf])-1];}
 ?>
       <tr>
-        <td style="padding: 0px 5px;" class="fs6"><?php if(number_format($prx,0)!=0){echo $base.' :';} ?></td>
+<?php
+						if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+						{
+?>
+		    <td style="padding: 0px 5px;" class="fs6">
+<?php
+              if(number_format($prx,0)!=0){
+                echo $base;
+                if($ptl){echo '&#43;1';}
+                echo ' :';
+              }
+?>
+        </td>
+<?php
+					 }
+?>
         <td style="padding: 0px 5px;" class="fs9"><?php echo number_format($prx,0,',',' '); ?></td>
         <td style="padding: 0px 5px;" class="fs6"><?php echo $prm_crr_nom[$dt_crc['crr']].$txt_prg->pers2->$id_lgg; ?></td>
       </tr>
@@ -143,13 +171,20 @@ while($dt_mdl = ftc_ass($rq_mdl)){
                 }
 ?>
       <tr>
-        <td style="padding: 0px 5px;" class="fs6">
 <?php
-                echo $txt_prg->base->$id_lgg.' '.$base;
-                if($ptl){echo '&#43;1';}
-                echo ' :';
+    						if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+    						{
+?>
+		    <td style="padding: 0px 5px;" class="fs6">
+<?php
+                  echo $txt_prg->base->$id_lgg.' '.$base;
+                  if($ptl){echo '&#43;1';}
+                  echo ' :';
 ?>
         </td>
+<?php
+					     }
+?>
         <td style="padding: 0px 5px;" class="fs9"><?php echo number_format($prx,0,',',' '); ?></td>
         <td style="padding: 0px 5px;" class="fs6"><?php echo $prm_crr_nom[$dt_crc['crr']].$txt_prg->pers2->$id_lgg; ?></td>
       </tr>
@@ -221,15 +256,26 @@ while($dt_mdl = ftc_ass($rq_mdl)){
                   }
 ?>
       <tr>
-        <td style="padding: 0px 5px;" class="fs6">
 <?php
-                  echo $txt_prg->base->$id_lgg.' '.$base;
-                  if($ptl){echo '&#43;1';}
-                  echo ' :';
-                  if($err){echo '<span class="color-red">'.$txt->err->opt_srv->$id_lng.'</span>';}
+    						  if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+    						  {
+?>
+		    <td style="padding: 0px 5px;" class="fs6">
+<?php
+                    echo $txt_prg->base->$id_lgg.' '.$base;
+                    if($ptl){echo '&#43;1';}
+                    echo ' :';
 ?>
         </td>
-        <td style="padding: 0px 5px;" class="fs9"><?php echo number_format($prx,0,',',' '); ?></td>
+<?php
+					         }
+?>
+        <td style="padding: 0px 5px;" class="fs9">
+<?php
+                  if($err){echo '<span class="color-red">'.$txt->err->opt_srv->$id_lng.'</span>';}
+                  echo number_format($prx,0,',',' ');
+?>
+</td>
         <td style="padding: 0px 5px;" class="fs6"><?php echo $prm_crr_nom[$dt_crc['crr']].$txt_prg->pers2->$id_lgg; ?></td>
       </tr>
 <?php

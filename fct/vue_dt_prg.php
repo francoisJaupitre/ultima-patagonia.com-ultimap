@@ -318,6 +318,21 @@ if($cbl=='dev'){
 	}
 	elseif(!$clt_tmpl[$id_clt]) {echo '<div class="div3"><div class="fs8">'.stripslashes($txt_prg->trf->$id_lgg.' '.$prm_crr_ttr[$id_lgg][$dt_crc['crr']].' '.$txt_prg->pers->$id_lgg).'</div><br />';}
 	if($vue_trf) {
+		$multiBss = array();
+		foreach ($bss as $id_trf => $value)
+		{
+			if(count($value)>1)
+			{
+				$flagMultiBss = true;
+				break;
+			}
+			$multiBss[] = $value[0];
+			if(count(array_unique($multiBss))>1)
+			{
+				$flagMultiBss = true;
+				break;
+			}
+		}
 		$flg_trf_mdl = true;
 		$flg_crc = false;
 		$rq_mdl = sel_quo("*","dev_mdl","id_crc",$id,"ord");
@@ -381,7 +396,8 @@ if($cbl=='dev'){
 ?>
 				<tr>
 <?php
-						if(!$clt_tmpl[$id_clt] or count($bss[$id_trf]) > 1 or $vue_sgl or $vue_tpl or $vue_qdp) {
+						if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+						{
 ?>
 					<td style="padding: 0px 5px;" class="fs6">
 <?php
@@ -912,7 +928,22 @@ if($cbl=='dev'){
 								else{$base = $txt_prg->bases->$id_lgg.' '.$bss[$id_trf][0].'-'.$bss[$id_trf][count($bss[$id_trf])-1];}
 ?>
 					<tr>
-						<td style="padding: 0px 5px;" class="fs6"><?php if(number_format($prx,0)!=0){echo $base.' :';} ?></td>
+<?php
+								if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+								{
+?>
+						<td style="padding: 0px 5px;" class="fs6">
+<?php
+									if(number_format($prx,0) !=0){
+										echo $base;
+										if($ptl){echo '&#43;1';}
+										echo ' :';
+									}
+?>
+						</td>
+<?php
+								}
+?>
 						<td style="padding: 0px 5px;" class="fs9"><?php echo number_format($prx,0,',',' '); ?></td>
 						<td style="padding: 0px 5px;" class="fs6"><?php echo $prm_crr_nom[$dt_crc['crr']].$txt_prg->pers2->$id_lgg; ?></td>
 					</tr>
@@ -932,13 +963,20 @@ if($cbl=='dev'){
 									}
 ?>
 					<tr>
+<?php
+									if(!$clt_tmpl[$id_clt] or $flagMultiBss or $vue_sgl or $vue_tpl or $vue_qdp)
+									{
+?>
 						<td style="padding: 0px 5px;" class="fs6">
 <?php
-								echo $txt_prg->base->$id_lgg.' '.$base;
-								if($ptl){echo '&#43;1';}
-								echo ' :';
+										echo $txt_prg->base->$id_lng.' '.$base;
+										if($ptl){echo '&#43;1';}
+										echo ' :';
 ?>
 						</td>
+<?php
+									}
+?>
 						<td style="padding: 0px 5px;" class="fs9"><?php echo number_format($prx,0,',',' '); ?></td>
 						<td style="padding: 0px 5px;" class="fs6"><?php echo $prm_crr_nom[$dt_crc['crr']].$txt_prg->pers2->$id_lgg; ?></td>
 						<td style="padding: 0px 5px;" class="fs6">
