@@ -333,8 +333,7 @@ if($cbl=='dev'){
 				break;
 			}
 		}
-		$flg_trf_mdl = true;
-		$flg_crc = false;
+		$flg_trf_crc = true;
 		$rq_mdl = sel_quo("*","dev_mdl","id_crc",$id,"ord");
 		while($dt_mdl = ftc_ass($rq_mdl)){
 			if($dt_mdl['trf']){
@@ -355,23 +354,20 @@ if($cbl=='dev'){
 			  $ptl = $dt_crc['ptl'];
 			  $psg = $dt_crc['psg'];
 			}
-			if($id_trf or ($flg_trf_mdl and $flg_trf_crc)){
+			if($id_trf or $flg_trf_crc){
 				$id_col = $dt_mdl['col'];
+				if($id_trf) {
 ?>
-			<div class="fs_mdl1" style="color:#<?php echo $col[$id_col]; ?>">
+			<span class="fs_mdl1" style="color:#<?php echo $col[$id_col]; ?>"><?php if(empty($dt_mdl['titre'])) {echo stripslashes($txt_prg->mdl->$id_lgg).' '.$dt_mdl['ord'];} else{echo mb_strtoupper(stripslashes(trim($dt_mdl['titre'])));} ?></span>
 <?php
-				if($id_trf){
-					$flg_crc = true;
-					if(empty($dt_mdl['titre'])){echo stripslashes($txt_prg->mdl->$id_lgg).' '.$dt_mdl['ord'];}
-					else{echo stripslashes($dt_mdl['titre']);}
 				}
-				else{
-					$flg_trf_mdl=false;
-					if($flg_crc){echo stripslashes($txt_prg->crc->$id_lgg);}
-				}
-	?>
-			</div>
+				elseif($flg_trf_crc) {
+?>
+			<span class="fs13"><?php if($vols_dom) {echo stripslashes($txt_prg->crc2->$id_lgg);} else {echo stripslashes($txt_prg->crc1->$id_lgg);} ?></span>
 <?php
+					$flg_trf_crc = false;
+				}
+
 				if(isset($err_hbr_jrn[$id_trf])){
 					foreach(array_unique($err_hbr_jrn[$id_trf]) as $jrn){
 						if($err_hbr_def[$id_trf][$jrn]){echo '<span class="color-red">'.$txt->err->hbr_def->$id_lng.$jrn.'</span><br/>';}
@@ -590,7 +586,7 @@ if($cbl=='dev'){
 	}
 	if($dt_crc['total']){
 ?>
-			<span class="fs13">TOTAL PRESTATIONS TERRESTRES & VOLS DOMESTIQUES</span>
+			<span class="fs13"><?php echo $txt_prg->total->$id_lgg; ?></span>
 			<br /><br />
 			<table>
 				<tr>

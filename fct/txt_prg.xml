@@ -97,11 +97,21 @@
 		<en>MODULE</en>
 		<es>MODULO</es>
 	</mdl>
-	<crc>
-		<fr>CIRCUIT</fr>
-		<en>CIRCUIT</en>
-		<es>CIRCUITO</es>
-	</crc>
+	<crc1>
+		<fr>PRESTATIONS TERRESTRES</fr>
+		<en>LAND SERVICES</en>
+		<es>SERVICIOS TERRESTRES</es>
+	</crc1>
+	<crc2>
+		<fr>PRESTATIONS TERRESTRES &amp; VOLS DOMESTIQUES</fr>
+		<en>LAND SERVICES &amp; DOMESTIC FLIGHTS</en>
+		<es>SERVICIOS TERRESTRES &amp; VUELOS DOMÉSTICOS</es>
+	</crc2>
+	<total>
+		<fr>TOTAL CIRCUIT &amp; VOLS DOMESTIQUES</fr>
+		<en>TOTAL CIRCUIT &amp; DOMESTIC FLIGHTS</en>
+		<es>TOTAL CIRCUITO &amp; VUELOS DOMÉSTICOS</es>
+	</total>
 	<base>
 		<fr>Base</fr>
 		<en>Base</en>

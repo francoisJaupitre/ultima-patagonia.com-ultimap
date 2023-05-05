@@ -292,8 +292,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		$cell = $table->addCell(10000, $cellStyle4);
 		$cell->addText(stripslashes(replace($txt_prg->trf->$id_lgg.' '.$prm_crr_ttr[$id_lgg][$dt_crc['crr']].' '.$txt_prg->pers->$id_lgg)), $fontStyle8, $paragraphStyle2);
 		$section ->addText('', $fontStyle6, $paragraphStyle2);
-		$flg_trf_mdl = true;
-		$flg_crc = false;
+		$flg_trf_crc = true;
 		$rq_mdl = sel_quo("*","dev_mdl","id_crc",$id,"ord");
 		while($dt_mdl = ftc_ass($rq_mdl)){
 			if($dt_mdl['trf']){
@@ -314,16 +313,16 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 			  $ptl = $dt_crc['ptl'];
 			  $psg = $dt_crc['psg'];
 			}
-			if($id_trf or ($flg_trf_mdl and $flg_trf_crc)){
+			if($id_trf or $flg_trf_crc){
 				$id_col = $dt_mdl['col'];
 				if($id_trf){
-					$flg_crc = true;
 					if(empty($dt_mdl['titre'])){$section->addText(stripslashes(replace($txt_prg->mdl->$id_lgg)).' '.$dt_mdl['ord'], $fs_mdl1[$id_trf], $paragraphStyle2);}
-					else{$section->addText(stripslashes(replace($dt_mdl['titre'])), $fs_mdl1[$id_trf], $paragraphStyle2);}
+					else{$section->addText(replace(mb_strtoupper(stripslashes($dt_mdl['titre']))), $fs_mdl1[$id_trf], $paragraphStyle2);}
 				}
-				else{
-					$flg_trf_mdl=false;
-					if($flg_crc){$section->addText(stripslashes(replace($txt_prg->crc->$id_lgg)), $fs_mdl1[$id_trf], $paragraphStyle2);}
+				elseif($flg_trf_crc) {
+					if($vols_dom) {$section->addText(stripslashes(replace($txt_prg->crc2->$id_lgg)), $fontStyle13, $paragraphStyle2);}
+					else {$section->addText(stripslashes(replace($txt_prg->crc1->$id_lgg)), $fontStyle13, $paragraphStyle2);}
+					$flg_trf_crc = false;
 				}
 				foreach(array_unique($err_hbr_jrn[$id_trf]) as $jrn){
 					if($err_hbr_def[$id_trf][$jrn]){$section->addText(stripslashes(replace($txt->err->hbr_def->$id_lng)).$jrn, $fontStyle10, $paragraphStyle2);}
