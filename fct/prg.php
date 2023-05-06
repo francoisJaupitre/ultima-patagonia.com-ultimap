@@ -99,12 +99,12 @@ while($dt_mdl = ftc_ass($rq_mdl)){
 		$lst_mdl['col'][$id_mdl] = 1;
 		$lst_mdl['trf'][$id_mdl] = 0;
 	}
-	$txt_mdl[1][$id_mdl] = '';
-	if(($cbl=='dev' and $dt_mdl['trf']) or (!empty($dt_mdl['dsc']) and $cbl!='mdl')){
+	$txt_mdl[1][$id_mdl] = $txt_mdl[2][$id_mdl] = '';
+	if(!empty($dt_mdl['dsc'])) {
 		if(empty($dt_mdl['titre'])){$txt_mdl[1][$id_mdl] = $txt_prg->mdl->$id_lgg.' '.$lst_mdl['ord'][$id_mdl];}
 		else{$txt_mdl[1][$id_mdl] = $dt_mdl['titre'];}
+		$txt_mdl[2][$id_mdl]= $dt_mdl['dsc'];
 	}
-	$txt_mdl[2][$id_mdl]= $dt_mdl['dsc'];
 	if($cbl=='dev'){$rq_max_jrn = sel_quo("MAX(ord)","dev_jrn","id_mdl",$id_mdl);}
 	elseif($cbl=='crc'){$rq_max_jrn = sel_quo("MAX(ord)","cat_mdl_jrn","id_mdl",$id_mdl);}
 	if($cbl!='mdl'){$max_jrn = ftc_num($rq_max_jrn);}

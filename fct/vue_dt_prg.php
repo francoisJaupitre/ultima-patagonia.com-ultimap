@@ -108,31 +108,35 @@ elseif(!$clt_tmpl[$id_clt]){
 	<div class="div3">
 <?php
 }
-if(!empty($txt_crc[3])){
+if(!empty($cbl!='mdl' and $txt_crc[3])){
 ?>
 		<div class="fs4"><?php echo stripslashes(trim($txt_crc[3])) ?></div>
 		<br />
 <?php
 }
+elseif($cbl=='mdl' and !empty($txt_mdl[2][$id])){
+	?>
+			<div class="fs4"><?php echo stripslashes(trim($txt_mdl[2])) ?></div>
+			<br />
+	<?php
+	}
 ?>
 		<br />
 <?php
 if(isset($lst_mdl['id'])){
 	foreach($lst_mdl['id'] as $id_mdl){
 		$id_col = $lst_mdl['col'][$id_mdl];
-		if($lst_mdl['trf'][$id_mdl]) {
-			if(!empty($txt_mdl[1][$id_mdl])){
+		if($cbl !='mdl' and !empty($txt_mdl[1][$id_mdl])){
 ?>
 		<div class="fs_mdl" style="color:#<?php echo $col[$id_col] ?>;"><?php echo stripslashes(trim($txt_mdl[1][$id_mdl])) ?></div>
 		<br />
 <?php
-			}
-			if(!empty($txt_mdl[2][$id_mdl])){
+		}
+		if(!empty($txt_mdl[2][$id_mdl])){
 ?>
 		<div class="fs4"><?php echo stripslashes(trim($txt_mdl[2][$id_mdl])) ?></div>
 		<br />
 <?php
-			}
 		}
 		if(isset($lst_jrn[$id_mdl]['id'])){
 			foreach($lst_jrn[$id_mdl]['id'] as $id_jrn){
@@ -361,10 +365,13 @@ if($cbl=='dev'){
 			<span class="fs_mdl1" style="color:#<?php echo $col[$id_col]; ?>"><?php if(empty($dt_mdl['titre'])) {echo stripslashes($txt_prg->mdl->$id_lgg).' '.$dt_mdl['ord'];} else{echo mb_strtoupper(stripslashes(trim($dt_mdl['titre'])));} ?></span>
 <?php
 				}
-				elseif($flg_trf_crc) {
+				elseif($flg_trf_crc)
+				{
+					if(count(array_unique($lst_mdl['trf'])) >1) {
 ?>
 			<span class="fs13"><?php if($vols_dom) {echo stripslashes($txt_prg->crc2->$id_lgg);} else {echo stripslashes($txt_prg->crc1->$id_lgg);} ?></span>
 <?php
+					}
 					$flg_trf_crc = false;
 				}
 

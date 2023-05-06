@@ -183,16 +183,14 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 			$fs_mdl3[$id_trf] = array('name' => 'Verdana', 'color'=>$col[$id_col], 'size'=>10);
 			$fs_jrn = array('name' => 'Verdana', 'color'=>$col[$id_col], 'size'=>10, 'bold'=>true);
 			$cs_mdl = array('valign'=>'center', 'borderBottomSize'=>15, 'borderBottomColor' => $col[$id_col]);
-			if($cbl!='mdl' and $lst_mdl['trf'][$id_mdl]) {
-				if(!empty($txt_mdl[1][$id_dev_mdl])){
-					$section->addText(stripslashes(replace(nl2br(trim($txt_mdl[1][$id_dev_mdl])))), $fs_mdl[$id_trf], $paragraphStyle2);
-					$section->addText('', $fontStyle3, $paragraphStyle);
-				}
-				if(!empty($txt_mdl[2][$id_dev_mdl])){
-					$dsc = explode('<br />',stripslashes(replace(nl2br(trim($txt_mdl[2][$id_dev_mdl])))));
-					foreach($dsc as $lgn){addrichText($section,trim($lgn), $fontStyle4, $paragraphStyle2,PHPWord_Style_Font::UNDERLINE_SINGLE,$fgcolor);}
-					$section->addText('', $fs_mdl[$id_trf], $paragraphStyle2);
-				}
+			if($cbl !='mdl' and !empty($txt_mdl[1][$id_dev_mdl])){
+				$section->addText(stripslashes(replace(nl2br(trim($txt_mdl[1][$id_dev_mdl])))), $fs_mdl[$id_trf], $paragraphStyle2);
+				$section->addText('', $fontStyle3, $paragraphStyle);
+			}
+			if(!empty($txt_mdl[2][$id_dev_mdl])){
+				$dsc = explode('<br />',stripslashes(replace(nl2br(trim($txt_mdl[2][$id_dev_mdl])))));
+				foreach($dsc as $lgn){addrichText($section,trim($lgn), $fontStyle4, $paragraphStyle2,PHPWord_Style_Font::UNDERLINE_SINGLE,$fgcolor);}
+				$section->addText('', $fs_mdl[$id_trf], $paragraphStyle2);
 			}
 			if(isset($lst_jrn[$id_dev_mdl]['id'])){
 				foreach($lst_jrn[$id_dev_mdl]['id'] as $id_jrn){
