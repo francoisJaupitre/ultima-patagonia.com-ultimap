@@ -28,7 +28,8 @@ while($dt_sel_jrn = ftc_ass($rq_sel_jrn)){
 if(!$flg_err_mdl){
 	$id_cat_mdl = insert("cat_mdl",array("nom",'dt_cat','usr'),array($nom_mdl,date("Y-m-d"),$id_usr));
 	insert("cat_mdl_txt",array("id_mdl","lgg","titre","dsc"),array($id_cat_mdl,$id_lgg,$dt_sel_mdl['titre'],$dt_sel_mdl['dsc']));
-	while($dt_rgn = ftc_ass(sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl))){insert("cat_mdl_rgn",array("id_mdl","id_rgn"),array($id_cat_mdl,$dt_rgn['id_rgn']));}
+	$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
+	while($dt_rgn = ftc_ass($rq_rgn)) {insert("cat_mdl_rgn",array("id_mdl","id_rgn"),array($id_cat_mdl,$dt_rgn['id_rgn']));}
 	upd_quo("dev_mdl",array("id_cat","nom"),array($id_cat_mdl,$nom_mdl),$id_dev_mdl);
 	if(isset($jrn_id)){
 		foreach($jrn_id as $i => $jrn_id_cat){insert("cat_mdl_jrn",array("id_mdl","id_jrn","ord","opt"),array($id_cat_mdl,$jrn_id_cat,$jrn_ord[$i],$jrn_opt[$i]));}
