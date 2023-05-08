@@ -118,6 +118,15 @@ if(isset($_POST['obj'])){
 			if($dt_mdl['sgl'] + ($dt_mdl['dbl_mat'] + $dt_mdl['dbl_twn']) * 2 + ($dt_mdl['tpl_mat'] + $dt_mdl['tpl_twn']) * 3 + $dt_mdl['qdp'] * 4 != $dt_bss_mdl['base'] + $dt_mdl['ptl'] - $dt_mdl['psg']) {echo $txt->err->rmn->$id_lng;}
 		}
 	}
+	elseif(substr($obj,0,7)=='mdl_rgn'){
+		$id_dev_mdl = substr($obj,7);
+		$id_rgn = $id;
+		$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
+		while($dt_rgn = ftc_ass($rq_rgn)){$ids_rgn[] = $dt_rgn['id_rgn'];}
+		$cbl = 'mdl';
+		include("../cfg/rgn.php");
+		include("vue_mdl_rgn.php");
+	}
 	elseif(substr($obj,0,7)=='jrn_jrn'){
 		$id_sel_jrn = substr($obj,7);
 		$dt_jrn = ftc_ass(sel_quo("id_mdl,ord","dev_jrn","id",$id_sel_jrn));

@@ -90,6 +90,14 @@ if(isset($_POST['cbl']) and isset($_POST['src']) and isset($_POST['obj']) and is
 			while($dt_pax = ftc_ass($rq_pax)){$lst_pax[] = $dt_pax['id_pax'];}
 			include("vue_lst_pax.php");
 		}
+		elseif(substr($obj,0,7)=='mdl_rgn'){
+			$id_dev_mdl = substr($obj,7);
+			$id_rgn = $id;
+			$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
+			while($dt_rgn = ftc_ass($rq_rgn)){$ids_rgn[] = $dt_rgn['id_rgn'];}
+			include("../cfg/rgn.php");
+			include("vue_lst_rgn.php");
+		}
 	}
 	elseif(substr($obj,0,11)=='vll_jrn_rpl'){
 		$id_sel_jrn = substr($obj,11);
@@ -132,7 +140,7 @@ if(isset($_POST['cbl']) and isset($_POST['src']) and isset($_POST['obj']) and is
 			$id_dev_jrn = substr($obj,7);
 			$ids = explode("_",$id);
 			$id_vll = $ids[0];
-			$id_ctg_prs = $ids[1];			
+			$id_ctg_prs = $ids[1];
 			include("../cfg/vll.php");
 			include("vue_lst_vll.php");
 		}

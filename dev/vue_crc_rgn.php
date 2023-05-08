@@ -4,7 +4,7 @@
 		<div>
 			<input type="hidden" id="rgn_crc<?php echo $id_dev_crc ?>" value="<?php echo $id_rgn ?>" />
 <?php
-if(isset($id_rgn) and $id_rgn>0){echo stripslashes($rgn[$id_rgn]);}
+if(isset($id_rgn) and $id_rgn>0) {echo stripslashes($rgn[$id_rgn]);}
 else{echo $txt->rgn->$id_lng;}
 ?>
 		</div>

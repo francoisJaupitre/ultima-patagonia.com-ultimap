@@ -12,40 +12,19 @@ if(isset($_POST['id_dev_mdl'])){
 	$ord_mdl = $dt_mdl['ord'];
 	$fus_mdl = $dt_mdl['fus'];
 	$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
-	while($dt_rgn = ftc_ass($rq_rgn)){$ids_rgn[] = $dt_rgn['id_rgn'];}
+	while($dt_rgn = ftc_ass($rq_rgn)) {$ids_rgn[] = $dt_rgn['id_rgn'];}
 	include("../cfg/vll.php");
 	include("../cfg/rgn.php");
 }
 if($vue_mdl and $aut['dev'] and $cnf<1){
+	$cbl = "mdl";
 ?>
 <table>
 	<tr>
 		<td class="lcrl">
-<?php
-	if(isset($ids_rgn)){
-?>
-
-<?php
-		echo $txt->rgn->$id_lng.'(s) : ';
-		foreach ($ids_rgn as $id_rgn) {echo '<strong>'.$rgn[$id_rgn].'</strong> | ';}
-		if($aut['dev']) {
-?>
-			<span class="dib">
-				<div class="sel" onclick="vue_cmd('sel_rgn<?php echo $id_dev_mdl ?>')">
-					<img src="../prm/img/sel.png" />
-					<div><?php echo $txt->ajt->$id_lng; ?></div>
-				</div>
-				<div id="sel_rgn<?php echo $id_dev_mdl ?>" class="cmd mw200">
-					<div><input type="text" id="ipt_sel_rgn<?php echo $id_dev_mdl ?>" onkeyup="auto_lst('mdl','rgn<?php echo $id_dev_mdl ?>',this.value,event);" /></div>
-					<div id="lst_rgn<?php echo $id_dev_mdl ?>"><?php $cbl = "mdl"; include("vue_lst_rgn.php") ?></div>
-				</div>
-			</span>
-<?php
-		}
-	}
-?>
-			</td>
-		</tr>
+			<span id="mdl_rgn<?php echo $id_dev_crc ?>" class="rgn"><?php include("vue_mdl_rgn.php"); ?></span>
+		</td>
+	</tr>
 	<tr>
 <?php
 	if($id_cat_mdl>0){
