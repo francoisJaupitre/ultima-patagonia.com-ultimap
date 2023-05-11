@@ -12,6 +12,7 @@ if(isset($_POST['id']) and $_POST['id']>0 and isset($_POST['cbl']) and !empty($_
 	include("prg.php");
 	include("trf.php");
 }
+include("../cfg/crr.php");
 include("ttr.php");
 if($cbl=='dev' and $vrs>1){$ttr .= "_V".$vrs;}
 
@@ -1263,7 +1264,7 @@ if($cbl=='dev'){
 				<div class="fs6">
 					La devise est le peso argentin (ARS).
 					<br />
-					Taux de change (cours indicatif) : 1 € = 130 ARS environ.
+					Taux de change (cours indicatif) : 1 € = <?php echo number_format($cfg_crr_txf[3]*$cfg_crr_txf[2]/10,$cfg_crr_dcm[3],'.','')*10; ?> ARS environ.
 					<br />
 					Nous vous conseillons d’emporter des euros, que vous pouvez changer dans les principales grandes villes. Evitez de changer dans la rue (faux billets courants). Les paiements par carte bancaire sont possibles, mais les commerces facturent souvent un supplément (recargo) ; posez la question avant de payer. Des distributeurs automatiques de billets sont également disponibles dans les villes ou leurs aéroports (Buenos Aires, Ushuaia, El Calafate, Salta...), pour cartes Visa, Mastercard, etc.
 				</div>
