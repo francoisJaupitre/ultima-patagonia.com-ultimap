@@ -126,18 +126,24 @@ elseif($cbl=='mdl' and !empty($txt_mdl[2][$id])){
 if(isset($lst_mdl['id'])){
 	foreach($lst_mdl['id'] as $id_mdl){
 		$id_col = $lst_mdl['col'][$id_mdl];
+?>
+		<div style="page-break-inside: avoid">
+<?php
 		if($cbl !='mdl' and !empty($txt_mdl[1][$id_mdl])){
 ?>
-		<div class="fs_mdl" style="color:#<?php echo $col[$id_col] ?>;"><?php echo stripslashes(trim($txt_mdl[1][$id_mdl])) ?></div>
-		<br />
+			<div class="fs_mdl" style="color:#<?php echo $col[$id_col] ?>;"><?php echo stripslashes(trim($txt_mdl[1][$id_mdl])) ?></div>
+			<br />
 <?php
 		}
 		if(!empty($txt_mdl[2][$id_mdl])){
 ?>
-		<div class="fs4"><?php echo stripslashes(trim($txt_mdl[2][$id_mdl])) ?></div>
-		<br />
+			<div class="fs4"><?php echo stripslashes(trim($txt_mdl[2][$id_mdl])) ?></div>
+			<br />
 <?php
 		}
+?>
+		</div>
+<?php
 		if(isset($lst_jrn[$id_mdl]['id'])){
 			foreach($lst_jrn[$id_mdl]['id'] as $id_jrn){
 ?>
@@ -156,6 +162,7 @@ if(isset($lst_mdl['id'])){
 					if(isset($txt_jrn[3][$id_jrn])){
 ?>
 						<div class="fs6"><?php foreach($txt_jrn[3][$id_jrn] as $dsc_jrn){echo stripslashes(nl2br(trim($dsc_jrn)));} ?></div>
+						<br />
 <?php
 					}
 					if(isset($txt_jrn[4][$id_jrn])){
@@ -230,6 +237,7 @@ if(isset($lst_mdl['id'])){
 					if(isset($txt_jrn[3][$id_jrn])){
 ?>
 			<div class="fs6"><?php foreach($txt_jrn[3][$id_jrn] as $dsc_jrn){echo stripslashes(trim($dsc_jrn));} ?></div>
+			<br />
 <?php
 					}
 					if(isset($txt_jrn[4][$id_jrn])){

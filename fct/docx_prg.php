@@ -42,11 +42,13 @@ function addrichText($sec,$str,$fs,$ps,$underline,$fgcolor){
 						unset($span[$j]);
 					}
 				}
-				elseif($i==8){
+				elseif($i==8){ //<span
 					$pos = strpos($str,'style="');
+					if($pos == false) {$pos = strpos($str,"style='");}
 					if($pos < strpos($str,'>')){
 						$str = substr($str,$pos+7);
-						$style=explode(";",strstr($str,'">',true));
+						$style = explode(";",strstr($str,'">',true));
+						if($style == false) {$style = explode(";",strstr($str,"'>",true));}
 						unset($style[count($style)-1]);
 						foreach($style as $stl){
 							foreach($tag10 as $i10 => $t10){
@@ -60,6 +62,7 @@ function addrichText($sec,$str,$fs,$ps,$underline,$fgcolor){
 						}
 					}
 					$pos = strpos($str,'">');
+					if($pos == false) {$pos = strpos($str,"'>");}
 					$str = substr($str,$pos+2);
 					$j++;
 				}
@@ -210,6 +213,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 								else{addrichText($section,trim($lgn), $fontStyle6, $paragraphStyle2,PHPWord_Style_Font::UNDERLINE_SINGLE,$fgcolor);}
 							}
 						}
+						$section->addText('', $fontStyle6, $paragraphStyle2);
 					}
 					$dsc = explode('<br />',stripslashes(replace(nl2br(trim($txt_jrn[4][$id_jrn])))));
 					foreach($dsc as $lgn){

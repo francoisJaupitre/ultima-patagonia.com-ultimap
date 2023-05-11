@@ -179,7 +179,7 @@ while($dt_mdl = ftc_ass($rq_mdl)){
 				if(!empty($dt_jrn_pic['id'])){$flg_img[$id_jrn] = true;}
 			}
 			if($flg_fus){
-				$txt_jrn[3][$id_jrn]=$fus_dsc;
+				$txt_jrn[3][$id_jrn] = $fus_dsc;
 				foreach($txt_jrn[3][$id_jrn] as $dsc_jrn){
 					$dsc = explode('<br />',stripslashes(nl2br(trim($dsc_jrn))));
 					foreach($dsc as $lgn){$l = $l + intval(mb_strlen(trim($lgn),'UTF-8')/$chr) +1;}
