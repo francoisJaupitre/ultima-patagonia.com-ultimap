@@ -7,7 +7,7 @@ $file = file_get_contents("../tmp/".$dir."/".$ttr.".html","r");
 $file = trim(preg_replace($emoji_regex, '-',$file)); //remove emojis
 $file = str_replace($emoji,' ',$file);
 $html = urldecode($file);
-require_once('../prm/dompdf/autoload.inc.php');
+require_once('../vendor/dompdf/autoload.inc.php');
 use Dompdf\Dompdf;
 use Dompdf\Options;
 $options = new Options();

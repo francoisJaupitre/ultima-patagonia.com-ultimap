@@ -215,7 +215,7 @@ function sup_frm(link,event){
 		var iframe = $("#"+ref)[0];
 		if(navonLine){
 			if(checkIframe){
-				if(typeof iframe.contentWindow.chk_rchtxt === 'function' && !iframe.contentWindow.chk_rchtxt()){return;}
+				if(typeof iframe.contentWindow.richTxtInit === 'function' && !iframe.contentWindow.richTxtInit()){return;}
 				if(typeof iframe.contentWindow.upd != 'undefined' && iframe.contentWindow.upd>0){setTimeout(function(){sup_frm(ref,event);return;},50);}
 				else{setTimeout(close(ref),50);return;}
 			}

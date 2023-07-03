@@ -5,8 +5,8 @@ if(isset($_GET['id']) and isset($_GET['frn'])){
 	$obj = 'doc';
 	include("res_frn.php");
 	//DOC SETTINGS
-	require "../prm/vendor/autoload.php";
-	//require_once '../prm/PHPWord.php';
+	require "../vendor/autoload.php";
+	//require_once '../vendor/PHPWord.php';
 	//$sectionStyle = array('orientation' => null,'marginLeft' => 1200,'marginRight' => 1000,'marginTop' => 900,'marginBottom' => 800);
 	$fontStyle2 = array('name' => 'Arial', 'color'=>'FF0000', 'size'=>10);
 	$paragraphStyle = array('align'=>'left','spaceBefore'=>0,'spaceAfter'=>0,'spacing'=>0);

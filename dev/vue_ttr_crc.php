@@ -78,8 +78,8 @@ if($aut['cat'] and $id_cat_crc == 0){
 <?php
 if($aut['res']){
 ?>
-				<li onclick="mel_hbr(0);"><?php echo $txt->mailshbr->$id_lng; ?></li>
-				<li onclick="mel_frn(0);"><?php echo $txt->mailsfrn->$id_lng; ?></li>
+				<li onclick="mailHbr(0);"><?php echo $txt->mailshbr->$id_lng; ?></li>
+				<li onclick="mailFrn(0);"><?php echo $txt->mailsfrn->$id_lng; ?></li>
 <?php
 }
 ?>

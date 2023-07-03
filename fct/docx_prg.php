@@ -92,7 +92,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 	include("prg.php");
 	include("ttr.php");
 //DOC SETTINGS
-	require_once '../prm/PHPWord.php';
+	require_once '../vendor/PHPWord.php';
 	$PHPWord = new PHPWord();
 	$fgcolor = array(
 		'FFFF00'=>PHPWord_Style_Font::FGCOLOR_YELLOW,

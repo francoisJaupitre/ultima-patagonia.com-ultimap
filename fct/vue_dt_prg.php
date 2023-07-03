@@ -40,7 +40,7 @@ if($clt_tmpl[$id_clt]==1){
 		<div class="div0 bg-black">
 			<img src="<?php echo '../prm/img/'.$dir.'/'.$nom_clt.$n_img.'.'.$ext_img[$n_img] ?>" width="<?php echo $wdts_img[$n_img];$n_img++; ?>"/>
 		 	<div class="text-white h1">
-				<div class="div1">
+				<div class="title1">
 					<span class="sp0"><?php echo $txt_clt->txt0->$id_lgg; ?></span>
 				</div>
 			</div>
@@ -97,9 +97,9 @@ elseif(!$clt_tmpl[$id_clt]){
 		<img src="<?php echo '../prm/img/'.$dir.'/bandeau1.jpg' ?>" width="800"/>
 		<table class="w-100">
 			<tr>
-				<td><div class="div1 wsn"><?php echo $txt_prg->bandeau->$id_lgg ?></div></td>
+				<td><div class="title1 wsn"><?php echo $txt_prg->bandeau->$id_lgg ?></div></td>
 				<td>
-					<div class="div1"><?php echo stripslashes(trim($txt_crc[1])) ?></div>
+					<div class="title1"><?php echo stripslashes(trim($txt_crc[1])) ?></div>
 					<div class="div2"><?php echo stripslashes(trim($txt_crc[2])) ?></div>
 				</td>
 			</tr>

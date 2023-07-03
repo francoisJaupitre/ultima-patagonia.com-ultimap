@@ -68,54 +68,70 @@ if(isset($_POST['id_dev_mdl'])){
 		}
 		$nb_rmn_crc = ftc_ass(select("COUNT(*) as total","dev_crc_rmn","id_crc",$id_dev_crc));
 	}
+	$rq_prs = select("dev_prs.id,dev_prs.nom,dev_prs.opt,dev_prs.ord,dev_prs.id_cat,id_jrn","dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id","id_mdl",$id_dev_mdl,"ord,opt DESC,nom,id");
+	while($dt_prs = ftc_ass($rq_prs)){
+		$prs_datas[$dt_prs['id_jrn']][$dt_prs['id']]['nom'] = $dt_prs['nom'];
+		$prs_datas[$dt_prs['id_jrn']][$dt_prs['id']]['opt'] = $dt_prs['opt'];
+		$prs_datas[$dt_prs['id_jrn']][$dt_prs['id']]['ord'] = $dt_prs['ord'];
+		$prs_datas[$dt_prs['id_jrn']][$dt_prs['id']]['id_cat'] = $dt_prs['id_cat'];
+	}
+	$rq_jrn = select("*","dev_jrn","id_mdl",$id_dev_mdl,"ord,opt DESC");
+	while($dt_jrn = ftc_ass($rq_jrn)){
+		$jrn_datas[$dt_jrn['id']]['id_cat'] = $dt_jrn['id_cat'];
+		$jrn_datas[$dt_jrn['id']]['date'] = $dt_jrn['date'];
+		$jrn_datas[$dt_jrn['id']]['opt'] = $dt_jrn['opt'];
+		$jrn_datas[$dt_jrn['id']]['ord'] = $dt_jrn['ord'];
+		$jrn_datas[$dt_jrn['id']]['nom'] = $dt_jrn['nom'];
+		$jrn_datas[$dt_jrn['id']]['titre'] = $dt_jrn['titre'];
+		$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
+	}
 }
 if($id_cat_mdl>-1){
 	if($vue_mdl == 1){
-		$nb_jrn = ftc_ass(select("COUNT(*) as total","dev_jrn","id_mdl",$id_dev_mdl));
-		if($nb_jrn['total'] > 0){
-			$min_jrn = ftc_num(select("MIN(ord)","dev_jrn","id_mdl",$id_dev_mdl));
-			$max_jrn = ftc_num(select("MAX(ord)","dev_jrn","id_mdl",$id_dev_mdl));
-			$rq_jrn = select("*","dev_jrn","id_mdl",$id_dev_mdl,"ord,opt DESC");
-			while($dt_jrn = ftc_ass($rq_jrn)){
-				$id_dev_jrn = $dt_jrn['id'];
-				$id_cat_jrn = $dt_jrn['id_cat'];
-				$date_jrn = $dt_jrn['date'];
-				$opt_jrn = $dt_jrn['opt'];
-				$ord_jrn = $dt_jrn['ord'];
-				$nom_jrn = $dt_jrn['nom'];
-				$ttr_jrn = $dt_jrn['titre'];
-				$dsc_jrn = $dt_jrn['dsc'];
-				$nb_jrn_opt = ftc_ass(select("COUNT(*) as total","dev_jrn","ord=".$ord_jrn." AND id_mdl",$id_dev_mdl));
-				if($nb_jrn_opt['total'] > 1){$flg_jrn_opt = true;}
-				else{$flg_jrn_opt = false;}
-				unset($trf_net,$trf_rck);
-				if(!isset($jrn_opt_id_cat)){
-					$id_sel_jrn = $id_dev_jrn;
-					echo  '<br />';
-				}
-				$jrn_opt_id_cat[] = $id_cat_jrn;
-				$jrn_rpl_id_cat[] = $id_cat_jrn;
-				if(isset($jrn_vue) and in_array("vue_jrn".$id_dev_jrn,$jrn_vue)) {$vue_jrn=1;}
-				else{$vue_jrn = 0;}
+		if(isset($jrn_datas)) {
+			$nb_jrn = count($jrn_datas);
+			if($nb_jrn > 0){
+			//$nb_jrn = ftc_ass(select("COUNT(*) as total","dev_jrn","id_mdl",$id_dev_mdl));
+			//if($nb_jrn['total'] > 0){
+				$min_jrn = ftc_num(select("MIN(ord)","dev_jrn","id_mdl",$id_dev_mdl));
+				$max_jrn = ftc_num(select("MAX(ord)","dev_jrn","id_mdl",$id_dev_mdl));
+				foreach($jrn_datas as $id_dev_jrn => $dt_jrn) {
+			//$rq_jrn = select("*","dev_jrn","id_mdl",$id_dev_mdl,"ord,opt DESC");
+			//while($dt_jrn = ftc_ass($rq_jrn)){
+					$id_cat_jrn = $dt_jrn['id_cat'];
+					$date_jrn = $dt_jrn['date'];
+					$opt_jrn = $dt_jrn['opt'];
+					$ord_jrn = $dt_jrn['ord'];
+					$nom_jrn = $dt_jrn['nom'];
+					$ttr_jrn = $dt_jrn['titre'];
+					$dsc_jrn = $dt_jrn['dsc'];
+					$nb_jrn_opt = ftc_ass(select("COUNT(*) as total","dev_jrn","ord=".$ord_jrn." AND id_mdl",$id_dev_mdl));
+					if($nb_jrn_opt['total'] > 1){$flg_jrn_opt = true;}
+					else{$flg_jrn_opt = false;}
+					unset($trf_net,$trf_rck);
+					if(!isset($jrn_opt_id_cat)){
+						$id_sel_jrn = $id_dev_jrn;
+						echo  '<br />';
+					}
+					$jrn_opt_id_cat[] = $id_cat_jrn;
+					$jrn_rpl_id_cat[] = $id_cat_jrn;
+					if(isset($jrn_vue) and in_array("vue_jrn".$id_dev_jrn,$jrn_vue)) {$vue_jrn=1;}
+					else{$vue_jrn = 0;}
 ?>
 <div id="div_jrn<?php echo $id_dev_jrn ?>" class="jrn_jrn<?php echo $id_dev_mdl.'_'.$ord_jrn; if($opt_jrn){echo ' sel_opt';} ?>">
 	<div <?php if($id_cat_jrn>-1) {echo 'class="tbl_jrn"';} ?>>
 		<table id="vue_ttr_jrn_<?php echo $id_dev_jrn ?>" <?php if($id_cat_jrn>0){echo 'class="up_jrn'.$id_cat_jrn.'"';} if($id_cat_jrn > -1){echo 'width="100%"';} ?>><?php include("vue_ttr_jrn.php"); ?></table>
 <?php
-				if($id_cat_jrn>-1){
+					if($id_cat_jrn>-1){
 ?>
-		<div id="vue_dsc_dt_end_jrn_<?php echo $id_dev_jrn ?>">
-			<table id="vue_dsc_jrn_<?php echo $id_dev_jrn ?>" class="w-100"><?php if($vue_jrn){include("vue_dsc_jrn.php");} ?></table>
-			<div id="vue_dt_jrn_<?php echo $id_dev_jrn ?>" <?php if(!$vue_jrn){echo 'class="up_prs"';} ?> style="overflow-x: auto;"><?php include("vue_dt_jrn.php"); ?></div>
-			<div id="vue_end_jrn_<?php echo $id_dev_jrn ?>" class="text-center"><?php include("vue_end_jrn.php"); ?></div>
-		</div>
+		<div id="vue_dsc_dt_end_jrn_<?php echo $id_dev_jrn ?>"><?php include("vue_dsc_dt_end_jrn.php"); ?></div>
 <?php
-				}
-				if($nb_jrn_opt['total'] == count($jrn_opt_id_cat)){
+					}
+					if($nb_jrn_opt['total'] == count($jrn_opt_id_cat)){
 ?>
 	</div>
 <?php
-					if($id_cat_jrn!=-1 and (($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0))){
+						if($id_cat_jrn!=-1 and (($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0))){
 ?>
 		<div id="rpl_opt_jrn<?php echo $id_sel_jrn ?>" class="text-center">
 			<table>
@@ -126,13 +142,14 @@ if($id_cat_mdl>-1){
 			</table>
 		</div>
 <?php
+						}
+						unset($jrn_opt_id_cat);
 					}
-					unset($jrn_opt_id_cat);
-				}
 ?>
 	</div>
-	</div>
+</div>
 <?php
+				}
 			}
 		}
 	}

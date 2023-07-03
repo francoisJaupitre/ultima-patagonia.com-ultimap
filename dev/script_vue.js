@@ -111,20 +111,18 @@ function chk_mdl(id_dev_mdl) {
 		if(vuejrn[i].checked) {jrn_vue += vuejrn[i].id+'|';}
 	}
 	if($("#chk_mdl"+id_dev_mdl).is(':checked')) {
-		$.when(
-			$.ajax({url:'vue_dsc_mdl.php',type:'POST',data:{id_dev_mdl:id_dev_mdl,id_dev_crc:id_dev_crc,cnf:cnf}}),
-			$.ajax({url:'vue_dt_mdl.php',type:'POST',data:{id_dev_mdl:id_dev_mdl,vue:1,jrn_vue:jrn_vue,id_dev_crc:id_dev_crc,cnf:cnf}}),
-			$.ajax({url:'vue_end_mdl.php',type:'POST',data:{id_dev_mdl:id_dev_mdl,vue:1,id_dev_crc:id_dev_crc,cnf:cnf}}),
-		).then(function(a1,a2,a3) {
-			document.getElementById("vue_dsc_mdl_"+id_dev_mdl).innerHTML = a1[0];
-			document.getElementById("vue_dt_mdl_"+id_dev_mdl).innerHTML = a2[0];
-			document.getElementById("vue_end_mdl_"+id_dev_mdl).innerHTML = a3[0];
-			$("#vue_dsc_rmn_dt_end_mdl_"+id_dev_mdl).hide();
-			$("#vue_dsc_rmn_dt_end_mdl_"+id_dev_mdl).stop(true,true).slideDown();
-			$('input[type=number]').on('wheel', function(e) {return false;});
-		});
-		$("#vue_dt_mdl_"+id_dev_mdl).removeClass().addClass('dboa');
-		unload('DEV chk_mdl');
+		eval('var xmlhttp_chk_mdl'+id_dev_mdl+'=new XMLHttpRequest()')
+		eval('xmlhttp_chk_mdl'+id_dev_mdl).addEventListener("load",()=>{
+			if(eval('xmlhttp_chk_mdl'+id_dev_mdl).status == 200) {
+				document.getElementById("vue_dsc_rmn_dt_end_mdl_"+id_dev_mdl).innerHTML = eval('xmlhttp_chk_mdl'+id_dev_mdl).responseText;
+				$('input[type=number]').on('wheel', function(e) {return false;});
+				$("#vue_dt_mdl_"+id_dev_mdl).removeClass().addClass('dboa');
+				unload('DEV chk_mdl');
+			}
+		})
+		eval('xmlhttp_chk_mdl'+id_dev_mdl).open("POST","vue_dsc_rmn_dt_end_mdl.php",true);
+		eval('xmlhttp_chk_mdl'+id_dev_mdl).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		eval('xmlhttp_chk_mdl'+id_dev_mdl).send("id_dev_mdl="+id_dev_mdl+"&vue=1&jrn_vue="+jrn_vue+"&id_dev_crc="+id_dev_crc+"&cnf="+cnf);
 	}
 	else{
 		$("#vue_dsc_rmn_dt_end_mdl_"+id_dev_mdl).stop(true,true).slideUp();
@@ -241,20 +239,18 @@ function sel_jrn(cbl,id_dev_mdl,id_ref_jrn,vue) {
 function chk_jrn(id_dev_jrn) {
 	load('DEV chk_jrn');
 	if($("#chk_jrn"+id_dev_jrn).is(':checked')) {
-		$.when(
-			$.ajax({url:'vue_dsc_jrn.php',type:'POST',data:{id_dev_jrn:id_dev_jrn,id_dev_crc:id_dev_crc,cnf:cnf}}),
-			$.ajax({url:'vue_dt_jrn.php',type:'POST',timeout:5000,data:{id_dev_jrn:id_dev_jrn,vue:1,id_dev_crc:id_dev_crc,cnf:cnf}}),//timeout evite error 500 avec sel_jrn
-			$.ajax({url:'vue_end_jrn.php',type:'POST',timeout:5000,data:{id_dev_jrn:id_dev_jrn,vue:1,id_dev_crc:id_dev_crc,cnf:cnf}}),//timeout evite error 500 avec sel_jrn
-		).then(function(a1,a2,a3) {
-			document.getElementById("vue_dsc_jrn_"+id_dev_jrn).innerHTML = a1[0];
-			document.getElementById("vue_dt_jrn_"+id_dev_jrn).innerHTML = a2[0];
-			document.getElementById("vue_end_jrn_"+id_dev_jrn).innerHTML = a3[0];
-			$("#vue_dsc_dt_end_jrn_"+id_dev_jrn).hide();
-			$("#vue_dsc_dt_end_jrn_"+id_dev_jrn).stop(true,true).slideDown();
-		});
-		$("#vue_dt_jrn_"+id_dev_jrn).removeClass();
-
-		unload('DEV chk_jrn');
+		eval('var xmlhttp_chk_jrn'+id_dev_jrn+'=new XMLHttpRequest()')
+		eval('xmlhttp_chk_jrn'+id_dev_jrn).addEventListener("load",()=>{
+			if(eval('xmlhttp_chk_jrn'+id_dev_jrn).status == 200) {
+				document.getElementById("vue_dsc_dt_end_jrn_"+id_dev_jrn).innerHTML = eval('xmlhttp_chk_jrn'+id_dev_jrn).responseText;
+				$('input[type=number]').on('wheel', function(e) {return false;});
+				$("#vue_dt_jrn_"+id_dev_jrn).removeClass();
+				unload('DEV chk_jrn');
+			}
+		})
+		eval('xmlhttp_chk_jrn'+id_dev_jrn).open("POST","vue_dsc_dt_end_jrn.php",true);
+		eval('xmlhttp_chk_jrn'+id_dev_jrn).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		eval('xmlhttp_chk_jrn'+id_dev_jrn).send("id_dev_jrn="+id_dev_jrn+"&vue=1&id_dev_crc="+id_dev_crc+"&cnf="+cnf);
 	}
 	else{
 		$("#vue_dsc_dt_end_jrn_"+id_dev_jrn).stop(true,true).slideUp();
@@ -275,37 +271,39 @@ function chk_jrn(id_dev_jrn) {
 function vue_jrn(cbl,id_dev_jrn,scrl) {
 	if(scrl == 're') {document.getElementById('txtHint').innerHTML = '';}
 	if(document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn)) {
-		if(eval('typeof xmlhttp_'+cbl+'_jrn'+id_dev_jrn)!== 'undefined') {
+		if(eval('typeof xmlhttp_'+cbl+'_jrn'+id_dev_jrn) !== 'undefined') {
 			eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).abort();
 			if(scrl!=1) {unload('DEV vue_'+cbl+'_jrn');}
 		}
-		if($("#chk_jrn"+id_dev_jrn).is(':checked') || $("#chk_jrn"+id_dev_jrn).length==0) {var vue=1;}
-		else{var vue=0;}
-		if(window.XMLHttpRequest) {eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn+'=new XMLHttpRequest()');}
-		else{eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn+'=new ActiveXObject("Microsoft.XMLHTTP")');}
-		if(vue==0 && cbl=='dsc') {
-			if(document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn)) {document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn).innerHTML="";}
+		if($("#chk_jrn"+id_dev_jrn).is(':checked') || $("#chk_jrn"+id_dev_jrn).length==0) {var vue = 1;}
+		else{var vue = 0;}
+		if(vue == 0 && cbl == 'dsc') {
+			if(document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn)) {document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn).innerHTML = "";}
 			return;
 		}
-		if(scrl!=1) {load('DEV vue_'+cbl+'_jrn');}
-		eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).onreadystatechange=function() {
-			if(eval('typeof xmlhttp_'+cbl+'_jrn'+id_dev_jrn) !== 'undefined' && eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).readyState==4) {
-				if(eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).status==200) {
-					if(document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn)) {document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn).innerHTML=eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).responseText;$('input[type=number]').on('wheel', function(e) {return false;});}
-					if(scrl!=1) {unload('DEV vue_'+cbl+'_jrn');}
+		if(scrl != 1) {load('DEV vue_'+cbl+'_jrn');}
+		eval('var xmlhttp_'+cbl+'_jrn'+id_dev_jrn+'=new XMLHttpRequest()')
+		eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).addEventListener("load",()=>{
+			if(eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).status == 200) {
+				if(document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn)) {
+					document.getElementById("vue_"+cbl+"_jrn_"+id_dev_jrn).innerHTML = eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).responseText;
+					$('input[type=number]').on('wheel', function(e) {return false;});
 				}
-				else if(eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).status==408) {vue_jrn(cbl,id_dev_jrn,scrl);if(scrl!=1) {unload('DEV vue_'+cbl+'_jrn');}}
-				else if(eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).status) {
-					document.getElementById("txtHint").innerHTML = '<span style="background: red;">ERREUR VUE_JRN '+eval("xmlhttp_"+cbl+"_jrn"+id_dev_jrn).statusText+' <br />';
-					document.getElementById("txtHint").innerHTML += '<button onclick="vue_jrn(\''+cbl+'\','+id_dev_jrn+',\'re\');">REESSAYER</button></span>';
-				}
+				if(scrl !=1) {unload('DEV vue_'+cbl+'_jrn');}
+				else if(cbl=='dt') {unload('DEV scroll2');}
 			}
-			else if(eval('typeof xmlhttp_'+cbl+'_jrn'+id_dev_jrn) === 'undefined') {
-				if(scrl!=1) {unload('DEV vue_'+cbl+'_jrn');}
-				return;
+			else if(eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).status==408) {
+				if(scrl !=1) {unload('DEV vue_'+cbl+'_jrn');}
+				else if(cbl=='dt') {unload('DEV scroll2');}
+				vue_jrn(cbl,id_dev_jrn,scrl);
 			}
-			if(scrl==1 && cbl=='dt') {unload('DEV scroll2');}
-		}
+			else if(eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).status) {
+				if(scrl !=1) {unload('DEV vue_'+cbl+'_jrn');}
+				else if(cbl=='dt') {unload('DEV scroll2');}
+				document.getElementById("txtHint").innerHTML = '<span style="background: red;">ERREUR VUE_JRN '+eval("xmlhttp_"+cbl+"_jrn"+id_dev_jrn).statusText+' <br />';
+				document.getElementById("txtHint").innerHTML += '<button onclick="vue_jrn(\''+cbl+'\','+id_dev_jrn+',\'re\');">REESSAYER</button></span>';
+			}
+		})
 		eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).open("POST","vue_"+cbl+"_jrn.php",true);
 		eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		eval('xmlhttp_'+cbl+'_jrn'+id_dev_jrn).send("id_dev_jrn="+id_dev_jrn+"&vue="+vue+"&id_dev_crc="+id_dev_crc+"&cnf="+cnf);

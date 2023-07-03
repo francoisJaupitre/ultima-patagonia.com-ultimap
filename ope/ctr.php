@@ -35,6 +35,9 @@ if(isset($_GET['cnf']) and !empty($_GET['cnf'])){
 		<div id="txtHint"><br/></div>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
 		<span id="vue"><?php include("vue.php"); ?></span>
+		<script src='../vendor/tinymce/tinymce.min.js'></script>
+		<script src='../resources/js/opeMail.js'></script>
+		<script src='../resources/js/richTxt.js'></script>
 	</body>
 </html>
 <?php

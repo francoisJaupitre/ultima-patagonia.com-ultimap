@@ -99,7 +99,6 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<link rel="stylesheet" type="text/css" href="../prm/forme.css?version=<?php echo date('Y-m-d-H-i-s', filemtime('../prm/forme.css'))  ?>" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs"></script>
-		<script src='../prm/tinymce/tinymce.min.js'></script>
 		<script><?php include("script_vue.js");?></script>
 		<script><?php include("script_act.js");?></script>
 		<script><?php include("script_ajt.js");?></script>
@@ -135,6 +134,9 @@ if(isset($_GET['id']) and $_GET['id']>0){
 			<span id="vue_dt_crc"><?php include("vue_dt_crc.php"); ?></span>
 			<div id="vue_end_crc" class="text-center"><?php include("vue_end_crc.php"); ?></div>
 		</div>
+		<script src='../vendor/tinymce/tinymce.min.js'></script>
+		<script src='../resources/js/devMail.js'></script>
+		<script src='../resources/js/richTxt.js'></script>
 	</body>
 </html>
 <?php

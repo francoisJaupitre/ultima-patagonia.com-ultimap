@@ -167,7 +167,7 @@ function src_frn(res,id_frn,id_dev_srv,id_dev_crc){
 	}
 }
 
-function mel_frn(id_frn,id_dev){
+/*function mel_frn(id_frn,id_dev){
 	if(id_frn>0){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -255,7 +255,7 @@ function mel_hbr(id_hbr,id_dev){
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xmlhttp.send("id_dev_crc="+id_dev+"&id_res_hbr="+id_hbr+"&id_res_chm=0");
 	}
-}
+}*/
 
 function vue(){
 	var cnf = document.getElementById('cnf').value;

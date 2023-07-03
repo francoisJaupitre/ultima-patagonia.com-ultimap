@@ -42,9 +42,9 @@ elseif(!$clt_tmpl[$id_clt]){
 					<img src="<?php echo '../prm/img/'.$dir.'/bandeau1.jpg' ?>" width="800"/>
 					<table class="w-100">
 						<tr>
-							<td><div class="div1 wsn">Votre carnet de bord :</div></td>
+							<td><div class="title1 wsn">Votre carnet de bord :</div></td>
 							<td>
-								<div class="div1"><?php echo stripslashes(trim($txt_crc[1])) ?></div>
+								<div class="title1"><?php echo stripslashes(trim($txt_crc[1])) ?></div>
 								<div class="div2"><?php echo stripslashes(trim($txt_crc[2])) ?></div>
 							</td>
 						</tr>
@@ -548,7 +548,7 @@ elseif(!$clt_tmpl[$id_clt]){
 				if($dt_cat_prs['is_out'] and $pr>0){$msg .= " OUT: ".$info[$j];}
 				if(!empty($msg)){echo stripslashes($msg);}
 				if(!is_null($dt_cat_prs['duree']) and $pr>0){
-					echo '<br />-> '.$txt_prg->duree->$id_lgg.': ';
+					echo '<br />- '.$txt_prg->duree->$id_lgg.': ';
 					if(date("i", strtotime($dt_cat_prs['duree']))=='00'){echo date("H", strtotime($dt_cat_prs['duree'])).$txt_prg->hs->$id_lgg." ";}
 					else{echo date("H:i", strtotime($dt_cat_prs['duree'])).$txt_prg->hs->$id_lgg." ";}
 				}
@@ -559,7 +559,7 @@ elseif(!$clt_tmpl[$id_clt]){
 						if($dt_srv['ctg']!=$old_ctg or ($dt_srv['nom']!=$old_nom and $mrk_nom_ctg_srv[$dt_srv['ctg']])){
 							$old_ctg = $dt_srv['ctg'];
 							$old_nom = $dt_srv['nom'];
-							echo '<br />->';
+							echo '<br />-';
 							if($mrk_ctg_ctg_srv[$dt_srv['ctg']]){
 								echo ' '.$ctg_srv[$id_lgg][$dt_srv['ctg']].' ';
 								if($lgg_ctg_srv[$dt_srv['ctg']] and $dt_srv['lgg']>0){echo '('.$nom_lgg_lgg[$id_lgg][$dt_srv['lgg']].') ';}

@@ -327,44 +327,6 @@ function cop(id_mel,box,uid,id_mel2,box2){
 	});
 }
 
-function mail2(){
-	var	emailFr = $("#dest").val();
-	var	emailTo = $("#addr").html();
-	var subj = $("#subj").html();
-	if(subj.toUpperCase().substr(0,3)=='RE:'){var emailSubject = subj;}
-	else{var emailSubject = 'RE: '+subj}
-	var emailencSubject = $("#encsubj").val();
-	var	emailBcc = 'reservas@ultima-patagonia.com';
-	var	emailRt = 'reservas@ultima-patagonia.com';
-	var body = '<br/><br/>'+$("#rsp").val();
-	body += ''+'\n';
-	body += '<br/><br/>'+$("#body").contents().find("html").html();
-	var emlContent = "data:message/rfc822 eml;charset=utf-8,";
-	emlContent += 'From: '+emailFr+'\n';
-	emlContent += 'To: '+emailTo+'\n';
-	emlContent += 'Bcc: '+emailBcc+'\n';
-	emlContent += 'reply-to: '+emailRt+'\n';
-	emlContent += 'Subject: '+emailencSubject+'\n';
-	emlContent += 'X-Unsent: 1'+'\n';
-	emlContent += 'X-Uniform-Type-Identifier: com.apple.mail-draft'+'\n';
-	emlContent += 'Content-Type: text/html'+'\n';
-	//emlContent += 'Content-Transfer-Encoding: quoted-printable'+'\n'
-	emlContent += ''+'\n';
-	//emlContent += body;
-	console.log(emlContent);
-	var encodedUri = encodeURI(emlContent)+encodeURIComponent(body); //encode spaces etc like a url
-	var a = document.createElement('a');
-	var linkText = document.createTextNode("fileLink");
-	a.appendChild(linkText);
-	a.href = encodedUri;
-	a.id = 'fileLink';
-	a.download = $("#subj").html()+'.eml';
-	a.style = "display:none;";
-	document.body.appendChild(a);
-	document.getElementById('fileLink').click();
-	fileLink.parentNode.removeChild(fileLink);
-}
-
 function ajt_ctc(url) {
 	$.ajax({url: '../fct/ajt_ctc.php', type: 'post', data: {"url":url},
 		success: function() {

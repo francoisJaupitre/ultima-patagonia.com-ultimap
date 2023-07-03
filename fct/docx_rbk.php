@@ -95,7 +95,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['id_lgg']) and $_GET['id
 	include("../prm/ctg_prs.php");
 	include("../prm/ctg_srv.php");
 //DOC SETTINGS
-	require_once '../prm/PHPWord.php';
+	require_once '../vendor/PHPWord.php';
 	$PHPWord = new PHPWord();
 	$fgcolor = array(
 		'FFFF00'=>PHPWord_Style_Font::FGCOLOR_YELLOW,
@@ -619,7 +619,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['id_lgg']) and $_GET['id
 				}
 				if($dt_cat_prs['is_out'] and $pr>0){$msg .= " OUT: ".$info[$j];}
 				if(!is_null($dt_cat_prs['duree']) and $pr>0){
-					$msg .= '<br />-> '.$txt_prg->duree->$id_lgg.': ';
+					$msg .= '<br />- '.$txt_prg->duree->$id_lgg.': ';
 					if(date("i", strtotime($dt_cat_prs['duree']))=='00'){$msg .= date("H", strtotime($dt_cat_prs['duree'])).$txt_prg->hs->$id_lgg." ";}
 					else{$msg .= date("H:i", strtotime($dt_cat_prs['duree'])).$txt_prg->hs->$id_lgg." ";}
 				}
@@ -630,7 +630,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['id_lgg']) and $_GET['id
 						if($dt_srv['ctg']!=$old_ctg or ($dt_srv['nom']!=$old_nom and $mrk_nom_ctg_srv[$dt_srv['ctg']])){
 							$old_ctg = $dt_srv['ctg'];
 							$old_nom = $dt_srv['nom'];
-							$msg .= '<br />->';
+							$msg .= '<br />-';
 							if($mrk_ctg_ctg_srv[$dt_srv['ctg']]){
 								$msg .= ' '.$ctg_srv[$id_lgg][$dt_srv['ctg']].' ';
 								if($lgg_ctg_srv[$dt_srv['ctg']] and $dt_srv['lgg']>0){$msg .= '('.$nom_lgg_lgg[$id_lgg][$dt_srv['lgg']].') ';}

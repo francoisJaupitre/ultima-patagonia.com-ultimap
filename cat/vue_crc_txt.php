@@ -38,7 +38,7 @@ while($dt_txt = ftc_ass($rq_txt)) {
 					<td>
 						<div style="position: relative;">
 							<div id="ld_crc_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
-							<div id="crc_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="ust rich website" <?php if($aut['cat']) { ?> onclick="richtext(this.id,'cat_crc_txt','dsc',<?php echo $id_crc_txt ?>);this.onclick=null;" <?php } ?> ><?php echo nl2br(stripslashes($dt_txt['dsc'])) ?></div>
+							<div id="crc_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="ust rich website" <?php if($aut['cat']) { ?> onclick="richTxtInit(this.id,'cat_crc_txt','dsc',<?php echo $id_crc_txt ?>);this.onclick=null;" <?php } ?> ><?php echo nl2br(stripslashes($dt_txt['dsc'])) ?></div>
 							<div id="tool_crc_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="tool"></div>
 						</div>
 					</td>

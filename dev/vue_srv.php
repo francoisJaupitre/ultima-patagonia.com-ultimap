@@ -154,7 +154,7 @@ if(isset($bss)) {
 ?>
 	<td class="stl3">
 		<input type="text" id="srv_trf_trf_rck<?php echo $id_trf ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_srv==1) {echo 'background-color: gold;';} if($est_srv==-1 or $trf_rck<$trf_net and $trf_rck!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_srv==1) {echo 'background-color: gold;';} if($est_srv==-1 or $trf_rck<$trf_net and $trf_rck!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($trf_rck,$prm_crr_dcm[$dt_srv['crr']],'.',''); ?>"
 			onChange="maj('dev_srv_trf','trf_rck',this.value,<?php echo $id_trf ?>);"
 		/>
@@ -164,7 +164,7 @@ if(isset($bss)) {
 ?>
 	<td class="stl3">
 		<input type="text" id="srv_trf_trf_net<?php echo $id_trf ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_srv==1) {echo 'background-color: gold;';} if($trf_net==0 or $est_srv==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_srv==1) {echo 'background-color: gold;';} if($trf_net==0 or $est_srv==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($trf_net,$prm_crr_dcm[$dt_srv['crr']],'.',''); ?>"
 			onChange="maj('dev_srv_trf','trf_net',this.value,<?php echo $id_trf ?>);"
 		/>

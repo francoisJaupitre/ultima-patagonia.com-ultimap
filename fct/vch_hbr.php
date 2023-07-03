@@ -10,7 +10,7 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
 	$id_dev = $id_dev_crc;
 	$id_clt = $id_clt[$id_dev];
 //DOC SETTINGS
-	require_once '../prm/PHPWord.php';
+	require_once '../vendor/PHPWord.php';
 	$sectionStyle = array('orientation' => null,'marginLeft' => 1200,'marginRight' => 1000,'marginTop' => 900,'marginBottom' => 800);
 	$height = 110;
 	$imageStyle2 = array('width'=>2, 'height'=>0.4, 'align'=>'left');

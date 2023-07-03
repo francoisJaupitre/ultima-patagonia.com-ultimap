@@ -174,7 +174,7 @@ while($dt_tsk = ftc_ass($rq_tsk)) {
 ?>
 		<tr>
 			<td><input <?php if(!$aut['tsk']) {echo ' disabled';} ?> id="tsk_ord<?php echo $dt_tsk['id']; ?>" type="text" autocomplete="off" style="width: 30px;" value="<?php echo $dt_tsk['ord']; ?>" onchange="maj('cfg_tsk','ord',this.value,<?php echo $dt_tsk['id']; ?>);" /></td>
-			<td><input <?php if(!$aut['tsk']) {echo ' disabled';} ?> id="tsk_nom<?php echo $dt_tsk['id']; ?>" type="text" autocomplete="off" style="width: 70px;" value="<?php echo $dt_tsk['nom']; ?>" onchange="maj('cfg_tsk','nom',this.value,<?php echo $dt_tsk['id']; ?>);" /></td>
+			<td><input <?php if(!$aut['tsk']) {echo ' disabled';} ?> id="tsk_nom<?php echo $dt_tsk['id']; ?>" type="text" autocomplete="off" style="width: 230px;" value="<?php echo $dt_tsk['nom']; ?>" onchange="maj('cfg_tsk','nom',this.value,<?php echo $dt_tsk['id']; ?>);" /></td>
 			<td>
 				<select <?php if(!$aut['tsk']) {echo ' disabled';} ?>  onchange="maj('cfg_tsk','ref',this.value,<?php echo $dt_tsk['id']; ?>)">
 <?php

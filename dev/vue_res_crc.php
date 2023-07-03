@@ -321,7 +321,7 @@ if($vue_res){
 <?php
 			if($aut['res']){
 ?>
-								<li onclick="mel_frn(<?php echo $fr; ?>);document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->mailsres->$id_lng; ?></li>
+								<li onclick="mailFrn(<?php echo $fr; ?>);document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 			}
 			if($aut['dev']){
@@ -517,7 +517,7 @@ if($vue_res){
 <?php
 						if($aut['res']){
 ?>
-								<li onclick="mel_hbr(<?php echo $hb.','.$chm; ?>);document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->mailsres->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb.','.$chm; ?>);document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 						}
 						if($aut['dev']){
@@ -691,7 +691,7 @@ if($vue_res){
 				if($aut['res']){
 ?>
 								<li onclick="window.open('../fct/docx_hbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb_opt;?>&chm=<?php echo $chm_opt;?>');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
-								<li onclick="mel_hbr(<?php echo $hb_opt.','.$chm_opt; ?>);document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->mailsres->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb_opt.','.$chm_opt; ?>);document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 				}
 				if($aut['dev']){

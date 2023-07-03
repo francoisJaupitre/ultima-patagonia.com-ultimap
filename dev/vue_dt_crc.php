@@ -107,19 +107,7 @@ while($dt_mdl = ftc_ass($rq_mdl)){
 			<tr id="vue_ttr_mdl_<?php echo $id_dev_mdl ?>"<?php if($id_cat_mdl>0){echo 'class="up_mdl'.$id_cat_mdl.'"';} ?>><?php include("vue_ttr_mdl.php") ?></tr>
 			<tr id="vue_trf_mdl_<?php echo $id_dev_mdl ?>"><?php include("vue_trf_mdl.php") ?></tr>
 		</table>
-		<div id="vue_dsc_rmn_dt_end_mdl_<?php echo $id_dev_mdl ?>">
-			<span id="vue_dsc_mdl_<?php echo $id_dev_mdl ?>"><?php if($vue_mdl){include("vue_dsc_mdl.php");} ?></span>
-<?php
-	if($trf_mdl){
-?>
-			<span id="vue_rmn_mdl_<?php echo $id_dev_mdl ?>"><?php include("vue_rmn_mdl.php"); ?></span>
-			<br />
-<?php
-	}
-?>
-			<span id="vue_dt_mdl_<?php echo $id_dev_mdl ?>" class="dboa<?php if(!$vue_mdl){echo ' up_jrn';} ?>"><?php include("vue_dt_mdl.php"); ?></span>
-			<div id="vue_end_mdl_<?php echo $id_dev_mdl ?>" class="text-center"><?php include("vue_end_mdl.php"); ?></div>
-		</div>
+		<div id="vue_dsc_rmn_dt_end_mdl_<?php echo $id_dev_mdl ?>"><?php include("vue_dsc_rmn_dt_end_mdl.php"); ?></div>
 	</div>
 	<br />
 </div>

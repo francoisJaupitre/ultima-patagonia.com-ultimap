@@ -149,10 +149,10 @@
 		<fr>EMAILS FOURNISSEURS</fr>
 		<es>EMAILS PROVEEDORES</es>
 	</mailsfrn>
-	<mailsres>
-		<fr>EMAILS RESAS</fr>
-		<es>EMAILS RESAS</es>
-	</mailsres>
+	<mailres>
+		<fr>EMAIL RESAS</fr>
+		<es>EMAIL RESERVAS</es>
+	</mailres>
 	<vll>
 		<fr>VILLE</fr>
 		<es>CIUDAD</es>

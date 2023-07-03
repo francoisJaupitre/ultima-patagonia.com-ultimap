@@ -29,7 +29,7 @@ while($dt_txt = ftc_ass($rq_txt)) {
 					<td>
 						<div style="position: relative;">
 							<div id="ld_mdl_txt_web_dsc<?php echo $dt_txt['lgg'] ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
-							<div id="mdl_txt_web_dsc<?php echo $dt_txt['lgg'] ?>" class="ust rich website" <?php if($aut['cat']) { ?> onclick="richtext(this.id,'cat_mdl_txt','web_dsc',<?php echo $id_mdl_txt ?>);this.onclick=null;" <?php } ?> ><?php if(empty($dt_txt['web_dsc'])) {echo '<em>Website module description</em>';} else{echo nl2br(stripslashes($dt_txt['web_dsc']));} ?></div>
+							<div id="mdl_txt_web_dsc<?php echo $dt_txt['lgg'] ?>" class="ust rich website" <?php if($aut['cat']) { ?> onclick="richTxtInit(this.id,'cat_mdl_txt','web_dsc',<?php echo $id_mdl_txt ?>);this.onclick=null;" <?php } ?> ><?php if(empty($dt_txt['web_dsc'])) {echo '<em>Website module description</em>';} else{echo nl2br(stripslashes($dt_txt['web_dsc']));} ?></div>
 							<div id="tool_mdl_txt_web_dsc<?php echo $dt_txt['lgg'] ?>" class="tool"></div>
 						</div>
 					</td>
@@ -41,7 +41,7 @@ while($dt_txt = ftc_ass($rq_txt)) {
 					<td>
 						<div style="position: relative;">
 							<div id="ld_mdl_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
-							<div id="mdl_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="ust rich" <?php if($aut['cat']) { ?> onclick="richtext(this.id,'cat_mdl_txt','dsc',<?php echo $id_mdl_txt ?>);this.onclick=null;" <?php } ?> ><?php  if(empty($dt_txt['dsc'])) {echo '<em>Quotation module description</em>';} else{echo nl2br(stripslashes($dt_txt['dsc']));} ?></div>
+							<div id="mdl_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="ust rich" <?php if($aut['cat']) { ?> onclick="richTxtInit(this.id,'cat_mdl_txt','dsc',<?php echo $id_mdl_txt ?>);this.onclick=null;" <?php } ?> ><?php  if(empty($dt_txt['dsc'])) {echo '<em>Quotation module description</em>';} else{echo nl2br(stripslashes($dt_txt['dsc']));} ?></div>
 							<div id="tool_mdl_txt_dsc<?php echo $dt_txt['lgg'] ?>" class="tool"></div>
 						</div>
 					</td>

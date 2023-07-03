@@ -67,7 +67,7 @@ usort($paiements,'cmp_dat');
 
 
 if(isset($paiements)) {
-	require_once '../prm/PHPWord.php';
+	require_once '../vendor/PHPWord.php';
 	$PHPWord = new PHPWord();
 	$sectionStyle = array('orientation' => null,'marginLeft' => 1000,'marginRight' => 800,'marginTop' => 700,'marginBottom' => 600);
 	$tableStyle = $height = $cellStyle = $dat = $fontStyle = $paragraphStyle = "";

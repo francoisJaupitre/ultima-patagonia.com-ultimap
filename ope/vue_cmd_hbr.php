@@ -8,7 +8,7 @@
 <?php
 if($aut['res']){
 ?>
-			<li onclick="mel_hbr(<?php echo $dt_res2['id_cat_hbr'].','.$dt_res['id_crc'] ?>);document.getElementById('vue_cmd_hbr<?php echo $dt_res2['id_dev_hbr'] ?>').style.display='none';"><?php echo $txt->mails->$id_lng; ?></li>
+			<li onclick="mailHbr(<?php echo $dt_res2['id_cat_hbr'].','.$dt_res2['id_cat_chm'].','.$dt_res['id_crc'] ?>);document.getElementById('vue_cmd_hbr<?php echo $dt_res2['id_dev_hbr'] ?>').style.display='none';"><?php echo $txt->mails->$id_lng; ?></li>
 <?php
 }
 ?>

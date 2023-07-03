@@ -11,7 +11,7 @@ if($dt_res2['id_frn']>0){
 <?php
 	if($aut['res']){
 ?>
-			<li onclick="mel_frn(<?php echo $dt_res2['id_frn'].','.$dt_res['id_crc'] ?>);document.getElementById('vue_cmd_srv<?php echo $dt_res2['id_dev_srv'] ?>').style.display='none';"><?php echo $txt->mails->$id_lng; ?></li>
+			<li onclick="mailFrn(<?php echo $dt_res2['id_frn'].','.$dt_res['id_crc'] ?>);document.getElementById('vue_cmd_srv<?php echo $dt_res2['id_dev_srv'] ?>').style.display='none';"><?php echo $txt->mails->$id_lng; ?></li>
 <?php
 	}
 ?>

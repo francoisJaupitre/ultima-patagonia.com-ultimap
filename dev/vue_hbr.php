@@ -48,7 +48,7 @@ if($ty_mrq==2) {
 	if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_db_rck_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['db_rck_chm']<$dt_hbr['db_net_chm'] and $dt_hbr['db_rck_chm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['db_rck_chm']<$dt_hbr['db_net_chm'] and $dt_hbr['db_rck_chm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['db_rck_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','db_rck_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -57,7 +57,7 @@ if($ty_mrq==2) {
 ?>
 		<br />
 		<input type="text" id="hbr_db_rck_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['db_rck_rgm']<$dt_hbr['db_net_rgm'] and $dt_hbr['db_rck_chm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['db_rck_rgm']<$dt_hbr['db_net_rgm'] and $dt_hbr['db_rck_chm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['db_rck_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','db_rck_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -74,7 +74,7 @@ if($ty_mrq==2) {
 if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_db_net_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['db_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['db_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['db_net_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','db_net_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -83,7 +83,7 @@ if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<br />
 		<input type="text" id="hbr_db_net_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['db_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['db_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['db_net_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','db_net_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -124,7 +124,7 @@ if($vue_sgl) {
 		if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_sg_rck_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['sg_rck_chm']<$dt_hbr['sg_net_chm'] and $dt_hbr['sg_net_chm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['sg_rck_chm']<$dt_hbr['sg_net_chm'] and $dt_hbr['sg_net_chm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['sg_rck_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','sg_rck_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -133,7 +133,7 @@ if($vue_sgl) {
 ?>
 		<br />
 		<input type="text" id="hbr_sg_rck_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['sg_rck_rgm']<$dt_hbr['sg_net_rgm'] and $dt_hbr['sg_net_rgm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['sg_rck_rgm']<$dt_hbr['sg_net_rgm'] and $dt_hbr['sg_net_rgm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['sg_rck_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','sg_rck_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -150,7 +150,7 @@ if($vue_sgl) {
 	if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_sg_net_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['sg_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['sg_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['sg_net_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','sg_net_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -159,7 +159,7 @@ if($vue_sgl) {
 ?>
 		<br />
 		<input type="text" id="hbr_sg_net_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['sg_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['sg_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['sg_net_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','sg_net_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -201,7 +201,7 @@ if($vue_tpl) {
 		if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_tp_rck_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['tp_rck_chm']<$dt_hbr['tp_net_chm'] and $dt_hbr['tp_net_chm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['tp_rck_chm']<$dt_hbr['tp_net_chm'] and $dt_hbr['tp_net_chm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['tp_rck_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','tp_rck_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -210,7 +210,7 @@ if($vue_tpl) {
 ?>
 		<br />
 		<input type="text" id="hbr_tp_rck_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['tp_rck_rgm']<$dt_hbr['tp_net_rgm'] and $dt_hbr['tp_net_rgm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['tp_rck_rgm']<$dt_hbr['tp_net_rgm'] and $dt_hbr['tp_net_rgm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['tp_rck_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','tp_rck_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -227,7 +227,7 @@ if($vue_tpl) {
 	if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_tp_net_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['tp_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['tp_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['tp_net_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','tp_net_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -236,7 +236,7 @@ if($vue_tpl) {
 ?>
 		<br />
 		<input type="text" id="hbr_tp_net_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['tp_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['tp_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['tp_net_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','tp_net_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -278,7 +278,7 @@ if($vue_qdp) {
 		if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_qd_rck_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['qd_rck_chm']<$dt_hbr['qd_net_chm'] and $dt_hbr['qd_rck_chm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($est_chm==-1 or $dt_hbr['qd_rck_chm']<$dt_hbr['qd_net_chm'] and $dt_hbr['qd_rck_chm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['qd_rck_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','qd_rck_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -287,7 +287,7 @@ if($vue_qdp) {
 ?>
 		<br />
 		<input type="text" id="hbr_qd_rck_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['qd_rck_rgm']<$dt_hbr['qd_net_rgm'] and $dt_hbr['qd_rck_rgm']!=0) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($est_rgm==-1 or $dt_hbr['qd_rck_rgm']<$dt_hbr['qd_net_rgm'] and $dt_hbr['qd_rck_rgm']!=0) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['qd_rck_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','qd_rck_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -304,7 +304,7 @@ if($vue_qdp) {
 	if($id_hbr>-2 and $id_chm>-2) {
 ?>
 		<input type="text" id="hbr_qd_net_chm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['qd_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_chm==1) {echo 'background-color: gold;';} if($dt_hbr['qd_net_chm']==0 or $est_chm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['qd_net_chm'],$prm_crr_dcm[$dt_hbr['crr_chm']],'.','') ?>"
 			onChange="maj('dev_hbr','qd_net_chm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>
@@ -313,7 +313,7 @@ if($vue_qdp) {
 ?>
 		<br />
 		<input type="text" id="hbr_qd_net_rgm<?php echo $id_dev_hbr ?>" <?php if(!$aut['dev']) {echo ' disabled';} ?>
-			style="width: 45px; <?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['qd_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
+			class="w52" style="<?php if($est_rgm==1) {echo 'background-color: gold;';} if($dt_hbr['qd_net_rgm']==0 or $est_rgm==-1) {echo 'background-color: tomato;';} ?>"
 			value="<?php echo number_format($dt_hbr['qd_net_rgm'],$prm_crr_dcm[$dt_hbr['crr_rgm']],'.','') ?>"
 			onChange="maj('dev_hbr','qd_net_rgm',this.value,<?php echo $id_dev_hbr ?>)"
 		/>

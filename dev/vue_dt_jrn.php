@@ -66,6 +66,13 @@ if(isset($_POST['id_dev_jrn'])){
 		}
 		$nb_rmn_crc = ftc_ass(select("COUNT(*) as total","dev_crc_rmn","id_crc",$id_dev_crc));
 	}
+	$rq_prs = select("id,nom,opt,ord,id_cat","dev_prs","id_jrn",$id_dev_jrn,"ord,opt DESC,nom,id");
+	while($dt_prs = ftc_ass($rq_prs)){
+		$prs_datas[$id_dev_jrn][$dt_prs['id']]['nom'] = $dt_prs['nom'];
+		$prs_datas[$id_dev_jrn][$dt_prs['id']]['opt'] = $dt_prs['opt'];
+		$prs_datas[$id_dev_jrn][$dt_prs['id']]['ord'] = $dt_prs['ord'];
+		$prs_datas[$id_dev_jrn][$dt_prs['id']]['id_cat'] = $dt_prs['id_cat'];
+	}
 }
 if($id_cat_jrn>-1){
 	if($trf_mdl){
@@ -150,37 +157,38 @@ if($id_cat_jrn>-1){
 		<td class="stl1"><?php echo $prm_crr_nom[$id_crr_trf]; ?></td>
 		<td class="stl1"><?php echo $txt->prss->$id_lng.':'; ?></td>
 <?php
-		$ord_prs_ant = 0;
-		$rq_prs = select("nom,opt,ord,id_cat","dev_prs","id_jrn",$id_dev_jrn,"ord,opt DESC,nom,id");
-		while($dt_prs = ftc_ass($rq_prs)){
-			if($ord_prs_ant != $dt_prs['ord']){
-				if($ord_prs_ant!=0){
+		if(isset($prs_datas[$id_dev_jrn])) {
+			$ord_prs_ant = 0;
+			foreach($prs_datas[$id_dev_jrn] as $id_dev_prs => $dt_prs)	{
+				if($ord_prs_ant != $dt_prs['ord']) {
+					if($ord_prs_ant!=0){
 ?>
 		</td>
 <?php
-				}
+					}
 ?>
 		<td class="stl1">
 <?php
-			}
-			else{echo '<br />';}
+				}
+				else{echo '<br />';}
 ?>
 			<span <?php if(!$dt_prs['opt']){echo 'style="font-weight: normal"';} ?>>
 <?php
-			if(!empty($dt_prs['nom'])){
-				if($dt_prs['id_cat']>0){
+				if(!empty($dt_prs['nom'])){
+					if($dt_prs['id_cat']>0){
 ?>
 				<span class="lnk inf<?php echo $dt_prs['id_cat'] ?>prs" onmouseover="vue_elem('inf',<?php echo $dt_prs['id_cat'] ?>,'prs');" onclick="window.parent.opn_frm('cat/ctr.php?cbl=prs&id=<?php echo $dt_prs['id_cat'] ?>')">
 <?php
+					}
+					echo stripslashes($dt_prs['nom']);
+					if($dt_prs['id_cat']>0){echo '</span>';}
 				}
-				echo stripslashes($dt_prs['nom']);
-				if($dt_prs['id_cat']>0){echo '</span>';}
-			}
-			else{echo $txt->nonom->$id_lng;}
+				else{echo $txt->nonom->$id_lng;}
 ?>
 			</span>
 <?php
-			$ord_prs_ant = $dt_prs['ord'];
+				$ord_prs_ant = $dt_prs['ord'];
+			}
 		}
 ?>
 		</td>
@@ -190,14 +198,22 @@ if($id_cat_jrn>-1){
 		$flg_srv = false;
 		$flg_hbr = false;
 		unset($dt_min_srv,$dt_max_srv,$dt_min_hbr,$dt_max_hbr);
-		$rq_prs = select("id,opt","dev_prs","id_jrn",$id_dev_jrn);
-			while($dt_prs = ftc_ass($rq_prs)){
-				$id_dev_prs = $dt_prs['id'];
-				if($dt_prs['opt']==1){
+		if(isset($prs_datas[$id_dev_jrn])) {
+			foreach($prs_datas[$id_dev_jrn] as $id_dev_prs => $dt_prs)	{
+				if($dt_prs['opt']){
 					include("trf_srv.php");
 					include("trf_hbr.php");
 				}
 			}
+		}
+		/*$rq_prs = select("id,opt","dev_prs","id_jrn",$id_dev_jrn);
+		while($dt_prs = ftc_ass($rq_prs)){
+			$id_dev_prs = $dt_prs['id'];
+			if($dt_prs['opt']==1){
+				include("trf_srv.php");
+				include("trf_hbr.php");
+			}
+		}*/
 ?>
 <table class="dsg w-100">
 	<tr>

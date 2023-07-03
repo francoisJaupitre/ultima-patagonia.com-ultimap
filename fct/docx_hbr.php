@@ -6,8 +6,8 @@ if(isset($_GET['id']) and isset($_GET['hbr'])){
 	$obj='doc';
 	include("res_hbr.php");
 	//DOC SETTINGS
-	require "../prm/vendor/autoload.php";
-	//require_once '../prm/PHPWord.php';
+	require "../vendor/autoload.php";
+	//require_once '../vendor/PHPWord.php';
 	//$sectionStyle = array('orientation' => null,'marginLeft' => 1200,'marginRight' => 1000,'marginTop' => 900,'marginBottom' => 800);
 	$fontStyle = array('name' => 'Arial', 'color'=>'000000', 'size'=>10);
 	$fontStyle2 = array('name' => 'Arial', 'color'=>'FF0000', 'size'=>10);

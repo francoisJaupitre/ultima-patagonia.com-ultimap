@@ -23,7 +23,6 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" type="text/css" href="../prm/forme.css?version=<?php echo date('Y-m-d-H-i-s', filemtime('../prm/forme.css'))  ?>" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src='../prm/tinymce/tinymce.min.js'></script>
 		<script><?php include("script_act.js");?></script>
 		<script><?php include("script_ajt.js");?></script>
 		<script><?php include("script_sup.js");?></script>
@@ -37,6 +36,8 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		<div id="txtHint"><br/></div>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
 		<span id="vue"><?php include("vue.php"); ?></span>
+		<script src='../vendor/tinymce/tinymce.min.js'></script>
+		<script src='../resources/js/richTxt.js'></script>
 	</body>
 </html>
 <?php

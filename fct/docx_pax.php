@@ -11,8 +11,8 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
 	include("../cfg/lng.php");
 	$id_lgg = $lgg[$lgg_pys];
 //DOC SETTINGS
-	require "../prm/vendor/autoload.php";
-	//require_once '../prm/PHPWord.php';
+	require "../vendor/autoload.php";
+	//require_once '../vendor/PHPWord.php';
 	$pw = new \PhpOffice\PhpWord\PhpWord();
 	//$PHPWord = new PHPWord();
 	$section = $pw->addSection(	array('marginLeft' => 1000, 'marginRight' => 775, 'marginTop' => 700, 'marginBottom' => 850));

@@ -15,6 +15,16 @@ if(isset($_POST['id_dev_mdl'])){
 	while($dt_rgn = ftc_ass($rq_rgn)) {$ids_rgn[] = $dt_rgn['id_rgn'];}
 	include("../cfg/vll.php");
 	include("../cfg/rgn.php");
+	$rq_jrn = select("*","dev_jrn","id_mdl",$id_dev_mdl,"ord,opt DESC");
+	while($dt_jrn = ftc_ass($rq_jrn)){
+		$jrn_datas[$dt_jrn['id']]['id_cat'] = $dt_jrn['id_cat'];
+		$jrn_datas[$dt_jrn['id']]['date'] = $dt_jrn['date'];
+		$jrn_datas[$dt_jrn['id']]['opt'] = $dt_jrn['opt'];
+		$jrn_datas[$dt_jrn['id']]['ord'] = $dt_jrn['ord'];
+		$jrn_datas[$dt_jrn['id']]['nom'] = $dt_jrn['nom'];
+		$jrn_datas[$dt_jrn['id']]['titre'] = $dt_jrn['titre'];
+		$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
+	}
 }
 if($vue_mdl and $aut['dev'] and $cnf<1){
 	$cbl = "mdl";
@@ -45,30 +55,36 @@ if($vue_mdl and $aut['dev'] and $cnf<1){
 <?php
 }
 unset($ids_rgn);
-$rq_jrn = select("ord","dev_jrn","opt=1 AND id_mdl",$id_dev_mdl,"ord");
-$nb_jrn = num_rows($rq_jrn);
-if($nb_jrn>0){
-
+//$rq_jrn = select("ord","dev_jrn","opt=1 AND id_mdl",$id_dev_mdl,"ord");
+$nb_jrn = ftc_ass(select("COUNT(*) as total","dev_jrn","opt=1 AND id_mdl",$id_dev_mdl));
+if($nb_jrn['total'] >0){
 ?>
 <table class="w-100">
 	<tr>
 		<td width="20%" class="dsg">
 <?php
-	$nb_mdl = ftc_ass(select("COUNT(*) as total","dev_mdl","id_crc",$id_dev_crc));
-	if($ord_mdl<$nb_mdl['total']){
+	if(isset($jrn_datas)) {
+		$nb_mdl = ftc_ass(select("COUNT(*) as total","dev_mdl","id_crc",$id_dev_crc));
+		if($ord_mdl < $nb_mdl['total']){
 ?>
 			<strong><?php echo $txt->fus->$id_lng; ?></strong>
 			<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($fus_mdl){echo('checked="checked"');} ?> onclick="if(this.checked){fus('1',<?php echo $id_dev_mdl ?>)}else{fus('0',<?php echo $id_dev_mdl ?>)};" />
 <?php
-	}
+		}
 ?>
 		</td>
 		<td width="80%" class="dsg">
-			<strong><?php echo $nb_jrn.' '.$txt->jours->$id_lng.' : '; ?></strong>
+			<strong><?php echo $nb_jrn['total'].' '.$txt->jours->$id_lng.' : '; ?></strong>
 <?php
-while($dt_jrn = ftc_ass($rq_jrn)){echo $dt_jrn['ord'].',';}
+		foreach($jrn_datas as $id_dev_jrn => $dt_jrn) {
+			if($dt_jrn['opt']) {echo $dt_jrn['ord'].',';}
+		}
+		//while($dt_jrn = ftc_ass($rq_jrn)){echo $dt_jrn['ord'].',';}
 ?>
 		</td>
+<?php
+	}
+?>
 	</tr>
 </table>
 <?php

@@ -223,7 +223,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 				elseif($pr>0){$message .= $dt_cat_prs['titre'];}
 				if($dt_cat_prs['is_out'] and $pr>0){$message .= " OUT: ".$info[$j];}
 				if(!is_null($dt_cat_prs['duree']) and $pr>0){
-					$message .= '<br />-> '.$txt->res_frn->duree->$id_lgg.': ';
+					$message .= '<br />- '.$txt->res_frn->duree->$id_lgg.': ';
 					if(date("i", strtotime($dt_cat_prs['duree']))=='00'){$message .= date("H", strtotime($dt_cat_prs['duree'])).$txt->res_frn->hs->$id_lgg." ";}
 					else{$message .= date("H:i", strtotime($dt_cat_prs['duree'])).$txt->res_frn->hs->$id_lgg." ";}
 				}
@@ -234,7 +234,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 						$old_ctg = $dt_srv['ctg'];
 						$old_nom = $dt_srv['nom'];
 						if($mrk_srv_ctg_prs[$prs_ctg[$j]]){
-							$message .= '<br />->';
+							$message .= '<br />-';
 							if($mrk_ctg_ctg_srv[$dt_srv['ctg']]){
 								$message .= ' '.$ctg_srv[$id_lgg][$dt_srv['ctg']].' ';
 								if($lgg_ctg_srv[$dt_srv['ctg']] and $dt_srv['lgg']>0){$message .= '('.$nom_lgg_lgg[$id_lgg][$dt_srv['lgg']].') ';}
@@ -252,8 +252,8 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		elseif($prs_ctg[$j]==10){$message .= "AUTOTOUR<br />";}
 	}
 	//DOC SETTINGS
-	require "../prm/vendor/autoload.php";
-	//require_once '../prm/PHPWord.php';
+	require "../vendor/autoload.php";
+	//require_once '../vendor/PHPWord.php';
 	//$sectionStyle = array('orientation' => null,'marginLeft' => 1200,'marginRight' => 1000,'marginTop' => 900,'marginBottom' => 800);
 	$fontStyle2 = array('name' => 'Arial', 'color'=>'FF0000', 'size'=>10);
 	$paragraphStyle = array('align'=>'left','spaceBefore'=>0,'spaceAfter'=>0,'spacing'=>0);
