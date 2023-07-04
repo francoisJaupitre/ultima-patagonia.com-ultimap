@@ -5,7 +5,7 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
 	$id_res_chm = 0;
 	$obj = 'vch';
 	$txt_vch = simplexml_load_file('txt_vch.xml');
-	include("res_hbr.php");
+	include("../resources/php/resHbr.php");
 	include("../cfg/clt.php");
 	$id_dev = $id_dev_crc;
 	$id_clt = $id_clt[$id_dev];

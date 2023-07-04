@@ -85,7 +85,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 	$cbl = $_GET['cbl'];
 	$id = $_GET['id'];
 	$lgg_id = $_GET['id_lgg'];
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	$txt_prg = simplexml_load_file('txt_prg.xml');
 	$wdt_img = 2.3;
 	$hl = 0.19;

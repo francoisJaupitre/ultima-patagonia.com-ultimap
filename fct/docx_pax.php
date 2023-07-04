@@ -2,7 +2,7 @@
 if(isset($_GET['id']) and !empty($_GET['id'])){
 	$id = $_GET['id'];
 	$cbl  = $_GET['cbl'];
-	$txt_res = simplexml_load_file('txt_res.xml');
+	$txt_res = simplexml_load_file('../resources/xml/resTxt.xml');
 	include("../prm/fct.php");
 	include("../prm/lgg.php");
 	include("../prm/rpl.php");

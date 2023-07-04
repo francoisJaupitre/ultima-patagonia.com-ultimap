@@ -24,7 +24,7 @@ if(isset($_POST['id_dev_jrn'])){
 	</td>
 	<td class="<?php if($opt_jrn){echo 'lcrl';} else{echo 'tht';} ?>" style="width:100%; text-align: center;">
 		<div style="margin-right: 5px; position: relative" onload="alt('load')">
-			<div id="ld_jrn_dsc<?php echo $id_dev_jrn ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
+			<div id="ld_jrn_dsc<?php echo $id_dev_jrn ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../resources/gif/loader.gif"></div>
 			<div id="jrn_dsc<?php echo $id_dev_jrn ?>" class="ust rich rich_dt_crc rich_dt_mdl<?php echo $id_dev_mdl ?> rich_dsc_jrn<?php echo $id_dev_jrn ?>" style="height: 80px; color: #<?php echo $col[$id_col_mdl]; ?>" <?php if(($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0)){ ?> onclick="richTxtInit(this.id,'dev_jrn','dsc',<?php echo $id_dev_jrn ?>);this.onclick=null;" <?php } ?> ><?php echo nl2br(stripslashes($dsc_jrn)) ?></div>
 			<div id="tool_jrn_dsc<?php echo $id_dev_jrn ?>" class="tool"></div>
 			<img hidden src onerror="$('#jrn_dsc<?php echo $id_dev_jrn ?>').css('pointer-events','auto');" />

@@ -4,7 +4,7 @@ if(isset($_GET['id']) and isset($_GET['hbr'])){
 	$id_res_hbr = $_GET['hbr'];
 	$id_res_chm = $_GET['chm'];
 	$obj='doc';
-	include("res_hbr.php");
+	include("../resources/php/resHbr.php");
 	//DOC SETTINGS
 	require "../vendor/autoload.php";
 	//require_once '../vendor/PHPWord.php';

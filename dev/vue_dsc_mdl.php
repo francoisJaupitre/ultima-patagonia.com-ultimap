@@ -20,7 +20,7 @@ if(isset($_POST['id_dev_mdl'])){
 				<strong><?php echo $txt->dsc->$id_lng.'<BR />'.$txt->mdl->$id_lng; ?></strong>
 			</div>
 			<div style="margin-left: 105px; margin-right: 5px; position: relative">
-				<div id="ld_mdl_dsc<?php echo $id_dev_mdl ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
+				<div id="ld_mdl_dsc<?php echo $id_dev_mdl ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../resources/gif/loader.gif"></div>
 				<div id="mdl_dsc<?php echo $id_dev_mdl ?>" class="ust rich rich_dt_crc rich_dsc_mdl<?php echo $id_dev_mdl ?>" style="color: #<?php echo $col[$id_col_mdl]; ?>" <?php if(($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0)){ ?> onclick="richTxtInit(this.id,'dev_mdl','dsc',<?php echo $id_dev_mdl ?>);this.onclick=null;" <?php } ?> ><?php echo nl2br(stripslashes($dsc_mdl)) ?></div>
 				<div id="tool_mdl_dsc<?php echo $id_dev_mdl ?>" class="tool"></div>
 				<img hidden src onerror="$('#mdl_dsc<?php echo $id_dev_mdl ?>').css('pointer-events','auto');" />

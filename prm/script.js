@@ -1,4 +1,4 @@
-var cancel = false, timer,ld =/* ypos =*/ idpos = 0,flg_ld = {};
+//var cancel = false, timer,ld =/* ypos =*/ idpos = 0,flg_ld = {};
 
 function auto_lst(cbl,obj,src,e){
 	if(typeof e !== 'undefined' && (e.keyCode==13 || (e.keyCode>=37 && e.keyCode<=40))){mov_lst(obj,e);}
@@ -76,7 +76,7 @@ function do_lst(obj){
 		else{return false;}
 	}
 }
-
+/*
 function load(xhr,unld){
 	if(xhr) {var org = xhr.replace(/\s/g, "");}
 	else{var org = 0;}
@@ -89,8 +89,6 @@ function load(xhr,unld){
 		if(ld==0){
 			document.getElementById('shadowing').style.display='block';
 			disableScroll();
-		/*	ypos = window.scrollY;
-			console.log(org+' load scroll-y:'+ypos+'px');*/
 		}
 		ld++;
 	}
@@ -99,15 +97,14 @@ function load(xhr,unld){
 function unload(xhr,id){
 	if(xhr) {var org = xhr.replace(/\s/g, "");}
 	else{var org = 0;}
+	console.log(xhr,id,org)
 	if(typeof flg_ld[org] === 'undefined' || flg_ld[org] == false){
-	/*	flg_scroll = false;*/
 		if(org=='scroll'){
 			cancel = true;
 			idpos = id;
 		}
 		else if(ld>0){
 			ld--;
-		/*	flg_scroll = true;*/
 		}
 		if(org != 'scroll' && ld == 0){
 			document.getElementById('shadowing').style.display = 'none';
@@ -117,15 +114,11 @@ function unload(xhr,id){
 				$('html,body').animate({scrollTop: $("#vue_ttr_jrn_"+idpos).offset().top-10},'slow');
 				console.log(org+" unload #vue_ttr_jrn_"+idpos);
 			}
-/*			else if(flg_scroll){
-				window.scrollTo(0,ypos)
-				console.log(org+' unload scroll-y:'+ypos+'px');
-			}*/
 		}
 		flg_ld[org] = true;
 		load(xhr,true);
 	}
-}
+}*/
 
 function vue_cmd(id){
 	if($("#"+id).css('display') == 'block'){$("#"+id).stop(true,true).slideUp();}

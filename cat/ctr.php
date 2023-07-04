@@ -37,6 +37,8 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
 		<span id="vue"><?php include("vue.php"); ?></span>
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
+		<script src='../vendor/googleAPIKey/googleAPIKey.js'></script>
+		<script src='../resources/js/script.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
 	</body>
 </html>

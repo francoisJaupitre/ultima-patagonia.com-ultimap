@@ -34,64 +34,63 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
-
-					<div style="float:right; max-width: 80%;">
-						<div class="tbl_prs">
-							<div id="pax_grp"><?php include("vue_pax.php"); ?></div>
-						</div>
-					</div>
-					<div class="div_cat2">
-						<div class="tbl_crc">
-							<table class="dsg" style="width:100%">
-								<tr>
-									<td>
-										<table style="width:100%">
-											<tr>
-												<td class="fwb"><?php echo $txt->grp->$id_lng.':'; ?></td>
-												<td class="w-100">
-													<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="text" style="width: 150px; margin-right: 10px;" value="<?php echo stripslashes($grp) ?>" onChange="maj('grp_dev','nomgrp',this.value,<?php echo $id_grp ?>)" />
-												</td>
-											</tr>
-											<tr>
-												<td class="fwb"><?php echo $txt->clt->$id_lng.':'; ?></td>
-												<td id="clt" class="grp_clt"><?php include("vue_clt.php"); ?></td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<table style="width:100%">
-											<tr>
-												<td class="fwb"><?php echo $txt->notes->$id_lng; ?></td>
-												<td style="width: 100%; overflow:hidden;">
-													<textarea <?php if(!$aut['dev']){echo ' readonly';} ?> onChange="maj('grp_dev','notes',this.value,<?php echo $id_grp ?>)"><?php echo stripslashes($dt_grp['notes']) ?></textarea>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<table>
-						<tr class="vat">
+			<div style="float:right; max-width: 80%;">
+				<div class="tbl_prs">
+					<div id="pax_grp"><?php include("vue_pax.php"); ?></div>
+				</div>
+			</div>
+			<div class="div_cat2">
+				<div class="tbl_crc">
+					<table class="dsg" style="width:100%">
+						<tr>
 							<td>
-								<div id="tsk_grp" class="tbl_prs tsk_grp vatdib"><?php include("vue_tsk.php"); ?></div>
-								<div id="fac_grp" class="tbl_prs vatdib"><?php include("vue_fac.php"); ?></div>
+								<table style="width:100%">
+									<tr>
+										<td class="fwb"><?php echo $txt->grp->$id_lng.':'; ?></td>
+										<td class="w-100">
+											<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="text" style="width: 150px; margin-right: 10px;" value="<?php echo stripslashes($grp) ?>" onChange="maj('grp_dev','nomgrp',this.value,<?php echo $id_grp ?>)" />
+										</td>
+									</tr>
+									<tr>
+										<td class="fwb"><?php echo $txt->clt->$id_lng.':'; ?></td>
+										<td id="clt" class="grp_clt"><?php include("vue_clt.php"); ?></td>
+									</tr>
+								</table>
 							</td>
+						</tr>
+						<tr>
 							<td>
-								<div id="res_hbr" class="grp_crc hbr_ope vatdib"><?php include("vue_res_hbr.php"); ?></div>
-							</td>
-							<td>
-								<div id="res_frn" class="grp_crc frn_ope vatdib"><?php include("vue_res_frn.php"); ?></div>
-							</td>
-							<td>
-								<div id="crc" class="grp_crc tbl_prs vatdib"><?php include("vue_crc.php"); ?></div>
+								<table style="width:100%">
+									<tr>
+										<td class="fwb"><?php echo $txt->notes->$id_lng; ?></td>
+										<td style="width: 100%; overflow:hidden;">
+											<textarea <?php if(!$aut['dev']){echo ' readonly';} ?> onChange="maj('grp_dev','notes',this.value,<?php echo $id_grp ?>)"><?php echo stripslashes($dt_grp['notes']) ?></textarea>
+										</td>
+									</tr>
+								</table>
 							</td>
 						</tr>
 					</table>
-
+				</div>
+			</div>
+			<table>
+				<tr class="vat">
+					<td>
+						<div id="tsk_grp" class="tbl_prs tsk_grp vatdib"><?php include("vue_tsk.php"); ?></div>
+						<div id="fac_grp" class="tbl_prs vatdib"><?php include("vue_fac.php"); ?></div>
+					</td>
+					<td>
+						<div id="res_hbr" class="grp_crc hbr_ope vatdib"><?php include("vue_res_hbr.php"); ?></div>
+					</td>
+					<td>
+						<div id="res_frn" class="grp_crc frn_ope vatdib"><?php include("vue_res_frn.php"); ?></div>
+					</td>
+					<td>
+						<div id="crc" class="grp_crc tbl_prs vatdib"><?php include("vue_crc.php"); ?></div>
+					</td>
+				</tr>
+			</table>
+		<script src='../resources/js/script.js'></script>
 	</body>
 </html>
 <?php

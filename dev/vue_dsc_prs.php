@@ -20,7 +20,7 @@ if(isset($_POST['id_dev_prs'])){
 		<strong><?php echo $txt->dsc->$id_lng.'<BR />'.$txt->prs->$id_lng; ?></strong>
 	</div>
 	<div style="margin-left: 105px; margin-right: 5px; position: relative;">
-		<div id="ld_prs_dsc<?php echo $id_dev_prs ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
+		<div id="ld_prs_dsc<?php echo $id_dev_prs ?>" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../resources/gif/loader.gif"></div>
 		<div id="prs_dsc<?php echo $id_dev_prs ?>" class="ust rich rich_dt_crc rich_dt_mdl<?php echo $id_dev_mdl ?> rich_dt_jrn<?php echo $id_dev_jrn ?> rich_dsc_prs<?php echo $id_dev_prs ?>" <?php if(($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0)){ ?> onclick="richTxtInit(this.id,'dev_prs','dsc',<?php echo $id_dev_prs ?>);this.onclick=null;" <?php } ?> ><?php echo nl2br(stripslashes($dsc_prs)) ?></div>
 		<div id="tool_prs_dsc<?php echo $id_dev_prs ?>" class="tool"></div>
 		<img hidden src onerror="$('#prs_dsc<?php echo $id_dev_prs ?>').css('pointer-events','auto');" /><?php //no se encuentra en dsc_crc ?>

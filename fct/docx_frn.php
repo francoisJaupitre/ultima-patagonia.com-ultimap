@@ -3,7 +3,7 @@ if(isset($_GET['id']) and isset($_GET['frn'])){
 	$id_dev_crc = $_GET['id'];
 	$id_res_frn = $_GET['frn'];
 	$obj = 'doc';
-	include("res_frn.php");
+	include("../resources/php/resFrn.php");
 	//DOC SETTINGS
 	require "../vendor/autoload.php";
 	//require_once '../vendor/PHPWord.php';

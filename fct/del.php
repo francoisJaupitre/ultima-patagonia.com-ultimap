@@ -4,7 +4,7 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 	include("../prm/aut.php");
 	include("../cfg/lng.php");
 	$id = $_POST['id'];
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	switch($_POST['cbl']) {
 		case 'grp':
 			$num_crc = sel_quo("id","dev_crc","id_grp",$id);

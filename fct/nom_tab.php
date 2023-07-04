@@ -2,7 +2,7 @@
 $id = $_POST['id'];
 $obj = $_POST['obj'];
 $cbl = $_POST['cbl'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 include("../prm/fct.php");
 include("../prm/aut.php");
 include("../cfg/clt.php");

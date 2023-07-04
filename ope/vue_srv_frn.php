@@ -24,7 +24,7 @@ else{
 	</div>
 	<div id="sel_srv_frn<?php echo $id_dev_srv ?>" class="cmd mw200">
 		<input type="text" id="ipt_sel_srv_frn<?php echo $id_dev_srv ?>" onkeyup="auto_lst('srv','frn<?php echo $id_dev_srv ?>',this.value,event);" />
-		<div id="lst_frn<?php echo $id_dev_srv ?>"><img src="../prm/img/loader.gif"></div>
+		<div id="lst_frn<?php echo $id_dev_srv ?>"><img src="../resources/gif/loader.gif"></div>
 	</div>
 </span>
 <?php

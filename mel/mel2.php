@@ -9,7 +9,7 @@ if(isset($_GET['act']) and isset($_GET['melfr']) and isset($_GET['subj']) and is
 	if(isset($_GET['att'])){$att = $_GET['att'];}
 	if(isset($_GET['melto'])){$melto = $_GET['melto'];}
 	$ccrt = $_GET['bccrt'];
-	include("../fct/eml.php");
+	include("../resources/php/eml.php");
 	if(file_exists($file)) {
 	  header('Content-Description: File Transfer');
 	  header('Content-Type: application/octet-stream');

@@ -65,7 +65,7 @@ function maj(tab,col,val,id,id_sup,id_dev_crc){
 function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res,id_dev_crc){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("src_hbr");
@@ -97,7 +97,7 @@ function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv,id_dev_crc){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("src_srv");
@@ -136,7 +136,7 @@ function src_frn(res,id_frn,id_dev_srv,id_dev_crc){
 	if(id_frn!=0 && res>-1 && res<6){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","../fct/txt_js.xml",false);
+		xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 		xhttp.send();
 		xmlDoc=xhttp.responseXML;
 		x=xmlDoc.getElementsByTagName("src_frn");
@@ -166,96 +166,6 @@ function src_frn(res,id_frn,id_dev_srv,id_dev_crc){
 		xmlhttp.send("id_frn="+id_frn+"&id_dev_srv="+id_dev_srv+"&id_dev_crc="+id_dev_crc+"&res="+res+"&cnf=1");
 	}
 }
-
-/*function mel_frn(id_frn,id_dev){
-	if(id_frn>0){
-		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","../fct/txt_js.xml",false);
-		xhttp.send();
-		xmlDoc=xhttp.responseXML;
-		x=xmlDoc.getElementsByTagName("mel_frn");
-		y=x[2].getElementsByTagName(id_lng);
-		if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-		if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-		else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		load('OPE mel_frn');
-		xmlhttp.onreadystatechange=function(){
-			if(xmlhttp.readyState==4){
-				if(xmlhttp.status==200){
-					var rsp_mel = xmlhttp.responseText.split("||");
-					var link = document.createElement('a');
-					link.style.display = 'none';
-					document.body.appendChild(link);
-					for(var i = 1;i < rsp_mel.length;i++){
-						var rsp_srv = rsp_mel[i].split("|");
-						link.setAttribute('download', rsp_srv[1]);
-						link.setAttribute('href', rsp_srv[0]);
-	    			link.click();
-						for(var j = 2;j < rsp_srv.length;j++){
-							vue_elem('res_srv'+rsp_srv[j],rsp_srv[j]);
-							vue_elem('frn_srv'+rsp_srv[j],rsp_srv[j]);
-						}
-					}
-					document.body.removeChild(link);
-					window.parent.act_frm('frn_dev_frn'+id_frn);
-					window.parent.act_frm('frn_dev_srv'+id_frn);
-					window.parent.act_frm('frn_ope');
-					alt(rsp_mel[0]);
-				}
-				else if(xmlhttp.status==408){mel_frn(id_frn,id_dev)}
-				else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR mel_frn "+xmlhttp.statusText+" </span>";}
-				unload('OPE mel_frn');
-			}
-		}
-		xmlhttp.open("POST","../fct/mel_frn.php",true);
-		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xmlhttp.send("id_dev_crc="+id_dev+"&id_res_frn="+id_frn);
-	}
-}
-
-function mel_hbr(id_hbr,id_dev){
-	if(id_hbr>0){
-		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","../fct/txt_js.xml",false);
-		xhttp.send();
-		xmlDoc=xhttp.responseXML;
-		x=xmlDoc.getElementsByTagName("mel_hbr");
-		y=x[2].getElementsByTagName(id_lng);
-		if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-		if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-		else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		load('OPE mel_hbr');
-		xmlhttp.onreadystatechange=function(){
-			if(xmlhttp.readyState==4){
-				if(xmlhttp.status==200){
-					var rsp_mel = xmlhttp.responseText.split("||");
-					var link = document.createElement('a');
-					link.style.display = 'none';
-					document.body.appendChild(link);
-					for(var i = 1;i < rsp_mel.length;i++){
-						var rsp_hbr = rsp_mel[i].split("|");
-						link.setAttribute('download', rsp_hbr[1]);
-						link.setAttribute('href', rsp_hbr[0]);
-	    			link.click();
-						for(var j = 2;j < rsp_hbr.length;j++){vue_elem('res_hbr'+rsp_hbr[j],rsp_hbr[j]);}
-					}
-					document.body.removeChild(link);
-					window.parent.act_frm('cat_dev_hbr'+id_hbr);
-					window.parent.act_frm('hbr_ope');
-					alt(rsp_mel[0]);
-				}
-				else if(xmlhttp.status==408){mel_hbr(id_hbr,id_dev);}
-				else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR mel_hbr "+xmlhttp.statusText+" </span>";}
-				unload('OPE mel_hbr');
-			}
-		}
-		xmlhttp.open("POST","../fct/mel_hbr.php",true);
-		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xmlhttp.send("id_dev_crc="+id_dev+"&id_res_hbr="+id_hbr+"&id_res_chm=0");
-	}
-}*/
 
 function vue(){
 	var cnf = document.getElementById('cnf').value;

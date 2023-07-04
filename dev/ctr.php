@@ -19,6 +19,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 	include("../cfg/hbr_def.php");
 	include("../cfg/rgn.php");
 	include("../cfg/vll.php");
+	include("../vendor/googleAPIKey/googleAPIKey.php");
 	$rq_pic = sel_quo("pic","cat_pic");
 	while($dt_pic = ftc_ass($rq_pic)){$bg[] = $dt_pic['pic'];}
 	if(isset($bg)){
@@ -98,7 +99,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" type="text/css" href="../prm/forme.css?version=<?php echo date('Y-m-d-H-i-s', filemtime('../prm/forme.css'))  ?>" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $googleAPIKey ?>"></script>
 		<script><?php include("script_vue.js");?></script>
 		<script><?php include("script_act.js");?></script>
 		<script><?php include("script_ajt.js");?></script>
@@ -135,6 +136,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 			<div id="vue_end_crc" class="text-center"><?php include("vue_end_crc.php"); ?></div>
 		</div>
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
+		<script src='../resources/js/script.js'></script>
 		<script src='../resources/js/devMail.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
 	</body>

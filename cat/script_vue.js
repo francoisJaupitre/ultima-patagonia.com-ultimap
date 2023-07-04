@@ -133,7 +133,7 @@ function vue_fll(cbl,obj,src) {
 function loadScript() {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
-	script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs&callback=vue_map_init";
+	script.src = `https://maps.googleapis.com/maps/api/js?key=${googleAPIKey}&callback=vue_map_init`
 	document.body.appendChild(script);
 }
 
@@ -213,7 +213,7 @@ function vue_map_LatLng(marker,lat,lon) {
 function loadScript_noevent() {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
-	script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs&callback=vue_map_init_noevent";
+	script.src = `https://maps.googleapis.com/maps/api/js?key=${googleAPIKey}&callback=vue_map_init_noevent`
 	document.body.appendChild(script);
 }
 

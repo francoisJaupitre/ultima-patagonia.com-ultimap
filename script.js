@@ -127,7 +127,7 @@ function ajt_frm(link){
 		});
 	}
 	if(frm_num == 0){
-		var htm = "<img style='vertical-align: middle;' src='prm/img/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
+		var htm = "<img style='vertical-align: middle;' src='resources/gif/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
 		var li = $('<li ></li>').addClass("li_tab").attr({id: "li_"+ref, onclick: "vue_frm('"+ref+"');"}).html(htm).appendTo('#ul_tab');
 		$("#img_"+ref).attr({onclick: "sup_frm_nobug('"+ref+"',event);"});
 	}
@@ -161,14 +161,14 @@ function ajt_frm(link){
 			htm += "<span id='img_"+frm_lst[0]+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
 			var li = $('<li ></li>').addClass("li_hid").attr({id: "li_"+frm_lst[0], onclick: "vue_frm('"+frm_lst[0]+"');"}).html(htm).appendTo('#ul_ttr'+ref_id);
 			$("#img_"+frm_lst[0]).attr({onclick: "sup_frm_nobug('"+frm_lst[0]+"',event);"});
-			var htm = "<img style='vertical-align: middle;' src='prm/img/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
+			var htm = "<img style='vertical-align: middle;' src='resources/gif/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
 			var li = $('<li ></li>').addClass("li_tab").attr({id: "li_"+ref, onclick: "vue_frm('"+ref+"');"}).html(htm).appendTo('#ul_ttr'+ref_id);
 			$("#img_"+ref).attr({onclick: "sup_frm_nobug('"+ref+"',event);"});
 		}
 		else{return;}
 	}
 	else{
-		var htm = "<img style='vertical-align: middle;' src='prm/img/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
+		var htm = "<img style='vertical-align: middle;' src='resources/gif/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
 		var li = $('<li ></li>').addClass("li_tab").attr({id: "li_"+ref, onclick: "vue_frm('"+ref+"');"}).html(htm).appendTo('#ul_ttr'+ref_id);
 		$("#img_"+ref).attr({onclick: "sup_frm_nobug('"+ref+"',event);"});
 		$("#img_"+ref_id).attr({onclick: $("#img_"+ref_id).attr("onclick")+"sup_frm_nobug('"+ref+"',event);"});

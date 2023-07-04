@@ -1,5 +1,3 @@
-var ggkey = "AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs";
-
 function maj(tab,col,val,id){
 	$.ajax({url: 'maj.php',type: 'post',data: {"tab":tab,"col":col,"val":encodeURIComponent(val),"id":id},
 		/*success: function(){
@@ -186,7 +184,7 @@ function vue_dt_map(dir,id_prs,response){
 		ia++;
 		n++;
 	}
-	lnk += "&mode=driving&key="+ggkey;
+	lnk += "&mode=driving&key="+googleAPIKey;
 //	console.log(lnk);
 	$.ajax({url: 'sav_map.php',type: 'post',data: {"url":encodeURIComponent(lnk),"id":id_prs},
 		success: function(){

@@ -474,7 +474,7 @@ function ok_cnf(){
 function vrs(){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("vrs");

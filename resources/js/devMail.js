@@ -42,7 +42,7 @@ const mailFrn = (id_res_frn) => {
 				window.parent.act_frm('frn_ope')
 				alt(rsp_mel[0])
 			}	else{
-				load('DEV mail')
+				load('emailPopup')
 				emailWriter(JSON.parse(xhr.response))
 			}
 		}
@@ -91,7 +91,7 @@ const mailHbr = (id_res_hbr,id_res_chm) => {
 				window.parent.act_frm('hbr_ope')
 				alt(rsp_mel[0])
 			}	else{
-				load('DEV mail')
+				load('emailPopup')
 				emailWriter(JSON.parse(xhr.response))
 			}
 		}
@@ -145,7 +145,7 @@ const emailWriter = (data) => {
 			plugins: "textcolor paste",
 			paste_auto_cleanup_on_paste : true,
 			paste_word_valid_elements: "b,strong,i,em,u",
-			paste_preprocess : (pl, o) => { o.content = strip_tags( o.content,'<b><strong><i><em><u>') },
+			paste_preprocess : (pl, o) => { o.content = stripTags( o.content,'<b><strong><i><em><u>') },
 			toolbar: 'undo redo | bold italic underline | backcolor',
 			toolbar_location: 'bottom',
 			textcolor_rows: "3",
@@ -230,11 +230,11 @@ const sendMail = (devData) => {
 				}
 			}
 		}
-		unload('DEV mail')
+		unload('emailPopup')
 	}
 }
 
-const closeEmail = () => { 
+const closeEmail = () => {
 	document.getElementById("emailBox").remove()
-	unload('DEV mail')
+	unload('emailPopup')
 }

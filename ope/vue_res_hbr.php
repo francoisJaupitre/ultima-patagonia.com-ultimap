@@ -19,7 +19,7 @@ else{
 	</div>
 	<div id="sel_res_hbr<?php echo $dt_res2['id_dev_hbr'] ?>" class="cmd mw200">
 		<input type="text" id="ipt_sel_res_hbr<?php echo $dt_res2['id_dev_hbr'] ?>" onkeyup="auto_lst('hbr','hbr_res<?php echo $dt_res2['id_dev_hbr'] ?>',this.value,event);" />
-		<div id="lst_hbr_res<?php echo $dt_res2['id_dev_hbr'] ?>"><img src="../prm/img/loader.gif"></div>
+		<div id="lst_hbr_res<?php echo $dt_res2['id_dev_hbr'] ?>"><img src="../resources/gif/loader.gif"></div>
 	</div>
 </span>
 <br/>

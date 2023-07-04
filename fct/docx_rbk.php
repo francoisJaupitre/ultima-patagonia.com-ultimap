@@ -1,7 +1,7 @@
 <?php
 include("../prm/fct.php");
 include("../prm/aut.php");
-
+include("../vendor/googleAPIKey/googleAPIKey.php");
 function addrichText($sec,$str,$fs,$ps,$underline,$fgcolor){
 	$textrun = $sec->createTextRun($ps);
 	$fs2 = $fs;
@@ -85,10 +85,9 @@ function addrichText($sec,$str,$fs,$ps,$underline,$fgcolor){
 if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['id_lgg']) and $_GET['id_lgg']>0){
 	$id = $_GET['id'];
 	$lgg_id = $_GET['id_lgg'];
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	$txt_prg = simplexml_load_file('txt_prg.xml');
 	$cbl = 'dev';
-	$googlekey = "AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs";
 	$wdt_img = 2.3;
 	include("prg.php");
 	include("ttr.php");

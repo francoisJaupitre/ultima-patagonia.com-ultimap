@@ -99,7 +99,7 @@ function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 	else{var xhr = 'prs'+id_dev_prs;}
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("src_hbr");
@@ -207,7 +207,7 @@ function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("src_srv");
@@ -246,7 +246,7 @@ function src_frn(res,id_frn,id_dev_srv,id_dev_prs){
 	if(id_frn!=0){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","../fct/txt_js.xml",false);
+		xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 		xhttp.send();
 		xmlDoc=xhttp.responseXML;
 		x=xmlDoc.getElementsByTagName("src_frn");

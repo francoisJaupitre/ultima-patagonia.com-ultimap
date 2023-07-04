@@ -60,7 +60,7 @@ const richTxtCheck = () => {
 			if(tinyMCE.get(rich[i].id)) {
 				if(rich[i].style.backgroundColor != '' && rich[i].style.backgroundColor != 'rgb(255, 255, 255)') {
 					const xhttp = new XMLHttpRequest()
-					xhttp.open("GET","../fct/txt_js.xml",false)
+					xhttp.open("GET","../xml/scriptTxt.xml",false)
 					xhttp.send()
 					xmlDoc = xhttp.responseXML;
 					x = xmlDoc.getElementsByTagName("chk_frm")

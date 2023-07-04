@@ -61,7 +61,7 @@ function maj(tab,col,val,id,id_sup) {
 }
 
 function ajt(cbl,id_cat) {
-	$.ajax({url: '../fct/txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("ajt_"+cbl);
 			var y = x[0].getElementsByTagName(id_lng);
@@ -114,7 +114,7 @@ function ajt(cbl,id_cat) {
 }
 
 function vrs(id) {
-	$.ajax({url: '../fct/txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("vrs");
 			var y = x[0].getElementsByTagName(id_lng);
@@ -138,7 +138,7 @@ function vrs(id) {
 }
 
 function cop(cbl,id) {
-	$.ajax({url: '../fct/txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("cop_"+cbl);
 			var y = x[0].getElementsByTagName(id_lng);
@@ -171,7 +171,7 @@ function cop(cbl,id) {
 }
 
 function del(cbl,id) {
-	$.ajax({url: '../fct/txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("del_"+cbl);
 			var y = x[0].getElementsByTagName(id_lng);
@@ -223,7 +223,7 @@ function del_pls(cbl) {
 		if($(this).is(":checked")) {chk.push($(this).attr("id"));}
 	});
 	if(chk.length == 0) {return;}
-	$.ajax({url: '../fct/txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("del_pls_"+cbl);
 			var y = x[0].getElementsByTagName(id_lng);

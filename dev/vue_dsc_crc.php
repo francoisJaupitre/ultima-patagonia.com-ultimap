@@ -16,7 +16,7 @@ if(isset($_POST['id_dev_crc'])){
 		<strong><?php echo $txt->dsc->$id_lng.'<BR />'.$txt->crc->$id_lng; ?></strong>
 	</div>
 	<div style="margin-left: 105px; margin-right: 5px; position: relative;">
-		<div id="ld_crc_dsc" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../prm/img/loader.gif"></div>
+		<div id="ld_crc_dsc" class="loader"><img style="position:relative;top:50%;transform: translateY(-50%)" src="../resources/gif/loader.gif"></div>
 		<div id="crc_dsc" class="ust rich" <?php if(($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0)){ ?> onclick="richTxtInit(this.id,'dev_crc','dsc',<?php echo $id_dev_crc ?>);this.onclick=null;" <?php } ?> ><?php echo nl2br(stripslashes($dsc_crc)) ?></div>
 		<div id="tool_crc_dsc" class="tool"></div>
 	</div>

@@ -30,5 +30,6 @@ $li_map = array();
 			</div>
 			<div id="vue_map" onclick="if(xhr_map != null){xhr_map.abort();}if(xhr_src != null){xhr_src.abort();}"><?php include("vue_map.php") ?></div>
 		</div>
+		<script src='../resources/js/script.js'></script>
 	</body>
 </html>

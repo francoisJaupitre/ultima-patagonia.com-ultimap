@@ -3,7 +3,7 @@ if(isset($_POST['id']) and $_POST['id']>0 and isset($_POST['cbl']) and !empty($_
 	$cbl = $_POST['cbl'];
 	$id = $_POST['id'];
 	$lgg_id = $_POST['id_lgg'];
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	$txt_prg = simplexml_load_file('txt_prg.xml');
 	include("../prm/fct.php");
 	include("../prm/aut.php");

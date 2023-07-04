@@ -2,15 +2,15 @@
 if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['id_lgg']) and $_GET['id_lgg']>=0){
 	$id = $_GET['id'];
 	$lgg_id = $_GET['id_lgg'];
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	$txt_prg = simplexml_load_file('txt_prg.xml');
 	$cbl = 'dev';
-	$googlekey = "AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs";
 	include("../prm/fct.php");
 	include("../prm/aut.php");
 	include("prg.php");
 	include("../prm/ctg_prs.php");
 	include("../prm/ctg_srv.php");
+	include("../vendor/googleAPIKey/googleAPIKey.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['id_lgg']) and $_GET['id
 		<link rel="stylesheet" type="text/css" href="../prm/forme.css?version=<?php echo date('Y-m-d-H-i-s', filemtime('../prm/forme.css'))  ?>" />
 		<link rel="stylesheet" type="text/css" href="../prm/css/<?php echo $dir.'/tmpl'.$clt_tmpl[$id_clt].'.css?version='.date('Y-m-d-H-i-s', filemtime('../prm/css/'.$dir.'/tmpl'.$clt_tmpl[$id_clt].'.css')) ?>" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $googleAPIKey ?>"></script>
 		<script><?php include("script.js"); ?></script>
 	</head>
 	<body onload="act_tab('rbk',<?php echo $id ?>,'dev',<?php echo $lgg_id ?>);vue_map('<?php echo $dir ?>')">

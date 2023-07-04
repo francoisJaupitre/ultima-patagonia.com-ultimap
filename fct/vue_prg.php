@@ -3,7 +3,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 	$cbl = $_GET['cbl'];
 	$id = $_GET['id'];
 	$lgg_id = $_GET['id_lgg'];
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	$txt_prg = simplexml_load_file('txt_prg.xml');
 	include("../prm/fct.php");
 	include("../prm/aut.php");
@@ -114,6 +114,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 			</div>
 			<div id="vue_dt_prg"><?php include("vue_dt_prg.php"); ?></div>
 		</div>
+		<script src='../resources/js/script.js'></script>
 	</body>
 </html>
 <?php

@@ -2,7 +2,7 @@
 define('MIN_DISTANCE_FOR_NEW_MAP',2.8); //DISTANCE ENTRE 2 LIEUX POUR NOUVELLE CARTE //VALEURE ANTERIEURE 2.8 link trop long pour circuit DANON noa+atacama
 $h=0;
 if($cbl=='dev') {
-	$googlekey = "AIzaSyBuXaGEpXzsBNlbuHyX-WCm7QkXtPj1LKs";
+	include("../vendor/googleAPIKey/googleAPIKey.php");
 	$jawgkey = "5tgToff50LHR8AJNY5FBRXsh15kbwB1s9BkjsctoZFXrBM3tS9f1mm0urBMileyi";
 	$com_crc = $dt_crc['com'];
 	$mrq_hbr_crc = $dt_crc['mrq_hbr'];
@@ -989,7 +989,7 @@ if(isset($map_jrn)) {
 		}
 	}
 	if($i>3) {// nombre de points minimum sur la carte
-		$lnk .= "&key=".$googlekey;
+		$lnk .= "&key=".$googleAPIKey;
 		$map[] = $lnk.$pth."&sensor=false";
 		$leg[] = $lst;
 	}
@@ -1069,7 +1069,7 @@ if(isset($map_prs)) {
 					if(mb_strlen($lnk.$pth)>1980 or (($lst_lat != 0 or $lst_lon !=0) and sqrt(pow(($lat-$lst_lat),2)+pow(($lon-$lst_lon),2))>MIN_DISTANCE_FOR_NEW_MAP) or $flgOut) {
 						$flgOut = false;
 						if($i>=3) { // nombre de points minimum sur la carte
-							$lnk .= "&key=".$googlekey;
+							$lnk .= "&key=".$googleAPIKey;
 							$map[] = $lnk.$pth."&sensor=false";
 							$leg[] = $lst;
 						}
@@ -1129,7 +1129,7 @@ if(isset($map_prs)) {
 		else {$flgOut = false;}
 	}
 	if($i>=3) {// nombre de points minimum sur la carte
-		$lnk .= "&key=".$googlekey;
+		$lnk .= "&key=".$googleAPIKey;
 		$map[] = $lnk.$pth."&sensor=false";
 		$leg[] = $lst;
 	}

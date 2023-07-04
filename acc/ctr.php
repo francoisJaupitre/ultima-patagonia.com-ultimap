@@ -28,5 +28,6 @@ insert("cfg_usr_cnx",array("id_usr","cnx","ip"),array($id_usr,date('Y-m-d H:i:s'
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
 		<div class="menu" id="vue_menu"><?php include("vue_menu.php"); ?></div>
 		<div class="lst" id="vue_lst"><?php include("vue_lst.php"); ?></div>
+		<script src='../resources/js/script.js'></script>
 	</body>
 </html>

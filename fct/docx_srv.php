@@ -8,7 +8,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 	include("../prm/ctg_srv.php");
 	include("../cfg/lng.php");
 	include("../cfg/vll.php");
-	$txt = simplexml_load_file('txt.xml');
+	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
 	$dt_dev = ftc_ass(sel_quo("*","dev_crc INNER JOIN grp_dev ON dev_crc.id_grp = grp_dev.id","dev_crc.id",$id_dev_crc));
 	$cnf = $dt_dev['cnf'];
 	$nom_gpe = $dt_dev['groupe'];

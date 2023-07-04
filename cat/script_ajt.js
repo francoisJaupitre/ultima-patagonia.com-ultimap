@@ -56,7 +56,7 @@ function ajt_lgg(obj,id_chm,id_lgg) {
 function ajt_dev(id) {
 	if (window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("ajt_dev");
@@ -490,7 +490,7 @@ function cop(cbl,id) {
 	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("cop_"+cbl);
@@ -523,7 +523,7 @@ function cop2(cbl,id) {
 	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../fct/txt_js.xml",false);
+	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("cop_"+cbl);
