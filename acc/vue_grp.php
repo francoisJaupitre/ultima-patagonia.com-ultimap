@@ -52,7 +52,7 @@ switch($cbl){
 <?php
 if($cbl=='gr0'){
 ?>
-					<td class="text-center" onclick="ajt('grp',0);">
+					<td class="text-center" id="addGrp0">
 						<img src="../prm/img/ajt.png" />
 					</td>
 <?php

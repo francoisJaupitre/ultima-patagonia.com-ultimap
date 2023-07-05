@@ -1,4 +1,4 @@
-var ld = 0, flg_ld = {}
+let ld = 0, flg_ld = {}
 
 const load = (xhr) => {
   let org = 0
@@ -41,4 +41,10 @@ const unload = (xhr,id) => {
 		}
 		flg_ld[org] = true
 	}
+}
+
+const getTxt = async function(url)
+{
+  const res = await fetch(url)
+  return await res.json();
 }

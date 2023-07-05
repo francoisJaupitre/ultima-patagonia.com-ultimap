@@ -1,18 +1,7 @@
-const mailFrn = (id_res_frn) => {
-	const xhttp = new XMLHttpRequest()
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false) // remplacer ajax symchrone par fetch ou promise ?
-	xhttp.send()
-	const xmlDoc = xhttp.responseXML
-	const x = xmlDoc.getElementsByTagName("mailFrn")
+const mailFrn = async function(id_res_frn) {
 	if(id_res_frn == 0) {
-		if(cnf == 1) {
-			const y = x[0].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
-		else if(cnf == 0) {
-			const y = x[1].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
+		const obj = await getTxt("../resources/json/scriptTxt.json")
+		if(window.confirm(obj["mailFrn"][cnf][id_lng]) == false) {return}
 	}
 	const xhr = new XMLHttpRequest
 	xhr.open("POST","../resources/php/mailFrn.php")
@@ -49,21 +38,10 @@ const mailFrn = (id_res_frn) => {
 	}
 }
 
-const mailHbr = (id_res_hbr,id_res_chm) => {
-	const xhttp = new XMLHttpRequest()
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false) // remplacer ajax symchrone par fetch ou promise ?
-	xhttp.send()
-	const xmlDoc = xhttp.responseXML
-	const x = xmlDoc.getElementsByTagName("mailHbr")
+const mailHbr = async function(id_res_hbr,id_res_chm) {
 	if(id_res_hbr == 0) {
-		if(cnf == 1) {
-			const y = x[0].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
-		else if(cnf == 0) {
-			const y = x[1].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
+		const obj = await getTxt("../resources/json/scriptTxt.json")
+		if(window.confirm(obj["mailHbr"][cnf][id_lng]) == false) {return}
 	}
 	const xhr = new XMLHttpRequest
 	xhr.open("POST","../resources/php/mailHbr.php")

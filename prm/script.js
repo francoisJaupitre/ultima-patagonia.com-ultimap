@@ -63,6 +63,8 @@ function mov_lst(obj,e){
 	}
 }
 
+let timer
+
 function fll_lst(cbl,obj,src){
     clearTimeout(timer);
     timer = setTimeout(function () {

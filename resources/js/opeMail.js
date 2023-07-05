@@ -1,19 +1,4 @@
 const mailFrn = (id_res_frn, id_dev_crc) => {
-	const xhttp = new XMLHttpRequest()
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false) // remplacer ajax symchrone par fetch ou promise ?
-	xhttp.send()
-	const xmlDoc = xhttp.responseXML
-	const x = xmlDoc.getElementsByTagName("mailFrn")
-	if(id_res_frn == 0) {
-		if(cnf == 1) {
-			const y = x[0].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
-		else if(cnf == 0) {
-			const y = x[1].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
-	}
 	const xhr = new XMLHttpRequest
 	xhr.open("POST","../resources/php/mailFrn.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
@@ -40,7 +25,7 @@ const mailFrn = (id_res_frn, id_dev_crc) => {
 				window.parent.act_frm('frn_dev_srv'+id_frn)
 				window.parent.act_frm('frn_ope')
 				alt(rsp_mel[0])
-			}	else{
+			}	else {
 				load('emailPopup')
 				emailWriter(JSON.parse(xhr.response))
 			}
@@ -58,8 +43,7 @@ const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
 		if(cnf == 1) {
 			const y = x[0].getElementsByTagName(id_lng)
 			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
-		else if(cnf == 0) {
+		} else if(cnf == 0) {
 			const y = x[1].getElementsByTagName(id_lng)
 			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
 		}
@@ -70,7 +54,7 @@ const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
 	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm }	))
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if(id_res_hbr == 0){
+			if(id_res_hbr == 0)	{
 				const link = document.createElement('a')
 				link.style.display = 'none'
 				document.body.appendChild(link)
@@ -88,7 +72,7 @@ const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
 				window.parent.act_frm('cat_dev_hbr'+id_hbr)
 				window.parent.act_frm('hbr_ope')
 				alt(rsp_mel[0])
-			}	else{
+			}	else {
 				load('emailPopup')
 				emailWriter(JSON.parse(xhr.response))
 			}
@@ -188,12 +172,14 @@ const sendMail = (devData) => {
 		message : "<html><body>"+emailMessage.innerHTML+"</body></html>",
 		bcc : document.getElementById("bcc").value
 	}
-	if(typeof devData['emailLstSRV'] !== 'undefined') {
+	if(typeof devData['emailLstSRV'] !== 'undefined')
+	{
 		emailRequest['lst_srv'] = devData['emailLstSRV']
 		emailRequest['id_grp'] = devData['emailGRP']
 		emailRequest['id_frn'] = devData['emailFRN']
 	}
-	else if(typeof devData['emailLstHBR'] !== 'undefined') {
+	else if(typeof devData['emailLstHBR'] !== 'undefined')
+	{
 		emailRequest['lst_hbr'] = devData['emailLstHBR']
 		emailRequest['id_grp'] = devData['emailGRP']
 		emailRequest['id_hbr'] = devData['emailHBR']
@@ -203,9 +189,9 @@ const sendMail = (devData) => {
 	xhr.setRequestHeader("Content-Type", "application/json")
 	xhr.send(JSON.stringify(emailRequest))
 	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			if(xhr.responseText.length > 0) { alt(xhr.responseText) }
-			else{
+			else {
 				closeEmail()
 				if(typeof emailRequest['lst_srv'] !== 'undefined') {
 					const rsp_srv = emailRequest['lst_srv'].split("|")

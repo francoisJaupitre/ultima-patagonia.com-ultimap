@@ -105,7 +105,7 @@ if($cbl == 'cnf' or $cbl == 'fin'){
 <?php
 if($cbl=='dev'){
 ?>
-					<td class="text-center" onclick="ajt('dev',0);">
+					<td class="text-center" id="addDev0">
 						<img src="../prm/img/ajt.png" />
 					</td>
 <?php

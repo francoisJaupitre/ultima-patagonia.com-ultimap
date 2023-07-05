@@ -112,6 +112,21 @@ function vue_lst(cbl,cbl2) {
 			else if(cbl == 'acc' && $("#"+cbl).length) {vue_acc($("#"+cbl).val());}
 			unload('ACC vue_lst');
 			$("#txtHint").html("");
+			const catElem = document.getElementsByClassName("add-elem")
+			for (let item of catElem) {
+    		item.onclick = () => { addElem(item.id) }
+			}
+			const devElem = document.getElementsByClassName("add-dev")
+			for (let item of devElem) {
+    		item.onclick = () => { addElem('dev',item.id) }
+			}
+			if(document.getElementById("addDev0")) {
+				document.getElementById("addDev0").onclick = () => { addElem('dev',0) }
+			}
+			if(document.getElementById("addGrp0")) {
+				document.getElementById("addGrp0").onclick = () => { addElem('grp',0) }
+			}
+
 		},
 		error: function (request, status, error) {
 			vue_lst(cbl);
@@ -164,6 +179,14 @@ function vue_cat(cbl,obj,id) {
 			flg_dt_cat = 1;
 			unload('ACC vue_cat');
 			$("#txtHint").html("");
+			const catElem = document.getElementsByClassName("add-elem")
+			for (let item of catElem) {
+    		item.onclick = () => { addElem(item.id) }
+			}
+			const devElem = document.getElementsByClassName("add-dev")
+			for (let item of devElem) {
+    		item.onclick = () => { addElem('dev',item.id) }
+			}
 		},
 		error: function (request, status, error) {
 			vue_cat(cbl,obj,id);
@@ -199,6 +222,10 @@ function vue_dt_cat(cbl) {
 				}
 				unload('ACC vue_dt_cat');
 				$("#txtHint").html("");
+				const devElem = document.getElementsByClassName("add-dev")
+				for (let item of devElem) {
+	    		item.onclick = () => { addElem('dev',item.id) }
+				}
 			},
 			error: function (request, status, error) {
 				flg_dt_cat = 1;
@@ -233,6 +260,7 @@ function vue_dev(cbl,obj,id) {
 			flg_dt_dev = 1;
 			unload('ACC vue_dev');
 			$("#txtHint").html("");
+			document.getElementById("add-dev-0").onclick = () => { addElem('dev',0) }
 		},
 		error: function (request, status, error) {
 			vue_dev(cbl,obj,id);

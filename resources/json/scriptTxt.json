@@ -1,0 +1,294 @@
+{
+  "ajt_grp": {
+    "fr": "Entrez un nom pour ce groupe.",
+    "es": "Ingrese un nombre para este grupo.",
+    "pt": "Digite um nome para este grupo."
+  },
+  "ajt_dev": {
+    "fr": "Entrez un nom de groupe pour ce circuit.",
+    "es": "Ingrese un nombre de grupo para esta circuito.",
+    "pt": "Digite um nome de grupo para esta circuito."
+  },
+  "ajt_crc": {
+    "fr": "Entrez un nom pour ce circuit.",
+    "es": "Ingrese un nombre para este circuito.",
+    "pt": "Digite um nome para este circuito."
+  },
+  "ajt_mdl": {
+    "fr": "Entrez un nom pour ce module.",
+    "es": "Ingrese un nombre para este modulo.",
+    "pt": "Digite um nome para este módulo."
+  },
+  "ajt_jrn": {
+    "fr": "Entrez un nom pour cette journée.",
+    "es": "Ingrese un nombre para esta jornada.",
+    "pt": "Digite um nome para esta jornada."
+  },
+  "ajt_prs": {
+    "fr": "Entrez un nom pour cette prestation.",
+    "es": "Ingrese un nombre para esta prestación.",
+    "pt": "Digite um nome para esta prestação."
+  },
+  "ajt_hbr": {
+    "fr": "Entrez un nom pour cet hébergement.",
+    "es": "Ingrese un nombre para este alojamiento.",
+    "pt": "Digite um nome para este alojamento."
+  },
+  "ajt_srv": {
+    "fr": "Entrez un nom pour ce service.",
+    "es": "Ingrese un nombre para este servicio.",
+    "pt": "Digite um nome para este serviço."
+  },
+  "ajt_clt": {
+    "fr": "Entrez un nom pour ce client.",
+    "es": "Ingrese un nombre para este cliente.",
+    "pt": "Digite um nome para este cliente."
+  },
+  "ajt_frn": {
+    "fr": "Entrez un nom pour ce fournisseur.",
+    "es": "Ingrese un nombre para este proveedor.",
+    "pt": "Digite um nome para este fornecedor."
+  },
+  "ajt_rgn": {
+    "fr": "Entrez un nom pour cette region.",
+    "es": "Ingrese un nombre para esta region.",
+    "pt": "Digite um nome para esta região."
+  },
+  "ajt_vll": {
+    "fr": "Entrez un nom pour cette ville.",
+    "es": "Ingrese un nombre para esta ciudad.",
+    "pt": "Digite um nome para esta cidade."
+  },
+  "ajt_lieu": {
+    "fr": "Entrez un nom pour ce lieu.",
+    "es": "Ingresar un nombre para este lugar.",
+    "pt": "Digite um nome para este lugar ."
+  },
+  "ajt_bnq": {
+    "fr": "Entrez un nom pour cette banque.",
+    "es": "Ingrese un nombre para este banco.",
+    "pt": "Digite um nome para este banco."
+  },
+  "cop_dev": {
+    "fr": "Entrez un nom de groupe pour la COPIE de ce circuit.",
+    "es": "Ingrese un nombre de grupo para la COPIA de este circuito."
+  },
+  "cop_crc": {
+    "fr": "Entrez un nom pour la COPIE de ce circuit.",
+    "es": "Ingrese un nombre para la COPIA de este circuito."
+  },
+  "cop_mdl": {
+    "fr": "Entrez un nom pour la COPIE de ce module.",
+    "es": "Ingrese un nombre para la COPIA de este modulo."
+  },
+  "cop_jrn": {
+    "fr": "Entrez un nom pour la COPIE de cette journée.",
+    "es": "Ingrese un nombre para la COPIA de esta jornada."
+  },
+  "cop_prs": {
+    "fr": "Entrez un nom pour la COPIE de cette prestation.",
+    "es": "Ingrese un nombre para la COPIA de esta prestación."
+  },
+  "cop_srv": {
+    "fr": "Entrez un nom pour la COPIE de ce service.",
+    "es": "Ingrese un nombre para la COPIA de este servicio."
+  },
+  "del_grp": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce groupe?",
+    "es": "Está seguro de querer BORRAR este grupo?"
+  },
+  "del_arc": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce devis?",
+    "es": "Está seguro de querer BORRAR esta cotización?"
+  },
+  "del_pls_arc": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce(s)",
+    "es": "Está seguro de querer BORRAR esta(s)"
+  },
+  "del_pls_arc2": {
+    "fr": "devis?",
+    "es": "cotizacion(es)?"
+  },
+  "del_pls_grp": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce(s)",
+    "es": "Está seguro de querer BORRAR esto(s)"
+  },
+  "del_pls_grp2": {
+    "fr": "groupe(s)?",
+    "es": "grupo(s)?"
+  },
+  "del_fin": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette confirmation?",
+    "es": "Está seguro de querer BORRAR esta confirmación?"
+  },
+  "del_crc": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce circuit?",
+    "es": "Está seguro de querer BORRAR este circuito?"
+  },
+  "del_mdl": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce module?",
+    "es": "Está seguro de querer BORRAR este modulo?"
+  },
+  "del_jrn": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette journée?",
+    "es": "Está seguro de querer BORRAR esta jornada?"
+  },
+  "del_prs": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette prestation?",
+    "es": "Está seguro de querer BORRAR esta prestación?"
+  },
+  "del_srv": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce service?",
+    "es": "Está seguro de querer BORRAR este servicio?"
+  },
+  "del_hbr": {
+    "fr": "Etes-vous sur de vouloir EFFACER cet hébergement?",
+    "es": "Está seguro de querer BORRAR este alojamiento?"
+  },
+  "del_clt": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce client?",
+    "es": "Está seguro de querer BORRAR este cliente?"
+  },
+  "del_frn": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce fournisseur?",
+    "es": "Está seguro de querer BORRAR este proveedor?"
+  },
+  "del_pic": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette photo?",
+    "es": "Está seguro de querer BORRAR esta foto?"
+  },
+  "del_rgn": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette région?",
+    "es": "Está seguro de querer BORRAR esta region?"
+  },
+  "del_vll": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette ville?",
+    "es": "Está seguro de querer BORRAR esta ciudad?"
+  },
+  "del_lieu": {
+    "fr": "Etes-vous sur de vouloir EFFACER ce lieu?",
+    "es": "Está seguro de querer BORRAR este lugar?"
+  },
+  "del_bnq": {
+    "fr": "Etes-vous sur de vouloir EFFACER cette banque?",
+    "es": "Está seguro de querer BORRAR este banco?"
+  },
+  "src_srv": [
+    {
+      "fr": "autres services de cette ville et catégorie?",
+      "es": "otros servicios de esta ciudad y categoria?"
+    },
+    {
+      "fr": "Sélectionner ce même fournisseur pour le(s)",
+      "es": "Seleccionar este mismo proveedor para el(los)"
+    },
+    {
+      "fr": "Retirer ce même fournisseur pour le(s)",
+      "es": "Retirar este mismo proveedor para el(los)"
+    }
+  ],
+  "src_hbr": [
+    {
+      "fr": "autre(s) nuitée(s)?",
+      "es": "otra(s) noche(s)?"
+    },
+    {
+      "fr": "Ajouter ce même hébergement pour la(les)",
+      "es": "Añadir este mismo alojamiento para la(s)"
+    },
+    {
+      "fr": "Sélectionner ce même hébergement pour la(les)",
+      "es": "Seleccionar este mismo alojamiento para la(s)"
+    },
+    {
+      "fr": "Supprimer ce même hébergement pour la(les)",
+      "es": "Suprimir este mismo alojamiento para la(s)"
+    },
+    {
+      "fr": "autre(s) nuitée(s) ayant le même hébergment défini?",
+      "es": "otra(s) noche(s) con el mismo alojamiento definido?"
+    },
+    {
+      "fr": "Ajouter ce même hébergement en option pour la(les)",
+      "es": "Añadir este mismo alojamiento en opción para la(s)"
+    },
+    {
+      "fr": "Appliquer ce statut au(x)",
+      "es": "Aplicar este estado a la(s)"
+    },
+    {
+      "fr": "autre(s) nuitée(s) de cet hébergement pour ce groupe?",
+      "es": "otra(s) noche(s) de este alojamiento para este grupo?"
+    },
+    {
+      "fr": "Actualiser les tarifs de(s)",
+      "es": "Actualizar las tarifas de la(s)"
+    },
+    {
+      "fr": "nuitée(s) de cet hébergement?",
+      "es": "noche(s) de este alojamiento?"
+    },
+    {
+      "fr": "Supprimer cet hébergement en option pour",
+      "es": "Borrar este alojamiento opciona para"
+    },
+    {
+      "fr": "nuitée(s)?",
+      "es": "noche(s)?"
+    }
+  ],
+  "src_frn": [
+    {
+      "fr": "autres services de ce fournisseur?",
+      "es": "otros servicios de este proveedor?"
+    },
+    {
+      "fr": "Appliquer ce statut au(x)",
+      "es": "Aplicar este estado a el(los)"
+    },
+    {
+      "fr": "services de ce fournisseur pour ce groupe?",
+      "es": "servicios de este proveedor para este grupo?"
+    },
+    {
+      "fr": "Actualiser les tarifs de(s)",
+      "es": "Actualizar las tarifas de la(s)"
+    },
+    {
+      "fr": "service(s) de ce fournisseur?",
+      "es": "servicio(s) de este proveedor?"
+    }
+  ],
+  "vrs": {
+    "fr": "Créer une NOUVELLE VERSION de ce circuit?",
+    "es": "Crear una NUEVA VERSION de este circuito?"
+  },
+  "mailFrn": [
+    {
+      "fr": "Envoyer des DEMANDES DE DEVIS/RESERVATIONS AUX FOURNISSEURS pour ce circuit?",
+      "es": "Enviar PEDIDOS DE COTIZACIONES/BLOQUEOS A LOS PROVEEDORES para este circuito?"
+    },
+    {
+      "fr": "Envoyer les RESERVATIONS DE SERVICES pour ce circuit?",
+      "es": "Enviar las RESERVACIONES DE SERVICIOS para este circuito?"
+    }
+  ],
+  "melHbr": [
+    {
+      "fr": "Envoyer des DEMANDES DE DEVIS/RESERVATIONS AUX HEBERGEMENTS pour ce circuit?",
+      "es": "Enviar PEDIDOS DE COTIZACIONES/BLOQUEOS A LOS ALOJAMIENTOS para este circuito?"
+    },
+    {
+      "fr": "Envoyer les RESERVATIONS AUX HEBERGEMENTS pour ce circuit?",
+      "es": "Enviar las RESERVACIONES A LOS ALOJAMIENTOS para este circuito?"
+    }
+  ],
+  "cnf": {
+    "fr": "Circuit confirmé! Etes-vous sûr?",
+    "es": "Circuito confirmado! Está seguro?"
+  },
+  "chk_frm": {
+    "fr": "TEXTE(S) NON SAUVEGARDE(S)!&#xA;Quitter sans sauver?",
+    "es": "TEXTO(S) SIN GUARDAR!&#xA;Cerrar sin guardar?"
+  }
+}

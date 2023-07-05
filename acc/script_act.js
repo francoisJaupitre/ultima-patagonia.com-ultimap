@@ -60,7 +60,7 @@ function maj(tab,col,val,id,id_sup) {
 	});
 }
 
-function ajt(cbl,id_cat) {
+/*function ajt(cbl,id_cat) {
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("ajt_"+cbl);
@@ -111,7 +111,7 @@ function ajt(cbl,id_cat) {
 			});
 		}
 	});
-}
+}*/
 
 function vrs(id) {
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
