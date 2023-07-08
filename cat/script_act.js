@@ -433,11 +433,11 @@ function web_ajt(obj,uid,id,lgg,lng) {
 		uid = uid.replace(/&/g, "-");
 		uid = uid.replace(/-+/g, "-");
 		uid = uid.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-		var url = document.getElementById("host").value+lng;
-		if(obj == 'crc') {url += '/circuit/';}
-		else if(obj == 'mdl') {url += '/module/';}
-		url += encodeURIComponent(uid);
-		check_url(url, function(status) {
+		var link = url+lng;
+		if(obj == 'crc') {link += '/circuit/';}
+		else if(obj == 'mdl') {link += '/module/';}
+		link += encodeURIComponent(uid);
+		check_url(link, function(status) {
 	    if(status === 200) {
 				y=x[1].getElementsByTagName(id_lng);
 	      alt(y[0].childNodes[0].nodeValue);
@@ -450,10 +450,10 @@ function web_ajt(obj,uid,id,lgg,lng) {
 }
 
 function web_pub(obj,uid,id,lgg,lng) {
-	var url = document.getElementById("host").value+lng;
-	if(obj == 'crc') {url += '/circuit/';}
-	else if(obj == 'mdl') {url += '/module/';}
-	url += encodeURIComponent(uid)+"/?";
+	var link = url+lng;
+	if(obj == 'crc') {link += '/circuit/';}
+	else if(obj == 'mdl') {link += '/module/';}
+	link += encodeURIComponent(uid)+"/?";
 	var mapForm = document.createElement("form");
 	mapForm.target = "edit"+uid;
 	mapForm.method = "POST";
@@ -464,7 +464,7 @@ function web_pub(obj,uid,id,lgg,lng) {
 			mapInput.name = "title";
 			mapInput.value = $(this).val();
 			mapForm.appendChild(mapInput);
-			if($("#mdp"+lgg).val().length>0) {url += $("#mdp"+lgg).val();}
+			if($("#mdp"+lgg).val().length>0) {link += $("#mdp"+lgg).val();}
 			else{
 				var motdepasse = pass();
 				var mapInput = document.createElement("input");
@@ -474,7 +474,7 @@ function web_pub(obj,uid,id,lgg,lng) {
 				mapForm.appendChild(mapInput);
 				var mdp = '';
 				for(var i = 0; i < $(this).val().length; i++) {mdp += $(this).val()[i].charCodeAt(0).toString(2);}
-				url += mdp;
+				link += mdp;
 				maj("cat_"+obj+"_txt","web_mdp",motdepasse,id);
 			}
 		}
@@ -521,11 +521,7 @@ function pass() {
   return retVal;
 }
 
-function init(lng,cbl,id,at) {
-	id_lng = lng;
-	id_cat = id;
-	cbl_cat = cbl;
-	aut = at;
+function init() { //à mettre dans catLoad.jd
 	if(cbl_cat=='vll' || cbl_cat=='lieu' || cbl_cat=='hbr') {
 		if(!aut) {loadScript_noevent();}
 		else{loadScript();}

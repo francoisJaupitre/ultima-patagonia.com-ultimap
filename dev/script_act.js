@@ -1,4 +1,4 @@
-var flg_maj = true, fos, id_lng, id_dev_crc, cnf, aut, upd = 0;
+var flg_maj = true, upd = 0;
 
 function maj(tab,col,val,id,id_sup){
 	if(flg_maj){upd++;console.log('upd '+upd);flg_maj = false;}
@@ -470,7 +470,7 @@ function ok_cnf(){
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("id_dev_crc="+id_dev_crc);
 }
-
+/*
 function vrs(){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -495,11 +495,11 @@ function vrs(){
 			unload('DEV');
 		}
 	}
-	xmlhttp.open("POST","../fct/vrs.php",true);
+	xmlhttp.open("POST","../resources/php/devNewVersion.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_dev_crc="+id_dev_crc);
+	xmlhttp.send("id_crc="+id_dev_crc);
 }
-
+*/
 function fus(val,id_dev_mdl){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -650,11 +650,7 @@ function anl_opt(id_prs){
 	});
 }
 
-function init(lng,cf,id,at){
-	id_lng = lng;
-	id_dev_crc = id;
-	cnf = cf;
-	aut = at;
+function init(){//à mettre dans devLoad.js
 	flg_rch = true;
 	act_tab();
 	$('.rich').css('pointer-events','auto');

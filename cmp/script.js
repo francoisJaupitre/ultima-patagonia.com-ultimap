@@ -256,7 +256,7 @@ function show(ref){
 	$(".inv_"+ref).hide();
 }
 
-function init(){
+function init(){//à mettre dans cmpLoad.js
 	$(window).scroll(function(){
 		if($(window).scrollTop() + $(window).height() >= $(document).height()-20){vue_dt_fac();}
 	});

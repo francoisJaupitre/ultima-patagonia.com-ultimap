@@ -1,6 +1,6 @@
 setInterval(vue_map, 40000);
 
-function init(id_mel,box){
+function init(){
 	unload('mel');
 	resize();
 	resize2();

@@ -29,7 +29,8 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<script><?php include("script.js");?></script>
 		<script><?php include("../prm/script.js");?></script>
 	</head>
-	<body class="usn" onload="id_grp='<?php echo $id_grp; ?>';act_tab();unload('GRP');">
+	<body class="usn">
+		<input type="hidden" id="id_grp" value="<?php echo $id_grp; ?>" />
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
@@ -91,6 +92,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 				</tr>
 			</table>
 		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/grpLoad.js'></script>
 	</body>
 </html>
 <?php

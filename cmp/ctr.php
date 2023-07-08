@@ -26,7 +26,7 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])){
 		<script><?php include("../prm/script.js"); ?></script>
 		<script><?php include("script.js");?></script>
 	</head>
-	<body onload="act_tab();init();">
+	<body>
 		<div id="shadowing"></div>
 		<div id="txtHint"><br/></div>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
@@ -35,6 +35,7 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])){
 		<span id="vue_<?php echo $cbl ?>"><?php if(empty($dat_min) or $dat_min=='0000-00-00'){echo 'CONFIGUREZ DATE INITIALE DE FINANCES!';} else{include("vue.php");} ?></span>
 		<div id="cmp_<?php echo $cbl ?>"></div>
 		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/cmpLoad.js'></script>
 	</body>
 </html>
 <?php

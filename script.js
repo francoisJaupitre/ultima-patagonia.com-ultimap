@@ -215,7 +215,16 @@ function sup_frm(link,event){
 		var iframe = $("#"+ref)[0];
 		if(navonLine){
 			if(checkIframe){
-				if(typeof iframe.contentWindow.richTxtInit === 'function' && !iframe.contentWindow.richTxtInit()){return;}
+				if(typeof iframe.contentWindow.richTxtCheck === 'function'
+					&& !iframe.contentWindow.richTxtCheck()
+					&& !box("?","Some richtext has not been saved. Continue closure?",function(){close(ref)})
+				){
+					return;
+				/*	"chk_frm": {
+				    "fr": "TEXTE(S) NON SAUVEGARDE(S)!&#xA;Quitter sans sauver?",
+				    "es": "TEXTO(S) SIN GUARDAR!&#xA;Cerrar sin guardar?"
+				  }				*/
+				}
 				if(typeof iframe.contentWindow.upd != 'undefined' && iframe.contentWindow.upd>0){setTimeout(function(){sup_frm(ref,event);return;},50);}
 				else{setTimeout(close(ref),50);return;}
 			}

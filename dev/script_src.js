@@ -94,7 +94,7 @@ function src_prs(id_cat_prs,ord_prs,id_dev_jrn,res_act,chk){ //ordonner cette fo
 	eval('xmlhttp_src_prs'+xhr).send("id_cat_prs="+id_cat_prs+"&ord_prs="+ord_prs+"&id_dev_jrn="+id_dev_jrn+"&id_dev_crc="+id_dev_crc+"&chk="+chk+"&res_act="+res_act);
 }
 
-function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res_act){
+function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res_act){//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(id_dev_hbr!=0){var xhr = 'hbr'+id_dev_hbr;}
 	else{var xhr = 'prs'+id_dev_prs;}
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
@@ -204,7 +204,7 @@ function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 	eval('xmlhttp_src_hbr'+xhr).send("id_cat_hbr="+id_cat_hbr+"&id_cat_chm="+id_cat_chm+"&id_hbr_vll="+id_hbr_vll+"&id_hbr_rgm="+id_hbr_rgm+"&id_dev_hbr="+id_dev_hbr+"&id_dev_prs="+id_dev_prs+"&id_dev_crc="+id_dev_crc+"&cnf="+cnf+"&res="+res_act);
 }
 
-function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv){
+function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv){//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
@@ -242,7 +242,7 @@ function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv){
 	xmlhttp.send("id_dev_srv_ctg="+id_dev_srv_ctg+"&id_dev_srv_vll="+id_dev_srv_vll+"&id_dev_srv="+id_dev_srv+"&id_dev_crc="+id_dev_crc+"&id_frn="+id_frn);
 }
 
-function src_frn(res,id_frn,id_dev_srv,id_dev_prs){
+function src_frn(res,id_frn,id_dev_srv,id_dev_prs){//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(id_frn!=0){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}

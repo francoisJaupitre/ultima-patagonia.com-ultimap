@@ -29,8 +29,11 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		<script><?php include("script_vue.js");?></script>
 		<script><?php include("../prm/script.js"); ?></script>
 	</head>
-	<body class="usn" onload="init('<?php echo $id_lng ?>','<?php echo $cbl ?>',<?php echo $id.','.$aut['cat']; ?>);">
-		<input type="hidden" id="host" value="<?php echo $url; ?>" >
+	<body class="usn">
+		<input type="hidden" id="cbl_cat" value="<?php echo $cbl; ?>" />
+		<input type="hidden" id="id_cat" value="<?php echo $id; ?>" />
+		<input type="hidden" id="aut" value="<?php echo $aut['cat']; ?>" />
+		<input type="hidden" id="url" value="<?php echo $url; ?>" >
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
@@ -40,6 +43,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		<script src='../vendor/googleAPIKey/googleAPIKey.js'></script>
 		<script src='../resources/js/script.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
+		<script src='../resources/js/catLoad.js'></script>
 	</body>
 </html>
 <?php

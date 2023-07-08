@@ -2,80 +2,24 @@ const mailFrn = (id_res_frn, id_dev_crc) => {
 	const xhr = new XMLHttpRequest
 	xhr.open("POST","../resources/php/mailFrn.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
-	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn }	))
+	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn }))
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if(id_res_frn == 0) {
-				const link = document.createElement('a')
-				link.style.display = 'none'
-				document.body.appendChild(link)
-				const rsp_mel = xhr.responseText.split("||")
-				for(var i = 1; i < rsp_mel.length; i++) {
-					const rsp_srv = rsp_mel[i].split("|")
-					link.setAttribute('download', rsp_srv[1])
-					link.setAttribute('href', rsp_srv[0])
-	  			link.click()
-					for(var j = 2; j < rsp_srv.length; j++) {
-						vue_elem('res_srv'+rsp_srv[j],rsp_srv[j])
-						vue_elem('frn_srv'+rsp_srv[j],rsp_srv[j])
-					}
-				}
-				document.body.removeChild(link)
-				window.parent.act_frm('frn_dev_frn'+id_frn)
-				window.parent.act_frm('frn_dev_srv'+id_frn)
-				window.parent.act_frm('frn_ope')
-				alt(rsp_mel[0])
-			}	else {
-				load('emailPopup')
-				emailWriter(JSON.parse(xhr.response))
-			}
+			load('emailPopup')
+			emailWriter(JSON.parse(xhr.response))
 		}
 	}
 }
 
 const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
-	const xhttp = new XMLHttpRequest()
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false) // remplacer ajax symchrone par fetch ou promise ?
-	xhttp.send()
-	const xmlDoc = xhttp.responseXML
-	const x = xmlDoc.getElementsByTagName("mailHbr")
-	if(id_res_hbr == 0) {
-		if(cnf == 1) {
-			const y = x[0].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		} else if(cnf == 0) {
-			const y = x[1].getElementsByTagName(id_lng)
-			if(window.confirm(y[0].childNodes[0].nodeValue) == false) {return}
-		}
-	}
 	const xhr = new XMLHttpRequest
 	xhr.open("POST","../resources/php/mailHbr.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
-	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm }	))
+	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm }))
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if(id_res_hbr == 0)	{
-				const link = document.createElement('a')
-				link.style.display = 'none'
-				document.body.appendChild(link)
-				const rsp_mel = xhr.responseText.split("||")
-				for(var i = 1; i < rsp_mel.length; i++) {
-					const rsp_hbr = rsp_mel[i].split("|")
-					link.setAttribute('download', rsp_srv[1])
-					link.setAttribute('href', rsp_srv[0])
-	  			link.click()
-					for(var j = 2; j < rsp_hbr.length; j++) {
-						vue_elem('res_hbr'+rsp_hbr[j],rsp_hbr[j])
-					}
-				}
-				document.body.removeChild(link)
-				window.parent.act_frm('cat_dev_hbr'+id_hbr)
-				window.parent.act_frm('hbr_ope')
-				alt(rsp_mel[0])
-			}	else {
-				load('emailPopup')
-				emailWriter(JSON.parse(xhr.response))
-			}
+			load('emailPopup')
+			emailWriter(JSON.parse(xhr.response))
 		}
 	}
 }

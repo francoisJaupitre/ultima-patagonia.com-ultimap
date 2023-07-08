@@ -53,7 +53,7 @@ function ajt_lgg(obj,id_chm,id_lgg) {
 	xmlhttp.send("cbl="+cbl+"&id="+id+"&id_lgg="+id_lgg);
 }
 
-function ajt_dev(id) {
+function ajt_dev(id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if (window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
@@ -486,7 +486,7 @@ function dup(cbl,id) {
 	xmlhttp.send("cbl="+cbl+"&id="+id);
 }
 
-function cop(cbl,id) {
+function cop(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -519,7 +519,7 @@ function cop(cbl,id) {
 	xmlhttp.send("cbl="+cbl+"&id="+id+"&nom="+encodeURIComponent(nom));
 }
 
-function cop2(cbl,id) {
+function cop2(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}

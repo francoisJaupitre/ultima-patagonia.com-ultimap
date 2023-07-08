@@ -111,7 +111,7 @@ function maj(tab,col,val,id,id_sup) {
 			});
 		}
 	});
-}*/
+}
 
 function vrs(id) {
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
@@ -135,9 +135,9 @@ function vrs(id) {
 			});
 		}
 	});
-}
+}*/
 
-function cop(cbl,id) {
+function cop(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("cop_"+cbl);
@@ -170,7 +170,7 @@ function cop(cbl,id) {
 	});
 }
 
-function del(cbl,id) {
+function del(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("del_"+cbl);
@@ -217,7 +217,7 @@ function del(cbl,id) {
 	});
 }
 
-function del_pls(cbl) {
+function del_pls(cbl) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	var chk = [],msg = '';
 	$(".chk").each(function() {
 		if($(this).is(":checked")) {chk.push($(this).attr("id"));}

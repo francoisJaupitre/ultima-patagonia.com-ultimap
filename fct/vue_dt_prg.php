@@ -1148,7 +1148,7 @@ if($cbl=='dev'){
 					ATTENTION : Suite à la crise du Covid les conditions d’entrée et de sortie peuvent évoluer d’ici votre départ.
 					<br />
 					Nous vous invitons à consulter le site du Ministère des affaires étrangères :
-					<a href="https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/guatemala/#derniere">https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/guatemala/#derniere</a>
+					<a href="https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/argentine/#derniere">https://www.diplomatie.gouv.fr/fr/conseils-aux-voyageurs/conseils-par-pays-destination/argentine/#derniere</a>
 					<br /><br />
 					Nos éclaireurs à Grenoble restent également à votre disposition pour vous accompagner dans vos démarches : 0458005393
 				</div>

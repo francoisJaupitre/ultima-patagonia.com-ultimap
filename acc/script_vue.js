@@ -1,4 +1,4 @@
-var id_lng, flg_dt_cat = flg_dt_dev = flg_dt_grp = rang = 1;
+var flg_dt_cat = flg_dt_dev = flg_dt_grp = rang = 1;
 
 function vue_menu(cbl,sub) {
 	load('ACC vue_menu');
@@ -111,20 +111,25 @@ function vue_lst(cbl,cbl2) {
 			else if(cbl == 'acc' && typeof cbl2 !== "undefined") {vue_acc(cbl2);}
 			else if(cbl == 'acc' && $("#"+cbl).length) {vue_acc($("#"+cbl).val());}
 			unload('ACC vue_lst');
-			$("#txtHint").html("");
+			$("#txtHint").html("")
+
 			const catElem = document.getElementsByClassName("add-elem")
 			for (let item of catElem) {
     		item.onclick = () => { addElem(item.id) }
 			}
 			const devElem = document.getElementsByClassName("add-dev")
 			for (let item of devElem) {
-    		item.onclick = () => { addElem('dev',item.id) }
+    		item.onclick = () => { addElem('dev',item.parentElement.id) }
 			}
 			if(document.getElementById("addDev0")) {
 				document.getElementById("addDev0").onclick = () => { addElem('dev',0) }
 			}
 			if(document.getElementById("addGrp0")) {
 				document.getElementById("addGrp0").onclick = () => { addElem('grp',0) }
+			}
+			const newVrs = document.getElementsByClassName("new-vrs")
+			for (let item of newVrs) {
+    		item.onclick = () => { newVersion(item.parentElement.id)	}
 			}
 
 		},
@@ -179,14 +184,16 @@ function vue_cat(cbl,obj,id) {
 			flg_dt_cat = 1;
 			unload('ACC vue_cat');
 			$("#txtHint").html("");
+
 			const catElem = document.getElementsByClassName("add-elem")
 			for (let item of catElem) {
     		item.onclick = () => { addElem(item.id) }
 			}
 			const devElem = document.getElementsByClassName("add-dev")
 			for (let item of devElem) {
-    		item.onclick = () => { addElem('dev',item.id) }
+    		item.onclick = () => { addElem('dev',item.parentElement.id) }
 			}
+
 		},
 		error: function (request, status, error) {
 			vue_cat(cbl,obj,id);
@@ -222,10 +229,12 @@ function vue_dt_cat(cbl) {
 				}
 				unload('ACC vue_dt_cat');
 				$("#txtHint").html("");
+
 				const devElem = document.getElementsByClassName("add-dev")
 				for (let item of devElem) {
-	    		item.onclick = () => { addElem('dev',item.id) }
+	    		item.onclick = () => { addElem('dev',item.parentElement.id) }
 				}
+
 			},
 			error: function (request, status, error) {
 				flg_dt_cat = 1;
@@ -260,7 +269,13 @@ function vue_dev(cbl,obj,id) {
 			flg_dt_dev = 1;
 			unload('ACC vue_dev');
 			$("#txtHint").html("");
-			document.getElementById("add-dev-0").onclick = () => { addElem('dev',0) }
+
+			document.getElementById("addDev0").onclick = () => { addElem('dev',0) }
+			const newVrs = document.getElementsByClassName("new-vrs")
+			for (let item of newVrs) {
+				item.onclick = () => { newVersion(item.parentElement.id)	}
+			}
+
 		},
 		error: function (request, status, error) {
 			vue_dev(cbl,obj,id);
@@ -408,8 +423,7 @@ function vue_fll(cbl,obj,src) {
 	});
 }
 
-function init(lng) {
-	id_lng = lng;
+function init() { //a mettre dans accLoad
 	vue_menu('acc',0);
 	vue_lst('acc');
 	$(window).scroll(function() {

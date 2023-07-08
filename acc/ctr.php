@@ -20,8 +20,7 @@ insert("cfg_usr_cnx",array("id_usr","cnx","ip"),array($id_usr,date('Y-m-d H:i:s'
 		<script><?php include("script_act.js"); ?></script>
 		<script><?php include("script_vue.js"); ?></script>
 	</head>
-	<body onLoad="init('<?php echo $id_lng ?>')" class="usn">
-		<input id="id_lng" type="hidden" value="<?php echo $id_lng; ?>">
+	<body class="usn">
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
@@ -30,5 +29,6 @@ insert("cfg_usr_cnx",array("id_usr","cnx","ip"),array($id_usr,date('Y-m-d H:i:s'
 		<div class="lst" id="vue_lst"><?php include("vue_lst.php"); ?></div>
 		<script src='../resources/js/script.js'></script>
 		<script src='../resources/js/accCmd.js'></script>
+		<script src='../resources/js/accLoad.js'></script>
 	</body>
 </html>

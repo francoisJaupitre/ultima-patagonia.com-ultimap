@@ -469,7 +469,7 @@ function sup_dsp(id) {
 	xmlhttp.send("id="+id);
 }
 
-function del(cbl,id) {
+function del(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);

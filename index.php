@@ -20,6 +20,7 @@ include("cfg/lng.php");
 <?php
 if(!empty($id_lng)){
 ?>
+		<input type="hidden" id="id_lng" value="<?php echo $id_lng; ?>" />
 		<div id="tabs">
 
 			<ul id="ul_tab">

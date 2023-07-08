@@ -87,10 +87,10 @@ if(isset($_GET['id']) and $_GET['id']>0){
 	}
 	if($cnf<1){$vue_res = 0;}
 	else{$vue_res = 1;}
-	$onload = "init('".$id_lng."',".$cnf.",".$id_dev_crc.",".$aut['dev'].");$('body').focus();";
 	if(isset($_GET['scrl']) and $_GET['scrl']>0){
 		$dt_prs = ftc_ass(sel_quo("id_mdl,id_jrn","dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id","dev_prs.id",$_GET['scrl']));
-		$onload .= "scroll2(".$dt_prs['id_jrn'].",".$dt_prs['id_mdl'].");";
+		$id_scrll_jrn = $dt_prs['id_jrn'];
+		$id_scrll_mdl = $dt_prs['id_mdl'];
 	}
 ?>
 <!DOCTYPE html>
@@ -106,8 +106,14 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<script><?php include("script_sup.js");?></script>
 		<script><?php include("script_src.js");?></script>
 		<script><?php include("../prm/script.js");?></script>
+
 	</head>
-	<body class="usn" onload="<?php echo $onload; ?>" onblur="fos = document.activeElement.id;this.onfocus='document.activeElement.id.focus();this.onfocus=null;'" >
+	<body class="usn" >
+		<input type="hidden" id="id_dev_crc" value="<?php echo $id_dev_crc; ?>" />
+		<input type="hidden" id="cnf" value="<?php echo $cnf; ?>" />
+		<input type="hidden" id="aut" value="<?php echo $aut['dev']; ?>" />
+		<input type="hidden" id="id_scrll_jrn" value="<?php echo $id_scrll_jrn; ?>" />
+		<input type="hidden" id="id_scrll_mdl" value="<?php echo $id_scrll_mdl; ?>" />
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
@@ -135,10 +141,13 @@ if(isset($_GET['id']) and $_GET['id']>0){
 			<span id="vue_dt_crc"><?php include("vue_dt_crc.php"); ?></span>
 			<div id="vue_end_crc" class="text-center"><?php include("vue_end_crc.php"); ?></div>
 		</div>
+
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
 		<script src='../resources/js/script.js'></script>
-		<script src='../resources/js/devMail.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
+		<script src='../resources/js/devMail.js'></script>
+		<script src='../resources/js/devCmd.js'></script>
+		<script src='../resources/js/devLoad.js'></script>
 	</body>
 </html>
 <?php

@@ -286,9 +286,5 @@
   "cnf": {
     "fr": "Circuit confirmé! Etes-vous sûr?",
     "es": "Circuito confirmado! Está seguro?"
-  },
-  "chk_frm": {
-    "fr": "TEXTE(S) NON SAUVEGARDE(S)!&#xA;Quitter sans sauver?",
-    "es": "TEXTO(S) SIN GUARDAR!&#xA;Cerrar sin guardar?"
   }
 }

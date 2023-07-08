@@ -58,7 +58,7 @@ if($aut['dev'] and $cnf<1){
 	}
 }
 ?>
-				<li onclick="vrs();"><?php echo $txt->vrs->$id_lng; ?></li>
+				<li id="newVersion"><?php echo $txt->vrs->$id_lng; ?></li>
 <?php
 if($aut['dev'] and $cnf<1){
 ?>

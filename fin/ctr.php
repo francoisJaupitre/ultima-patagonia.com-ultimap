@@ -28,7 +28,7 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])) {
 		<script><?php include("../prm/script.js"); ?></script>
 		<script><?php include("script.js");?></script>
 	</head>
-	<body <?php if($cbl=='ecr') {echo 'class="usn"';} ?> onload="act_tab();init();">
+	<body <?php if($cbl=='ecr') {echo 'class="usn"';} ?>>
 		<div id="shadowing"></div>
 		<div id="txtHint"><br/></div>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
@@ -36,6 +36,7 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])) {
 		<input type="hidden" id="aut" value="<?php echo $aut['adm_fin']; ?>" />
 		<span id="vue_<?php echo $cbl ?>"><?php if(empty($dat_min) or $dat_min=='0000-00-00') {echo 'CONFIGUREZ DATE DE DEBUT FINANCES!';} else{include("vue.php");} ?></span>
 		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/finLoad.js'></script>
 	</body>
 </html>
 <?php

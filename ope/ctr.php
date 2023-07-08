@@ -29,7 +29,7 @@ if(isset($_GET['cnf']) and !empty($_GET['cnf'])){
 		<script><?php include("../prm/script.js"); ?></script>
 		<script><?php include("script.js");?></script>
 	</head>
-	<body class="usn" onload="id_lng='<?php echo $id_lng; ?>';act_tab();init();">
+	<body class="usn">
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
@@ -39,6 +39,7 @@ if(isset($_GET['cnf']) and !empty($_GET['cnf'])){
 		<script src='../resources/js/script.js'></script>
 		<script src='../resources/js/opeMail.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
+		<script src='../resources/js/opeLoad.js'></script>
 	</body>
 </html>
 <?php

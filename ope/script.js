@@ -1,4 +1,4 @@
-var id_lng,rang = 1,upd = 0;
+var rang = 1,upd = 0;
 var flg_maj = flg_dt_ope = true;
 
 function maj(tab,col,val,id,id_sup,id_dev_crc){
@@ -62,7 +62,7 @@ function maj(tab,col,val,id,id_sup,id_dev_crc){
 	eval('xmlhttp_maj'+id+col).send("tab="+tab+"&col="+col+"&val="+encodeURIComponent(val)+"&id="+id);
 }
 
-function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res,id_dev_crc){
+function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res,id_dev_crc){//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
@@ -94,7 +94,7 @@ function src_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 	xmlhttp.send("id_cat_hbr="+id_cat_hbr+"&id_cat_chm="+id_cat_chm+"&id_hbr_vll="+id_hbr_vll+"&id_hbr_rgm="+id_hbr_rgm+"&id_dev_hbr="+id_dev_hbr+"&id_dev_prs="+id_dev_prs+"&id_dev_crc="+id_dev_crc+"&cnf=1&res="+res);
 }
 
-function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv,id_dev_crc){
+function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv,id_dev_crc){//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
@@ -132,7 +132,7 @@ function src_srv(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv,id_dev_crc){
 	xmlhttp.send("id_dev_srv_ctg="+id_dev_srv_ctg+"&id_dev_srv_vll="+id_dev_srv_vll+"&id_dev_srv="+id_dev_srv+"&id_dev_crc="+id_dev_crc+"&id_frn="+id_frn);
 }
 
-function src_frn(res,id_frn,id_dev_srv,id_dev_crc){
+function src_frn(res,id_frn,id_dev_srv,id_dev_crc){//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	if(id_frn!=0 && res>-1 && res<6){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -332,7 +332,7 @@ function dsp(cbl,id,id_dev_crc){
 	xmlhttp.send("cbl="+cbl+"&id="+id);
 }
 
-function init(){
+function init(){ //a mettre dans accLoad
 	$(window).scroll(function(){
 		if(Math.round(($(window).scrollTop() + $(window).innerHeight() - $(document).height())/10)==0){vue_dt_res();}
 	});

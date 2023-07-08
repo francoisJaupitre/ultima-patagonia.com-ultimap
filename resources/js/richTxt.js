@@ -53,20 +53,13 @@ const richTxtInit = (elem,tab,col,id) => {
 	}
 }
 
-const richTxtCheck = () => {
-	if(typeof tinyMCE !== "undefined" && tinyMCE.activeEditor){
+function richTxtCheck()
+{
+	if(typeof tinyMCE !== "undefined" && tinyMCE.activeEditor) {
 		const rich = document.getElementsByClassName("rich")
 		for(const i = 0; i < rich.length; i++) {
 			if(tinyMCE.get(rich[i].id)) {
-				if(rich[i].style.backgroundColor != '' && rich[i].style.backgroundColor != 'rgb(255, 255, 255)') {
-					const xhttp = new XMLHttpRequest()
-					xhttp.open("GET","../xml/scriptTxt.xml",false)
-					xhttp.send()
-					xmlDoc = xhttp.responseXML;
-					x = xmlDoc.getElementsByTagName("chk_frm")
-					y = x[0].getElementsByTagName(id_lng)
-					return window.confirm(y[0].childNodes[0].nodeValue)
-				}
+				if(rich[i].style.backgroundColor != '' && rich[i].style.backgroundColor != 'rgb(255, 255, 255)') { return false }
 			}
 		}
 	}

@@ -67,8 +67,8 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_crc<?php echo $dt_crc['id'] ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul>
-					<li class="add-dev" id="<?php echo $dt_crc['id'] ?>"><?php echo $txt->cmd->creerdevis->$id_lng; ?></li>
+				<ul id="<?php echo $dt_crc['id'] ?>">
+					<li class="add-dev"><?php echo $txt->cmd->creerdevis->$id_lng; ?></li>
 					<li onclick="window.parent.opn_frm('fct/vue_prg.php?cbl=crc&id=<?php echo $dt_crc['id'] ?>&id_lgg=<?php echo $id_lgg ?>');"><?php echo $txt->cmd->apercu->$id_lng; ?></li>
 					<li onclick="cop('crc',<?php echo $dt_crc['id'] ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php

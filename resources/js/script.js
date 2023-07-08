@@ -45,6 +45,12 @@ const unload = (xhr,id) => {
 
 const getTxt = async function(url)
 {
-  const res = await fetch(url)
-  return await res.json();
+  if(window.txt[url] != undefined){
+    return window.txt[url]
+  } else {
+    const res = await fetch(url)
+    const txt = await res.json()
+    window.txt[url] = txt
+    return txt
+  }
 }
