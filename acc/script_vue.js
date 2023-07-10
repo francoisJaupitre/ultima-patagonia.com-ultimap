@@ -94,12 +94,15 @@ function vue_menu(cbl,sub) {
 
 function vue_lst(cbl,cbl2) {
 	if(cbl == $('#cbl').val() && cbl != 'acc' && cbl != 'pay' && cbl != 'cfg') {
-		if(cbl == 'gr0' || cbl == 'gr1') {vue_grp(cbl);}
-		else if(cbl != 'dev' && cbl != 'arc' && cbl != 'cnf' && cbl != 'fin') {vue_cat(cbl);}
-		else{vue_dev(cbl);}
-		return;
+		if(cbl == 'gr0' || cbl == 'gr1')
+			vue_grp(cbl)
+		else if(cbl != 'dev' && cbl != 'arc' && cbl != 'cnf' && cbl != 'fin')
+			vue_cat(cbl)
+		else
+			vue_dev(cbl)
+		return
 	}
-	load('ACC vue_lst');
+	load('ACC vue_lst')
 	$.ajax({url: 'vue_lst.php', type: 'post', data: {"cbl":cbl},
 		success: function(responseText) {
 			window.scrollTo(0,0);
@@ -112,26 +115,35 @@ function vue_lst(cbl,cbl2) {
 			else if(cbl == 'acc' && $("#"+cbl).length) {vue_acc($("#"+cbl).val());}
 			unload('ACC vue_lst');
 			$("#txtHint").html("")
-
-			const catElem = document.getElementsByClassName("add-elem")
-			for (let item of catElem) {
-    		item.onclick = () => { addElem(item.id) }
+			//vue_cat
+			if(document.getElementById("addElem")) {
+				const catElem = document.getElementById("addElem")
+				catElem.onclick = () => { addElem(catElem.id) }
 			}
-			const devElem = document.getElementsByClassName("add-dev")
-			for (let item of devElem) {
-    		item.onclick = () => { addElem('dev',item.parentElement.id) }
+			//vue_dev
+			if(document.getElementById("addDev"))
+				document.getElementById("addDev").onclick = () => { addElem('dev',0) }
+			//vue_dev vue_grp
+			if(document.getElementById("deleteElems"))
+				document.getElementById("deleteElems").onclick = () => { multiDeleteElem(cbl) }
+			//vue_grp
+			if(document.getElementById("addGrp"))
+				document.getElementById("addGrp").onclick = () => { addElem('grp',0) }
+			const ulCmd = document.getElementsByClassName("ul-cmd")
+			for(let item of ulCmd)
+			{
+				if(item.querySelector(".add-dev"))
+					item.querySelector(".add-dev").onclick = () => { addElem('dev', item.id) } //vue_dt_cat
+				if(item.querySelector(".copy-elem"))
+					item.querySelector(".copy-elem").onclick = () => { copyElem(cbl, item.id) } //vue_dt_cat vue_dt_dev
+				if(item.querySelector(".delete-elem"))
+					item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat vue_dt_dev
+				if(item.querySelector(".new-vrs"))
+					item.querySelector(".new-vrs").onclick = () => { newVersion(item.id) } //vue_dt_dev
 			}
-			if(document.getElementById("addDev0")) {
-				document.getElementById("addDev0").onclick = () => { addElem('dev',0) }
-			}
-			if(document.getElementById("addGrp0")) {
-				document.getElementById("addGrp0").onclick = () => { addElem('grp',0) }
-			}
-			const newVrs = document.getElementsByClassName("new-vrs")
-			for (let item of newVrs) {
-    		item.onclick = () => { newVersion(item.parentElement.id)	}
-			}
-
+			const tdCmd = document.getElementsByClassName("delete-elem2")
+			for(let item of tdCmd)
+				item.onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat vue_dt_grp
 		},
 		error: function (request, status, error) {
 			vue_lst(cbl);
@@ -179,21 +191,30 @@ function vue_cat(cbl,obj,id) {
 	$.ajax({url: 'vue_cat.php', type: 'post', data: {"cbl":cbl,"id_clt":clt,"id_vll":vll,"id_ctg":ctg,"id_rgn":rgn,"id_pays":pays,"flt":flt,"web":web},
 		success: function(responseText) {
 			window.scrollTo(0,0);
-			if($("#vue_"+cbl).length > 0) {$("#vue_"+cbl).html(responseText);}
+			if($("#vue_"+cbl).length > 0)
+				$("#vue_"+cbl).html(responseText)
 			rang = 1;
 			flg_dt_cat = 1;
 			unload('ACC vue_cat');
 			$("#txtHint").html("");
-
-			const catElem = document.getElementsByClassName("add-elem")
-			for (let item of catElem) {
-    		item.onclick = () => { addElem(item.id) }
+			//vue_cat
+			if(document.getElementById("addElem")) {
+				const catElem = document.getElementById("addElem")
+				catElem.onclick = () => { addElem(catElem.id) }
 			}
-			const devElem = document.getElementsByClassName("add-dev")
-			for (let item of devElem) {
-    		item.onclick = () => { addElem('dev',item.parentElement.id) }
+			const ulCmd = document.getElementsByClassName("ul-cmd")
+			for(let item of ulCmd)
+			{
+				if(item.querySelector(".add-dev"))
+					item.querySelector(".add-dev").onclick = () => { addElem('dev', item.id) } //vue_dt_cat
+				if(item.querySelector(".copy-elem"))
+					item.querySelector(".copy-elem").onclick = () => { copyElem(cbl, item.id) } //vue_dt_cat
+				if(item.querySelector(".delete-elem"))
+					item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat
 			}
-
+			const tdCmd = document.getElementsByClassName("delete-elem2")
+			for(let item of tdCmd)
+				item.onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat
 		},
 		error: function (request, status, error) {
 			vue_cat(cbl,obj,id);
@@ -229,12 +250,19 @@ function vue_dt_cat(cbl) {
 				}
 				unload('ACC vue_dt_cat');
 				$("#txtHint").html("");
-
-				const devElem = document.getElementsByClassName("add-dev")
-				for (let item of devElem) {
-	    		item.onclick = () => { addElem('dev',item.parentElement.id) }
+				const ulCmd = document.getElementsByClassName("ul-cmd")
+				for(let item of ulCmd)
+				{
+					if(item.querySelector(".add-dev"))
+						item.querySelector(".add-dev").onclick = () => { addElem('dev', item.id) } //vue_dt_cat
+					if(item.querySelector(".copy-elem"))
+						item.querySelector(".copy-elem").onclick = () => { copyElem(cbl, item.id) } //vue_dt_cat
+					if(item.querySelector(".delete-elem"))
+						item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat
 				}
-
+				const tdCmd = document.getElementsByClassName("delete-elem2")
+				for(let item of tdCmd)
+					item.onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat
 			},
 			error: function (request, status, error) {
 				flg_dt_cat = 1;
@@ -269,13 +297,22 @@ function vue_dev(cbl,obj,id) {
 			flg_dt_dev = 1;
 			unload('ACC vue_dev');
 			$("#txtHint").html("");
-
-			document.getElementById("addDev0").onclick = () => { addElem('dev',0) }
-			const newVrs = document.getElementsByClassName("new-vrs")
-			for (let item of newVrs) {
-				item.onclick = () => { newVersion(item.parentElement.id)	}
+			//vue_dev
+			if(document.getElementById("addDev"))
+				document.getElementById("addDev").onclick = () => { addElem('dev',0) }
+			//vue_dev
+			if(document.getElementById("deleteElems"))
+				document.getElementById("deleteElems").onclick = () => { multiDeleteElem(cbl) }
+			const ulCmd = document.getElementsByClassName("ul-cmd")
+			for(let item of ulCmd)
+			{
+				if(item.getElementsByClassName("copy-dev")[0])
+					item.querySelector(".copy-elem").onclick = () => { copyElem(cbl, item.id) } //vue_dt_dev
+				if(item.querySelector(".delete-elem"))
+					item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_dev
+				if(item.querySelector(".new-vrs"))
+					item.querySelector(".new-vrs").onclick = () => { newVersion(item.id) } //vue_dt_dev
 			}
-
 		},
 		error: function (request, status, error) {
 			vue_dev(cbl,obj,id);
@@ -305,6 +342,16 @@ function vue_dt_dev(cbl) {
 				}
 				unload('ACC vue_dt_dev');
 				$("#txtHint").html("");
+				const ulCmd = document.getElementsByClassName("ul-cmd")
+				for(let item of ulCmd)
+				{
+					if(item.querySelector(".copy-elem"))
+						item.querySelector(".copy-elem").onclick = () => { copyElem(cbl, item.id) } //vue_dt_dev
+					if(item.querySelector(".delete-elem"))
+						item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_dev
+					if(item.querySelector(".new-vrs"))
+						item.querySelector(".new-vrs").onclick = () => { newVersion(item.id) } //vue_dt_dev
+				}
 			},
 			error: function (request, status, error) {
 				flg_dt_dev = 1;
@@ -327,6 +374,15 @@ function vue_grp(cbl,clt) {
 			flg_dt_grp = 1;
 			unload('ACC vue_grp');
 			$("#txtHint").html("");
+			//vue_grp
+			if(document.getElementById("addGrp"))
+				document.getElementById("addGrp").onclick = () => { addElem('grp',0) }
+			//vue_grp
+			if(document.getElementById("deleteElems"))
+				document.getElementById("deleteElems").onclick = () => { multiDeleteElem(cbl) }
+			const tdCmd = document.getElementsByClassName("delete-elem2")
+			for(let item of tdCmd)
+				item.onclick = () => { deleteElem(cbl, item.id) } //vue_dt_grp
 		},
 		error: function (request, status, error) {
 			vue_grp(cbl,clt);
@@ -355,6 +411,9 @@ function vue_dt_grp(cbl) {
 				}
 				unload('ACC vue_dt_grp');
 				$("#txtHint").html("");
+				const tdCmd = document.getElementsByClassName("delete-elem2")
+				for(let item of tdCmd)
+					item.onclick = () => { deleteElem(cbl, item.id) } //vue_dt_grp
 			},
 			error: function (request, status, error) {
 				flg_dt_grp = 1;

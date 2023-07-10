@@ -81,7 +81,7 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_frn'])) {
 			}
 			elseif(empty($rsp)) { $rsp = $txt->mel_frn->msg7->$id_lng; }
 		}
-		echo $rsp.$rsp_srv;
+		echo json_encode($rsp.$rsp_srv);
 	}
 }
 ?>

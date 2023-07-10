@@ -6,7 +6,7 @@ $headers[] .= "Content-type:text/html; charset=iso-8859-1";
 $headers[] = "From: Ultima Patagonia <".$emailRequest->from.">";
 $headers[] = "Bcc: Ultima Patagonia <".$emailRequest->bcc.">";
 $res = mail($emailRequest->to,$emailRequest->subject,chunk_split(utf8_decode($emailRequest->message), 998),implode("\r\n", $headers));
-if(!$res) { echo "message unsent"; }
+if(!$res) { echo json_encode("message unsent"); }
 else {
   include("../../prm/fct.php");
   include("../../prm/aut.php");

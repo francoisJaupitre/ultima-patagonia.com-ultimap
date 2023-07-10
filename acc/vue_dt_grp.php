@@ -47,7 +47,7 @@ while($dt_grp = ftc_ass($rq_grp)){
 <?php
 	if(!$dt_grp['nb_crc'] and $cbl == 'gr0'){
 ?>
-	<td onclick="del('grp',<?php echo $id_grp ?>);">
+	<td class="delete-elem2" id="<?php echo $id_grp ?>">
 		<img src="../prm/img/sup.png" />
 	</td>
 	<td><input type="checkbox" class="chk" id="<?php echo $id_grp ?>" /></td>

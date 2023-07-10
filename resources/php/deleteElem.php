@@ -1,11 +1,16 @@
 <?php
-if(isset($_POST['id']) and $_POST['id'] >0) {
-	include("../prm/fct.php");
-	include("../prm/aut.php");
-	include("../cfg/lng.php");
-	$id = $_POST['id'];
-	$txt = simplexml_load_file('../resources/xml/mainTxt.xml');
-	switch($_POST['cbl']) {
+$request = file_get_contents("php://input");
+$data = json_decode($request, true);
+if(isset($data['cbl']) and isset($data['id']))
+{
+	$cbl = $data['cbl'];
+	$id = $data['id'];
+	include("../../prm/fct.php");
+	include("../../prm/aut.php");
+	include("../../cfg/lng.php");
+	$txt = simplexml_load_file('../xml/mainTxt.xml');
+	$err = '';
+	switch($cbl) {
 		case 'grp':
 			$num_crc = sel_quo("id","dev_crc","id_grp",$id);
 			$num_fin = sel_quo("id","fin_bdg","id_grp",$id);
@@ -14,7 +19,7 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 				delete("grp_pax","id_grp",$id);
 				delete("grp_dev","id",$id);
 			}
-			else{echo $txt->del->grp->$id_lng;}
+			else{$txt->del->grp->$id_lng;}
 			break;
 		case 'fin':
 		case 'arc':
@@ -89,10 +94,10 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 				else{
 					$rq_crc_mdl = sel_quo("nom","cat_crc_mdl INNER JOIN cat_crc ON cat_crc_mdl.id_crc = cat_crc.id","id_mdl",$id,"nom");
 					while($dt_crc_mdl = ftc_ass($rq_crc_mdl)) {$err .= $dt_crc_mdl['nom']."\n";}
-					echo $txt->del->mdl->$id_lng.$err;
+					echo json_encode($txt->del->mdl->$id_lng.$err);
 				}
 			}
-			else{echo $txt->del->mdl2->$id_lng;}
+			else{echo json_encode($txt->del->mdl2->$id_lng);}
 			break;
 		case 'jrn':
 			$dt_mdl_jrn = ftc_ass(sel_quo("id","cat_mdl_jrn","id_jrn",$id));
@@ -107,7 +112,7 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 			else{
 				$rq_mdl_jrn = sel_quo("nom","cat_mdl_jrn INNER JOIN cat_mdl ON cat_mdl_jrn.id_mdl = cat_mdl.id","id_jrn",$id,"nom");
 				while($dt_mdl_jrn = ftc_ass($rq_mdl_jrn)) {$err .= $dt_mdl_jrn['nom']."\n";}
-				echo $txt->del->jrn->$id_lng.$err;
+				echo json_encode($txt->del->jrn->$id_lng.$err);
 			}
 			break;
 		case 'prs':
@@ -123,7 +128,7 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 			else{
 				$rq_jrn_prs = sel_quo("nom","cat_jrn_prs INNER JOIN cat_jrn ON cat_jrn_prs.id_jrn = cat_jrn.id","id_prs",$id,"nom");
 				while($dt_jrn_prs = ftc_ass($rq_jrn_prs)) {$err .= $dt_jrn_prs['nom']."\n";}
-				echo $txt->del->prs->$id_lng.$err;
+				echo json_encode($txt->del->prs->$id_lng.$err);
 			}
 			break;
 		case 'srv':
@@ -142,7 +147,7 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 			else{
 				$rq_prs_srv = sel_quo("nom","cat_prs_srv INNER JOIN cat_prs ON cat_prs_srv.id_prs = cat_prs.id","id_srv",$id,"nom");
 				while($dt_prs_srv = ftc_ass($rq_prs_srv)) {$err .= $dt_prs_srv['nom']."\n";}
-				echo $txt->del->srv->$id_lng.$err;
+				echo json_encode($txt->del->srv->$id_lng.$err);
 			}
 			break;
 		case 'hbr':
@@ -177,13 +182,13 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 				else{
 					$rq_prs_hbr = sel_quo("nom","cat_prs_hbr INNER JOIN cat_prs ON cat_prs_hbr.id_prs = cat_prs.id","id_hbr",$id,"nom");
 					while($dt_prs_hbr = ftc_ass($rq_prs_hbr)) {$err .= $dt_prs_hbr['nom']."\n";}
-					echo $txt->del->hbr->$id_lng.$err;
+					echo json_encode($txt->del->hbr->$id_lng.$err);
 				}
 			}
 			else{
 				$rq_vll_hbr = sel_quo("nom","cat_vll_hbr INNER JOIN cat_vll ON cat_vll_hbr.id_vll = cat_vll.id","id_hbr",$id);
 				while($dt_vll_hbr = ftc_ass($rq_vll_hbr)) {$err = $dt_vll_hbr['nom']."\n";}
-				echo $txt->del->hbr_def->$id_lng.$err;
+				echo json_encode($txt->del->hbr_def->$id_lng.$err);
 			}
 			break;
 		case 'clt':
@@ -194,13 +199,13 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 				else{
 					$rq_cat_clt = sel_quo("nom","cat_crc INNER JOIN cat_crc_clt ON cat_crc.id = cat_crc_clt.id_crc","id_clt",$id,"nom");
 					while($dt_dev_clt = ftc_ass($rq_dev_clt)) {$err .= $dt_dev_clt['groupe']."\n";}
-					echo $txt->del->clt_crc->$id_lng.$err;
+					echo json_encode($txt->del->clt_crc->$id_lng.$err);
 				}
 			}
 			else{
 				$rq_dev_clt = sel_quo("nomgrp","grp_dev","id_clt",$id,"nomgrp");
 				while($dt_dev_clt = ftc_ass($rq_dev_clt)) {$err .= $dt_dev_clt['nomgrp']."\n";}
-				echo $txt->del->clt_dev->$id_lng.$err;
+				echo json_encode($txt->del->clt_dev->$id_lng.$err);
 			}
 			break;
 		case 'frn':
@@ -213,7 +218,7 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 			}
 			else{
 				$dt_dev_crc = ftc_ass(sel_quo("groupe,version","dev_crc INNER JOIN (dev_mdl INNER JOIN (dev_jrn INNER JOIN (dev_prs INNER JOIN dev_srv ON dev_prs.id=dev_srv.id_prs) ON dev_jrn.id=dev_prs.id_jrn) ON dev_mdl.id=dev_jrn.id_mdl) ON dev_crc.id=dev_mdl.id_crc","dev_srv.id",$dt_dev_srv['id']));
-				echo $txt->del->frn->$id_lng.' : '.$dt_dev_crc['groupe'].' V'.$dt_dev_crc['version'];
+				echo json_encode($txt->del->frn->$id_lng.' : '.$dt_dev_crc['groupe'].' V'.$dt_dev_crc['version']);
 			}
 			break;
 		case 'pic':
@@ -222,12 +227,12 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 				$dt_pic = ftc_ass(sel_quo("pic","cat_pic","id",$id));
 				if(unlink('../pic/'.$dir.'/'.$dt_pic['pic'])) {delete("cat_pic","id",$id);}
 			}
-			else{echo $txt->del->pic->$id_lng;}
+			else{echo json_encode($txt->del->pic->$id_lng);}
 			break;
 		case 'rgn':
 			$dt_vll = ftc_ass(sel_quo("id","cat_vll","id_rgn",$id));
 			if(empty($dt_vll['id'])) {delete("cat_rgn","id",$id);}
-			else{echo $txt->del->rgn->$id_lng;}
+			else{echo json_encode($txt->del->rgn->$id_lng);}
 			break;
 		case 'vll':
 			$dt_jrn_vll = ftc_ass(sel_quo("id","cat_jrn_vll","id_vll",$id));
@@ -243,15 +248,15 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 								delete("cat_vll","id",$id);
 								delete("cat_vll_hbr","id_vll",$id);
 							}
-							else{echo $txt->del->vll_lieu->$id_lng;}
+							else{echo json_encode($txt->del->vll_lieu->$id_lng);}
 						}
-						else{echo $txt->del->vll_frn->$id_lng;}
+						else{echo json_encode($txt->del->vll_frn->$id_lng);}
 					}
-					else{echo $txt->del->vll_hbr->$id_lng;}
+					else{echo json_encode($txt->del->vll_hbr->$id_lng);}
 				}
-				else{echo $txt->del->vll_srv->$id_lng;}
+				else{echo json_encode($txt->del->vll_srv->$id_lng);}
 			}
-			else{echo $txt->del->vll_jrn->$id_lng;}
+			else{echo json_encode($txt->del->vll_jrn->$id_lng);}
 			break;
 		case 'lieu':
 			$dt_prs_lieu = ftc_ass(sel_quo("id","cat_prs_lieu","id_lieu",$id));
@@ -259,16 +264,16 @@ if(isset($_POST['id']) and $_POST['id'] >0) {
 				delete("cat_lieu","id",$id);
 				delete("cat_lieu_txt","id_lieu",$id);
 			}
-			else{echo $txt->del->lieu->$id_lng;}
+			else{echo json_encode($txt->del->lieu->$id_lng);}
 			break;
 		case 'bnq':
 			$dt_frn = ftc_ass(sel_quo("id","cat_frn","id_bnq",$id));
 			if(empty($dt_frn['id'])) {
 				$dt_hbr = ftc_ass(sel_quo("id","cat_hbr","id_bnq",$id));
 				if(empty($dt_hbr['id'])) {delete("cat_bnq","id",$id);}
-				else{echo $txt->del->bnq_hbr->$id_lng;}
+				else{echo json_encode($txt->del->bnq_hbr->$id_lng);}
 			}
-			else{echo $txt->del->bnq_frn->$id_lng;}
+			else{echo json_encode($txt->del->bnq_frn->$id_lng);}
 			break;
 	}
 }

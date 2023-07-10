@@ -468,8 +468,8 @@ function sup_dsp(id) {
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("id="+id);
 }
-
-function del(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
+/*
+function del(cbl,id) {
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
@@ -505,3 +505,4 @@ function del(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éli
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("cbl="+cbl+"&id="+id);
 }
+*/

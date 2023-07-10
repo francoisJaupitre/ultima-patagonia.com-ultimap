@@ -1,13 +1,15 @@
 <?php
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
-if(isset($data['cbl']) and isset($data['nom'])) {
+if(isset($data['cbl']) and isset($data['nom']))
+{
 	$cbl = $data['cbl'];
 	$nom = $data['nom'];//$nom = rawurldecode($data['nom']);
 	include("../../prm/fct.php");
 	include("../../prm/aut.php");
 	$alt = $err = "";
-	switch($cbl) {
+	switch($cbl)
+	{
 		case 'grp':
 			$id_clt = $data['clt'];
 			if($id_clt == 0) {$id_clt=1;}
@@ -16,7 +18,7 @@ if(isset($data['cbl']) and isset($data['nom'])) {
 		case 'dev':
 			include("../../cfg/crr.php");
 			include("../../cfg/ctg_clt.php");
-			$txt = simplexml_load_file('../dev/txt.xml');
+			$txt = simplexml_load_file('../../dev/txt.xml');
 			$id_cat_crc = $data['id_cat'];
 			if(isset($data['clt'])) {$id_clt = $data['clt'];}
 			else{$id_clt = 0;}

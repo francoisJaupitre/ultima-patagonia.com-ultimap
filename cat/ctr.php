@@ -43,6 +43,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		<script src='../vendor/googleAPIKey/googleAPIKey.js'></script>
 		<script src='../resources/js/script.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
+		<script src='../resources/js/catCmd.js'></script>
 		<script src='../resources/js/catLoad.js'></script>
 	</body>
 </html>

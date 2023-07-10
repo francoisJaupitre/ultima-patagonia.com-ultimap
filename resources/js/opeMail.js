@@ -4,7 +4,8 @@ const mailFrn = (id_res_frn, id_dev_crc) => {
 	xhr.setRequestHeader("Content-Type", "application/json")
 	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn }))
 	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+		{
 			load('emailPopup')
 			emailWriter(JSON.parse(xhr.response))
 		}
@@ -17,7 +18,8 @@ const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
 	xhr.setRequestHeader("Content-Type", "application/json")
 	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm }))
 	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+		{
 			load('emailPopup')
 			emailWriter(JSON.parse(xhr.response))
 		}
@@ -32,11 +34,13 @@ const emailWriter = (data) => {
 	txt.innerHTML = data['emailBody']
 	const emailBody = txt.value
 	const devData = { emailGRP : data['emailGRP'] }
-	if(typeof data['emailLstSRV'] !== 'undefined') {
+	if(typeof data['emailLstSRV'] !== 'undefined')
+	{
 		devData['emailLstSRV'] = data['emailLstSRV']
 		devData['emailFRN'] = data['emailFRN']
 	}
-	else if(typeof data['emailLstHBR'] !== 'undefined') {
+	else if(typeof data['emailLstHBR'] !== 'undefined')
+	{
 		devData['emailLstHBR'] = data['emailLstHBR']
 		devData['emailHBR'] = data['emailHBR']
 	}
@@ -58,15 +62,15 @@ const emailWriter = (data) => {
 	const emailMessage = document.getElementById("emailMessage")
 	emailMessage.style.pointerEvents = "auto"
 	emailMessage.onclick = () => {
-		const loader = document.getElementById("ld_"+emailMessage.id)
-		loader.style.display='block'
-		tinymce.remove('#'+emailMessage.id)
+		const loader = document.getElementById(`ld_${emailMessage.id}`)
+		loader.style.display = 'block'
+		tinymce.remove(`#${emailMessage.id}`)
 		tinymce.init({
 			entity_encoding : "raw",
 			forced_root_block : "",
-			selector: '#'+emailMessage.id,
+			selector: `#${emailMessage.id}`,
 			inline: true,
-			fixed_toolbar_container: '#tool_'+emailMessage.id,
+			fixed_toolbar_container: `#tool_${emailMessage.id}`,
 			resize: true,
 			plugins: "textcolor paste",
 			paste_auto_cleanup_on_paste : true,
@@ -113,7 +117,7 @@ const sendMail = (devData) => {
 		from : document.getElementById("from").value,
 		to : document.getElementById("to").value,
 		subject : document.getElementById("subj").value,
-		message : "<html><body>"+emailMessage.innerHTML+"</body></html>",
+		message : ``<html><body>${emailMessage.innerHTML}</body></html>`,
 		bcc : document.getElementById("bcc").value
 	}
 	if(typeof devData['emailLstSRV'] !== 'undefined')
@@ -133,26 +137,30 @@ const sendMail = (devData) => {
 	xhr.setRequestHeader("Content-Type", "application/json")
 	xhr.send(JSON.stringify(emailRequest))
 	xhr.onreadystatechange = () => {
-		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if(xhr.responseText.length > 0) { alt(xhr.responseText) }
-			else {
+		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+		{
+			if(xhr.responseText.length > 0)
+				alt(xhr.responseText)
+			else{
 				closeEmail()
-				if(typeof emailRequest['lst_srv'] !== 'undefined') {
+				if(typeof emailRequest['lst_srv'] !== 'undefined')
+				{
 					const rsp_srv = emailRequest['lst_srv'].split("|")
-					for(var j = 2; j < rsp_srv.length; j++) {
-						vue_elem('srv_res'+rsp_srv[j], rsp_srv[j])
-						vue_elem('srv_frn'+rsp_srv[j], rsp_srv[j])
+					for(var j = 2; j < rsp_srv.length; j++)
+					{
+						vue_elem(`srv_res${rsp_srv[j]}`, rsp_srv[j])
+						vue_elem(`srv_frn${rsp_srv[j]}`, rsp_srv[j])
 					}
-					window.parent.act_frm('frn_ope_frn'+emailRequest['id_frn'])
-					window.parent.act_frm('frn_ope_srv'+emailRequest['id_frn'])
+					window.parent.act_frm(`frn_ope_frn${emailRequest['id_frn']}`)
+					window.parent.act_frm(`frn_ope_srv${emailRequest['id_frn']}`)
 					window.parent.act_frm('frn_ope')
 				}
-				else if(typeof emailRequest['lst_hbr'] !== 'undefined') {
+				else if(typeof emailRequest['lst_hbr'] !== 'undefined')
+				{
 					const rsp_hbr = emailRequest['lst_hbr'].split("|")
-					for(var j = 2; j < rsp_hbr.length; j++) {
-						vue_elem('hbr_res'+rsp_hbr[j], rsp_hbr[j])
-					}
-					window.parent.act_frm('cat_res_hbr'+emailRequest['id_hbr'])
+					for(var j = 2; j < rsp_hbr.length; j++)
+						vue_elem(`hbr_res${rsp_hbr[j]}`, rsp_hbr[j])
+					window.parent.act_frm(`cat_res_hbr${emailRequest['id_hbr']}`)
 					window.parent.act_frm('hbr_ope')
 				}
 			}

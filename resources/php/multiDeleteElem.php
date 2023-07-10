@@ -1,10 +1,14 @@
 <?php
-if(isset($_POST['ids']) and is_array($_POST['ids'])) {
-  include("../prm/fct.php");
-  include("../prm/aut.php");
-  $ids = $_POST['ids'];
-  $txt = simplexml_load_file('txt.xml');
-  switch($_POST['cbl']) {
+$request = file_get_contents("php://input");
+$data = json_decode($request, true);
+if(isset($data['ids']) and isset($data['cbl']))
+{
+  $ids = $data['ids'];
+  $cbl = $data['cbl'];
+  include("../../prm/fct.php");
+  include("../../prm/aut.php");
+  $txt = simplexml_load_file('../../acc/txt.xml');
+  switch($cbl) {
 		case 'grp':
       $err = '';
       foreach($ids as $id) {
@@ -17,7 +21,7 @@ if(isset($_POST['ids']) and is_array($_POST['ids'])) {
         }
         else{$err = $txt->del_pls_grp->$id_lng;}
       }
-      if($err != '') {echo $err;}
+      if($err != '') {echo json_encode($err);}
       break;
     case 'arc':
       foreach($ids as $id) {

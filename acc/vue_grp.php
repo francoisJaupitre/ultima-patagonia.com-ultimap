@@ -52,7 +52,7 @@ switch($cbl){
 <?php
 if($cbl=='gr0'){
 ?>
-					<td class="text-center" id="addGrp0">
+					<td class="text-center" id="addGrp">
 						<img src="../prm/img/ajt.png" />
 					</td>
 <?php
@@ -73,7 +73,7 @@ if($cbl == 'gr0'){
 <?php
 	echo $txt->cmd->elements->$id_lng;
 ?>
-			<span class="dib" onClick="del_pls('grp');"><img src="../prm/img/sup.png" /></span>
+			<span class="dib" id="deleteElems"><img src="../prm/img/sup.png" /></span>
 		</td>
 	</tr>
 <?php

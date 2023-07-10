@@ -15,13 +15,15 @@ if(isset($data['id_crc'])) {
 	$dt_crc['cnf'] = 0;
 	$id_crc_new = insert("dev_crc",array_keys($dt_crc),array_values($dt_crc));
 	$rq_bss = sel_quo("*","dev_crc_bss","id_crc",$id_crc);
-	while($dt_bss = ftc_ass($rq_bss)){
+	while($dt_bss = ftc_ass($rq_bss))
+	{
 		unset($dt_bss['id']);
 		$dt_bss['id_crc'] = $id_crc_new;
 		insert("dev_crc_bss",array_keys($dt_bss),array_values($dt_bss));
 	}
 	$rq_vol = sel_quo("*","dev_vol","id_crc",$id_crc);
-	while($dt_vol = ftc_ass($rq_vol)){
+	while($dt_vol = ftc_ass($rq_vol))
+	{
 		unset($dt_vol['id']);
 		$dt_vol['id_crc'] = $id_crc_new;
 		insert("dev_vol",array_keys($dt_vol),array_values($dt_vol));
@@ -130,7 +132,6 @@ if(isset($data['id_crc'])) {
 			}
 		}
 	}
-	//echo $id_crc_new;
 	echo json_encode($id_crc_new);
 }
 ?>

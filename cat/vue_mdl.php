@@ -16,12 +16,12 @@ $sel_mdl_jrn = $dt_mdl['sel_mdl_jrn'];
 								<div id="vue_cmd_mdl<?php echo $id ?>" class="cmd wsn">
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
-										<li onclick="cop('mdl',<?php echo $id ?>);document.getElementById('vue_cmd_mdl<?php echo $id ?>').style.display='none';"><?php echo $txt->cop->$id_lng; ?></li>
-										<li onclick="cop2('mdl',<?php echo $id ?>);document.getElementById('vue_cmd_mdl<?php echo $id ?>').style.display='none';"><?php echo $txt->cop2->$id_lng; ?></li>
+										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
+										<li onclick="cop2('mdl',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>
-										<li onclick="del('mdl',<?php echo $id ?>);document.getElementById('vue_cmd_mdl<?php echo $id ?>').style.display='none';"><?php echo $txt->del->$id_lng; ?></li>
+										<li id="delElem"><?php echo $txt->del->$id_lng; ?></li>
 <?php
 }
 ?>

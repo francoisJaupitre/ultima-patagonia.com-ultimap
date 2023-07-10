@@ -55,7 +55,7 @@ switch($cbl) {
 				<div id="lst_clt"><?php include("vue_lst_clt.php") ?></div>
 			</div>
 		</td>
-		<td class="text-center add-elem" id="crc"><img src="../prm/img/ajt.png"/></td>
+		<td class="text-center" id="addElem"><img src="../prm/img/ajt.png"/></td>
 <?php
 		break;
 case 'mdl':
@@ -100,7 +100,7 @@ case 'mdl':
       <div id="lst_rgn"><?php include("vue_lst_rgn.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="mdl"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'jrn':
@@ -133,7 +133,7 @@ case 'jrn':
       <div id="lst_vll"><?php include("vue_lst_vll.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="jrn"><img src="../prm/img/ajt.png"/></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png"/></td>
 <?php
   break;
 case 'prs':
@@ -192,7 +192,7 @@ case 'prs':
       <div id="lst_ctg_prs"><?php include("vue_lst_ctg_prs.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="prs"><img src="../prm/img/ajt.png"/></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png"/></td>
 <?php
   break;
 case 'srv':
@@ -248,7 +248,7 @@ case 'srv':
     </div>
   </td>
   <td class='tbl'><?php echo $txt->lst->cat->datemaxi->$id_lng; ?></td>
-  <td class="text-center add-elem" id="srv"><img src="../prm/img/ajt.png"/></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png"/></td>
 <?php
   break;
 case 'hbr':
@@ -309,7 +309,7 @@ case 'hbr':
   </td>
   <td class='tbl'><?php echo $txt->lst->cat->datemaxi->$id_lng; ?></td>
 	<td class='tbl'><?php echo $txt->lst->cat->nvtrf->$id_lng; ?></td>
-  <td class="text-center add-elem" id="hbr"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'clt':
@@ -342,7 +342,7 @@ if($flt) {$whr = "nom LIKE '%".$flt."%' AND ";}
       <div id="lst_ctg_clt"><?php include("vue_lst_ctg_clt.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="clt"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'frn':
@@ -402,7 +402,7 @@ case 'frn':
     </div>
   </td>
 	<td class='tbl'><?php echo $txt->lst->cat->nvtrf->$id_lng; ?></td>
-  <td class="text-center add-elem" id="frn"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'pic':
@@ -446,7 +446,7 @@ case 'rgn':
   echo $nb_rgn['total'].' '.$txt->rgn->$id_lng;
 ?>
   </td>
-  <td class="text-center add-elem" id="rgn"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'vll':
@@ -479,7 +479,7 @@ case 'vll':
       <div id="lst_rgn"><?php include("vue_lst_rgn.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="vll"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'lieu':
@@ -512,7 +512,7 @@ case 'lieu':
       <div id="lst_vll"><?php include("vue_lst_vll.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="lieu"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 case 'bnq':
@@ -546,7 +546,7 @@ case 'bnq':
       <div id="lst_pays"><?php include("vue_lst_pays.php") ?></div>
     </div>
   </td>
-  <td class="text-center add-elem" id="bnq"><img src="../prm/img/ajt.png" /></td>
+  <td class="text-center" id="addElem"><img src="../prm/img/ajt.png" /></td>
 <?php
   break;
 }

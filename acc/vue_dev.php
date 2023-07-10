@@ -105,7 +105,7 @@ if($cbl == 'cnf' or $cbl == 'fin'){
 <?php
 if($cbl=='dev'){
 ?>
-					<td class="text-center" id="addDev0">
+					<td class="text-center" id="addDev">
 						<img src="../prm/img/ajt.png" />
 					</td>
 <?php
@@ -127,7 +127,7 @@ if($flg_sup){
 <?php
 	echo $txt->cmd->elements->$id_lng;
 ?>
-			<span class="dib" onClick="del_pls('<?php echo $cbl; ?>');"><img src="../prm/img/sup.png" /></span>
+			<span class="dib" id="deleteElems"><img src="../prm/img/sup.png" /></span>
 		</td>
 	</tr>
 <?php

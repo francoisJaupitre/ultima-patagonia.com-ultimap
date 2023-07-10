@@ -11,7 +11,7 @@ $dt_pic = ftc_ass(select("*","cat_pic","id",$id));
 <?php
 if($aut['cat']) {
 ?>
-			<span class="dib" onClick="del('pic',<?php echo $id ?>)"><img src="../prm/img/sup.png" /></span>
+			<span class="dib delete-elem"><img src="../prm/img/sup.png" /></span>
 <?php
 }
 ?>

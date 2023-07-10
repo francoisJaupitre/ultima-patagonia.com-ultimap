@@ -486,7 +486,7 @@ function dup(cbl,id) {
 	xmlhttp.send("cbl="+cbl+"&id="+id);
 }
 
-function cop(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
+/*function cop(cbl,id) {
 	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -517,7 +517,7 @@ function cop(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éli
 	xmlhttp.open("POST","../fct/cop.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("cbl="+cbl+"&id="+id+"&nom="+encodeURIComponent(nom));
-}
+}*/
 
 function cop2(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
 	var nom = document.getElementById('nom_'+cbl+'_'+id).value;

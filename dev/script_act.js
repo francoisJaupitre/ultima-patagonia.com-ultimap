@@ -495,7 +495,7 @@ function vrs(){
 			unload('DEV');
 		}
 	}
-	xmlhttp.open("POST","../resources/php/devNewVersion.php",true);
+	xmlhttp.open("POST","../resources/php/newVersion.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("id_crc="+id_dev_crc);
 }

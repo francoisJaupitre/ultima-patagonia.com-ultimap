@@ -2,14 +2,16 @@ let ld = 0, flg_ld = {}
 
 const load = (xhr) => {
   let org = 0
-	if(xhr) {org = xhr.replace(/\s/g, "")}
+	if(xhr)
+    org = xhr.replace(/\s/g, "")
 	if(typeof flg_ld[org] === 'undefined' || flg_ld[org] == true)
 	{
 		flg_ld[org] = false
 		if(ld == 0)
 		{
 			document.getElementById('shadowing').style.display = 'block'
-			if(xhr != 'emailPopup') {disableScroll()}
+			if(xhr != 'emailPopup')
+        disableScroll()
 		}
 		ld++
 	}
@@ -19,24 +21,27 @@ let cancel = false, idpos = 0
 
 const unload = (xhr,id) => {
   let org = 0
-	if(xhr) {org = xhr.replace(/\s/g, "")}
+	if(xhr)
+    org = xhr.replace(/\s/g, "")
 	if(typeof flg_ld[org] === 'undefined' || flg_ld[org] == false)
 	{
-		if(org=='scroll')
+		if(org == 'scroll')
 		{
 			cancel = true
 			idpos = id
 		}
-		else if(ld>0) {ld--}
+		else if(ld > 0)
+      ld--
 		if(org != 'scroll' && ld == 0)
 		{
 			document.getElementById('shadowing').style.display = 'none'
-			if(xhr != 'emailPopup') {enableScroll()}
+			if(xhr != 'emailPopup')
+        enableScroll()
 			if(cancel == true)
 			{
 				cancel = false
-				$('html,body').animate( {scrollTop: $("#vue_ttr_jrn_"+idpos).offset().top-10}, 'slow' )
-				console.log(org+" unload #vue_ttr_jrn_"+idpos)
+				document.body.animate({ scrollTop: document.getElementById(`vue_ttr_jrn_${idpos}`).offsetTop-10 }, 'slow')
+				console.log(`unload ${org} vue_ttr_jrn_${idpos}`)
 			}
 		}
 		flg_ld[org] = true
@@ -45,12 +50,11 @@ const unload = (xhr,id) => {
 
 const getTxt = async function(url)
 {
-  if(window.txt[url] != undefined){
-    return window.txt[url]
-  } else {
-    const res = await fetch(url)
-    const txt = await res.json()
-    window.txt[url] = txt
-    return txt
-  }
+  const storedTxt = localStorage.getItem(url)
+  if(storedTxt)
+    return JSON.parse(storedTxt)
+  const res = await fetch(url)
+  const txt = await res.text()
+  localStorage.setItem(url, txt)
+  return JSON.parse(txt)
 }

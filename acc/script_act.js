@@ -135,9 +135,9 @@ function vrs(id) {
 			});
 		}
 	});
-}*/
+}
 
-function cop(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
+function cop(cbl,id) {
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("cop_"+cbl);
@@ -170,7 +170,7 @@ function cop(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éli
 	});
 }
 
-function del(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
+function del(cbl,id) {
 	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("del_"+cbl);
@@ -217,7 +217,7 @@ function del(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éli
 	});
 }
 
-function del_pls(cbl) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
+function del_pls(cbl) {
 	var chk = [],msg = '';
 	$(".chk").each(function() {
 		if($(this).is(":checked")) {chk.push($(this).attr("id"));}
@@ -265,7 +265,7 @@ function del_pls(cbl) {//à mettre dans resources/js comme ajt() et vrs pour él
 			});
 		}
 	});
-}
+}*/
 
 function arch(cbl,id) {
 	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml",

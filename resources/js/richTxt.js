@@ -1,15 +1,16 @@
 const richTxtInit = (elem,tab,col,id) => {
-	if(flg_rch){
-		const loader = document.getElementById('ld_'+elem)
+	if(flg_rch)
+	{
+		const loader = document.getElementById(`ld_${elem}`)
 		const ed = elem
 		loader.style.display = 'block'
-		tinymce.remove('#'+elem)
+		tinymce.remove(`#${elem}`)
 		tinymce.init({
 			entity_encoding : "raw",
 			forced_root_block : "",
-			selector: '#'+elem,
+			selector: `#${elem}`,
 			inline: true,
-			fixed_toolbar_container: '#tool_'+elem,
+			fixed_toolbar_container: `#tool_${elem}`,
 			resize: true,
 			plugins: "textcolor save paste",
 			paste_auto_cleanup_on_paste : true,
@@ -49,17 +50,21 @@ const richTxtInit = (elem,tab,col,id) => {
 				elem.on('change redo undo', (e) => { elem.getBody().style.backgroundColor = "#FFFF66" })
 			},
 		})
-		$("#"+elem).css("resize","vertical")
+		$(`#${elem}`).css("resize","vertical")
 	}
 }
 
 function richTxtCheck()
 {
-	if(typeof tinyMCE !== "undefined" && tinyMCE.activeEditor) {
+	if(typeof tinyMCE !== "undefined" && tinyMCE.activeEditor)
+	{
 		const rich = document.getElementsByClassName("rich")
-		for(const i = 0; i < rich.length; i++) {
-			if(tinyMCE.get(rich[i].id)) {
-				if(rich[i].style.backgroundColor != '' && rich[i].style.backgroundColor != 'rgb(255, 255, 255)') { return false }
+		for(const i = 0; i < rich.length; i++)
+		{
+			if(tinyMCE.get(rich[i].id))
+			{
+				if(rich[i].style.backgroundColor != '' && rich[i].style.backgroundColor != 'rgb(255, 255, 255)')
+					return false
 			}
 		}
 	}
@@ -68,25 +73,34 @@ function richTxtCheck()
 
 const stripTags = (str, allowed_tags) => {
 	let allowed_array = []
-  if(allowed_tags) { allowed_array = allowed_tags.match(/([a-zA-Z0-9]+)/gi) }
+  if(allowed_tags)
+		allowed_array = allowed_tags.match(/([a-zA-Z0-9]+)/gi)
   str += ''
   const matches = str.match(/(<\/?[\S][^>]*>)/gi)
-  for(const key in matches) {
-      if(isNaN(key)) { continue }
-      const html = matches[key].toString()
-      let allowed = false
-			let i = -1
-      for(const k in allowed_array) {
-          const allowed_tag = allowed_array[k]
-          if(i != 0) { i = html.toLowerCase().indexOf('<'+allowed_tag+'>') }
-          if(i != 0) { i = html.toLowerCase().indexOf('<'+allowed_tag+' ') }
-          if(i != 0) { i = html.toLowerCase().indexOf('</'+allowed_tag) }
-          if(i == 0) {
-						allowed = true
-            break
-          }
+  for(const key in matches)
+	{
+    if(isNaN(key))
+			continue
+    const html = matches[key].toString()
+    let allowed = false
+		let i = -1
+    for(const k in allowed_array)
+		{
+      const allowed_tag = allowed_array[k]
+      if(i != 0)
+				i = html.toLowerCase().indexOf('<'+allowed_tag+'>')
+      if(i != 0)
+				i = html.toLowerCase().indexOf('<'+allowed_tag+' ')
+      if(i != 0)
+				i = html.toLowerCase().indexOf('</'+allowed_tag)
+      if(i == 0)
+			{
+				allowed = true
+        break
       }
-      if(!allowed) { str = str.split(html).join("") }
+    }
+    if(!allowed)
+			str = str.split(html).join("")
   }
   return str
 }

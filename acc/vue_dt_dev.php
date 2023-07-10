@@ -68,11 +68,11 @@ while($dt_dev = ftc_ass($rq_dev)){
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_dev<?php echo $id_dev ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul id="<?php echo $id_dev ?>">
+				<ul class="ul-cmd" id="<?php echo $id_dev ?>">
 					<li onclick="window.parent.opn_frm('fct/vue_trf.php?id=<?php echo $id_dev; ?>');"><?php echo $txt->cmd->voirtarifs->$id_lng; ?></li>
 					<li onclick="window.parent.opn_frm('fct/vue_prg.php?cbl=dev&id=<?php echo $id_dev; ?>&id_lgg=<?php echo $dt_dev['lgg']; ?>');"><?php echo $txt->cmd->voirprogramme->$id_lng; ?></li>
 					<li class="new-vrs"><?php echo $txt->cmd->vrs->$id_lng; ?></li>
-					<li onclick="cop('dev',<?php echo $id_dev ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
+					<li class="copy-elem"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php
 		if($cbl == 'cnf'){
 ?>
@@ -92,7 +92,7 @@ while($dt_dev = ftc_ass($rq_dev)){
 		elseif(($cbl == 'arc' or $cbl == 'fin') and ($aut['dev'] or $id_usr==$dt_dev['usr'])){
 ?>
 					<li onclick="rest(<?php echo "'".$cbl."'" ?>,<?php echo $id_dev ?>);"><?php echo $txt->cmd->restaurer->$id_lng; ?></li>
-					<li onclick="del(<?php echo "'".$cbl."'" ?>,<?php echo $id_dev ?>);"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
+					<li class="delete-elem"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
 <?php
 		}
 ?>

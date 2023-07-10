@@ -15,12 +15,12 @@ $dt_jrn = ftc_ass(select("*","cat_jrn","id",$id));
 								<div id="vue_cmd_jrn<?php echo $id ?>" class="cmd wsn">
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
-										<li onclick="cop('jrn',<?php echo $id ?>);"><?php echo $txt->cop->$id_lng; ?></li>
+										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
 										<li onclick="cop2('jrn',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>
-										<li onclick="del('jrn',<?php echo $id ?>);"><?php echo $txt->del->$id_lng; ?></li>
+										<li id="delElem"><?php echo $txt->del->$id_lng; ?></li>
 <?php
 }
 ?>

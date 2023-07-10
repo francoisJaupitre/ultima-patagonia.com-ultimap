@@ -132,7 +132,7 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_hbr']) and isset($data['id
 			}
 			elseif(empty($rsp)) { $rsp = $txt->mel_hbr->msg7->$id_lng; }
 		}
-		echo $rsp.$rsp_hbr;
+		echo json_encode($rsp.$rsp_hbr);
 	}
 }
 ?>

@@ -307,7 +307,7 @@ function upd_cat($tab,$id){
 	if(!empty($tab) and !empty($id) and $id>0){
 		include("pdo_connect.php");
 		if($tab=="dev_hbr"){
-			$sql = "UPDATE ".$tab." SET id_cat_chm=NULL WHERE id_cat = '".$id."'";
+			$sql = "UPDATE ".$tab." SET id_cat_chm=0 WHERE id_cat = '".$id."'";
 			try {
 				$req = $db->prepare($sql);
 				$req->execute();
@@ -317,7 +317,7 @@ function upd_cat($tab,$id){
 				return null;
 			}
 		}
-		$sql = "UPDATE ".$tab." SET id_cat=NULL WHERE id_cat = '".$id."'";
+		$sql = "UPDATE ".$tab." SET id_cat=0 WHERE id_cat = '".$id."'";
 		try {
 			$req = $db->prepare($sql);
 			$req->execute();

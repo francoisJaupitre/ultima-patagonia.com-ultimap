@@ -67,14 +67,14 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_crc<?php echo $dt_crc['id'] ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul id="<?php echo $dt_crc['id'] ?>">
+				<ul class="ul-cmd" id="<?php echo $dt_crc['id'] ?>">
 					<li class="add-dev"><?php echo $txt->cmd->creerdevis->$id_lng; ?></li>
 					<li onclick="window.parent.opn_frm('fct/vue_prg.php?cbl=crc&id=<?php echo $dt_crc['id'] ?>&id_lgg=<?php echo $id_lgg ?>');"><?php echo $txt->cmd->apercu->$id_lng; ?></li>
-					<li onclick="cop('crc',<?php echo $dt_crc['id'] ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
+					<li class="copy-elem"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php
 			if($aut['cat']) {
 ?>
-					<li onclick="del('crc',<?php echo $dt_crc['id'] ?>);"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
+					<li class="delete-elem"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
 <?php
 			}
 ?>
@@ -145,13 +145,13 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_mdl<?php echo $dt_mdl['id'] ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul>
+				<ul class="ul-cmd" id="<?php echo $dt_mdl['id'] ?>">
 					<li onclick="window.parent.opn_frm('fct/vue_prg.php?cbl=mdl&id=<?php echo $dt_mdl['id'] ?>&id_lgg=<?php echo $id_lgg ?>');"><?php echo $txt->cmd->apercu->$id_lng; ?></li>
-					<li onclick="cop('mdl',<?php echo $dt_mdl['id'] ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
+					<li class="copy-elem"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php
 			if($aut['cat']) {
 ?>
-					<li onclick="del('mdl',<?php echo $dt_mdl['id'] ?>);"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
+					<li class="delete-elem"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
 <?php
 			}
 ?>
@@ -213,12 +213,12 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_jrn<?php echo $dt_jrn['id'] ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul>
-					<li onclick="cop('jrn',<?php echo $dt_jrn['id'] ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
+				<ul class="ul-cmd" id="<?php echo $dt_jrn['id'] ?>">
+					<li class="copy-elem"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php
 				if($aut['cat']) {
 ?>
-					<li onclick="del('jrn',<?php echo $dt_jrn['id'] ?>);"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
+					<li class="delete-elem"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
 <?php
 				}
 ?>
@@ -299,12 +299,12 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_prs<?php echo $dt_prs['id'] ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul>
-					<li onclick="cop('prs',<?php echo $dt_prs['id'] ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
+				<ul class="ul-cmd" id="<?php echo $dt_prs['id'] ?>">
+					<li class="copy-elem"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php
 			if($aut['cat']) {
 ?>
-					<li onclick="del('prs',<?php echo $dt_prs['id'] ?>);"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
+					<li class="delete-elem"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
 <?php
 			}
 ?>
@@ -383,12 +383,12 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 			<img src="../prm/img/cmd.gif" />
 			<div id="vue_cmd_srv<?php echo $dt_srv['id'] ?>" class="cmd wsn">
 				<strong><?php echo $txt->cmd->commandes->$id_lng; ?></strong>
-				<ul>
-					<li onclick="cop('srv',<?php echo $dt_srv['id'] ?>);"><?php echo $txt->cmd->copier->$id_lng; ?></li>
+				<ul class="ul-cmd" id="<?php echo $dt_srv['id'] ?>">
+					<li class="copy-elem"><?php echo $txt->cmd->copier->$id_lng; ?></li>
 <?php
 			if($aut['cat']) {
 ?>
-					<li onclick="del('srv',<?php echo $dt_srv['id'] ?>);"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
+					<li class="delete-elem"><?php echo $txt->cmd->supprimer->$id_lng; ?></li>
 <?php
 			}
 ?>
@@ -461,7 +461,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('hbr',<?php echo $dt_hbr['id'] ?>);"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_hbr['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -507,7 +507,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-<td onclick="del('clt',<?php echo $dt_clt['id'] ?>);"><img src="../prm/img/sup.png" /></td>
+<td class="delete-elem2" id="<?php echo $dt_clt['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -587,7 +587,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('frn',<?php echo $dt_frn['id'] ?>);"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_frn['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -630,7 +630,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('pic',<?php echo $dt_pic['id'] ?>)"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_pic['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -667,7 +667,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('rgn',<?php echo $dt_rgn['id'] ?>)"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_rgn['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -713,7 +713,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('vll',<?php echo $dt_vll['id'] ?>)"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_vll['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -760,7 +760,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 <?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('lieu',<?php echo $dt_lieu['id'] ?>)"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_lieu['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {
@@ -806,7 +806,7 @@ if(!empty($dt_crc['web_uid'])) {echo '</a>';}
 	<?php
 			if($aut['cat']) {
 ?>
-	<td onclick="del('bnq',<?php echo $dt_bnq['id'] ?>)"><img src="../prm/img/sup.png" /></td>
+	<td class="delete-elem2" id="<?php echo $dt_bnq['id'] ?>"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			if(!isset($_POST['rang'])) {

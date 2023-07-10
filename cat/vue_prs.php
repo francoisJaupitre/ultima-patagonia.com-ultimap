@@ -15,12 +15,12 @@ $dt_prs = ftc_ass(select("*","cat_prs","id",$id));
 								<div id="vue_cmd_prs<?php echo $id ?>" class="cmd wsn">
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
-										<li onclick="cop('prs',<?php echo $id ?>);document.getElementById('vue_cmd_prs<?php echo $id ?>').style.display='none';"><?php echo $txt->cop->$id_lng; ?></li>
-										<li onclick="cop2('prs',<?php echo $id ?>);document.getElementById('vue_cmd_prs<?php echo $id ?>').style.display='none';"><?php echo $txt->cop2->$id_lng; ?></li>
+										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
+										<li onclick="cop2('prs',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>
-										<li onclick="del('prs',<?php echo $id ?>);document.getElementById('vue_cmd_prs<?php echo $id ?>').style.display='none';"><?php echo $txt->del->$id_lng; ?></li>
+										<li id="delElem"><?php echo $txt->del->$id_lng; ?></li>
 <?php
 }
 ?>

@@ -16,12 +16,12 @@ $dt_crc = ftc_ass(select("*","cat_crc","id",$id));
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
 										<li onclick="ajt_dev(<?php echo $id ?>);"><?php echo $txt->ajtdev->$id_lng; ?></li>
-										<li onclick="cop('crc',<?php echo $id ?>);"><?php echo $txt->cop->$id_lng; ?></li>
+										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
 										<li onclick="cop2('crc',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>
-										<li onclick="del('crc',<?php echo $id ?>);"><?php echo $txt->del->$id_lng; ?></li>
+										<li id="delElem"><?php echo $txt->del->$id_lng; ?></li>
 <?php
 }
 ?>
