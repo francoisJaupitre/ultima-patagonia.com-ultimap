@@ -18,7 +18,7 @@ if($id_cat_srv==0){
 	$id_crr_crc = $dt_dev_crc['crr'];
 	$cur = 1;
 	$id_crr = $id_crr_crc;
-	include("../fct/clc_crr.php");
+	include("clc_crr.php");
 	$id_dev_srv = insert("dev_srv",array("id_prs","id_vll","ctg","crr","taux","sup","opt"),array($id_dev_prs,$vll_srv,$ctg_srv,1,$taux,$sup,1));
 	if($dt_dev_mdl['trf']==1){$rq_bss = select("id,base","dev_mdl_bss","id_mdl",$dt_dev_jrn['id_mdl'],"base");}
 	else{$rq_bss = select("id, base","dev_crc_bss","id_crc",$dt_dev_mdl['id_crc'],"base");}

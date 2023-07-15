@@ -16,7 +16,8 @@ function sup(obj,id,id_sup,ok,id_cat,id_cat_sup,id_sup2,opt,id_sel_ant_obj){
 		else if(obj=='srv' && sup_cat('prs',id_sup)==0){return;}
 		else if(obj=='hbr' && sup_cat('prs',id_sup)==0){return;}
 	}
-	if(obj=='hbr' && ok==0){src_hbr(id_cat,id_sup2,0,0,id,id_sup,'sup');}
+	if(obj == 'hbr' && ok == 0)
+		searchHbr(id_cat,id_sup2,0,0,id,id_sup,'sup')
 	var xhr = obj+id;
 	if(window.XMLHttpRequest){eval('xmlhttp_sup'+xhr+'=new XMLHttpRequest()');}
 	else{eval('xmlhttp_sup'+xhr+'=new ActiveXObject("Microsoft.XMLHTTP")');}

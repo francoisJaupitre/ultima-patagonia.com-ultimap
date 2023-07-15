@@ -394,11 +394,14 @@ while($dt_dev = ftc_ass($rq_dev)) {
 									$mesrmlst .= '</tr>';
 								}
 							}
-						$mesrmlst .= '</table>';
-						$flagTable = true;
-						$mes_rmlst[$id_dev][$hb][$rg][$j] = $mesrmlst;
-						$id_rmn=0;
-						unset($mesrmlst);
+							$mesrmlst .= '</table>';
+							$flagTable = true;
+							if(!isset($mes_rmlst[$id_dev][$hb][$rg][$j-1]) or $mes_rmlst[$id_dev][$hb][$rg][$j-1] != $mesrmlst)
+							{
+								$mes_rmlst[$id_dev][$hb][$rg][$j] = $mesrmlst;
+							}
+							$id_rmn=0;
+							unset($mesrmlst);
 						}
 					}
 				}

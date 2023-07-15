@@ -4,7 +4,7 @@ if($dt_cat_srv['res']==1){$resrv = 0;}
 else{$resrv = 6;}
 $cur = $id_crr_srv = 1;
 $id_crr = $id_crr_crc;
-include("../fct/clc_crr.php");
+include("clc_crr.php");
 $id_dev_srv = insert("dev_srv",array("id_prs","id_cat","id_vll","ctg","lgg","crr","taux","sup","nom","opt","res"),array($id_dev_prs,$id_cat_srv,$dt_cat_srv['id_vll'],$dt_cat_srv['ctg'],$dt_cat_srv['lgg'],1,$taux,$sup,$dt_cat_srv['nom'],$opt_srv,$resrv));
 if(!empty($dt_cat_srv['alerte'])){$alt.=$dt_cat_srv['nom'].' : '.$dt_cat_srv['alerte'].",\n";}
 $bss = array();
@@ -31,7 +31,7 @@ if(!is_null($rq_bss) and num_rows($rq_bss)>0){
 	}
 	if($flg_trf){
 		$id_crr = $id_crr_crc;
-		include("../fct/clc_crr.php");
+		include("clc_crr.php");
 		upd_quo("dev_srv",array("crr","taux","sup",'dt_min','dt_max','id_frn'),array($cur,$taux,$sup,$dt_min,$dt_max,$dt_trf['id_frn']),$id_dev_srv);
 	}
 	else{upd_quo('dev_srv',array('dt_min','dt_max','id_frn'),array($dt_min,$dt_max,$dt_trf['id_frn']),$id_dev_srv);}

@@ -21,7 +21,7 @@ while($dt_jrn = ftc_ass($rq_jrn)){
 				include("act_trf_srv.php");
 				if($flg_trf){
 					$id_crr = $id_crr_crc;
-					include("../fct/clc_crr.php");
+					include("clc_crr.php");
 					if($id_crr_srv != $cur and (isset($bss_crc) or isset($bss_mdl))){
 						upd_var_quo('dev_srv_trf','est','-1','id_srv',$id_dev_srv);
 						$err_crr[] = $dt_srv['nom'].' '.$txt->jour->$id_lng.' '.$ord_jrn;

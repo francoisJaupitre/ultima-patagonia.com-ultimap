@@ -17,7 +17,7 @@ $sel_mdl_jrn = $dt_mdl['sel_mdl_jrn'];
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
 										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
-										<li onclick="cop2('mdl',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
+										<li id="lightCopElem"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>

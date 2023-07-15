@@ -599,35 +599,3 @@ header ul li a:hover {color: #0000C3;}
 	text-indent: 20px;
 	width: 200px;
 }
-.emailPopup{
-  position:absolute;
-  width:80%;
-  top: 0;
-  left: 10%;
-  text-align:center;
-  border-radius: 5px;
-  background:white;
-  box-shadow: 0px 0px 10px 0px black;
-  overflow: hidden;
-  padding-left: 10px;
-  display: flex;
-  flex-direction: column;
-	z-index: 11;
-}
-.emailPopup > div{
-  width: 100%;
-  border-style: solid;
-  border-width: 0 0 2px 0;
-  white-space: nowrap;
-  padding: 5px 0px 5px 0;
-}
-.emailPopup input{
-  width: 100%;
-  border: 0;
-}
-#emailMessage{
-  box-sizing: border-box;
-  height: 100%;
-  border: 0;
-  resize: none;
-}

@@ -1,10 +1,12 @@
 <?php
-include("../prm/fct.php");
-include("../prm/aut.php");
-include("../cfg/crr.php");
-include("../cfg/ctg_clt.php");
+$request = file_get_contents("php://input");
+$data = json_decode($request, true);
+include("../../prm/fct.php");
+include("../../prm/aut.php");
+include("../../cfg/crr.php");
+include("../../cfg/ctg_clt.php");
 $alt = $err = $err_crc = $err_mdl = $err_jrn = $err_prs = $err_hbr = $err_srv = "";
-$txt = simplexml_load_file('../dev/txt.xml');
+$txt = simplexml_load_file('../../dev/txt.xml');
 $dt_clt = ftc_ass(sel_quo("*","cat_clt","id",1));
 $id_ctg_clt = $dt_clt['id_ctg'];
 $id_crr_crc = $dt_clt['crr'];
@@ -13,8 +15,9 @@ $com_ctg = $dt_cfg['com'];
 $mrq_hbr_ctg = $dt_cfg['mrq_hbr'];
 $frs_ctg = $dt_cfg['frs'];
 $ty_mrq_ctg = $dt_cfg['ty_mrq'];
-if(isset($_POST['url'])) {
-	$url = explode('&',rawurldecode($_POST['url']));
+if(isset($data['url']))
+{
+	$url = explode('&',$data['url']);//rawurldecode($data['url']));
   foreach($url as $u) {
 		$key = substr($u,0,strpos($u,'='));
 		$value = substr($u,strpos($u,'=')+1);
@@ -39,10 +42,10 @@ if(isset($_POST['url'])) {
 	$nombre = $data_web['nombre'];
 	unset($obj);
 }
-else{
-	$id_cat_crc = $_POST['id_cat'];
+elseif(isset($data['id']) and isset($data['nom'])){
+	$id_cat_crc = $data['id'];
 	$dt_crc = ftc_ass(sel_quo("nom,titre,dsc","cat_crc INNER JOIN cat_crc_txt ON cat_crc.id = cat_crc_txt.id_crc",array("lgg","cat_crc.id"),array($id_lgg,$id_cat_crc)));
-	$dt_crc['groupe'] = $_POST['nom'];
+	$dt_crc['groupe'] = $data['nom'];
 }
 $id_grp = insert("grp_dev",array("id_clt","nomgrp","usr"),array("1",$dt_crc['groupe'],$id_usr));
 $dt_crc['id_grp'] = $id_grp;
@@ -65,7 +68,7 @@ if($id_cat_crc > 0) {
 	$dt_crc['id_cat'] = $id_cat_crc;
 	$id_dev_crc = insert("dev_crc",array_keys($dt_crc),array_values($dt_crc),$id_usr,1,1,1);
 	$trf_mdl = 0;
-	include("../dev/ins_crc.php");
+	include("../../dev/ins_crc.php");
 }
 else{
 	$data_crc = $dt_crc;
@@ -81,7 +84,7 @@ else{
 			$dt_crc = $data_crc + $dt_crc_txt;
 			$id_dev_crc = insert("dev_crc",array_keys($dt_crc),array_values($dt_crc),$id_usr,1,1,1);
 			$dt_crc['alerte'] = $alt_crc;
-			include("../dev/ins_crc.php");
+			include("../../dev/ins_crc.php");
 			$bss = explode(',',$nombre);
 			foreach($bss as $base) {
 				$dt_cfg = ftc_ass(sel_whe("mrq","cfg_mrq","bs_min <=".$base." AND bs_max >=".$base." AND id_ctg_clt=".$id_ctg_clt));
@@ -89,7 +92,7 @@ else{
 				$rq_mdl = sel_quo("id","dev_mdl","id_crc",$id_dev_crc);
 				while($dt_mdl = ftc_ass($rq_mdl)) {
 					$id_dev_mdl = $dt_mdl['id'];
-					include("../dev/ajt_trf_srv.php");
+					include("../../dev/ajt_trf_srv.php");
 				}
 			}
 			$ids_dev_crc[] = $id_dev_crc;
@@ -105,12 +108,12 @@ else{
 			$dt_cat_mdl_txt = ftc_ass(sel_quo("id_mdl","cat_mdl_txt",array("lgg","web_uid"),array($id_lgg,$data_uid['uid'])));
 			$id_cat_mdl = $dt_cat_mdl_txt['id_mdl'];
 			$ord_mdl++;
-			include("../dev/ins_mdl.php");
+			include("../../dev/ins_mdl.php");
 			$bss = explode(',',$nombre);
 			foreach($bss as $base) {
 				$dt_cfg = ftc_ass(sel_whe("mrq","cfg_mrq","bs_min <=".$base." AND bs_max >=".$base." AND id_ctg_clt=".$id_ctg_clt));
 				insert("dev_mdl_bss",array("id_mdl","base","vue","mrq"),array($id_dev_mdl,$base,$vue,$dt_cfg['mrq']));
-				include("../dev/ajt_trf_srv.php");
+				include("../../dev/ajt_trf_srv.php");
 			}
 		}
 		$ids_dev_crc[] = $id_dev_crc;
@@ -129,5 +132,7 @@ else{
 	}
 }
 if(isset($ids_dev_crc)) {$id_dev_crc = implode('|',$ids_dev_crc);}
-echo $id_dev_crc."||".$err."||".$alt;
+//echo $id_dev_crc."||".$err."||".$alt;
+$qa = array($id_dev_crc, $err, $alt);
+echo json_encode($qa);
 ?>

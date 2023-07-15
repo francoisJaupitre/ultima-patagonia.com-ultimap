@@ -37,8 +37,9 @@ if(isset($_GET['cnf']) and !empty($_GET['cnf'])){
 		<span id="vue"><?php include("vue.php"); ?></span>
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
 		<script src='../resources/js/script.js'></script>
-		<script src='../resources/js/opeMail.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
+		<script src='../resources/js/opeMail.js'></script>
+		<script src='../resources/js/opeCmd.js'></script>
 		<script src='../resources/js/opeLoad.js'></script>
 	</body>
 </html>

@@ -1,5 +1,5 @@
 function maj_lng(val,id) {
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("maj_lng");
 			var y = x[0].getElementsByTagName(id_lng);
@@ -60,215 +60,8 @@ function maj(tab,col,val,id,id_sup) {
 	});
 }
 
-/*function ajt(cbl,id_cat) {
-	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("ajt_"+cbl);
-			var y = x[0].getElementsByTagName(id_lng);
-			var nom = prompt(y[0].childNodes[0].nodeValue);
-			var grp, clt, rgn, vll, ctg;
-			if (nom == null || nom == '') {return;}
-			if(cbl == 'dev' && id_cat == 0) {grp = $('#grp').val();}
-			if((cbl == 'dev' && id_cat == 0) || cbl == 'grp') {clt = $('#clt').val();}
-			if(cbl == 'mdl' || cbl == 'vll') {rgn = $('#rgn').val();}
-			if(cbl == 'jrn' || cbl == 'srv' || cbl == 'hbr' || cbl == 'frn' || cbl == 'lieu') {vll = $('#vll').val();}
-			if(cbl == 'prs' || cbl == 'srv' || cbl == 'hbr' || cbl == 'frn') {ctg = $('#ctg').val();}
-			load('ACC ajt '+cbl);
-			$.ajax({url: 'ajt.php', type: 'post', data: {"cbl":cbl,"id_cat":id_cat,"nom":encodeURIComponent(nom),"grp":grp,"clt":clt,"vll":vll,"ctg":ctg,"rgn":rgn},
-				success: function(responseText) {
-					var rsp = responseText.split("|");
-					if(cbl == 'dev') {
-						window.parent.act_frm('grp');
-						window.parent.act_frm('clt');
-						window.parent.opn_frm('dev/ctr.php?id='+rsp[0]);
-						window.parent.act_frm('cat_dev');
-						window.parent.act_frm('grp_crc');
-						window.parent.act_frm('grp_clt');
-						window.parent.act_frm('clt_crc');
-						if(id_cat>0) {
-							vue_menu(cbl,'dev');
-							vue_lst(cbl);
-						}
-						else{vue_dev(cbl);}
-					}
-					else if(cbl == 'grp') {
-						window.parent.opn_frm('grp/ctr.php?id='+rsp[0]);
-						vue_grp('gr0',clt);
-					}
-					else{
-						window.parent.opn_frm('cat/ctr.php?cbl='+cbl+'&id='+rsp[0]);
-						vue_cat(cbl);
-					}
-					window.parent.act_frm(cbl);
-					if(rsp[1] != '') {alt(rsp[1]);}
-					if(rsp[2] != '') {alt(rsp[2]);}
-					unload('ACC ajt '+cbl);
-				},
-				error: function (request, status, error) {
-					ajt(cbl,id_cat);
-					$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('AJT ERROR: '+request.statusText);
-				}
-			});
-		}
-	});
-}
-
-function vrs(id) {
-	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("vrs");
-			var y = x[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue,function() {
-				load('ACC vrs');
-				$.ajax({url: '../fct/vrs.php', type: 'post', data: {"id_dev_crc":id},
-					success: function(responseText) {
-						window.parent.opn_frm('dev/ctr.php?id='+responseText);
-						window.parent.act_frm('grp_crc');
-						vue_dev('dev');
-						unload('ACC vrs');
-					},
-					error: function (request, status, error) {
-						vrs(id);
-						$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('VRS ERROR: '+request.statusText);
-					}
-				});
-			});
-		}
-	});
-}
-
-function cop(cbl,id) {
-	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("cop_"+cbl);
-			var y = x[0].getElementsByTagName(id_lng);
-			if(cbl == 'dev') {var nom = prompt(y[0].childNodes[0].nodeValue);}
-			else{var nom = prompt(y[0].childNodes[0].nodeValue,$('#nom_'+cbl+'_'+id).html()+"(1)");}
-			if(nom == null || nom == '') {return;}
-			load('ACC cop');
-			$.ajax({url: '../fct/cop.php', type: 'post', data: {"cbl":cbl,"id":id,"nom":encodeURIComponent(nom)},
-				success: function(responseText) {
-					if(cbl == 'dev') {
-						window.parent.opn_frm('dev/ctr.php?id='+responseText);
-						vue_menu(cbl,'dev');
-						vue_lst(cbl);
-					}
-					else{
-						window.parent.opn_frm('cat/ctr.php?cbl='+cbl+'&id='+responseText);
-						vue_cat(cbl);
-						window.parent.act_frm(cbl);
-						window.parent.act_frm('up_'+cbl);
-					}
-					unload('ACC cop');
-				},
-				error: function (request, status, error) {
-					cop(cbl,id);
-					$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('COP ERROR: '+request.statusText);
-				}
-			});
-		}
-	});
-}
-
-function del(cbl,id) {
-	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("del_"+cbl);
-			var y = x[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue,function() {
-				load('ACC del');
-				$.ajax({url: '../fct/del.php', type: 'post', data: {"cbl":cbl,"id":id},
-					success: function(responseText) {
-						if(responseText.length == 0) {
-							if(cbl == 'arc' || cbl == 'fin') {
-								vue_lst(cbl);
-								window.parent.sup_frm('dev_devid'+id);
-								window.parent.sup_frm('trf_devid'+id);
-								window.parent.sup_frm('prg_devid'+id);
-								window.parent.sup_frm('rbk_devid'+id);
-								window.parent.act_frm('grp');
-								window.parent.act_frm('cat_dev');
-								window.parent.act_frm('grp_crc');
-								window.parent.act_frm('clt');
-							}
-							else if(cbl == 'grp') {
-								vue_grp('gr0');
-								window.parent.sup_frm('grpctrphpid'+id);
-								window.parent.act_frm("grp_crc");
-							}
-							else{
-								vue_cat(cbl);
-								window.parent.sup_frm('catctrphpcbl'+cbl+'id'+id);
-								window.parent.act_frm(cbl);
-								window.parent.act_frm('up_'+cbl);
-							}
-						}
-						else{alt(responseText);}
-						unload('ACC del');
-					},
-					error: function (request, status, error) {
-						unload('ACC del');
-						del(cbl,id);
-						$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('DEL ERROR: '+request.statusText);
-					}
-				});
-			});
-		}
-	});
-}
-
-function del_pls(cbl) {
-	var chk = [],msg = '';
-	$(".chk").each(function() {
-		if($(this).is(":checked")) {chk.push($(this).attr("id"));}
-	});
-	if(chk.length == 0) {return;}
-	$.ajax({url: '../resources/xml/scriptTxt.xml', type: 'get', dataType: "xml",
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("del_pls_"+cbl);
-			var y = x[0].getElementsByTagName(id_lng);
-			var x2 = xmlDoc.getElementsByTagName("del_pls_"+cbl+"2");
-			var y2 = x2[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue+chk.length+y2[0].childNodes[0].nodeValue,function() {
-				load('ACC del_pls');
-				$.ajax({url: 'del_pls.php', type: 'post', data: {"cbl":cbl,"ids":chk},
-					success: function(responseText) {
-						$.each(chk, function(key,id) {
-							if(cbl=='arc') {
-								window.parent.sup_frm('dev_devid'+id);
-								window.parent.sup_frm('trf_devid'+id);
-								window.parent.sup_frm('prg_devid'+id);
-								window.parent.sup_frm('rbk_devid'+id);
-							}
-							else if(cbl=='grp') {window.parent.sup_frm('grpctrphpid'+id);}
-						});
-						if(cbl=='arc') {
-							vue_lst(cbl);
-							window.parent.act_frm('grp');
-							window.parent.act_frm('cat_dev');
-							window.parent.act_frm('grp_crc');
-							window.parent.act_frm('clt');
-						}
-						else if(cbl=='grp') {
-							vue_grp('gr0');
-							window.parent.act_frm("grp_crc");
-							if(responseText.length != 0) {alt(responseText);}
-						}
-						unload('ACC del_pls');
-					},
-					error: function (request, status, error) {
-						unload('ACC del_pls');
-						del_pls(cbl);
-						$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('DEL_PLS ERROR: '+request.statusText);
-					}
-				});
-			});
-		}
-	});
-}*/
-
 function arch(cbl,id) {
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("arch_"+cbl);
 			var y = x[0].getElementsByTagName(id_lng);
@@ -311,7 +104,7 @@ function arch_pls(cbl) {
 		if($(this).is(":checked")) {chk.push($(this).attr("id"));}
 	});
 	if(chk.length == 0) {return;}
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("arch_pls_"+cbl);
 			var y = x[0].getElementsByTagName(id_lng);
@@ -351,7 +144,7 @@ function arch_pls(cbl) {
 }
 
 function annul(id) {
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml",
+	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
 		success: function(xmlDoc) {
 			var x = xmlDoc.getElementsByTagName("annuler");
 			var y = x[0].getElementsByTagName(id_lng);

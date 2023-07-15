@@ -55,7 +55,7 @@ while($dt_mdl = ftc_ass($rq_mdl)){
 				if($id_cat_hbr!=0 and $id_cat_chm!=0){
 					$cur = 1;
 					$id_crr = $id_crr_crc;
-					include("../fct/clc_crr.php");
+					include("clc_crr.php");
 					$id_dev_hbr = insert("dev_hbr",array("id_prs","id_vll","rgm","crr_chm","taux_chm","sup_chm"),array($dt_prs['id'],$hbr_vll,$hbr_rgm,1,$taux,$sup));
 					include("act_hbr.php");
 					if($err_hbr != ''){

@@ -214,7 +214,7 @@ elseif($tab=='dev_srv') {
 		$cur = $val;
 		include("../cfg/crr.php");
 		$id_crr = $id_crr_crc;
-		include("../fct/clc_crr.php");
+		include("clc_crr.php");
 		upd_quo("dev_srv",array("taux","sup"),array($taux,$sup),$id);
 	}
 	elseif($col=='id_frn') {upd_var_quo("dev_srv_pay","fin","-1",array("fin","id_srv"),array("1",$id));}
@@ -267,7 +267,7 @@ elseif($tab=='dev_hbr') {
 		$cur = $val;
 		include("../cfg/crr.php");
 		$id_crr = $id_crr_crc;
-		include("../fct/clc_crr.php");
+		include("clc_crr.php");
 		upd_quo("dev_hbr",array("taux_chm","sup_chm"),array($taux,$sup),$id);
 	}
 	elseif($col=='crr_rgm') {
@@ -276,7 +276,7 @@ elseif($tab=='dev_hbr') {
 		$cur = $val;
 		include("../cfg/crr.php");
 		$id_crr = $id_crr_crc;
-		include("../fct/clc_crr.php");
+		include("clc_crr.php");
 		upd_quo("dev_hbr",array("taux_rgm","sup_rgm"),array($taux,$sup),$id);
 	}
 }

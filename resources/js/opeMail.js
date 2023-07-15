@@ -117,7 +117,7 @@ const sendMail = (devData) => {
 		from : document.getElementById("from").value,
 		to : document.getElementById("to").value,
 		subject : document.getElementById("subj").value,
-		message : ``<html><body>${emailMessage.innerHTML}</body></html>`,
+		message : `<html><body>${emailMessage.innerHTML}</body></html>`,
 		bcc : document.getElementById("bcc").value
 	}
 	if(typeof devData['emailLstSRV'] !== 'undefined')

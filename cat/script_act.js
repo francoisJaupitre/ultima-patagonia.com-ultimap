@@ -126,7 +126,7 @@ function maj(tab,col,val,id,id_sup) {
 							act_frm('frn_hbr');
 							if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 							else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-							xhttp.open("GET","txt_js.xml",false);
+							xhttp.open("GET","txt_js.xml",false); //remplazar por json
 							xhttp.send();
 							xmlDoc=xhttp.responseXML;
 							x=xmlDoc.getElementsByTagName("act_map_vll");
@@ -144,7 +144,7 @@ function maj(tab,col,val,id,id_sup) {
 					else if(col=="adresse" && val!='') {
 						if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false);
+						xhttp.open("GET","txt_js.xml",false); //remplazar por json
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("act_map");
@@ -204,7 +204,7 @@ function maj(tab,col,val,id,id_sup) {
 				else if(tab=="cat_vll" && (col=="nom" && val!='')) {
 					if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false);
+					xhttp.open("GET","txt_js.xml",false); //remplazar por json
 					xhttp.send();
 					xmlDoc=xhttp.responseXML;
 					x=xmlDoc.getElementsByTagName("act_map");
@@ -216,7 +216,7 @@ function maj(tab,col,val,id,id_sup) {
 					if(col=="nom" && val!='') {
 						if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false);
+						xhttp.open("GET","txt_js.xml",false); //remplazar por json
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("act_map");
@@ -228,7 +228,7 @@ function maj(tab,col,val,id,id_sup) {
 					else if(col=="id_vll" && val!=0) {
 						if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false);
+						xhttp.open("GET","txt_js.xml",false); //remplazar por json
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("act_map_vll");
@@ -417,7 +417,7 @@ function web_ajt(obj,uid,id,lgg,lng) {
 	if(uid.length == 0) {
 		if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 		else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","txt_js.xml",false);
+		xhttp.open("GET","txt_js.xml",false); //remplazar por json
 		xhttp.send();
 		xmlDoc=xhttp.responseXML;
 		x=xmlDoc.getElementsByTagName("web");

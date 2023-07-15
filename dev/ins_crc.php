@@ -14,7 +14,7 @@ while($dt_crc_mdl = ftc_ass($rq_crc_mdl)) {
   $id_rmn = 0;
   /*if(!empty($dt_crc_mdl['sel_mdl_jrn'])) {*/$sel_crc_jrn = explode(",",$dt_crc_mdl['sel_mdl_jrn']);/*}
   else{unset($sel_crc_jrn);}*/
-  include("../dev/ins_mdl.php");
+  include("../../dev/ins_mdl.php");
   if($fus) {
     $ord_jrn--;
     upd_noq('dev_crc','duree','duree-1',$id_dev_crc);

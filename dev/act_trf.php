@@ -121,7 +121,7 @@ elseif($obj == 'srv' or $obj == 'frn_all'){
 				}
 				if($flg_crr){
 					$id_crr = $id_crr_crc;
-					include("../fct/clc_crr.php");
+					include("clc_crr.php");
 					upd_quo("dev_srv",array("crr","taux","sup",'dt_min','dt_max'),array($cur,$taux,$sup,$dt_min,$dt_max),$id_dev_srv);
 				}
 				else{upd_quo('dev_srv',array('dt_min','dt_max'),array($dt_min,$dt_max),$id_dev_srv);}
@@ -139,7 +139,7 @@ elseif($obj == 'srv' or $obj == 'frn_all'){
 		else{
 			$cur = $id_crr_srv;
 			$id_crr = $id_crr_crc;
-			include("../fct/clc_crr.php");
+			include("clc_crr.php");
 			upd_quo("dev_srv",array("taux","sup"),array($taux,$sup),$id_dev_srv);
 			if($date!='0000-00-00'){$err_srv .= '-> '.date("d/m/Y",strtotime($date)).' : '.$dt_dev_srv['nom']."\n";}
 			else{$err_srv .= '-> '.$txt->jour->$id_lng.' '.$ord_jrn.' : '.$dt_dev_srv['nom']."\n";}
@@ -169,12 +169,12 @@ elseif($obj == 'hbr' or $obj == 'hbr_all'){
 		else{
 			$cur = $dt_dev_hbr['crr_chm'];
 			$id_crr = $id_crr_crc;
-			include("../fct/clc_crr.php");
+			include("clc_crr.php");
 			upd_quo("dev_hbr",array("taux_chm","sup_chm"),array($taux,$sup),$id_dev_hbr);
 			if($dt_dev_hbr['crr_rgm']>0){
 				$cur = $dt_dev_hbr['crr_rgm'];
 				$id_crr = $id_crr_crc;
-				include("../fct/clc_crr.php");
+				include("clc_crr.php");
 				upd_quo("dev_hbr",array("taux_rgm","sup_rgm"),array($taux,$sup),$id_dev_hbr);
 			}
 		}

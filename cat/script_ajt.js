@@ -53,41 +53,6 @@ function ajt_lgg(obj,id_chm,id_lgg) {
 	xmlhttp.send("cbl="+cbl+"&id="+id+"&id_lgg="+id_lgg);
 }
 
-function ajt_dev(id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
-	if (window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
-	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("ajt_dev");
-	y=x[0].getElementsByTagName(id_lng);
-	var nom = prompt(y[0].childNodes[0].nodeValue);
-	if (nom == null || nom == '') {return;}
-	load('ajt_dev');
-	var grp=clt=0;
-	if (window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4) {
-			if(xmlhttp.status==200) {
-				var rsp = xmlhttp.responseText.split("||");
-				window.parent.act_frm('grp');
-				window.parent.act_frm('clt');
-				window.parent.opn_frm('dev/ctr.php?id='+rsp[0]);
-				act_acc();
-				if(rsp[1]!='') {alt(rsp[1]);}
-				if(rsp[2]!='') {alt(rsp[2]);}
-			}
-			else if(xmlhttp.status==408) {ajt_dev(id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_DEV "+xmlhttp.statusText+" </span>";}
-			unload('ajt_dev');
-		}
-	}
-	xmlhttp.open("POST","../fct/ajt_dev.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_cat="+id+"&nom="+encodeURIComponent(nom));
-}
-
 function ajt_mdl(id_mdl) {
 	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -166,7 +131,7 @@ function ajt_prs(id_prs) {
 				else{
 					if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false);
+					xhttp.open("GET","txt_js.xml",false); //remplazar por json
 					xhttp.send();
 					xmlDoc=xhttp.responseXML;
 					x=xmlDoc.getElementsByTagName("ajt_prs");
@@ -201,7 +166,7 @@ function ajt_prs_opt(id_prs,ord) {
 				else{
 					if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false);
+					xhttp.open("GET","txt_js.xml",false); //remplazar por json
 					xhttp.send();
 					xmlDoc=xhttp.responseXML;
 					x=xmlDoc.getElementsByTagName("ajt_prs");
@@ -461,7 +426,7 @@ function ajt_frn_pay() {
 function dup(cbl,id) {
 	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("dup_"+cbl);
@@ -484,69 +449,4 @@ function dup(cbl,id) {
 	xmlhttp.open("POST","dup.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("cbl="+cbl+"&id="+id);
-}
-
-/*function cop(cbl,id) {
-	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
-	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
-	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("cop_"+cbl);
-	y=x[0].getElementsByTagName(id_lng);
-	var nom = prompt(y[0].childNodes[0].nodeValue,nom+"(1)");
-	if(nom == null || nom == '') {return;}
-	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('CAT');
-	xmlhttp.onreadystatechange=function() {
-		if(xmlhttp.readyState==4) {
-			if(xmlhttp.status==200) {
-				window.parent.opn_frm('cat/ctr.php?cbl='+cbl+'&id='+xmlhttp.responseText);
-				act_acc();
-				window.parent.act_frm(cbl);
-				window.parent.act_frm('up_'+cbl);
-				window.parent.act_frm('ajt_prs_opt');
-			}
-			else if(xmlhttp.status==408) {cop(cbl,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR COP"+xmlhttp.statusText+" </span>";}
-			unload('CAT');
-		}
-	}
-	xmlhttp.open("POST","../fct/cop.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("cbl="+cbl+"&id="+id+"&nom="+encodeURIComponent(nom));
-}*/
-
-function cop2(cbl,id) {//à mettre dans resources/js comme ajt() et vrs pour éliminer scriptTxt.xml
-	var nom = document.getElementById('nom_'+cbl+'_'+id).value;
-	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
-	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("cop_"+cbl);
-	y=x[0].getElementsByTagName(id_lng);
-	var nom = prompt(y[0].childNodes[0].nodeValue,nom+"(1)");
-	if(nom == null || nom == '') {return;}
-	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('CAT');
-	xmlhttp.onreadystatechange=function() {
-		if(xmlhttp.readyState==4) {
-			if(xmlhttp.status==200) {
-				window.parent.opn_frm('cat/ctr.php?cbl='+cbl+'&id='+xmlhttp.responseText);
-				act_acc();
-				window.parent.act_frm(cbl);
-				if(cbl=='prs') {window.parent.act_frm('ajt_prs_opt');}
-			}
-			else if(xmlhttp.status==408) {cop2(cbl,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR COP2"+xmlhttp.statusText+" </span>";}
-			unload('CAT');
-		}
-	}
-	xmlhttp.open("POST","../fct/cop2.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("cbl="+cbl+"&id="+id+"&nom="+encodeURIComponent(nom));
 }

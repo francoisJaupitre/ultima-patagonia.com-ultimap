@@ -87,7 +87,7 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_hbr']) and isset($data['id
 									$ms = $message[$id_dev][$hb][$rg][$ch][$tab_rmn_pax[$id_dev][$hb][$rg][$j]];
 								 	$msg .= replace($ms);
 								}
-								$msg .= replace($mes_rmlst[$id_dev][$hb][$rg][$j]).'<br/>';
+								$msg .= '<br/>'.replace($mes_rmlst[$id_dev][$hb][$rg][$j]);
 							}
 						}
 						if($cnf[$id_dev]>0) { $subj = utf8_encode('Nueva reserva: '.$groupe.' / '.replace($nom_hbr)); }

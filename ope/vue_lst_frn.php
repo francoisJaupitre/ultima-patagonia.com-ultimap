@@ -10,13 +10,13 @@ if($id_frn>0 and substr(upnoac($txt->opn->$id_lng),0,strlen($src))==$src){
 }
 if($id_frn!=0 and substr(upnoac($txt->nodef->$id_lng),0,strlen($src))==$src){
 ?>
-	<li <?php if($flg_enter){echo 'id="enter_frn'.$id_dev_srv.'" style="background-color: Chocolate;"';} ?> onClick="maj('dev_srv','id_frn','0',<?php echo $id_dev_srv.',0,'.$dt_res['id_crc'] ?>);src_srv(<?php echo $id_frn.',0,0,'.$id_dev_srv.','.$dt_res['id_crc'] ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
+	<li <?php if($flg_enter){echo 'id="enter_frn'.$id_dev_srv.'" style="background-color: Chocolate;"';} ?> onClick="maj('dev_srv','id_frn','0',<?php echo $id_dev_srv.',0,'.$dt_res['id_crc'] ?>);searchSrv(<?php echo $id_frn.',0,0,'.$id_dev_srv.','.$dt_res['id_crc'] ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 }
 if($id_frn>-1 and substr(upnoac($txt->libre->$id_lng),0,strlen($src))==$src){
 ?>
-	<li <?php if($flg_enter){echo 'id="enter_frn'.$id_dev_srv.'" style="background-color: Chocolate;"';} ?> onClick="maj('dev_srv','id_frn','-1',<?php echo $id_dev_srv.',0,'.$dt_res['id_crc'] ?>);src_srv(<?php echo $id_frn.',0,0,'.$id_dev_srv.','.$dt_res['id_crc'] ?>);"><?php echo $txt->libre->$id_lng; ?></li>
+	<li <?php if($flg_enter){echo 'id="enter_frn'.$id_dev_srv.'" style="background-color: Chocolate;"';} ?> onClick="maj('dev_srv','id_frn','-1',<?php echo $id_dev_srv.',0,'.$dt_res['id_crc'] ?>);searchSrv(<?php echo $id_frn.',0,0,'.$id_dev_srv.','.$dt_res['id_crc'] ?>);"><?php echo $txt->libre->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 }
@@ -28,7 +28,7 @@ while($dt_lst_frn = ftc_ass($rq_frn)){
 	<li <?php if($flg_enter){echo 'id="enter_frn'.$id_dev_srv.'" style="background-color: Chocolate;"';} ?>>
 		<span <?php if(!empty($dt['id'])){echo ' style="text-decoration: line-through"';} ?> onClick="vue_cmd_ul('ul_srv_frn<?php echo $id_dev_srv.'_'.$dt_lst_frn['id']; ?>','cmd_srv<?php echo $id_dev_srv; ?>');"><?php echo $dt_lst_frn['nom'].' ['.$dt_lst_frn['info'].']'; ?></span>
 		<ul id="ul_srv_frn<?php echo $id_dev_srv.'_'.$dt_lst_frn['id']; ?>" class="cmd_srv<?php echo $id_dev_srv; ?>" style="display: none">
-			<li onClick="maj('dev_srv','id_frn',<?php echo $dt_lst_frn['id'].','.$id_dev_srv.',0,'.$dt_res['id_crc'] ?>); src_srv(<?php echo $dt_lst_frn['id'].','.$dt_res['id_srv_ctg'].','.$dt_res['id_srv_vll'].','.$id_dev_srv.','.$dt_res['id_crc'] ?>);document.getElementById('sel_srv_frn<?php echo $id_dev_srv ?>').style.display='none';"><?php echo $txt->ajt->$id_lng ?></li>
+			<li onClick="maj('dev_srv','id_frn',<?php echo $dt_lst_frn['id'].','.$id_dev_srv.',0,'.$dt_res['id_crc'] ?>); searchSrv(<?php echo $dt_lst_frn['id'].','.$dt_res['id_srv_ctg'].','.$dt_res['id_srv_vll'].','.$id_dev_srv.','.$dt_res['id_crc'] ?>);document.getElementById('sel_srv_frn<?php echo $id_dev_srv ?>').style.display='none';"><?php echo $txt->ajt->$id_lng ?></li>
 			<li onClick="window.parent.opn_frm('cat/ctr.php?cbl=frn&id=<?php echo $dt_lst_frn['id'] ?>');"><?php echo $txt->cat->$id_lng ?></li>
 		</ul>
 	</li>

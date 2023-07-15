@@ -173,92 +173,86 @@
     "fr": "Etes-vous sur de vouloir EFFACER cette banque?",
     "es": "Está seguro de querer BORRAR este banco?"
   },
-  "src_srv": [
-    {
-      "fr": "autres services de cette ville et catégorie?",
-      "es": "otros servicios de esta ciudad y categoria?"
+  "src_srv0": {
+    "fr": "autres services de cette ville et catégorie?",
+    "es": "otros servicios de esta ciudad y categoria?"
+  },
+  "src_srv1": {
+    "fr": "Sélectionner ce même fournisseur pour le(s)",
+    "es": "Seleccionar este mismo proveedor para el(los)"
+  },
+  "src_srv2": {
+    "fr": "Retirer ce même fournisseur pour le(s)",
+    "es": "Retirar este mismo proveedor para el(los)"
+  },
+  "src_hbr0": {
+    "fr": "autre(s) nuitée(s)?",
+    "es": "otra(s) noche(s)?"
+  },
+  "src_hbr1": {
+    "fr": "Ajouter ce même hébergement pour la(les)",
+    "es": "Añadir este mismo alojamiento para la(s)"
+  },
+  "src_hbr2": {
+    "fr": "Sélectionner ce même hébergement pour la(les)",
+    "es": "Seleccionar este mismo alojamiento para la(s)"
+  },
+  "src_hbr3": {
+    "fr": "Supprimer ce même hébergement pour la(les)",
+    "es": "Suprimir este mismo alojamiento para la(s)"
+  },
+  "src_hbr4": {
+    "fr": "autre(s) nuitée(s) ayant le même hébergment défini?",
+    "es": "otra(s) noche(s) con el mismo alojamiento definido?"
+  },
+  "src_hbr5": {
+    "fr": "Ajouter ce même hébergement en option pour la(les)",
+    "es": "Añadir este mismo alojamiento en opción para la(s)"
+  },
+  "src_hbr6": {
+    "fr": "Appliquer ce statut au(x)",
+    "es": "Aplicar este estado a la(s)"
+  },
+  "src_hbr7": {
+    "fr": "autre(s) nuitée(s) de cet hébergement pour ce groupe?",
+    "es": "otra(s) noche(s) de este alojamiento para este grupo?"
+  },
+  "src_hbr8": {
+    "fr": "Actualiser les tarifs de(s)",
+    "es": "Actualizar las tarifas de la(s)"
+  },
+  "src_hbr9": {
+    "fr": "nuitée(s) de cet hébergement?",
+    "es": "noche(s) de este alojamiento?"
+  },
+  "src_hbr10": {
+    "fr": "Supprimer cet hébergement en option pour",
+    "es": "Borrar este alojamiento opciona para"
+  },
+  "src_hbr11": {
+    "fr": "nuitée(s)?",
+    "es": "noche(s)?"
+  },
+  "src_frn0": {
+    "fr": "autres services de ce fournisseur?",
+    "es": "otros servicios de este proveedor?"
+  },
+  "src_frn1": {
+    "fr": "Appliquer ce statut au(x)",
+    "es": "Aplicar este estado a el(los)"
+  },
+  "src_frn2": {
+    "fr": "services de ce fournisseur pour ce groupe?",
+    "es": "servicios de este proveedor para este grupo?"
     },
-    {
-      "fr": "Sélectionner ce même fournisseur pour le(s)",
-      "es": "Seleccionar este mismo proveedor para el(los)"
-    },
-    {
-      "fr": "Retirer ce même fournisseur pour le(s)",
-      "es": "Retirar este mismo proveedor para el(los)"
-    }
-  ],
-  "src_hbr": [
-    {
-      "fr": "autre(s) nuitée(s)?",
-      "es": "otra(s) noche(s)?"
-    },
-    {
-      "fr": "Ajouter ce même hébergement pour la(les)",
-      "es": "Añadir este mismo alojamiento para la(s)"
-    },
-    {
-      "fr": "Sélectionner ce même hébergement pour la(les)",
-      "es": "Seleccionar este mismo alojamiento para la(s)"
-    },
-    {
-      "fr": "Supprimer ce même hébergement pour la(les)",
-      "es": "Suprimir este mismo alojamiento para la(s)"
-    },
-    {
-      "fr": "autre(s) nuitée(s) ayant le même hébergment défini?",
-      "es": "otra(s) noche(s) con el mismo alojamiento definido?"
-    },
-    {
-      "fr": "Ajouter ce même hébergement en option pour la(les)",
-      "es": "Añadir este mismo alojamiento en opción para la(s)"
-    },
-    {
-      "fr": "Appliquer ce statut au(x)",
-      "es": "Aplicar este estado a la(s)"
-    },
-    {
-      "fr": "autre(s) nuitée(s) de cet hébergement pour ce groupe?",
-      "es": "otra(s) noche(s) de este alojamiento para este grupo?"
-    },
-    {
-      "fr": "Actualiser les tarifs de(s)",
-      "es": "Actualizar las tarifas de la(s)"
-    },
-    {
-      "fr": "nuitée(s) de cet hébergement?",
-      "es": "noche(s) de este alojamiento?"
-    },
-    {
-      "fr": "Supprimer cet hébergement en option pour",
-      "es": "Borrar este alojamiento opciona para"
-    },
-    {
-      "fr": "nuitée(s)?",
-      "es": "noche(s)?"
-    }
-  ],
-  "src_frn": [
-    {
-      "fr": "autres services de ce fournisseur?",
-      "es": "otros servicios de este proveedor?"
-    },
-    {
-      "fr": "Appliquer ce statut au(x)",
-      "es": "Aplicar este estado a el(los)"
-    },
-    {
-      "fr": "services de ce fournisseur pour ce groupe?",
-      "es": "servicios de este proveedor para este grupo?"
-    },
-    {
-      "fr": "Actualiser les tarifs de(s)",
-      "es": "Actualizar las tarifas de la(s)"
-    },
-    {
-      "fr": "service(s) de ce fournisseur?",
-      "es": "servicio(s) de este proveedor?"
-    }
-  ],
+  "src_frn3": {
+    "fr": "Actualiser les tarifs de(s)",
+    "es": "Actualizar las tarifas de la(s)"
+  },
+  "src_frn4": {
+    "fr": "service(s) de ce fournisseur?",
+    "es": "servicio(s) de este proveedor?"
+  },
   "vrs": {
     "fr": "Créer une NOUVELLE VERSION de ce circuit?",
     "es": "Crear una NUEVA VERSION de este circuito?"

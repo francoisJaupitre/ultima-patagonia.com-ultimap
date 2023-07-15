@@ -92,6 +92,10 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		$id_scrll_jrn = $dt_prs['id_jrn'];
 		$id_scrll_mdl = $dt_prs['id_mdl'];
 	}
+	else{
+		$id_scrll_jrn = 0;
+		$id_scrll_mdl = 0;
+	}
 ?>
 <!DOCTYPE html>
 <html>

@@ -198,6 +198,7 @@ function src_uf(id_mel,box){
 	});
 }
 
+var newDev
 function vue_lec(id_mel,box,uid){
 	$("#vue_lec").html('');
 	$(".tb_box").css("background-color","");
@@ -209,6 +210,9 @@ function vue_lec(id_mel,box,uid){
 			$("#seen"+uid).hide();
 			resize2();
 			vue_body(id_mel,box,uid);
+			newDev = document.getElementById("newDev")
+			if(document.getElementById("adDev"))
+				document.getElementById("adDev").onclick = () => { addDev(newDev) }
 		},
 		error: function (request, status, error){
 			vue_lec(id_mel,box,uid);
@@ -341,7 +345,7 @@ function ajt_ctc(url) {
 	});
 }
 
-function ajt_dev(url){
+/*function ajt_dev(url){
 	if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xmlhttp.onreadystatechange=function(){
@@ -366,4 +370,4 @@ function ajt_dev(url){
 	xmlhttp.open("POST","../fct/ajt_dev.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("url="+url);
-}
+}*/

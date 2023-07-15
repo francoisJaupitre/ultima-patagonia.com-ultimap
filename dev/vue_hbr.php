@@ -400,7 +400,7 @@ if($cnf<1) {
 ?>
 	<td class="stl3">
 		<input <?php if(!$aut['dev'] or $opt_hbr) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($opt_hbr) {echo('checked="checked"');} ?>
-			onclick="maj('dev_hbr','opt','1',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);src_hbr(<?php echo $id_cat_hbr.','.$id_cat_chm.',0,'.$id_rgm.','.$id_dev_hbr.','.$id_dev_prs ?>,'opt');"
+			onclick="maj('dev_hbr','opt','1',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);searchHbr(<?php echo $id_cat_hbr.','.$id_cat_chm.',0,'.$id_rgm.','.$id_dev_hbr.','.$id_dev_prs ?>,'opt');"
 		/>
 	</td>
 <?php
@@ -408,7 +408,7 @@ if($cnf>0) {
 ?>
 	<td class="stl3">
 		<input <?php if(!$aut['res'] or $sel_hbr) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($sel_hbr) {echo('checked="checked"');} ?>
-			onclick="maj('dev_hbr','sel','1',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);src_hbr(<?php echo $id_cat_hbr.','.$id_cat_chm.',0,'.$id_rgm.','.$id_dev_hbr.','.$id_dev_prs ?>,'sel');"
+			onclick="maj('dev_hbr','sel','1',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);searchHbr(<?php echo $id_cat_hbr.','.$id_cat_chm.',0,'.$id_rgm.','.$id_dev_hbr.','.$id_dev_prs ?>,'sel');"
 		/>
 	</td>
 <?php

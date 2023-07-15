@@ -16,7 +16,7 @@ $dt_jrn = ftc_ass(select("*","cat_jrn","id",$id));
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
 										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
-										<li onclick="cop2('jrn',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
+										<li id="lightCopElem"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>

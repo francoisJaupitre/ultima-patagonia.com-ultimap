@@ -470,36 +470,7 @@ function ok_cnf(){
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("id_dev_crc="+id_dev_crc);
 }
-/*
-function vrs(){
-	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","../resources/xml/scriptTxt.xml",false);
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("vrs");
-	y=x[0].getElementsByTagName(id_lng);
-	if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				window.parent.opn_frm('dev/ctr.php?id='+xmlhttp.responseText);
-				window.parent.act_frm('grp_crc');
-				act_acc();
-				}
-			else if(xmlhttp.status==408){vrs();}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR VRS "+xmlhttp.statusText+" </span>";}
-			unload('DEV');
-		}
-	}
-	xmlhttp.open("POST","../resources/php/newVersion.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_crc="+id_dev_crc);
-}
-*/
+
 function fus(val,id_dev_mdl){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}

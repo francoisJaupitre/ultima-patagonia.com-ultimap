@@ -28,7 +28,7 @@ $dt_dev_crc = ftc_ass(select("crr","dev_crc","id",$dt_dev_mdl['id_crc']));
 $id_crr_crc = $dt_dev_crc['crr'];
 $cur = 1;
 $id_crr = $id_crr_crc;
-include("../fct/clc_crr.php");
+include("clc_crr.php");
 if($id_cat_hbr==-2 or ($id_cat_chm==-2 and $id_dev_hbr>0)){
 	upd_quo("dev_prs",array("titre","dsc","res"),array("","","-1"),$id_dev_prs);
 	upd_quo(

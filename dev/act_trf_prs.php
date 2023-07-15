@@ -19,7 +19,7 @@ if(isset($bss)){
 			}
 			if($flg_crr){
 				$id_crr = $id_crr_crc;
-				include("../fct/clc_crr.php");
+				include("clc_crr.php");
 				upd_quo("dev_srv",array("crr","taux","sup",'dt_min','dt_max'),array($cur,$taux,$sup,$dt_min,$dt_max),$id_dev_srv);
 			}
 			else{upd_quo('dev_srv',array('dt_min','dt_max'),array($dt_min,$dt_max),$id_dev_srv);}
@@ -36,7 +36,7 @@ if(isset($bss)){
 		else{
 			$cur = $dt_dev_srv['crr'];
 			$id_crr = $id_crr_crc;
-			include("../fct/clc_crr.php");
+			include("clc_crr.php");
 			upd_quo("dev_srv",array("taux","sup"),array($taux,$sup),$id_dev_srv);
 			if($date!='0000-00-00'){$err_srv .= '-> '.date("d/m/Y",strtotime($date)).' : '.$dt_dev_srv['nom']."\n";}
 			else{$err_srv .= '-> '.$txt->jour->$id_lng.' '.$ord_jrn.' : '.$dt_dev_srv['nom']."\n";}
@@ -58,13 +58,13 @@ while($dt_dev_hbr = ftc_ass($rq_dev_hbr)){
 	else{
 		$cur = $id_crr_chm;
 		$id_crr = $id_crr_crc;
-		include("../fct/clc_crr.php");
+		include("clc_crr.php");
 		if($dt_dev_hbr['crr_rgm']>0){
 			$taux_chm = $taux;
 			$sup_chm = $sup;
 			$cur = $id_crr_rgm;
 			$id_crr = $id_crr_crc;
-			include("../fct/clc_crr.php");
+			include("clc_crr.php");
 			upd_quo("dev_hbr",array("taux_chm","sup_chm","taux_rgm","sup_rgm"),array($taux_chm,$sup_chm,$taux,$sup),$id_dev_hbr);
 		}
 		else{upd_quo("dev_hbr",array("taux_chm","sup_chm"),array($taux,$sup),$id_dev_hbr);}

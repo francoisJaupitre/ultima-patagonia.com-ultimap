@@ -195,7 +195,7 @@ elseif($obj=='prs') {
 			$id_hbr_rgm = $dt_prs_hbr['rgm'];
 			$cur = 1;
 			$id_crr = $id_crr_crc;
-			include("../fct/clc_crr.php");
+			include("clc_crr.php");
 			$id_dev_hbr = insert("dev_hbr",array("id_prs","id_cat","id_vll","opt","rgm","crr_chm","taux_chm","sup_chm"),array($id_dev_prs,$id_cat_hbr,$dt_prs_hbr['id_vll'],$dt_prs_hbr['opt'],$id_hbr_rgm,1,$taux,$sup));
 			if($id_cat_hbr != -1) {
 				$id_cat_chm = $dt_prs_hbr['id_chm'];

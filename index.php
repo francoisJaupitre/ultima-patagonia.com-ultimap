@@ -69,5 +69,6 @@ elseif($aut['mmbr']){
 <?php
 }
 ?>
+		<script src='../vendor/tinymce/tinymce.min.js'></script>
 	</body>
 </html>

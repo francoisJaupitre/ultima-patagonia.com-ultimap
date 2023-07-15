@@ -132,7 +132,7 @@ while($dt_mdl = ftc_ass($rq_mdl)) {
 										$dt_srv_trf = ftc_ass($rq_srv_trf);
 										$cur = $dt_srv_trf['crr'];
 										$id_crr = $id_crr_clt;
-										include("clc_crr.php");
+										include("../dev/clc_crr.php");
 
 										$dt_trf_bss = ftc_ass(sel_whe("trf_net,trf_rck,id_frn,clc","cat_srv_trf_bss","id_trf=".$dt_srv_trf['id']." AND bs_min <=".$base." AND bs_max >=".$base." AND bs_min != 0 AND bs_max != 0"));
 										$net = $dt_trf_bss['trf_net'];
@@ -253,7 +253,7 @@ while($dt_mdl = ftc_ass($rq_mdl)) {
 							$db_rck_chm = $dt_chm_trf['db_rck'];
 							$cur = $crr_chm = $dt_chm_trf['crr'];
 							$id_crr = $id_crr_clt;
-							include("clc_crr.php");
+							include("../dev/clc_crr.php");
 							$taux_chm = $taux;
 							$sup_chm = $sup;
 							$dt_hbr_chm = ftc_ass(sel_quo("rgm","cat_hbr_chm","id",$id_cat_chm));
@@ -277,7 +277,7 @@ while($dt_mdl = ftc_ass($rq_mdl)) {
 										$db_rck_rgm = $dt_rgm_trf['db_rck'];
 										$cur = $crr_rgm = $dt_rgm_trf['crr'];
 										$id_crr = $id_crr_clt;
-										include("clc_crr.php");
+										include("../dev/clc_crr.php");
 										$taux_rgm = $taux;
 										$sup_rgm = $sup;
 									}

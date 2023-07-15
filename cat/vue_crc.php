@@ -15,9 +15,9 @@ $dt_crc = ftc_ass(select("*","cat_crc","id",$id));
 								<div id="vue_cmd_crc<?php echo $id ?>" class="cmd wsn">
 									<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 									<ul>
-										<li onclick="ajt_dev(<?php echo $id ?>);"><?php echo $txt->ajtdev->$id_lng; ?></li>
+										<li id="adDev"><?php echo $txt->ajtdev->$id_lng; ?></li>
 										<li id="copElem"><?php echo $txt->cop->$id_lng; ?></li>
-										<li onclick="cop2('crc',<?php echo $id ?>);"><?php echo $txt->cop2->$id_lng; ?></li>
+										<li id="lightCopElem"><?php echo $txt->cop2->$id_lng; ?></li>
 <?php
 if($aut['cat']) {
 ?>

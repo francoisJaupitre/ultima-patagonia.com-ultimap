@@ -226,8 +226,9 @@ if(isset($uid) and $uid>0){
 <?php
   if(isset($new_dev)){
 ?>
+          <input type="hidden" id="newDev" value="<?php echo $new_dev; ?>">
           <button type"button" onclick="ajt_ctc('<?php echo $new_dev; ?>')">CREER CONTACT CRM</button>
-          <button type"button" onclick="ajt_dev('<?php echo $new_dev; ?>')">CREER DEVIS</button>
+          <button type"button" id="adDev">CREER DEVIS</button>
 <?php
   }
   else{

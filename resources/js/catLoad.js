@@ -8,8 +8,12 @@ var id_lng, cbl_cat, id_cat, aut, url
   aut = document.getElementById('aut').value
   url = document.getElementById("url").value
   init()
+  if(document.getElementById("adDev"))
+    document.getElementById("adDev").onclick = () => { addDev(id_cat) }
   if(document.getElementById("copElem"))
     document.getElementById("copElem").onclick = () => { copyElem(cbl_cat, id_cat) }
   if(document.getElementById("delElem"))
-    document.getElementById("delElem").onclick = () => { deleteElem(cbl_cat, id_cat) } 
+    document.getElementById("delElem").onclick = () => { deleteElem(cbl_cat, id_cat) }
+  if(document.getElementById("lightCopElem"))
+    document.getElementById("lightCopElem").onclick = () => { lightCopyElem(cbl_cat, id_cat) }
 })()

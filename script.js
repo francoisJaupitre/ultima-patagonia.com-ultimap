@@ -146,7 +146,7 @@ function ajt_frm(link){
 				var nom2 = nom.substr(nom.indexOf(":")+2,nom.indexOf("<span id=")-nom.indexOf(":")-2);
 				if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 				else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-				xhttp.open("GET","txt_js.xml",false);
+				xhttp.open("GET","txt_js.xml",false); //remplazar por json
 				xhttp.send();
 				xmlDoc=xhttp.responseXML;
 				x=xmlDoc.getElementsByTagName(nom.substr(0,nom.indexOf(":")));
@@ -300,7 +300,7 @@ function close(ref){
 		else if(ref.substr(0,3)=='cat'){
 			if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 			else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-			xhttp.open("GET","txt_js.xml",false);
+			xhttp.open("GET","txt_js.xml",false); //remplazar por json
 			xhttp.send();
 			xmlDoc=xhttp.responseXML;
 			x=xmlDoc.getElementsByTagName(nom2.substr(pos+8,len-8));
@@ -425,4 +425,51 @@ function mel_unseen(unseen){
 		}, 4000);
 	}
 	$("#unseen").html(txt);
+}
+
+var editMail = () => {
+	const emailMessage = document.getElementById("emailMessage")
+	const loader = document.getElementById(`ld_${emailMessage.id}`)
+	loader.style.display='block'
+	tinymce.remove(`#${emailMessage.id}`)
+	tinymce.init({
+		entity_encoding : "raw",
+		forced_root_block : "",
+		selector: `#${emailMessage.id}`,
+		inline: true,
+		fixed_toolbar_container: `#tool_${emailMessage.id}`,
+		resize: true,
+		plugins: "textcolor paste",
+		paste_auto_cleanup_on_paste : true,
+		paste_word_valid_elements: "b,strong,i,em,u",
+		paste_preprocess : (pl, o) => { o.content = stripTags( o.content,'<b><strong><i><em><u>') },
+		toolbar: 'undo redo | bold italic underline | backcolor',
+		toolbar_location: 'bottom',
+		textcolor_rows: "3",
+		textcolor_map: [
+			"FFFF00", "Yellow",
+			"7FFF00", "Light Green",
+			"00FFFF", "Cyan",
+			"FF00FF", "Magenta",
+			"0000FF", "Blue",
+			"FF0000", "Red",
+			"00008B", "Dark Blue",
+			"008B8B", "Dark Cyan",
+			"008000", "Dark Green",
+			"8B008B", "Dark Magenta",
+			"A52100", "Dark Red",
+			"808000", "Dark Yellow",
+			"808080", "Dark Gray",
+			"BFBFBF", "Light Gray",
+			"000000", "Black",
+		],
+		menubar: false,
+		setup : (elem) => {
+			elem.on('init', (e) => {
+				loader.style.display = 'none'
+				elem.execCommand('mceFocus', true, emailMessage.id)
+			})
+		},
+	})
+	emailMessage.onclick = null
 }
