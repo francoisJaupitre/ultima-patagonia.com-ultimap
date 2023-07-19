@@ -123,6 +123,8 @@ function vue_lst(cbl,cbl2) {
 			//vue_dev
 			if(document.getElementById("addDev"))
 				document.getElementById("addDev").onclick = () => { addElem('dev',0) }
+			if(document.getElementById("archiveElems"))
+				document.getElementById("archiveElems").onclick = () => { multiArchiveElem(cbl) }
 			//vue_dev vue_grp
 			if(document.getElementById("deleteElems"))
 				document.getElementById("deleteElems").onclick = () => { multiDeleteElem(cbl) }
@@ -140,6 +142,10 @@ function vue_lst(cbl,cbl2) {
 					item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_cat vue_dt_dev
 				if(item.querySelector(".new-vrs"))
 					item.querySelector(".new-vrs").onclick = () => { newVersion(item.id) } //vue_dt_dev
+				if(item.querySelector(".archive-elem"))
+					item.querySelector(".archive-elem").onclick = () => { archiveElem(cbl, item.id) } //vue_dt_dev
+				if(item.querySelector(".cancel-confirmation"))
+					item.querySelector(".cancel-confirmation").onclick = () => { cancelConfirmation(item.id) } //vue_dt_dev
 			}
 			const tdCmd = document.getElementsByClassName("delete-elem2")
 			for(let item of tdCmd)
@@ -300,6 +306,8 @@ function vue_dev(cbl,obj,id) {
 			//vue_dev
 			if(document.getElementById("addDev"))
 				document.getElementById("addDev").onclick = () => { addElem('dev',0) }
+			if(document.getElementById("archiveElems"))
+				document.getElementById("archiveElems").onclick = () => { multiArchiveElem(cbl) }
 			//vue_dev
 			if(document.getElementById("deleteElems"))
 				document.getElementById("deleteElems").onclick = () => { multiDeleteElem(cbl) }
@@ -312,6 +320,10 @@ function vue_dev(cbl,obj,id) {
 					item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_dev
 				if(item.querySelector(".new-vrs"))
 					item.querySelector(".new-vrs").onclick = () => { newVersion(item.id) } //vue_dt_dev
+				if(item.querySelector(".archive-elem"))
+					item.querySelector(".archive-elem").onclick = () => { archiveElem(cbl, item.id) }
+				if(item.querySelector(".cancel-confirmation"))
+					item.querySelector(".cancel-confirmation").onclick = () => { cancelConfirmation(item.id) } //vue_dt_dev
 			}
 		},
 		error: function (request, status, error) {
@@ -351,6 +363,10 @@ function vue_dt_dev(cbl) {
 						item.querySelector(".delete-elem").onclick = () => { deleteElem(cbl, item.id) } //vue_dt_dev
 					if(item.querySelector(".new-vrs"))
 						item.querySelector(".new-vrs").onclick = () => { newVersion(item.id) } //vue_dt_dev
+					if(item.querySelector(".archive-elem"))
+						item.querySelector(".archive-elem").onclick = () => { archiveElem(cbl, item.id) }
+					if(item.querySelector(".cancel-confirmation"))
+						item.querySelector(".cancel-confirmation").onclick = () => { cancelConfirmation(item.id) } //vue_dt_dev
 				}
 			},
 			error: function (request, status, error) {

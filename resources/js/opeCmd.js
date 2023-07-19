@@ -1,6 +1,6 @@
 const searchHbr = async function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res, id_dev_crc)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   load('OPE searchHbr')
   const xhr = new XMLHttpRequest
   xhr.open("POST","../resources/php/searchHbr.php")
@@ -25,7 +25,7 @@ const searchHbr = async function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_
 
 const searchSrv = async function(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv,id_dev_crc)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   load('OPE searchSrv')
   const xhr = new XMLHttpRequest
   xhr.open("POST","../resources/php/searchSrv.php")
@@ -58,7 +58,7 @@ const searchSrv = async function(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv
 
 const searchFrn = async function(res,id_frn,id_dev_srv,id_dev_crc)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   load('OPE searchFrn')
   const xhr = new XMLHttpRequest
   xhr.open("POST","../resources/php/searchFrn.php")

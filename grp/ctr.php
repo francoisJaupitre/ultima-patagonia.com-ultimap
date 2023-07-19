@@ -91,7 +91,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 					</td>
 				</tr>
 			</table>
-		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/common.js'></script>
 		<script src='../resources/js/grpLoad.js'></script>
 	</body>
 </html>

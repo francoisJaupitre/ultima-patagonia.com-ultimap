@@ -1,13 +1,3 @@
-function maj_lng(val,id) {
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("maj_lng");
-			var y = x[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue,function() {maj('cfg_usr','lng',val,id);} );
-		}
-	});
-}
-
 function maj(tab,col,val,id,id_sup) {
 	if(col == 'ty_mrq') {load('ACC maj ty_mrq');}
 	$.ajax({url: 'maj.php', type: 'post', data: {"tab":tab,"col":col,"val":encodeURIComponent(val),"id":id,"id_sup":id_sup},
@@ -56,116 +46,6 @@ function maj(tab,col,val,id,id_sup) {
 		error: function (request, status, error) {
 			maj(tab,col,val,id);
 			$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('SAVE ERROR: '+request.statusText);
-		}
-	});
-}
-
-function arch(cbl,id) {
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("arch_"+cbl);
-			var y = x[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue,function() {
-				load('ACC arch');
-				$.ajax({url: 'arch.php', type: 'post', data: {"id":id},
-					success: function(responseText) {
-						if(responseText) {
-							var x = xmlDoc.getElementsByTagName("arch2_"+cbl);
-							var y = x[0].getElementsByTagName(id_lng);
-							alt(y[0].childNodes[0].nodeValue+responseText);
-						}
-						else{
-							vue_lst(cbl);
-							window.parent.sup_frm('dev_devid'+id);
-							window.parent.sup_frm('trf_devid'+id);
-							window.parent.sup_frm('prg_devid'+id);
-							window.parent.sup_frm('rbk_devid'+id);
-							window.parent.act_frm('cat_dev');
-							window.parent.act_frm('grp');
-							window.parent.act_frm('grp_crc');
-							window.parent.act_frm('clt');
-						}
-						unload('ACC arch');
-					},
-					error: function (request, status, error) {
-						unload('ACC arch');
-						arch(cbl,id);
-						$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('ARCH ERROR: '+request.statusText);
-					}
-				});
-			});
-		}
-	});
-}
-
-function arch_pls(cbl) {
-	var chk = [],msg = '';
-	$(".chk").each(function() {
-		if($(this).is(":checked")) {chk.push($(this).attr("id"));}
-	});
-	if(chk.length == 0) {return;}
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("arch_pls_"+cbl);
-			var y = x[0].getElementsByTagName(id_lng);
-			var x2 = xmlDoc.getElementsByTagName("arch_pls_"+cbl+"2");
-			var y2 = x2[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue+chk.length+y2[0].childNodes[0].nodeValue,function() {
-				load('ACC arch_pls');
-				$.ajax({url: 'arch_pls.php', type: 'post', data: {"ids":chk},
-					success: function(responseText) {
-						vue_lst(cbl);
-						$.each(chk, function(key,id) {
-							window.parent.sup_frm('dev_devid'+id);
-							window.parent.sup_frm('trf_devid'+id);
-							window.parent.sup_frm('prg_devid'+id);
-							window.parent.sup_frm('rbk_devid'+id);
-						});
-						window.parent.act_frm('cat_dev');
-						window.parent.act_frm('grp');
-						window.parent.act_frm('grp_crc');
-						window.parent.act_frm('clt');
-						if(responseText) {
-							var x = xmlDoc.getElementsByTagName("arch2_"+cbl);
-							var y = x[0].getElementsByTagName(id_lng);
-							alt(y[0].childNodes[0].nodeValue+responseText);
-						}
-						unload('ACC arch_pls');
-					},
-					error: function (request, status, error) {
-						unload('ACC arch_pls');
-						arch_pls(cbl);
-						$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('ARCH_PLS ERROR: '+request.statusText);
-					}
-				});
-			});
-		}
-	});
-}
-
-function annul(id) {
-	$.ajax({url: 'txt_js.xml', type: 'get', dataType: "xml", //remplazar por json
-		success: function(xmlDoc) {
-			var x = xmlDoc.getElementsByTagName("annuler");
-			var y = x[0].getElementsByTagName(id_lng);
-			window.parent.box("?",y[0].childNodes[0].nodeValue,function() {
-				load('ACC annul');
-				$.ajax({url: 'annul.php', type: 'post', data: {"id":id},
-					success: function(responseText) {
-						vue_lst('cnf');
-						window.parent.sup_frm('dev_devid'+id);
-						window.parent.act_frm('cat_dev');
-						window.parent.act_frm('grp');
-						window.parent.act_frm('grp_crc');
-						window.parent.act_frm('clt');
-						unload('ACC annul');
-					},
-					error: function (request, status, error) {
-						annul(id);
-						$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('ANNUL ERROR: '+request.statusText);
-					}
-				});
-			});
 		}
 	});
 }
@@ -355,15 +235,3 @@ function act_frm(cbl) {
 		vue_elem($(this).attr("id"),0);
 	});
 }
-/* old
-function maj_xml(val) {
-	load('ACC maj xml');
-	$.ajax({url: 'maj_xml.php', type: 'post', data: {"val":val},
-		success: function(responseText) {unload('ACC maj xml');},
-		error: function (request, status, error) {
-			maj_xml(val);
-			$("#txtHint").html("<span style = 'background: red;'>ERROR</span>");console.log('MAJ_XML ERROR: '+request.statusText);
-		}
-	});
-}
-*/

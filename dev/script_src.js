@@ -28,7 +28,7 @@ function src_prs(id_cat_prs,ord_prs,id_dev_jrn,res_act,chk){ //ordonner cette fo
 	var xhr = 'prs'+id_dev_jrn+'_'+ord_prs;
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("src_prs");

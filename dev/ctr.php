@@ -147,7 +147,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		</div>
 
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
-		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/common.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
 		<script src='../resources/js/devMail.js'></script>
 		<script src='../resources/js/devCmd.js'></script>

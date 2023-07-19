@@ -35,7 +35,7 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])) {
 		<input type="hidden" id="cbl" value="<?php if($cbl=='grp') {echo 'fin_grp';}else{echo $cbl;} ?>" />
 		<input type="hidden" id="aut" value="<?php echo $aut['adm_fin']; ?>" />
 		<span id="vue_<?php echo $cbl ?>"><?php if(empty($dat_min) or $dat_min=='0000-00-00') {echo 'CONFIGUREZ DATE DE DEBUT FINANCES!';} else{include("vue.php");} ?></span>
-		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/common.js'></script>
 		<script src='../resources/js/finLoad.js'></script>
 	</body>
 </html>

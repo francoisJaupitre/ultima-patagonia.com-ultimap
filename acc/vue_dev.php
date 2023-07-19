@@ -139,7 +139,7 @@ elseif($flg_arc){
 <?php
 	echo $txt->cmd->elements->$id_lng;
 ?>
-			<span class="dib" onClick="arch_pls(<?php echo "'".$cbl."'" ?>);"><img src="../prm/img/arch.png" /></span>
+			<span class="dib" id="archiveElems"><img src="../prm/img/arch.png" /></span>
 		</td>
 	</tr>
 <?php

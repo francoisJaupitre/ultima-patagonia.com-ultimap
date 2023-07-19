@@ -2,7 +2,7 @@ function sup(obj,id,id_sup,ok,id_cat,id_cat_sup,id_sup2,opt,id_sel_ant_obj){
 	if(ok!=1){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","txt_js.xml",false);
+		xhttp.open("GET","txt_js.xml",false); //remplazar por json
 		xhttp.send();
 		xmlDoc=xhttp.responseXML;
 		x=xmlDoc.getElementsByTagName("sup_"+obj);
@@ -169,7 +169,7 @@ function sup(obj,id,id_sup,ok,id_cat,id_cat_sup,id_sup2,opt,id_sel_ant_obj){
 function sup_bss(cbl,id){
 	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("sup_bss");
@@ -221,7 +221,7 @@ function sup_pax(cbl,id,id_sup){
 function sup_rmn(cbl,id,nr){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("sup_rmn");
@@ -277,7 +277,7 @@ function ask_sup_cat(cbl,id,id_cat,id_sup,id_sup2,id_sup3){
 function sup_cat(obj,id,id_sup,id_sup2,id_sup3){
 	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("sup_cat_"+obj);

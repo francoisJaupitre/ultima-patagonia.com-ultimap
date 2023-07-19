@@ -2,7 +2,7 @@ const mailFrn = async function(id_res_frn)
 {
 	if(id_res_frn == 0)
 	{
-		const obj = await getTxt("../resources/json/scriptTxt.json")
+		const obj = await getTxt("../resources/json/cmdTxt.json")
 		if(window.confirm(obj["mailFrn"][cnf][id_lng]) == false)
 			return
 	}
@@ -49,7 +49,7 @@ const mailHbr = async function(id_res_hbr,id_res_chm)
 {
 	if(id_res_hbr == 0)
 	{
-		const obj = await getTxt("../resources/json/scriptTxt.json")
+		const obj = await getTxt("../resources/json/cmdTxt.json")
 		if(window.confirm(obj["mailHbr"][cnf][id_lng]) == false)
 			return
 	}

@@ -746,22 +746,32 @@
 		</ctg_clt>
 	</sup>
 	<errbss>
-		<fr>Erreur base!</fr>
-		<es>Error base!</es>
+		<fr>Erreur base !</fr>
+		<es>¡Error base!</es>
 		<pt>Erro base!</pt>
 	</errbss>
 	<errbss2>
-		<fr>Erreur! Cette base existe deja!</fr>
-		<es>Error! Ya existe esta base!</es>
+		<fr>Erreur ! Cette base existe deja!</fr>
+		<es>¡Error! Ya existe esta base!</es>
 		<pt>Erro! Esta base já existe!</pt>
 	</errbss2>
 	<errbss3>
-		<fr>Erreur! Recoupement de bases!</fr>
-		<es>Error! Cruzamiento de bases!</es>
+		<fr>Erreur ! Recoupement de bases !</fr>
+		<es>¡Error! Cruzamiento de bases!</es>
 		<pt>Erro! Cruzamento de bases!</pt>
 	</errbss3>
 	<del_pls_grp>
 		<fr>Supression annulée pour certains groupes!&#xA;Présent(s) dans devis, confirmations et/ou finances.</fr>
 		<es>¡Supresión cancelada para algunos grupos!&#xA;Presente(s) en cotizaciones, confirmaciones y/o finanzas.</es>
 	</del_pls_grp>
+	<arch_dev>
+		<fr>Réservations en cours pour ce devis :</fr>
+		<es>Reservaciones en curso para esta cotizacion:</es>
+		<pt>Reservas em curso para esta cotação:</pt>
+	</arch_dev>
+	<arch_pls_dev>
+		<fr>Réservations en cours pour un ou plusieurs devis :</fr>
+		<es>Reservaciones en curso para uma ou várias cotizacion(es):</es>
+		<pt>Reservas em curso para esta cotação(es):</pt>
+	</arch_pls_dev>
 </textes>

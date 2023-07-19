@@ -1,7 +1,7 @@
 function ajt_grp(id_clt){
 	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("ajt_grp");
@@ -87,7 +87,7 @@ function ajt_jrn_no_srv(id_dev_mdl,ord_jrn){
 	if(ord_jrn==0){
 		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","txt_js.xml",false);
+		xhttp.open("GET","txt_js.xml",false); //remplazar por json
 		xhttp.send();
 		xmlDoc=xhttp.responseXML;
 		x=xmlDoc.getElementsByTagName("ajt_jrn");
@@ -432,7 +432,7 @@ function ajt_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 function ajt_bss(cbl,id){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("ajt_bss");
@@ -491,7 +491,7 @@ function ajt_rmn(cbl,id){
 				if(xmlhttp.responseText=='1'){
 					if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false);
+					xhttp.open("GET","txt_js.xml",false); //remplazar por json
 					xhttp.send();
 					xmlDoc=xhttp.responseXML;
 					x=xmlDoc.getElementsByTagName("ajt_rmn");
@@ -607,7 +607,7 @@ function grd(obj,id,id_sup,id_cat_hbr){
 	if(document.getElementById('ctg_prs0')){var ctg = document.getElementById("ctg_prs0").value;}
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	if(nom==''){

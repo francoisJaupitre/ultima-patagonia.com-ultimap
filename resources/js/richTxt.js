@@ -15,7 +15,9 @@ const richTxtInit = (elem,tab,col,id) => {
 			plugins: "textcolor save paste",
 			paste_auto_cleanup_on_paste : true,
 			paste_word_valid_elements: "b,strong,i,em,u",
-			paste_preprocess : (pl, o) => { o.content = stripTags(o.content, '<b><strong><i><em><u>') },
+			paste_preprocess : (pl, o) => {
+				o.content = stripTags(o.content, '<b><strong><i><em><u>')
+			},
 			toolbar: 'undo redo | bold italic underline | backcolor | save',
 			toolbar_location: 'bottom',
 			textcolor_rows: "3",

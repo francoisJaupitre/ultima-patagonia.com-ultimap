@@ -81,101 +81,7 @@ function opn_frm(link){
 		if(link.indexOf('scrl') == -1) {vue_frm(ref);}
 		else {vue_frm(ref,link.substr(link.indexOf('scrl')+5));}
 	}
-	else{ajt_frm(link);}
-}
-
-function ajt_frm(link){
-	if(link.indexOf('scrl')!=-1){var ref = escape(link.substr(0,link.indexOf('scrl')));}
-	else{var ref = escape(link);}
-	var frm_num = 0;
-	if(ref.substr(0,3)=='grp'){
-		//chercher les devis et les afficher côte à côte.
-	}
-	if(ref.substr(4,3)=='dev'){
-		if(ref.indexOf('id_lgg')==-1){var ref_id = ref.substr(4);}
-		else{var ref_id = ref.substr(4,ref.indexOf('id_lgg')-4);}
-		var frm_lst = [];
-		$(".frm").each(function(){
-			if($(this).attr("id").indexOf('id_lgg')==-1){var frm_id = $(this).attr("id").substr(4);}
-			else{var frm_id = $(this).attr("id").substr(4,$(this).attr("id").indexOf('id_lgg')-4);}
-			if(ref_id == frm_id){
-				frm_num++;
-				frm_lst.push($(this).attr("id"));
-			}
-		});
-	}
-	else if(ref.substr(0,3)=='cmp' || ref.substr(0,3)=='fin' || ref.substr(0,3)=='ope'){
-		var ref_id = ref.substr(0,3);
-		var frm_lst = [];
-		$(".frm").each(function(){
-			var frm_id = $(this).attr("id").substr(0,3);
-			if(ref_id == frm_id){
-				frm_num++;
-				frm_lst.push($(this).attr("id"));
-			}
-		});
-	}
-	else if(ref.substr(0,3)=='cat'){
-		var ref_id = ref.substr(0,9);
-		var frm_lst = [];
-		$(".frm").each(function(){
-			var frm_id = $(this).attr("id").substr(0,9);
-			if(ref_id == frm_id){
-				frm_num++;
-				frm_lst.push($(this).attr("id"));
-			}
-		});
-	}
-	if(frm_num == 0){
-		var htm = "<img style='vertical-align: middle;' src='resources/gif/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
-		var li = $('<li ></li>').addClass("li_tab").attr({id: "li_"+ref, onclick: "vue_frm('"+ref+"');"}).html(htm).appendTo('#ul_tab');
-		$("#img_"+ref).attr({onclick: "sup_frm_nobug('"+ref+"',event);"});
-	}
-	else if(frm_num == 1){
-		var nom = $("#li_"+frm_lst[0]).html();
-		if(nom.substr(0,4)!='<img'){
-			if(ref.substr(4,3)=='dev'){
-				var nom1 = nom.substr(nom.indexOf(":")+2,nom.indexOf("<span id=")-nom.indexOf(":")-2);
-				var nom2 = nom.substr(0,nom.indexOf(":"));
-			}
-			else if(ref.substr(0,3)=='cmp' || ref.substr(0,3)=='fin' || ref.substr(0,3)=='ope'){
-				var nom2 = nom.substr(nom.indexOf(":")+2,nom.indexOf("<span id=")-nom.indexOf(":")-2);
-				var nom1 = nom.substr(0,nom.indexOf(":"));
-			}
-			else if(ref.substr(0,3)=='cat'){
-				var nom2 = nom.substr(nom.indexOf(":")+2,nom.indexOf("<span id=")-nom.indexOf(":")-2);
-				if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-				else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-				xhttp.open("GET","txt_js.xml",false); //remplazar por json
-				xhttp.send();
-				xmlDoc=xhttp.responseXML;
-				x=xmlDoc.getElementsByTagName(nom.substr(0,nom.indexOf(":")));
-				var nom1 = x[0].childNodes[0].nodeValue;
-			}
-			var htm = "<input type='checkbox' id='chk_"+ref_id+"' class='chk_tab'/><label for='chk_"+ref_id+"'><span id='ttr_"+ref_id+"' class='span_ttr'><span id='img_"+ref_id+"'><img style='vertical-align: middle;' src='prm/img/sup.png' /></span> "+nom1+"</span></label><ul id='ul_ttr"+ref_id+"' class='ul_tab'></ul>";
-			var li = $('<li ></li>').addClass("li_ttr").attr({id: "li_ttr"+ref_id}).html(htm);
-			$("#li_"+frm_lst[0]).before(li);
-			$("#img_"+ref_id).attr({onclick: "sup_frm_nobug('"+frm_lst[0]+"',event);sup_frm_nobug('"+ref+"',event);"});
-			var htm = nom2;
-			$("#li_"+frm_lst[0]).remove();
-			htm += "<span id='img_"+frm_lst[0]+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
-			var li = $('<li ></li>').addClass("li_hid").attr({id: "li_"+frm_lst[0], onclick: "vue_frm('"+frm_lst[0]+"');"}).html(htm).appendTo('#ul_ttr'+ref_id);
-			$("#img_"+frm_lst[0]).attr({onclick: "sup_frm_nobug('"+frm_lst[0]+"',event);"});
-			var htm = "<img style='vertical-align: middle;' src='resources/gif/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
-			var li = $('<li ></li>').addClass("li_tab").attr({id: "li_"+ref, onclick: "vue_frm('"+ref+"');"}).html(htm).appendTo('#ul_ttr'+ref_id);
-			$("#img_"+ref).attr({onclick: "sup_frm_nobug('"+ref+"',event);"});
-		}
-		else{return;}
-	}
-	else{
-		var htm = "<img style='vertical-align: middle;' src='resources/gif/loader.gif' /> <span id='img_"+ref+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
-		var li = $('<li ></li>').addClass("li_tab").attr({id: "li_"+ref, onclick: "vue_frm('"+ref+"');"}).html(htm).appendTo('#ul_ttr'+ref_id);
-		$("#img_"+ref).attr({onclick: "sup_frm_nobug('"+ref+"',event);"});
-		$("#img_"+ref_id).attr({onclick: $("#img_"+ref_id).attr("onclick")+"sup_frm_nobug('"+ref+"',event);"});
-	}
-	hid_frm();
-	var iframe = $('<iframe ></iframe>').addClass("frm").attr({id: ref, src: link}).appendTo('#dt_frm');
-	shw_frm(ref);
+	else{addFrame(link);}
 }
 
 function act_tab(link,nom){
@@ -205,7 +111,7 @@ function act_tab(link,nom){
 
 function sup_frm_nobug(link,event){
 	var ref = escape(link);
-	if($("#"+ref).length){close(ref);}
+	if($("#"+ref).length){closeFrame(ref);}
 	event.stopPropagation();
 }
 
@@ -217,7 +123,7 @@ function sup_frm(link,event){
 			if(checkIframe){
 				if(typeof iframe.contentWindow.richTxtCheck === 'function'
 					&& !iframe.contentWindow.richTxtCheck()
-					&& !box("?","Some richtext has not been saved. Continue closure?",function(){close(ref)})
+					&& !box("?","Some richtext has not been saved. Continue closure?",function(){closeFrame(ref)})
 				){
 					return;
 				/*	"chk_frm": {
@@ -226,106 +132,19 @@ function sup_frm(link,event){
 				  }				*/
 				}
 				if(typeof iframe.contentWindow.upd != 'undefined' && iframe.contentWindow.upd>0){setTimeout(function(){sup_frm(ref,event);return;},50);}
-				else{setTimeout(close(ref),50);return;}
+				else{setTimeout(closeFrame(ref),50);return;}
 			}
 			else{
 				alert("fermer avec erreur");
-				close(ref);
+				closeFrame(ref);
 			}
 		}
 		else{
 			var msg = "Richtext not saved will be lost if you close now!<br/>If you got a red message, you should wait for being online and make a new change on the same field to update it.<br/>Close anyway?";
-			box("You are offline!",msg,function(){close(ref);},function(){if(typeof iframe.contentWindow.upd != 'undefined'){iframe.contentWindow.upd = 0;}});
+			box("You are offline!",msg,function(){closeFrame(ref);},function(){if(typeof iframe.contentWindow.upd != 'undefined'){iframe.contentWindow.upd = 0;}});
 		}
 	}
 	if(typeof event !== 'undefined') {event.stopPropagation();}
-}
-
-function close(ref){
-	var frm_num = 0;
-	if($("#li_"+ref).parent().parent().hasClass("li_ttr")){
-		if(ref.substr(4,3)=='dev'){
-			if(ref.indexOf('id_lgg')==-1){var ref_id = ref.substr(4);}
-			else{var ref_id = ref.substr(4,ref.indexOf('id_lgg')-4);}
-			var frm_lst = [];
-			$(".frm").each(function(){
-				if(ref != $(this).attr("id")){
-					if($(this).attr("id").indexOf('id_lgg')==-1){var frm_id = $(this).attr("id").substr(4);}
-					else{var frm_id = $(this).attr("id").substr(4,$(this).attr("id").indexOf('id_lgg')-4);}
-					if(ref_id == frm_id){
-						frm_num++;
-						frm_lst.push($(this).attr("id"));
-					}
-				}
-			});
-		}
-		else if(ref.substr(0,3)=='cmp' || ref.substr(0,3)=='fin' || ref.substr(0,3)=='ope'){
-			var ref_id = ref.substr(0,3);
-			var frm_lst = [];
-			$(".frm").each(function(){
-				if(ref != $(this).attr("id")){
-					var frm_id = $(this).attr("id").substr(0,3);
-					if(ref_id == frm_id){
-						frm_num++;
-						frm_lst.push($(this).attr("id"));
-					}
-				}
-			});
-		}
-		else if(ref.substr(0,3)=='cat'){
-			var ref_id = ref.substr(0,9);
-			var frm_lst = [];
-			$(".frm").each(function(){
-				if(ref != $(this).attr("id")){
-					var frm_id = $(this).attr("id").substr(0,9);
-					if(ref_id == frm_id){
-						frm_num++;
-						frm_lst.push($(this).attr("id"));
-					}
-				}
-			});
-		}
-	}
-	if(frm_num == 1){
-		var nom1 = $("#li_"+frm_lst[0]).html();
-		var nom2 = $("#ttr_"+ref_id).html();
-		var pos = nom2.indexOf('</span>');
-		var len = nom2.length;
-		if(ref.substr(4,3)=='dev'){
-			var htm = nom1.substr(0,nom1.indexOf('<span id='))+': '+nom2.substr(pos,len);
-		}
-		else if(ref.substr(0,3)=='cmp' || ref.substr(0,3)=='fin' || ref.substr(0,3)=='ope'){
-			var htm = nom2.substr(pos)+' '+nom1.substr(0,nom1.indexOf('<span id='));
-		}
-		else if(ref.substr(0,3)=='cat'){
-			if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-			else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-			xhttp.open("GET","txt_js.xml",false); //remplazar por json
-			xhttp.send();
-			xmlDoc=xhttp.responseXML;
-			x=xmlDoc.getElementsByTagName(nom2.substr(pos+8,len-8));
-			var htm = x[0].childNodes[0].nodeValue+': '+nom1.substr(0,nom1.indexOf('<span id='));
-		}
-		var previd = $("#li_ttr"+ref_id).prev().attr('id');
-		$("#li_"+frm_lst[0]).remove();
-		$("#li_ttr"+ref_id).remove();
-/*		$("#li_hid"+ref_id).remove();*/
-		htm += "<span id='img_"+frm_lst[0]+"'><img style='vertical-align: middle;' src='prm/img/cls.png' /></span>";
-		var li = $('<li ></li>').addClass("li_hid").attr({id: "li_"+frm_lst[0], onclick: "vue_frm('"+frm_lst[0]+"');"}).html(htm);
-		$("#"+previd).after(li);
-		$("#img_"+frm_lst[0]).attr({onclick: "sup_frm_nobug('"+frm_lst[0]+"',event);"});
-	}
-	if($("#li_"+ref).length){$("#li_"+ref).remove();}
-	if($("#"+ref).length){
-		$("#"+ref).remove();
-		for(var i = 0; i < old_frm.length; i++){
-			if(old_frm[i] === ref){
-				old_frm.splice(i, 1);
-				i--;
-			}
-		}
-		shw_frm(old_frm[old_frm.length-1]);
-	}
 }
 
 function act_frm(cbl){

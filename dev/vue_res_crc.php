@@ -278,7 +278,13 @@ if($vue_res){
 					<td class="stl1" style="padding: 0px 5px; font-weight: bold;"><?php echo $txt->jours->$id_lng; ?></td>
 					<td class="stl1" style="padding: 0px 5px; font-weight: bold;"><?php echo $txt->frns->$id_lng; ?></td>
 <?php
-		if($cnf>0){
+		$flg_res = false;
+		foreach($lst_frn as $fr){
+			foreach(array_unique($res_frn[$fr]) as $id_res_frn) {
+				if($id_res_frn>0) {$flg_res = true;}
+			}
+		}
+		if($cnf>0 or $flg_res){
 ?>
 					<td class="stl1" style="padding: 0px 5px; font-weight: bold;"><?php echo $txt->ress->$id_lng; ?></td>
 <?php
@@ -302,7 +308,7 @@ if($vue_res){
 			$cot += $cot_srv[$fr];
 			$color = '';
 			foreach(array_unique($res_frn[$fr]) as $id_res_frn) {
-				if($cnf>0 and $id_res_frn<6){$color .= $col_res_srv[$id_res_frn].',';}
+				if(($cnf>0 or ($flg_res and $id_res_frn>0)) and $id_res_frn<6){$color .= $col_res_srv[$id_res_frn].',';}
 			}
 			if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
 			else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}

@@ -79,14 +79,14 @@ while($dt_dev = ftc_ass($rq_dev)){
 					<li onclick="window.open('../fct/docx_pax.php?id=<?php echo $id_dev ?>&cbl=crc');"><?php echo $txt->cmd->lst_pax->$id_lng; ?></li>
 <?php
 		}
-		if(($cbl == 'dev' or $cbl == 'cnf') and ($aut['dev'] or $id_usr==$dt_dev['usr'])){
+		if(($cbl == 'dev' or $cbl == 'cnf') and ($aut['dev'] or $id_usr == $dt_dev['usr'])){
 ?>
-					<li onclick="arch(<?php echo "'".$cbl."'" ?>,<?php echo $id_dev ?>);"><?php echo $txt->cmd->archiver->$id_lng; ?></li>
+					<li class="archive-elem"><?php echo $txt->cmd->archiver->$id_lng; ?></li>
 <?php
 		}
-		if($cbl == 'cnf' and ($aut['dev'] or $id_usr==$dt_dev['usr'])){
+		if($cbl == 'cnf' and ($aut['dev'] or $id_usr == $dt_dev['usr'])){
 ?>
-					<li onclick="annul(<?php echo $id_dev ?>);"><?php echo $txt->cmd->annuler->$id_lng; ?></li>
+					<li class="cancel-confirmation"><?php echo $txt->cmd->annuler->$id_lng; ?></li>
 <?php
 		}
 		elseif(($cbl == 'arc' or $cbl == 'fin') and ($aut['dev'] or $id_usr==$dt_dev['usr'])){

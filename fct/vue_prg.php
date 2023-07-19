@@ -114,7 +114,7 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 			</div>
 			<div id="vue_dt_prg"><?php include("vue_dt_prg.php"); ?></div>
 		</div>
-		<script src='../resources/js/script.js'></script>
+		<script src='../resources/js/common.js'></script>
 	</body>
 </html>
 <?php

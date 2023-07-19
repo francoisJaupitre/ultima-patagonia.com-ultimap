@@ -1,7 +1,7 @@
 const copyElem = async function(cbl,id)
 {
   const deflt = document.getElementById(`nom_${cbl}_${id}`).value+"(1)"
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   const nom = prompt(obj[`cop_${cbl}`][id_lng],deflt)
 	if(nom == null || nom == '')
     return
@@ -27,7 +27,7 @@ const copyElem = async function(cbl,id)
 
 const deleteElem = async function(cbl,id)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   window.parent.box("?",obj[`del_${cbl}`][id_lng], () => {
 		load('CAT deleteElem');
     const xhr = new XMLHttpRequest
@@ -57,7 +57,7 @@ const deleteElem = async function(cbl,id)
 
 const addDev = async function(id)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   const nom = prompt(obj["ajt_dev"][id_lng])
   if(nom == null || nom == '')
     return
@@ -86,7 +86,7 @@ const addDev = async function(id)
 const lightCopyElem = async function(cbl,id)
 {
   const deflt = document.getElementById(`nom_${cbl}_${id}`).value+"(1)"
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   const nom = prompt(obj[`cop_${cbl}`][id_lng],deflt)
   if(nom == null || nom == '')
     return

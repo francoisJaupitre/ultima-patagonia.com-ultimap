@@ -139,7 +139,7 @@ function maj(tab,col,val,id,id_sup){
 function ord(obj,val,id,id_sup,id_cat_sup,id_sup2){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	if(cnf>0){
@@ -205,7 +205,7 @@ function ord(obj,val,id,id_sup,id_cat_sup,id_sup2){
 function ord_dat(val,id,id_sup){
 	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	if(cnf>0){
@@ -234,7 +234,7 @@ function ord_dat(val,id,id_sup){
 function act_txt(obj,id,id_sup){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("act_txt_"+obj);
@@ -273,7 +273,7 @@ function act_trf(obj,id,id_sup){
 	if(obj != 'hbr_all' && obj != 'frn_all'){
 		if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 		else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","txt_js.xml",false);
+		xhttp.open("GET","txt_js.xml",false); //remplazar por json
 		xhttp.send();
 		xmlDoc=xhttp.responseXML;
 		x=xmlDoc.getElementsByTagName("act_trf_"+obj);
@@ -322,7 +322,7 @@ function act_trf(obj,id,id_sup){
 function act_elem(obj,id){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("act_elem_"+obj);
@@ -361,7 +361,7 @@ function act_elem(obj,id){
 function hbr_def(id_hbr_def){
 	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("hbr_def");
@@ -402,7 +402,7 @@ function chk_cnf(){
 					if(xmlhttp.responseText=='nodat'){
 						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false);
+						xhttp.open("GET","txt_js.xml",false); //remplazar por json
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("chk_cnf");
@@ -413,7 +413,7 @@ function chk_cnf(){
 						var rsp = xmlhttp.responseText.split("|");
 						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false);
+						xhttp.open("GET","txt_js.xml",false); //remplazar por json
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("chk_cnf");
@@ -437,7 +437,7 @@ function chk_cnf(){
 function ok_cnf(){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	x=xmlDoc.getElementsByTagName("cnf_ok");
@@ -474,7 +474,7 @@ function ok_cnf(){
 function fus(val,id_dev_mdl){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	if(cnf>0){
@@ -554,7 +554,7 @@ function dsp(cbl,id){
 function trsf(obj,id,id_sup,id_sup2){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false);
+	xhttp.open("GET","txt_js.xml",false); //remplazar por json
 	xhttp.send();
 	xmlDoc=xhttp.responseXML;
 	if(cnf>0){
@@ -682,7 +682,7 @@ function cls_rch(arr,id){
 					if(!flg_rch){
 						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false);
+						xhttp.open("GET","txt_js.xml",false); //remplazar por json
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("chk_rch");

@@ -1,6 +1,6 @@
 const newVersion = async function(id_crc)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   window.parent.box("?",obj["vrs"][id_lng], () => {
     load('DEV newVersion')
     const xhr = new XMLHttpRequest
@@ -22,7 +22,7 @@ const newVersion = async function(id_crc)
 
 const searchHbr = async function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   load('DEV searchHbr')
   const xhr = new XMLHttpRequest
   xhr.open("POST","../resources/php/searchHbr.php")
@@ -121,7 +121,7 @@ const searchHbr = async function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_
 
 const searchSrv = async function(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   load('DEV searchSrv')
   const xhr = new XMLHttpRequest
   xhr.open("POST","../resources/php/searchSrv.php")
@@ -154,7 +154,7 @@ const searchSrv = async function(id_frn,id_dev_srv_ctg,id_dev_srv_vll,id_dev_srv
 
 const searchFrn = async function(res,id_frn,id_dev_srv,id_dev_prs)
 {
-  const obj = await getTxt("../resources/json/scriptTxt.json")
+  const obj = await getTxt("../resources/json/cmdTxt.json")
   load('DEV searchFrn')
   const xhr = new XMLHttpRequest
   xhr.open("POST","../resources/php/searchFrn.php")
@@ -163,28 +163,27 @@ const searchFrn = async function(res,id_frn,id_dev_srv,id_dev_prs)
   xhr.onreadystatechange = () => {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
     {
-      if(xhr.response != 0)
-      {
-        const rsp = JSON.parse(xhr.response)
         if(res > -2 && res < 6 && id_dev_srv > 0)
         {
-          if(res > -1)
+          if(res > -1 && xhr.response != 0)
           {
+            const rsp = JSON.parse(xhr.response)
             if(window.confirm(obj["src_frn1"][id_lng]+` ${rsp.length} `+obj["src_frn0"][id_lng]))
             {
               for(let i = 0; i < rsp.length; i++)
               {
-                maj('dev_srv','res',res,rsp[i])
-                sel_srv('srv',rsp[i])
+                maj('dev_srv', 'res', res, rsp[i])
+                sel_srv('srv', rsp[i])
               }
             }
           }
-          maj('dev_srv','res',res,id_dev_srv,id_dev_prs)
+          maj('dev_srv', 'res', res, id_dev_srv, id_dev_prs)
           vue_crc('res')
           window.parent.act_frm('frn_ope')
         }
-        else if(res==0 && id_dev_srv==0)
+        else if(res == 0 && id_dev_srv == 0 && xhr.response != 0)
         {
+          const rsp = JSON.parse(xhr.response)
           if(window.confirm(obj["src_frn3"][id_lng]+` ${rsp.length} `+obj["src_frn4"][id_lng]))
           {
             if(cnf>0)
@@ -192,10 +191,10 @@ const searchFrn = async function(res,id_frn,id_dev_srv,id_dev_prs)
               if(window.confirm(obj["cnf"][id_lng])==false)
                 return 0
             }
-            act_trf('frn_all',arr_srv,0)
+            act_trf('frn_all', arr_srv, 0)
           }
         }
-      }
+
       unload('DEV searchFrn')
     }
   }
