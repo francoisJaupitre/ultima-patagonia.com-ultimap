@@ -491,7 +491,7 @@ function ajt_rmn(cbl,id){
 				if(xmlhttp.responseText=='1'){
 					if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false); //remplazar por json
+					xhttp.open("GET","txt_js.xml",false); //remplazar por xml server side
 					xhttp.send();
 					xmlDoc=xhttp.responseXML;
 					x=xmlDoc.getElementsByTagName("ajt_rmn");

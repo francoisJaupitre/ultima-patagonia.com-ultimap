@@ -11,7 +11,7 @@ while($dt_pay = ftc_ass($rq_pay)) {
 			<td class="usa"><?php echo $prm_crr_nom[$dt_pay['crr']] ?></td>
 			<td class="lnk_cat" onclick="window.parent.opn_frm('dev/ctr.php?id=<?php echo $dt_pay['id_crc'] ?>&scrl=<?php echo $dt_pay['id_dev_prs'] ?>');"><?php echo $dt_pay['groupe'] ?></td>
 			<td class="usa"><?php echo $dt_pay['rva'] ?></td>
-			<td><input <?php if(!$aut['cmp']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if($dt_pay['pay']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('dev_hbr_pay','pay','1',<?php echo $dt_pay['id_hbr_pay'] ?>)}else{maj('dev_hbr_pay','pay','0',<?php echo $dt_pay['id_hbr_pay'] ?>)};" /></td>
+			<td><input <?php if(!$aut['cmp']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if($dt_pay['pay']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('dev_hbr_pay','pay','1',<?php echo $dt_pay['id_hbr_pay'] ?>)}else{updateData('dev_hbr_pay','pay','0',<?php echo $dt_pay['id_hbr_pay'] ?>)};" /></td>
 		</tr>
 <?php
 }
@@ -32,8 +32,8 @@ $rq_pay = select("*","cat_hbr_pay","id_hbr",$id,"id DESC, delai DESC");
 while($dt_pay = ftc_ass($rq_pay)) {
 ?>
 		<tr>
-			<td><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> class="w25" value="<?php echo $dt_pay['taux']*100 ?>" onChange="maj('cat_hbr_pay','taux',this.value,<?php echo $dt_pay['id'] ?>)" />%</td>
-			<td><input type="number" <?php if(!$aut['cat']) {echo ' disabled';} ?> class="w25" value="<?php echo $dt_pay['delai'] ?>" onChange="maj('cat_hbr_pay','delai',this.value,<?php echo $dt_pay['id'] ?>)" /><?php echo $txt->jours->$id_lng ?></td>
+			<td><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> class="w25" value="<?php echo $dt_pay['taux']*100 ?>" onChange="updateData('cat_hbr_pay','taux',this.value,<?php echo $dt_pay['id'] ?>)" />%</td>
+			<td><input type="number" <?php if(!$aut['cat']) {echo ' disabled';} ?> class="w25" value="<?php echo $dt_pay['delai'] ?>" onChange="updateData('cat_hbr_pay','delai',this.value,<?php echo $dt_pay['id'] ?>)" /><?php echo $txt->jours->$id_lng ?></td>
 			<td id="hbr_pay_ty_delai"><?php include("vue_hbr_pay_ty_delai.php"); ?></td>
 <?php
 	if($aut['cat']) {

@@ -1,6 +1,14 @@
+var id_lng
+
+(function()
+{
+  id_lng = parent.document.getElementById('id_lng').value
+  init()
+})()
+
 const addElem = async function(cbl,id_cat)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   const nom = prompt(obj[`ajt_${cbl}`][id_lng])
   let grp, clt, rgn, vll, ctg
   if(nom == null || nom == '')
@@ -59,7 +67,7 @@ const addElem = async function(cbl,id_cat)
 
 const newVersion = async function(id_crc)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj["vrs"][id_lng], () => {
     load('ACC newVersion');
     const xhr = new XMLHttpRequest
@@ -81,7 +89,7 @@ const newVersion = async function(id_crc)
 
 const copyElem = async function(cbl,id)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   let nom
 	if(cbl == 'dev' || cbl == 'arc' || cbl == 'cnf' || cbl == 'fin')
     nom = prompt(obj[`cop_${cbl}`][id_lng])
@@ -119,7 +127,7 @@ const copyElem = async function(cbl,id)
 
 const deleteElem = async function(cbl,id)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj[`del_${cbl}`][id_lng], () => {
 		load('ACC deleteElem');
     const xhr = new XMLHttpRequest
@@ -173,7 +181,7 @@ const multiDeleteElem = async function(cbl)
   }
 	if(ids.length == 0)
     return
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj[`del_pls_${cbl}`][id_lng]+` ${ids.length} `+obj[`del_pls_${cbl}2`][id_lng], () => {
     load('ACC multiDeleteElem')
     const xhr = new XMLHttpRequest
@@ -217,7 +225,7 @@ const multiDeleteElem = async function(cbl)
 
 const updateLanguage = async function(val,id)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj["maj_lng"][id_lng], () => {
     maj('cfg_usr','lng',val,id)
   })
@@ -225,7 +233,7 @@ const updateLanguage = async function(val,id)
 
 const archiveElem = async function(cbl,id)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj[`arch_${cbl}`][id_lng], () => {
     load('ACC archiveElem');
     const xhr = new XMLHttpRequest
@@ -265,7 +273,7 @@ const multiArchiveElem = async function(cbl)
   }
 	if(ids.length == 0)
     return
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj[`arch_pls_${cbl}`][id_lng]+` ${ids.length} `+obj[`arch_pls_${cbl}2`][id_lng], () => {
     load('ACC multiArchiveElem')
     const xhr = new XMLHttpRequest
@@ -296,7 +304,7 @@ const multiArchiveElem = async function(cbl)
 
 const cancelConfirmation = async function(id)
 {
-  const obj = await getTxt("../resources/json/cmdTxt.json")
+  const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj["annuler"][id_lng], () => {
     load('ACC cancelConfirmation');
     const xhr = new XMLHttpRequest
@@ -320,3 +328,5 @@ const cancelConfirmation = async function(id)
     }
   })
 }
+
+/* asynchronous functions above */

@@ -4,7 +4,7 @@ $rq_lieu = select("id,id_lieu,ord","cat_jrn_lieu","id_jrn",$id,"ord");
 while($dt_lieu = ftc_ass($rq_lieu)) {
 ?>
 	<tr>
-		<td><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $dt_lieu['ord']; ?>" onchange="maj('cat_jrn_lieu','ord',this.value,<?php echo $dt_lieu['id'].','.$id ?>)" /></td>
+		<td><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $dt_lieu['ord']; ?>" onchange="updateData('cat_jrn_lieu','ord',this.value,<?php echo $dt_lieu['id'].','.$id ?>)" /></td>
 		<td class="lnk_cat" onclick="window.parent.opn_frm('cat/ctr.php?cbl=lieu&id=<?php echo $dt_lieu['id_lieu']; ?>');"><?php echo $lieu[$dt_lieu['id_lieu']]; ?></td>
 <?php
 	if($aut['cat']) {

@@ -32,7 +32,7 @@ if($nb_hbr['total']>0) {
 <?php
 		if($aut['adm_cat']) {
 ?>
-			<td><input type="checkbox" autocomplete="off" <?php if($dt_hbr['vrl']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_hbr','vrl','1',<?php echo $dt_hbr['id'] ?>)}else{maj('cat_hbr','vrl','0',<?php echo $dt_hbr['id'] ?>)};" /></td>
+			<td><input type="checkbox" autocomplete="off" <?php if($dt_hbr['vrl']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_hbr','vrl','1',<?php echo $dt_hbr['id'] ?>)}else{updateData('cat_hbr','vrl','0',<?php echo $dt_hbr['id'] ?>)};" /></td>
 <?php
 		}
 ?>

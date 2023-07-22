@@ -4,6 +4,7 @@ $data = json_decode($request, true);
 if(isset($data['id_cat_hbr']))
 {
 	include("../../prm/fct.php");
+	include("../../prm/aut.php");
 	$id_cat_hbr = $data['id_cat_hbr'];
 	$id_cat_chm = $data['id_cat_chm'];
 	$id_hbr_vll = $data['id_hbr_vll'];
@@ -12,6 +13,7 @@ if(isset($data['id_cat_hbr']))
 	$id_dev_prs = $data['id_dev_prs'];
 	$res = $data['res'];
 	$cnf = $data['cnf'];
+	$txt = simplexml_load_file('../xml/searchTxt.xml');
 	if($id_cat_hbr == 0)
 	{
 		$dt_hbr = ftc_ass(sel_quo("id_cat,id_cat_chm,rgm","dev_hbr","id",$id_dev_hbr));
@@ -19,8 +21,23 @@ if(isset($data['id_cat_hbr']))
 		$id_cat_chm = $dt_hbr['id_cat_chm'];
 		$id_hbr_rgm = $dt_hbr['rgm'];
 	}
-	if($id_dev_hbr == 0 and $id_dev_prs!= 0)
-	{ //AJT OPT
+	if($id_dev_prs != 0 and $id_dev_hbr != 0)
+	{
+		$xmlTxt1 = 'src_hbr0';
+		if($res == 'opt' or $res == 'sel')
+		{
+			$xmlTxt0 = 'src_hbr2';
+		}elseif($res == 'ajt')
+		{
+			$xmlTxt0 = 'src_hbr1';
+		}elseif($res == 'sup')
+		{
+			$xmlTxt0 = 'src_hbr0';
+		}
+	}elseif($id_dev_prs != 0 and $id_dev_hbr == 0)
+	{
+		$xmlTxt0 = 'src_hbr5';
+		$xmlTxt1 = 'src_hbr4';
 		if($cnf < 1)
 		{
 			$dt = ftc_ass(sel_whe("id_cat,id_cat_chm,rgm,id_vll","dev_hbr","opt=1 AND id_vll > 0 AND id_prs=".$id_dev_prs));
@@ -31,6 +48,21 @@ if(isset($data['id_cat_hbr']))
 		$id_ref_hbr = $dt['id_cat'];
 		$id_ref_chm = $dt['id_cat_chm'];
 		$id_ref_rgm = $dt['rgm'];
+	}elseif($id_dev_prs == 0 and $id_dev_hbr != 0)
+	{
+		$xmlTxt0 = 'src_hbr6';
+		$xmlTxt1 = 'src_hbr7';
+	}else if($id_dev_prs == 0 and $id_dev_hbr == 0)
+	{
+		if($res == 'act_trf')
+		{
+			$xmlTxt0 = 'src_hbr8';
+			$xmlTxt1 = 'src_hbr9';
+		}else if($res == 'sup')
+		{
+			$xmlTxt0 = 'src_hbr10';
+			$xmlTxt1 = 'src_hbr11';
+		}
 	}
 	$rq_mdl = sel_quo("id","dev_mdl","id_crc",$data['id_dev_crc']);
 	while($dt_mdl = ftc_ass($rq_mdl))
@@ -81,7 +113,13 @@ if(isset($data['id_cat_hbr']))
 	}
 	if(isset($arr))
 	{
-		echo json_encode($arr);
+		$msg[] = $txt->$xmlTxt0->$id_lng." ".count($arr)." ".$txt->$xmlTxt1->$id_lng;
+		if($id_dev_prs == 0 and $id_dev_hbr == 0 and $cnf > 0)
+		{
+			$msg[] = (string)$txt->cnf->$id_lng;
+		}
+		$qa = array_merge($msg,$arr);
+		echo json_encode($qa);
 	}else{
 		echo 0;
 	}

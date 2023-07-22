@@ -335,7 +335,7 @@ function show(ref) {
 	if(jQuery.inArray("1", chkhor) !== -1) {$("#chkver").show();}
 }
 
-function init() {//à mettre dans finLoad.js
+function init() {
 	$(window).scroll(function() {
 		if($(window).scrollTop() + $(window).height() >= $(document).height()-20) {vue_dt_ecr();}
 	});

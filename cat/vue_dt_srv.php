@@ -51,7 +51,7 @@ while($dt_trf = ftc_ass($rq_trf)) {
 <?php
 		if($n==0) {
 ?>
-			<td class="vat" rowspan="<?php echo $rowmax ?>"><input <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_trf['def']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_srv_trf','def','1',<?php echo $id_trf ?>,<?php echo $id ?>)}else{maj('cat_srv_trf','def','0',<?php echo $id_trf ?>,<?php echo $id ?>)};" /></td>
+			<td class="vat" rowspan="<?php echo $rowmax ?>"><input <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_trf['def']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_srv_trf','def','1',<?php echo $id_trf ?>,<?php echo $id ?>)}else{updateData('cat_srv_trf','def','0',<?php echo $id_trf ?>,<?php echo $id ?>)};" /></td>
 			<td id="dt_srv_crr<?php echo $id_trf ?>" class="vam td" rowspan="<?php echo $rowmax ?>"><?php include("vue_dt_srv_crr.php"); ?></td>
 			<td class="vat" rowspan="<?php echo $rowmax ?>">
 			<!--COMMANDES-->
@@ -63,7 +63,7 @@ while($dt_trf = ftc_ass($rq_trf)) {
 <?php
 		if($aut['cat'] and !$vrl) {
 ?>
-							<li onclick="dup('trf',<?php echo $id_trf ?>);"><?php echo $txt->cop->$id_lng; ?></li>
+							<li onclick="duplicate('trf',<?php echo $id_trf ?>);"><?php echo $txt->cop->$id_lng; ?></li>
 <?php
 		}
 		if($aut['cat'] and !$vrl) {
@@ -80,8 +80,8 @@ while($dt_trf = ftc_ass($rq_trf)) {
 		}
 		if(isset($id_ssn) and isset($dt_ssn[$n]) and $id_ssn>0) {
 ?>
-			<td class="td td_ssn<?php echo $id_ssn; ?>"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> id="srv_trf_ssn_dt_min<?php echo $id_ssn; ?>" type="text" autocomplete="off" placeholder="jj/mm/aaaa" class="w74" style="<?php if(strtotime($dt_ssn[$n]['dt_max'])<strtotime(date('Y-m-d'))) {echo 'background-color: tomato';} ?>" value="<?php if($dt_ssn[$n]['dt_min']!='0000-00-00') {echo date("d/m/Y", strtotime($dt_ssn[$n]['dt_min']));} ?>" onchange="maj('cat_srv_trf_ssn','dt_min',this.value,<?php echo $id_ssn.','.$id ?>);" /></td>
-			<td class="td td_ssn<?php echo $id_ssn; ?>"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> id="srv_trf_ssn_dt_max<?php echo $id_ssn; ?>" type="text" autocomplete="off" placeholder="jj/mm/aaaa" class="w74" style="<?php if(strtotime($dt_ssn[$n]['dt_max'])<strtotime(date('Y-m-d'))) {echo 'background-color: tomato';} ?>" value="<?php if($dt_ssn[$n]['dt_max']!='0000-00-00') {echo date("d/m/Y", strtotime($dt_ssn[$n]['dt_max']));} ?>" onchange="maj('cat_srv_trf_ssn','dt_max',this.value,<?php echo $id_ssn.','.$id ?>);" /></td>
+			<td class="td td_ssn<?php echo $id_ssn; ?>"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> id="srv_trf_ssn_dt_min<?php echo $id_ssn; ?>" type="text" autocomplete="off" placeholder="jj/mm/aaaa" class="w74" style="<?php if(strtotime($dt_ssn[$n]['dt_max'])<strtotime(date('Y-m-d'))) {echo 'background-color: tomato';} ?>" value="<?php if($dt_ssn[$n]['dt_min']!='0000-00-00') {echo date("d/m/Y", strtotime($dt_ssn[$n]['dt_min']));} ?>" onchange="updateData('cat_srv_trf_ssn','dt_min',this.value,<?php echo $id_ssn.','.$id ?>);" /></td>
+			<td class="td td_ssn<?php echo $id_ssn; ?>"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> id="srv_trf_ssn_dt_max<?php echo $id_ssn; ?>" type="text" autocomplete="off" placeholder="jj/mm/aaaa" class="w74" style="<?php if(strtotime($dt_ssn[$n]['dt_max'])<strtotime(date('Y-m-d'))) {echo 'background-color: tomato';} ?>" value="<?php if($dt_ssn[$n]['dt_max']!='0000-00-00') {echo date("d/m/Y", strtotime($dt_ssn[$n]['dt_max']));} ?>" onchange="updateData('cat_srv_trf_ssn','dt_max',this.value,<?php echo $id_ssn.','.$id ?>);" /></td>
 <?php
 			if($nb_ssn['total']>1 and $aut['cat']) {
 ?>
@@ -107,26 +107,26 @@ while($dt_trf = ftc_ass($rq_trf)) {
 		}
 		if(isset($id_bss) and isset($dt_bss[$n]) and $id_bss>0) {
 ?>
-			<td class="td td_bss<?php echo $id_bss; ?>"><input type="text" <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="srv_trf_bss_bs_min<?php echo $id_bss; ?>" class="w25" value="<?php echo $dt_bss[$n]['bs_min'] ?>" <?php if($dt_bss[$n]['bs_min']==0){echo 'style="background-color: tomato"';} ?> onChange="maj('cat_srv_trf_bss','bs_min',this.value,<?php echo $id_bss ?>,<?php echo $id_trf ?>);" /></td>
-			<td class="td td_bss<?php echo $id_bss; ?>"><input type="text" <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="srv_trf_bss_bs_max<?php echo $id_bss; ?>" class="w25" value="<?php echo $dt_bss[$n]['bs_max'] ?>" <?php if($dt_bss[$n]['bs_max']==0){echo 'style="background-color: tomato"';} ?> onChange="maj('cat_srv_trf_bss','bs_max',this.value,<?php echo $id_bss ?>,<?php echo $id_trf ?>);" /></td>
-			<td class="td td_bss<?php echo $id_bss; ?>"><input <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if($dt_bss[$n]['clc']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_srv_trf_bss','clc','1',<?php echo $id_bss ?>);}else{maj('cat_srv_trf_bss','clc','0',<?php echo $id_bss ?>)};" /></td>
+			<td class="td td_bss<?php echo $id_bss; ?>"><input type="text" <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="srv_trf_bss_bs_min<?php echo $id_bss; ?>" class="w25" value="<?php echo $dt_bss[$n]['bs_min'] ?>" <?php if($dt_bss[$n]['bs_min']==0){echo 'style="background-color: tomato"';} ?> onChange="updateData('cat_srv_trf_bss','bs_min',this.value,<?php echo $id_bss ?>,<?php echo $id_trf ?>);" /></td>
+			<td class="td td_bss<?php echo $id_bss; ?>"><input type="text" <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="srv_trf_bss_bs_max<?php echo $id_bss; ?>" class="w25" value="<?php echo $dt_bss[$n]['bs_max'] ?>" <?php if($dt_bss[$n]['bs_max']==0){echo 'style="background-color: tomato"';} ?> onChange="updateData('cat_srv_trf_bss','bs_max',this.value,<?php echo $id_bss ?>,<?php echo $id_trf ?>);" /></td>
+			<td class="td td_bss<?php echo $id_bss; ?>"><input <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if($dt_bss[$n]['clc']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_srv_trf_bss','clc','1',<?php echo $id_bss ?>);}else{updateData('cat_srv_trf_bss','clc','0',<?php echo $id_bss ?>)};" /></td>
 			<td class="td td_bss<?php echo $id_bss; ?>">
 				<input type="text" <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="srv_trf_bss_trf_rck<?php echo $id_bss; ?>" class="w52" style="<?php if($trf_rck!=0 and ($trf_net==0 or $trf_net>$trf_rck)) {echo 'background-color: tomato';} elseif($dt_bss[$n]['est']) {echo'background-color: gold';} ?>" value="<?php echo number_format($trf_rck,$prm_crr_dcm[$dt_trf['crr']],'.','') ?>"
-				onChange="maj('cat_srv_trf_bss','trf_rck',this.value,<?php echo $id_bss ?>); if(this.value!=0 && (document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').value==0 || document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').value-this.value>0)) {this.style.backgroundColor ='red';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='red';}
+				onChange="updateData('cat_srv_trf_bss','trf_rck',this.value,<?php echo $id_bss ?>); if(this.value!=0 && (document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').value==0 || document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').value-this.value>0)) {this.style.backgroundColor ='red';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='red';}
 				else if(document.getElementById('est<?php echo $id_bss; ?>').checked) {this.style.backgroundColor ='gold';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='gold';}
 				else{this.style.backgroundColor ='white';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='white';}" />
 			</td>
 			<td class="td td_bss<?php echo $id_bss; ?>">
 				<input type="text" <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="srv_trf_bss_trf_net<?php echo $id_bss; ?>" class="w52" style="<?php if($trf_rck!=0 and ($trf_net==0 or $trf_net>$trf_rck)) {echo 'background-color: tomato';} elseif($dt_bss[$n]['est']) {echo'background-color: gold';} ?>" value="<?php echo number_format($trf_net,$prm_crr_dcm[$dt_trf['crr']],'.','') ?>"
-				onChange="maj('cat_srv_trf_bss','trf_net',this.value,<?php echo $id_bss ?>); if(document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').value!=0 && (this.value==0 || this.value-document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').value>0)) {this.style.backgroundColor ='red';document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='red';}
+				onChange="updateData('cat_srv_trf_bss','trf_net',this.value,<?php echo $id_bss ?>); if(document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').value!=0 && (this.value==0 || this.value-document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').value>0)) {this.style.backgroundColor ='red';document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='red';}
 				else if(document.getElementById('est<?php echo $id_bss; ?>').checked) {this.style.backgroundColor ='gold';document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='gold';}
 				else{this.style.backgroundColor ='white';document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='white';}" />
 			</td>
 			<td id="dt_srv_com<?php echo $id_bss; ?>" class="td td_bss<?php echo $id_bss; ?>"><?php include("vue_dt_srv_com.php"); ?></td>
 			<td class="td td_bss<?php echo $id_bss; ?>">
 				<input <?php if(!$aut['cat'] or $vrl) {echo ' disabled';} ?> id="est<?php echo $id_bss; ?>" type="checkbox" autocomplete="off" <?php if($dt_bss[$n]['est']) {echo('checked="checked"');} ?>
-				onclick="if(this.checked) {maj('cat_srv_trf_bss','est','1',<?php echo $id_bss ?>);document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='gold';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='gold';}
-				else{maj('cat_srv_trf_bss','est','0',<?php echo $id_bss ?>);document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='white';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='white';};" />
+				onclick="if(this.checked) {updateData('cat_srv_trf_bss','est','1',<?php echo $id_bss ?>);document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='gold';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='gold';}
+				else{updateData('cat_srv_trf_bss','est','0',<?php echo $id_bss ?>);document.getElementById('srv_trf_bss_trf_rck<?php echo $id_bss; ?>').style.backgroundColor ='white';document.getElementById('srv_trf_bss_trf_net<?php echo $id_bss; ?>').style.backgroundColor ='white';};" />
 			</td>
 			<td id="dt_srv_frn<?php echo $id_bss; ?>" class="td frn td_bss<?php echo $id_bss; ?>" style="width: 100px; overflow: hidden"><?php if($id_ctg and $id_vll) {include("vue_dt_srv_frn.php");} ?></td>
 <?php

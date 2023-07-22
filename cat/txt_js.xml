@@ -1,14 +1,5 @@
 <?php xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
-<textes>
-	<dup_chm>
-		<fr>Créer une COPIE de cette chambre et ses tarifs?</fr>
-		<es>Crear una COPIA de esta habitacíon y sus tarifas?</es>
-	</dup_chm>
-	<dup_trf>
-		<fr>Créer une COPIE de ce tarif et ses bases?</fr>
-		<es>Crear una COPIA de esta tarifa y sus bases?</es>
-	</dup_trf>
 	<sup_lgg>
 		<fr>Etes-vous sûr de vouloir SUPPRIMER ce texte?</fr>
 		<es>Está seguro de querer SUPRIMIR este texto?</es>
@@ -49,25 +40,4 @@
 		<fr>Etes-vous sûr de vouloir SUPPRIMER cette saison?</fr>
 		<es>Está seguro de querer SUPRIMIR esta temporada?</es>
 	</sup_hbr_rgm_trf_ssn>
-	<act_map_vll>
-		<fr>Utiliser la position enregistrée de cette ville comme emplacement sur la carte?</fr>
-		<es>Usar la posición guardada de esta ciudad como ubicación en el mapa?</es>
-	</act_map_vll>
-	<act_map>
-		<fr>Actualiser automatiquement l'emplacement sur la carte?</fr>
-		<es>Actualizar automaticamente la ubicación en el mapa?</es>
-	</act_map>
-	<ajt_prs>
-		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
-		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
-	</ajt_prs>
-	<web>
-		<fr>Entrer un identifiant unique pour l'URL.</fr>
-		<es>Ingresas un identificador unico para el URL.</es>
-	</web>
-	<web>
-		<fr>PUBLICATION ANNULEE!&#xA;Cet url est déjà utilisé.</fr>
-		<es>PUBLICACIÓN CANCELADA!&#xA;Esta URL ya está en uso.</es>
-		<pt>PUBLICAÇÃO CANCELADA!&#xA;Este URL já está em uso.</pt>
-	</web>
 </textes>

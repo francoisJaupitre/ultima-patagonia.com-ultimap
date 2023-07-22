@@ -46,7 +46,7 @@ if($nb_jrn['total']!=0) {
 			$id_jrn_sel = $id_jrn;
 ?>
 	<tr>
-		<td class="td_cat <?php if($opt_jrn or isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {echo 'dsg';} else{echo 'dsg2';} ?>"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $ord_jrn; ?>" onchange="maj('cat_mdl_jrn','ord',this.value,<?php echo $id_mdl_jrn.','.$id ?>)" /></td>
+		<td class="td_cat <?php if($opt_jrn or isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {echo 'dsg';} else{echo 'dsg2';} ?>"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $ord_jrn; ?>" onchange="updateData('cat_mdl_jrn','ord',this.value,<?php echo $id_mdl_jrn.','.$id ?>)" /></td>
 		<td>
 			<table class="w-100">
 <?php
@@ -67,7 +67,7 @@ if($nb_jrn['total']!=0) {
 		echo ')';
 ?>
 								</td>
-								<td><input <?php if(!$aut['cat'] or (isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) or !$flg_sel_mdl_jrn) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($opt_jrn) {$flg_sel_mdl_jrn  = false; echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_mdl_jrn','opt','1',<?php echo $id_mdl_jrn.','.$id ?>)}else{maj('cat_mdl_jrn','opt','0',<?php echo $id_mdl_jrn.','.$id ?>)};" /></td>
+								<td><input <?php if(!$aut['cat'] or (isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) or !$flg_sel_mdl_jrn) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($opt_jrn) {$flg_sel_mdl_jrn  = false; echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_mdl_jrn','opt','1',<?php echo $id_mdl_jrn.','.$id ?>)}else{updateData('cat_mdl_jrn','opt','0',<?php echo $id_mdl_jrn.','.$id ?>)};" /></td>
 								<td>
 <?php
 		unset($maj_sel_mdl_jrn);
@@ -86,7 +86,7 @@ if($nb_jrn['total']!=0) {
 		}
 		else{$maj_sel_mdl_jrn[] = $id_jrn;}
 ?>
-									<input <?php if(!$aut['cat'] or $opt_jrn or !$flg_sel_mdl_jrn) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if (!$opt_jrn and isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {$flg_sel_mdl_jrn  = false; echo('checked="checked"');} ?> onclick="maj('cat_mdl','sel_mdl_jrn','<?php echo implode(",",$maj_sel_mdl_jrn); ?>',<?php echo $id ?>);" />
+									<input <?php if(!$aut['cat'] or $opt_jrn or !$flg_sel_mdl_jrn) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if (!$opt_jrn and isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {$flg_sel_mdl_jrn  = false; echo('checked="checked"');} ?> onclick="updateData('cat_mdl','sel_mdl_jrn','<?php echo implode(",",$maj_sel_mdl_jrn); ?>',<?php echo $id ?>);" />
 								</td>
 							</tr>
 						</table>

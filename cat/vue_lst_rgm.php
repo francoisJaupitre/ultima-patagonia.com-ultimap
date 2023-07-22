@@ -12,7 +12,7 @@ if($cbl!='hbr' and $id_rgm>0 and empty($src)) {
 }
 elseif($cbl=='hbr' and $id_chm>0 and $dt_chm['rgm']>0 and substr(upnoac($txt->regime->$id_lng),0,strlen($src))==$src) {
 ?>
-	<li id="enter_rgm_chm<?php echo $id_chm; ?>" style="background-color: Chocolate;"onClick="maj('cat_hbr_chm','rgm','0',<?php echo $id_chm.','.$id ?>)"><?php echo $txt->regime->$id_lng; ?></li>
+	<li id="enter_rgm_chm<?php echo $id_chm; ?>" style="background-color: Chocolate;"onClick="updateData('cat_hbr_chm','rgm','0',<?php echo $id_chm.','.$id ?>)"><?php echo $txt->regime->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 }
@@ -34,7 +34,7 @@ foreach($rgm[$id_lng] as $rgm_id => $nom) {
 			if($flg_rgm) {
 				if($id_chm>0) {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_rgm_chm'.$id_chm.'" style="background-color: Chocolate;"';} ?> onClick="maj('cat_hbr_chm','rgm',<?php echo $rgm_id.','.$id_chm.','.$id ?>)"><?php echo $nom; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_rgm_chm'.$id_chm.'" style="background-color: Chocolate;"';} ?> onClick="updateData('cat_hbr_chm','rgm',<?php echo $rgm_id.','.$id_chm.','.$id ?>)"><?php echo $nom; ?></li>
 <?php
 					$flg_enter = false;
 				}

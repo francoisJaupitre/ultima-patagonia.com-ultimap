@@ -4,8 +4,20 @@ $data = json_decode($request, true);
 if(isset($data['id_frn']))
 {
 	include("../../prm/fct.php");
+	include("../../prm/aut.php");
 	$id_dev_srv = $data['id_dev_srv'];
 	$res = $data['res'];
+	$cnf = $data['cnf'];
+	$txt = simplexml_load_file('../xml/searchTxt.xml');
+	if($res > -2 and $res < 6 and $id_dev_srv > 0)
+	{
+		$xmlTxt0 = 'src_frn1';
+		$xmlTxt1 = 'src_frn2';
+	}else if($res == 0 and $id_dev_srv == 0)
+	{
+		$xmlTxt0 = 'src_frn3';
+		$xmlTxt1 = 'src_frn4';
+	}
 	$rq_mdl = sel_quo("id","dev_mdl","id_crc",$data['id_dev_crc']);
 	while($dt_mdl = ftc_ass($rq_mdl))
 	{
@@ -33,7 +45,13 @@ if(isset($data['id_frn']))
 	}
 	if(isset($arr))
 	{
-		echo json_encode($arr);
+		$msg[] = $txt->$xmlTxt0->$id_lng." ".count($arr)." ".$txt->$xmlTxt1->$id_lng;
+		if($res == 0 and $id_dev_srv == 0 and $cnf > 0)
+		{
+			$msg[] = (string)$txt->cnf->$id_lng;
+		}
+		$qa = array_merge($msg,$arr);
+		echo json_encode($qa);
 	}else{
 		echo 0;
 	}

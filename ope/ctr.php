@@ -38,9 +38,7 @@ if(isset($_GET['cnf']) and !empty($_GET['cnf'])){
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
 		<script src='../resources/js/common.js'></script>
 		<script src='../resources/js/richTxt.js'></script>
-		<script src='../resources/js/opeMail.js'></script>
-		<script src='../resources/js/opeCmd.js'></script>
-		<script src='../resources/js/opeLoad.js'></script>
+		<script src='../resources/js/opeScript.js'></script>
 	</body>
 </html>
 <?php

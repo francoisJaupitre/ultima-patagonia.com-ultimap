@@ -20,7 +20,7 @@ if($cbl!='jrn' and $cbl!='srv' and $cbl!='hbr' and $cbl!='frn' and $cbl!='lieu')
 }
 elseif(($cbl=='srv' or $cbl=='hbr' or $cbl=='lieu') and $id_vll and substr(upnoac($txt->nodef->$id_lng),0,strlen($src))==$src) {
 ?>
-	<li id="enter_vll" style="background-color: Chocolate;" onClick="maj('cat_<?php echo $cbl ?>','id_vll','0',<?php echo $id ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
+	<li id="enter_vll" style="background-color: Chocolate;" onClick="updateData('cat_<?php echo $cbl ?>','id_vll','0',<?php echo $id ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 }
@@ -48,7 +48,7 @@ foreach($vll as $vll_id => $nom) {
 		}
 		elseif(($cbl=='srv' or $cbl=='hbr' or $cbl=='lieu') and $vll_id != $id_vll) {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_vll" style="background-color: Chocolate;"';} ?> onClick="maj('cat_<?php echo $cbl ?>','id_vll',<?php echo $vll_id.','.$id ?>);"><?php echo $nom; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_vll" style="background-color: Chocolate;"';} ?> onClick="updateData('cat_<?php echo $cbl ?>','id_vll',<?php echo $vll_id.','.$id ?>);"><?php echo $nom; ?></li>
 <?php
 			$flg_enter = false;
 		}

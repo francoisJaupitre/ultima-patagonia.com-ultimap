@@ -40,7 +40,7 @@ if($nb_srv['total']>0) {
 <?php
 		if($aut['adm_cat']) {
 ?>
-			<td><input type="checkbox" autocomplete="off" <?php if($dt_srv['vrl']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_srv','vrl','1',<?php echo $dt_srv['id'] ?>)}else{maj('cat_srv','vrl','0',<?php echo $dt_srv['id'] ?>)};" /></td>
+			<td><input type="checkbox" autocomplete="off" <?php if($dt_srv['vrl']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_srv','vrl','1',<?php echo $dt_srv['id'] ?>)}else{updateData('cat_srv','vrl','0',<?php echo $dt_srv['id'] ?>)};" /></td>
 <?php
 		}
 ?>

@@ -41,7 +41,7 @@ if($nb_hbr['total']!=0) {
 		else{echo $txt->nodef->$id_lng;}
 ?>
 		</td>
-		<td class="td_cat"><input <?php if(!$aut['cat'] or $dt_hbr['opt']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_hbr['opt']) {echo('checked="checked"');} ?> onclick="maj('cat_prs_hbr','opt','1',<?php echo $id_prs_hbr.','.$id; ?>);" /></td>
+		<td class="td_cat"><input <?php if(!$aut['cat'] or $dt_hbr['opt']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_hbr['opt']) {echo('checked="checked"');} ?> onclick="updateData('cat_prs_hbr','opt','1',<?php echo $id_prs_hbr.','.$id; ?>);" /></td>
 <?php
 		if($aut['cat']) {
 ?>

@@ -11,7 +11,7 @@ if($cbl=='srv' and $id_frn) {
 	}
 	if(substr(upnoac($txt->nodef->$id_lng),0,strlen($src))==$src) {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_frn'.$id_bss.'" style="background-color: Chocolate;"';} ?> onClick="maj('cat_srv_trf_bss','id_frn','0',<?php echo $id_bss.','.$id ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_frn'.$id_bss.'" style="background-color: Chocolate;"';} ?> onClick="updateData('cat_srv_trf_bss','id_frn','0',<?php echo $id_bss.','.$id ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
 <?php
 		$flg_enter = false;
 	}
@@ -25,7 +25,7 @@ elseif($cbl=='hbr' and $id_frn) {
 	}
 	if(substr(upnoac($txt->unique->$id_lng),0,strlen($src))==$src) {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_frn" style="background-color: Chocolate;"';} ?> onClick="maj('cat_hbr','id_frn','0',<?php echo $id ?>)"><?php echo $txt->unique->$id_lng; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_frn" style="background-color: Chocolate;"';} ?> onClick="updateData('cat_hbr','id_frn','0',<?php echo $id ?>)"><?php echo $txt->unique->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 	}
@@ -36,13 +36,13 @@ while($dt_frn = ftc_ass($rq_frn)) {
 	if(substr(upnoac($dt_frn['nom']),0,strlen($src))==$src) {
 		if($cbl=='srv') {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_frn'.$id_bss.'" style="background-color: Chocolate;"';} ?> onClick="maj('cat_srv_trf_bss','id_frn',<?php echo $dt_frn['id'].','.$id_bss.','.$id ?>);"><?php echo $dt_frn['nom']; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_frn'.$id_bss.'" style="background-color: Chocolate;"';} ?> onClick="updateData('cat_srv_trf_bss','id_frn',<?php echo $dt_frn['id'].','.$id_bss.','.$id ?>);"><?php echo $dt_frn['nom']; ?></li>
 <?php
 			$flg_enter = false;
 		}
 		elseif($cbl=='hbr') {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_frn" style="background-color: Chocolate;"';} ?> onClick="maj('cat_hbr','id_frn',<?php echo $dt_frn['id'].','.$id ?>)"><?php echo $dt_frn['nom']; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_frn" style="background-color: Chocolate;"';} ?> onClick="updateData('cat_hbr','id_frn',<?php echo $dt_frn['id'].','.$id ?>)"><?php echo $dt_frn['nom']; ?></li>
 <?php
 			$flg_enter = false;
 		}

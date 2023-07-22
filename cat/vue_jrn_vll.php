@@ -4,7 +4,7 @@ $rq_vll = select("id,id_vll,ord","cat_jrn_vll","id_jrn",$id,"ord");
 while($dt_vll = ftc_ass($rq_vll)) {
 ?>
 	<tr>
-		<td><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $dt_vll['ord']; ?>" onchange="maj('cat_jrn_vll','ord',this.value,<?php echo $dt_vll['id'].','.$id ?>)" /></td>
+		<td><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $dt_vll['ord']; ?>" onchange="updateData('cat_jrn_vll','ord',this.value,<?php echo $dt_vll['id'].','.$id ?>)" /></td>
 		<td class="lnk_cat" onclick="window.parent.opn_frm('cat/ctr.php?cbl=vll&id=<?php echo $dt_vll['id_vll']; ?>');"><?php echo stripslashes($vll[$dt_vll['id_vll']]); ?></td>
 <?php
 	if($aut['cat']) {

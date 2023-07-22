@@ -680,4 +680,16 @@
 		<es>PUBLICACIÓN CANCELADA!&#xA;Es posible que esta URL ya esté en uso.</es>
 		<pt>PUBLICAÇÃO CANCELADA!&#xA;Este URL já pode estar em uso.</pt>
 	</web_err>
+	<err_ajt_prs>
+		<fr>Impossible de programmer une journée contenant plusieurs fois la même prestation !</fr>
+		<es>No es posible programar una jornada incluyendo varias veces la misma prestacion!</es>
+	</err_ajt_prs>
+	<act_map_vll>
+    <fr>Utiliser la position enregistrée de cette ville comme emplacement sur la carte ?</fr>
+    <es>¿Usar la posición guardada de esta ciudad como ubicación en el mapa?</es>
+  </act_map_vll>
+  <act_map>
+    <fr>Actualiser automatiquement l'emplacement sur la carte ?</fr>
+    <es>¿Actualizar automaticamente la ubicación en el mapa?</es>
+  </act_map>
 </textes>

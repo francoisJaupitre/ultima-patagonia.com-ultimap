@@ -1,0 +1,89 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+  <src_hbr0>
+    <fr>autre(s) nuitée(s) ?</fr>
+    <es>otra(s) noche(s)?</es>
+  </src_hbr0>
+  <src_hbr1>
+    <fr>Ajouter ce même hébergement pour la(les)</fr>
+    <es>¿Añadir este mismo alojamiento para la(s)</es>
+  </src_hbr1>
+  <src_hbr2>
+    <fr>Sélectionner ce même hébergement pour la(les)</fr>
+    <es>¿Seleccionar este mismo alojamiento para la(s)</es>
+  </src_hbr2>
+  <src_hbr3>
+    <fr>Supprimer ce même hébergement pour la(les)</fr>
+    <es>¿Suprimir este mismo alojamiento para la(s)</es>
+  </src_hbr3>
+  <src_hbr4>
+    <fr>autre(s) nuitée(s) ayant le même hébergment défini ?</fr>
+    <es>otra(s) noche(s) con el mismo alojamiento definido?</es>
+  </src_hbr4>
+  <src_hbr5>
+    <fr>Ajouter ce même hébergement en option pour la(les)</fr>
+    <es>¿Añadir este mismo alojamiento en opción para la(s)</es>
+  </src_hbr5>
+  <src_hbr6>
+    <fr>Appliquer ce statut au(x)</fr>
+    <es>¿Aplicar este estado a la(s)</es>
+  </src_hbr6>
+  <src_hbr7>
+    <fr>autre(s) nuitée(s) de cet hébergement pour ce groupe ?</fr>
+    <es>otra(s) noche(s) de este alojamiento para este grupo?</es>
+  </src_hbr7>
+  <src_hbr8>
+    <fr>Actualiser les tarifs de(s)</fr>
+    <es>¿Actualizar las tarifas de la(s)</es>
+  </src_hbr8>
+  <src_hbr9>
+    <fr>nuitée(s) de cet hébergement ?</fr>
+    <es>noche(s) de este alojamiento?</es>
+  </src_hbr9>
+  <src_hbr10>
+    <fr>Supprimer cet hébergement en option pour</fr>
+    <es>¿Borrar este alojamiento opciona para</es>
+  </src_hbr10>
+  <src_hbr11>
+    <fr>nuitée(s) ?</fr>
+    <es>noche(s)?</es>
+  </src_hbr11>
+  <src_srv0>
+    <fr>autres services de cette ville et catégorie ?</fr>
+    <es>otros servicios de esta ciudad y categoria?</es>
+  </src_srv0>
+  <src_srv1>
+    <fr>Sélectionner ce même fournisseur pour le(s)</fr>
+    <es>¿Seleccionar este mismo proveedor para el(los)</es>
+  </src_srv1>
+  <src_srv2>
+    <fr>Retirer ce même fournisseur pour le(s)</fr>
+    <es>¿Retirar este mismo proveedor para el(los)</es>
+  </src_srv2>
+  <src_frn0>
+    <fr>autres services de ce fournisseur ?</fr>
+    <es>otros servicios de este proveedor?</es>
+  </src_frn0>
+  <src_frn1>
+    <fr>Appliquer ce statut au(x)</fr>
+    <es>¿Aplicar este estado a el(los)</es>
+  </src_frn1>
+  <src_frn2>
+    <fr>services de ce fournisseur pour ce groupe ?</fr>
+    <es>servicios de este proveedor para este grupo?</es>
+  </src_frn2>
+  <src_frn3>
+    <fr>Actualiser les tarifs de(s)</fr>
+    <es>¿Actualizar las tarifas de la(s)</es>
+  </src_frn3>
+  <src_frn4>
+    <fr>service(s) de ce fournisseur ?</fr>
+    <es>servicio(s) de este proveedor?</es>
+  </src_frn4>
+  <cnf>
+    <fr>Circuit confirmé! Etes-vous sûr ?</fr>
+    <es>¡Circuito confirmado! ¿Está seguro?</es>
+  </cnf>
+
+</textes>

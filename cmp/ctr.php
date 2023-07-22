@@ -35,7 +35,7 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])){
 		<span id="vue_<?php echo $cbl ?>"><?php if(empty($dat_min) or $dat_min=='0000-00-00'){echo 'CONFIGUREZ DATE INITIALE DE FINANCES!';} else{include("vue.php");} ?></span>
 		<div id="cmp_<?php echo $cbl ?>"></div>
 		<script src='../resources/js/common.js'></script>
-		<script src='../resources/js/cmpLoad.js'></script>
+		<script src='../resources/js/cmpScript.js'></script>
 	</body>
 </html>
 <?php

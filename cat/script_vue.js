@@ -147,8 +147,8 @@ function vue_map_init(dir) {
 	google.maps.event.addListener(map, "click", function(event) {
 		var lat = event.latLng.lat();
 		var lon = event.latLng.lng();
-		maj("cat_"+cbl_cat,"lat",lat,id_cat);
-		maj("cat_"+cbl_cat,"lon",lon,id_cat);
+		updateData("cat_"+cbl_cat,"lat",lat,id_cat);
+		updateData("cat_"+cbl_cat,"lon",lon,id_cat);
 		vue_map_LatLng(marker,lat,lon);
 	});
 	if((cbl_cat=='vll' || cbl_cat=='lieu' || cbl_cat=='hbr') && lat==0 && lon==0) {
@@ -167,13 +167,13 @@ function vue_map_address(dir) {
 			var mapOptions = {zoom: 13, center: results[0].geometry.location, mapTypeId: google.maps.MapTypeId.ROADMAP}
 			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 			var marker = new google.maps.Marker({map: map, position: results[0].geometry.location, icon: '../prm/img/0-dot.png'});
-			maj("cat_"+cbl_cat,"lat",results[0].geometry.location.lat(),id_cat);
-			maj("cat_"+cbl_cat,"lon",results[0].geometry.location.lng(),id_cat);
+			updateData("cat_"+cbl_cat,"lat",results[0].geometry.location.lat(),id_cat);
+			updateData("cat_"+cbl_cat,"lon",results[0].geometry.location.lng(),id_cat);
 			google.maps.event.addListener(map, "click", function(event) {
 				var lat = event.latLng.lat();
 				var lon = event.latLng.lng();
-				maj("cat_"+cbl_cat,"lat",lat,id_cat);
-				maj("cat_"+cbl_cat,"lon",lon,id_cat);
+				updateData("cat_"+cbl_cat,"lat",lat,id_cat);
+				updateData("cat_"+cbl_cat,"lon",lon,id_cat);
 				vue_map_LatLng(marker,lat,lon);
 			});
 		}
@@ -191,8 +191,8 @@ function vue_map() {
 	google.maps.event.addListener(map, "click", function(event) {
 		var lat = event.latLng.lat();
 		var lon = event.latLng.lng();
-		maj("cat_"+cbl_cat,"lat",lat,id_cat);
-		maj("cat_"+cbl_cat,"lon",lon,id_cat);
+		updateData("cat_"+cbl_cat,"lat",lat,id_cat);
+		updateData("cat_"+cbl_cat,"lon",lon,id_cat);
 		vue_map_LatLng(marker,lat,lon);
 	});
 }
@@ -204,8 +204,8 @@ function vue_map_LatLng(marker,lat,lon) {
 		var lat = event.latLng.lat();
 		var lon = event.latLng.lng();
 		var zoom = map.getZoom();
-		maj("cat_"+cbl_cat,"lat",lat,id_cat);
-		maj("cat_"+cbl_cat,"lon",lon,id_cat);
+		updateData("cat_"+cbl_cat,"lat",lat,id_cat);
+		updateData("cat_"+cbl_cat,"lon",lon,id_cat);
 		vue_map_LatLng(marker,lat,lon);
 	});
 }

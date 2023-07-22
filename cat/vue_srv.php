@@ -34,10 +34,10 @@ if($aut['cat']) {
 						<span class="vdfp"><?php echo $txt->ctg->$id_lng.' :'; ?></span>
 						<span id="srv_ctg" class="srv_ctg<?php echo $id ?>"><?php include("vue_srv_ctg.php"); ?></span>
 						<span id="srv_lgg" style="display: inline-block"><?php include("vue_srv_lgg.php"); ?></span>
-						<input id="chk_res<?php echo $id ?>" class="cat_img chk_img" <?php if(!$aut['adm_res']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_srv['res']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_srv','res','1',<?php echo $id ?>)}else{maj('cat_srv','res','0',<?php echo $id ?>)};" />
+						<input id="chk_res<?php echo $id ?>" class="cat_img chk_img" <?php if(!$aut['adm_res']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_srv['res']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_srv','res','1',<?php echo $id ?>)}else{updateData('cat_srv','res','0',<?php echo $id ?>)};" />
 						<label class="dib" for="chk_res<?php echo $id ?>"><img src="../prm/img/res.png" /></label>
 					</div>
-					<div class="div_cat"><input type="text" id="nom_srv_<?php echo $id ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($dt_srv['nom']) ?>" onChange="maj('cat_srv','nom',this.value,<?php echo $id ?>);" /></div>
+					<div class="div_cat"><input type="text" id="nom_srv_<?php echo $id ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($dt_srv['nom']) ?>" onChange="updateData('cat_srv','nom',this.value,<?php echo $id ?>);" /></div>
 				</div>
 			</td>
 		</tr>
@@ -49,16 +49,16 @@ if($aut['cat']) {
 						<table>
 							<tr>
 								<td><?php echo $txt->infos->$id_lng.' :'; ?></td>
-								<td><input type="text" style="width: 100%; min-width: 200px;" maxlength="50" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_srv['info']) ?>" onChange="maj('cat_srv','info',this.value,<?php echo $id ?>)" /></td>
+								<td><input type="text" style="width: 100%; min-width: 200px;" maxlength="50" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_srv['info']) ?>" onChange="updateData('cat_srv','info',this.value,<?php echo $id ?>)" /></td>
 							</tr>
 							<tr>
 								<td><?php echo $txt->altdev->$id_lng.' :'; ?></td>
-								<td><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_srv['alerte']) ?>" onChange="maj('cat_srv','alerte',this.value,<?php echo $id ?>)" /></td>
+								<td><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_srv['alerte']) ?>" onChange="updateData('cat_srv','alerte',this.value,<?php echo $id ?>)" /></td>
 							</tr>
 						</table>
 					</div>
 					<div class="div_cat">
-						<textarea <?php if(!$aut['cat']) {echo ' readonly';} ?> onChange="maj('cat_srv','notes',this.value,<?php echo $id ?>)"><?php echo stripslashes($dt_srv['notes']) ?></textarea>
+						<textarea <?php if(!$aut['cat']) {echo ' readonly';} ?> onChange="updateData('cat_srv','notes',this.value,<?php echo $id ?>)"><?php echo stripslashes($dt_srv['notes']) ?></textarea>
 					</div>
 				</div>
 			</td>

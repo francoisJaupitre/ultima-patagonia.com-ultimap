@@ -28,7 +28,7 @@ if($aut['cat']) {
 									</ul>
 								</div>
 							</div>
-							<div class="div_cat"><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> id="nom_crc_<?php echo $id ?>" value="<?php echo stripslashes($dt_crc['nom']) ?>" onchange="maj('cat_crc','nom',this.value,<?php echo $id ?>);" /></div>
+							<div class="div_cat"><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> id="nom_crc_<?php echo $id ?>" value="<?php echo stripslashes($dt_crc['nom']) ?>" onchange="updateData('cat_crc','nom',this.value,<?php echo $id ?>);" /></div>
 						</td>
 					</tr>
 					<tr>
@@ -36,9 +36,9 @@ if($aut['cat']) {
 						<td class="w-100">
 							<table class="w-100">
 								<tr>
-									<td style="padding-right: 10px;"><input type="text" style="width: 100%; min-width: 200px;" maxlength="50" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_crc['info']) ?>" onChange="maj('cat_crc','info',this.value,<?php echo $id ?>)" /></td>
+									<td style="padding-right: 10px;"><input type="text" style="width: 100%; min-width: 200px;" maxlength="50" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_crc['info']) ?>" onChange="updateData('cat_crc','info',this.value,<?php echo $id ?>)" /></td>
 									<td class="fwb text-left"><?php echo $txt->altdev->$id_lng; ?></td>
-									<td style="padding-right: 10px;"><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_crc['alerte']) ?>" onChange="maj('cat_crc','alerte',this.value,<?php echo $id ?>)" /></td>
+									<td style="padding-right: 10px;"><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_crc['alerte']) ?>" onChange="updateData('cat_crc','alerte',this.value,<?php echo $id ?>)" /></td>
 								</tr>
 							</table>
 						</td>

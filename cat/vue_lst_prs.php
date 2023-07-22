@@ -10,7 +10,7 @@ while($dt_prs = ftc_ass($rq_prs)) {
 	<li <?php if($flg_enter) {echo 'id="enter_prs" style="background-color: Chocolate;"';} ?>>
 		<span class="dib" onClick="vue_cmd_ul('ul_prs<?php echo $dt_prs['id'] ?>','cmd_prs');"><?php echo stripslashes($dt_prs['nom']);  if(!empty($dt_prs['info'])) {echo stripslashes(' ['.$dt_prs['info'].']');} ?></span>
 		<ul id="ul_prs<?php echo $dt_prs['id'] ?>" class="cmd_prs" style="display: none">
-			<li onClick="ajt_prs(<?php echo $dt_prs['id'] ?>);document.getElementById('sel_prs').style.display='none';"><?php echo $txt->ajt->$id_lng ?></li>
+			<li onClick="insertPrs(<?php echo $dt_prs['id'] ?>);"><?php echo $txt->ajt->$id_lng ?></li>
 			<li onClick="window.parent.opn_frm('cat/ctr.php?cbl=prs&id=<?php echo $dt_prs['id'] ?>');"><?php echo $txt->opn->$id_lng ?></li>
 		</ul>
 	</li>

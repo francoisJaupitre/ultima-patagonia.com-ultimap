@@ -21,7 +21,7 @@ foreach($cfg_crr_nom as $crr_id => $nom) {
 		if($cbl!='clt') {$id_sup = $id_trf;}
 		else{$id_sup = $id;}
 ?>
-	<li <?php if($flg_enter) {echo $uid;} ?> onClick="maj('<?php echo $tab ?>','crr',<?php echo $crr_id.','.$id_sup ?>);"><?php echo $nom; ?></li>
+	<li <?php if($flg_enter) {echo $uid;} ?> onClick="updateData('<?php echo $tab ?>','crr',<?php echo $crr_id.','.$id_sup ?>);"><?php echo $nom; ?></li>
 <?php
 		$flg_enter = false;
 	}

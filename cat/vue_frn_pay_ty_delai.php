@@ -12,7 +12,7 @@ else{
 	foreach($ty_delai[$id_lng] as $id_ty_delai => $nom) {
 		if($id_ty_delai != $dt_pay['ty_delai']) {
 ?>
-		<li onClick="maj('cat_frn_pay','ty_delai',<?php echo $id_ty_delai.','.$dt_pay['id'] ?>);"><?php echo $nom; ?></li>
+		<li onClick="updateData('cat_frn_pay','ty_delai',<?php echo $id_ty_delai.','.$dt_pay['id'] ?>);"><?php echo $nom; ?></li>
 <?php
 		}
 	}

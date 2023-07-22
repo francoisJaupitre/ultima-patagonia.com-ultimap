@@ -61,7 +61,7 @@ function richTxtCheck()
 	if(typeof tinyMCE !== "undefined" && tinyMCE.activeEditor)
 	{
 		const rich = document.getElementsByClassName("rich")
-		for(const i = 0; i < rich.length; i++)
+		for(let i = 0; i < rich.length; i++)
 		{
 			if(tinyMCE.get(rich[i].id))
 			{

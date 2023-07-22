@@ -1,3 +1,14 @@
+var id_lng
+
+(function()
+{
+  id_lng = parent.document.getElementById('id_lng').value
+  act_tab()
+  init()
+})()
+
+/* asynchronous functions above */
+
 const mailFrn = (id_res_frn, id_dev_crc) => {
 	const xhr = new XMLHttpRequest
 	xhr.open("POST","../resources/php/mailFrn.php")
@@ -172,4 +183,80 @@ const sendMail = (devData) => {
 const closeEmail = () => {
 	document.getElementById("emailBox").remove()
 	unload('emailPopup')
+}
+
+const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, id_dev_prs, res, id_dev_crc) => {
+  load('OPE searchHbr')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/searchHbr.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, id_dev_prs, id_dev_crc, cnf, res }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response != 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        window.parent.box("?", rsp[0], () => {
+          for(let i = 1; i < rsp.length; i++)
+            maj('dev_hbr','res',res,rsp[i])
+        })
+      }
+      unload('OPE searchHbr')
+    }
+  }
+}
+
+const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc) => {
+  load('OPE searchSrv')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/searchSrv.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc, id_frn, cnf }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response != 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        if(id_dev_srv_vll > 0 && id_dev_srv > 0)
+        {
+          window.parent.box("?",rsp[0], () => {
+            for(let i = 1; i < rsp.length; i++)
+              maj('dev_srv','id_frn',id_frn,rsp[i])
+          })
+        }
+        else{
+          window.parent.box("?",rsp[0], () => {
+            for(let i = 1; i < rsp.length; i++)
+              maj('dev_srv','id_frn',0,rsp[i])
+          })
+        }
+      }
+      unload('OPE searchSrv')
+    }
+  }
+}
+
+const searchFrn = (res, id_frn, id_dev_srv, id_dev_crc) => {
+  load('OPE searchFrn')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/searchFrn.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ id_frn, id_dev_srv, id_dev_crc, res, cnf }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response != 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        window.parent.box("?",obj["src_frn1"][id_lng]+` ${rsp.length} `+obj["src_frn2"][id_lng], () => {   //remplazar par xml server side
+          for(let i = 0; i < rsp.length; i++)
+            maj('dev_srv','res',res,rsp[i])
+        })
+        window.parent.act_frm('frn_ope')
+      }
+      unload('OPE searchFrn')
+    }
+  }
 }

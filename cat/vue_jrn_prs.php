@@ -28,7 +28,7 @@ if($nb_prs['total']!=0) {
 			$id_prs_sel = $id_prs;
 ?>
 	<tr>
-		<td class="td_cat"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $ord_prs; ?>" onchange="maj('cat_jrn_prs','ord',this.value,<?php echo $id_jrn_prs.','.$id ?>)" /></td>
+		<td class="td_cat"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $ord_prs; ?>" onchange="updateData('cat_jrn_prs','ord',this.value,<?php echo $id_jrn_prs.','.$id ?>)" /></td>
 		<td>
 			<table class="w-100">
 <?php
@@ -51,7 +51,7 @@ if($nb_prs['total']!=0) {
 		echo ')';
 ?>
 								</td>
-								<td><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($opt_prs) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_jrn_prs','opt','1',<?php echo $id_jrn_prs.','.$id ?>)}else{maj('cat_jrn_prs','opt','0',<?php echo $id_jrn_prs.','.$id ?>)};" /></td>
+								<td><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($opt_prs) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_jrn_prs','opt','1',<?php echo $id_jrn_prs.','.$id ?>)}else{updateData('cat_jrn_prs','opt','0',<?php echo $id_jrn_prs.','.$id ?>)};" /></td>
 							</tr>
 						</table>
 					</td>

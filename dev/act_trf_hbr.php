@@ -66,7 +66,7 @@ if($dt_chm['rgm'] != $id_hbr_rgm){
 		upd_quo("dev_hbr",array("crr_rgm",'taux_rgm','sup_rgm'),array(1,$taux,$sup),$id_dev_hbr);
 	}
 }
-else{upd_quo('dev_hbr',array('crr_rgm','taux_rgm','sup_rgm','est_rgm','dt_min_rgm','dt_max_rgm','db_rck_rgm','db_net_rgm','sg_rck_rgm','sg_net_rgm','tp_rck_rgm','tp_net_rgm','qd_rck_rgm','qd_net_rgm'),array("NULL","NULL","NULL","NULL","0000-00-00","0000-00-00","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"),$id_dev_hbr);}
+else{upd_quo('dev_hbr',array('crr_rgm','taux_rgm','sup_rgm','est_rgm','dt_min_rgm','dt_max_rgm','db_rck_rgm','db_net_rgm','sg_rck_rgm','sg_net_rgm','tp_rck_rgm','tp_net_rgm','qd_rck_rgm','qd_net_rgm'),array(0,0,0,0,"0000-00-00","0000-00-00",0,0,0,0,0,0,0,0),$id_dev_hbr);}
 if(!$flg_trf or !$flg_rgm){
 	if(!$flg_trf){
 		$cur = $id_crr_chm;

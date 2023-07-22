@@ -32,14 +32,14 @@ if($aut['cat']) {
 									<span id="prs_ctg" style="display: inline-block"><?php include("vue_prs_ctg.php"); ?></span>
 									<span class="vatdib">
 										<strong><?php echo $txt->out->$id_lng; ?></strong>
-										<input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_prs['is_out']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_prs','is_out','1',<?php echo $id ?>)}else{maj('cat_prs','is_out','0',<?php echo $id ?>)};" />
+										<input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_prs['is_out']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_prs','is_out','1',<?php echo $id ?>)}else{updateData('cat_prs','is_out','0',<?php echo $id ?>)};" />
 										<strong><?php echo $txt->duree->$id_lng; ?></strong>
-										<input id="prs_duree<?php echo $id; ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> type="time" value="<?php if(!is_null($dt_prs['duree'])) {echo date("H:i", strtotime($dt_prs['duree']));} ?>" onblur="maj('cat_prs','duree',this.value,<?php echo $id ?>);" />
-										<input id="prs_jours<?php echo $id; ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $dt_prs['jours']; ?>" onchange="maj('cat_prs','jours',this.value,<?php echo $id ?>);" />
+										<input id="prs_duree<?php echo $id; ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> type="time" value="<?php if(!is_null($dt_prs['duree'])) {echo date("H:i", strtotime($dt_prs['duree']));} ?>" onblur="updateData('cat_prs','duree',this.value,<?php echo $id ?>);" />
+										<input id="prs_jours<?php echo $id; ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $dt_prs['jours']; ?>" onchange="updateData('cat_prs','jours',this.value,<?php echo $id ?>);" />
 										<strong><?php echo $txt->jours->$id_lng; ?></strong>
 									</span>
 								</div>
-								<div class="div_cat"><input type="text" id="nom_prs_<?php echo $id ?>" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['nom']) ?>" autocomplete="off" onchange="maj('cat_prs','nom',this.value,<?php echo $id ?>);" /></div>
+								<div class="div_cat"><input type="text" id="nom_prs_<?php echo $id ?>" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['nom']) ?>" autocomplete="off" onchange="updateData('cat_prs','nom',this.value,<?php echo $id ?>);" /></div>
 							</div>
 						</td>
 					</tr>
@@ -51,20 +51,20 @@ if($aut['cat']) {
 									<table>
 										<tr>
 											<td><?php echo $txt->ref->$id_lng.' :'; ?></td>
-											<td><input type="text" style="width: 100%;" <?php if(!$aut['adm_res']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['ref']) ?>" onChange="maj('cat_prs','ref',this.value,<?php echo $id ?>)" /></td>
+											<td><input type="text" style="width: 100%;" <?php if(!$aut['adm_res']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['ref']) ?>" onChange="updateData('cat_prs','ref',this.value,<?php echo $id ?>)" /></td>
 										</tr>
 										<tr>
 											<td><?php echo $txt->infos->$id_lng.' :'; ?></td>
-											<td><input type="text" style="width: 100%; min-width: 200px;" maxlength="50" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['info']) ?>" onChange="maj('cat_prs','info',this.value,<?php echo $id ?>)" /></td>
+											<td><input type="text" style="width: 100%; min-width: 200px;" maxlength="50" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['info']) ?>" onChange="updateData('cat_prs','info',this.value,<?php echo $id ?>)" /></td>
 										</tr>
 										<tr>
 											<td><?php echo $txt->altdev->$id_lng.' :'; ?></td>
-											<td><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['alerte']) ?>" onChange="maj('cat_prs','alerte',this.value,<?php echo $id ?>)" /></td>
+											<td><input type="text" style="width: 100%;" <?php if(!$aut['cat']) {echo ' disabled';} ?> value="<?php echo stripslashes($dt_prs['alerte']) ?>" onChange="updateData('cat_prs','alerte',this.value,<?php echo $id ?>)" /></td>
 										</tr>
 									</table>
 								</div>
 								<div class="div_cat">
-									<textarea <?php if(!$aut['cat']) {echo ' readonly';} ?> style="min-height: 75px;" onChange="maj('cat_prs','notes',this.value,<?php echo $id ?>)"><?php echo stripslashes($dt_prs['notes']) ?></textarea>
+									<textarea <?php if(!$aut['cat']) {echo ' readonly';} ?> style="min-height: 75px;" onChange="updateData('cat_prs','notes',this.value,<?php echo $id ?>)"><?php echo stripslashes($dt_prs['notes']) ?></textarea>
 								</div>
 							</div>
 						</td>

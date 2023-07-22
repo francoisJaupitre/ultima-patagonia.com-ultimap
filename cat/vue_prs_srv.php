@@ -21,7 +21,7 @@ if($nb_srv['total']!=0) {
 		</td>
 
 		<td class="td_cat">
-			<input id="chk_opt<?php echo $id_prs_srv ?>" class="cat_img chk_img" <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_srv['opt']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_prs_srv','opt','1',<?php echo $id_prs_srv ?>)}else{maj('cat_prs_srv','opt','0',<?php echo $id_prs_srv ?>)};" />
+			<input id="chk_opt<?php echo $id_prs_srv ?>" class="cat_img chk_img" <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_srv['opt']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_prs_srv','opt','1',<?php echo $id_prs_srv ?>)}else{updateData('cat_prs_srv','opt','0',<?php echo $id_prs_srv ?>)};" />
 			<label class="dib" for="chk_opt<?php echo $id_prs_srv ?>"><img src="../prm/img/opt.png" /></label>
 		</td>
 <?php

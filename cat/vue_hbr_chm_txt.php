@@ -24,7 +24,7 @@ if(num_rows($rq_txt) > 0) {
 		<td class="txt_lgg">
 			<table class="w-100">
 				<tr>
-					<td class="w-100"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> placeholder="<?php echo $txt->phtitre->$id_lng; ?>" style="width: 100%;" value="<?php echo stripslashes(htmlspecialchars($dt_txt['titre'])) ?>" onchange="maj('cat_hbr_chm_txt','titre',this.value,<?php echo $id_chm_txt.','.$id_chm ?>);" /></td>
+					<td class="w-100"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> placeholder="<?php echo $txt->phtitre->$id_lng; ?>" style="width: 100%;" value="<?php echo stripslashes(htmlspecialchars($dt_txt['titre'])) ?>" onchange="updateData('cat_hbr_chm_txt','titre',this.value,<?php echo $id_chm_txt.','.$id_chm ?>);" /></td>
 				</tr>
 			</table>
 		</td>

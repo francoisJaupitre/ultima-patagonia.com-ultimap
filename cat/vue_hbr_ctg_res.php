@@ -12,7 +12,7 @@ else{
 	foreach($ctg_res[$id_lng] as $res => $nom) {
 		if($res != $ctg_res_hbr) {
 ?>
-		<li onClick="maj('cat_hbr','ctg_res',<?php echo $res.','.$id ?>);"><?php echo $nom; ?></li>
+		<li onClick="updateData('cat_hbr','ctg_res',<?php echo $res.','.$id ?>);"><?php echo $nom; ?></li>
 <?php
 		}
 	}

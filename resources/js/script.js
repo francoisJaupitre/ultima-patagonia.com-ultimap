@@ -97,7 +97,7 @@ const addFrame = async function(link)
 			}else if(ref.substr(0,3) == 'cat')
       {
 				nom2 = nom.substr(nom.indexOf(":")+2, nom.indexOf("<span id=")-nom.indexOf(":")-2)
-        const obj = await getTxt("resources/json/frmTxt.json")
+        const obj = await getTxt("resources/json/tabText.json")
         nom1 = obj[nom.substr(0,nom.indexOf(":"))]
 			}
 			let htm = `<input type='checkbox' id='chk_${ref_id}' class='chk_tab'/><label for='chk_${ref_id}'><span id='ttr_${ref_id}' class='span_ttr'><span id='img_${ref_id}'><img style='vertical-align: middle;' src='prm/img/sup.png' /></span> ${nom1}</span></label><ul id='ul_ttr${ref_id}' class='ul_tab'></ul>`
@@ -175,6 +175,7 @@ const addFrame = async function(link)
 
 const closeFrame = async function(ref)
 {
+  console.log('closeFrame',ref)
   let frm_num = 0, frm_lst = []
 	if(document.getElementById(`li_${ref}`).parentNode.parentNode.classList[0] == "li_ttr")
   {
@@ -254,7 +255,7 @@ const closeFrame = async function(ref)
 			htm = nom2.substr(pos)+' '+nom1.substr(0,nom1.indexOf('<span id='))
 		}else if(ref.substr(0,3) == 'cat')
     {
-      const obj = await getTxt("resources/json/frmTxt.json")
+      const obj = await getTxt("resources/json/tabText.json")
       htm = obj[nom2.substr(pos+8,len-8)]+': '+nom1.substr(0,nom1.indexOf('<span id='))
 		}
 		const prevId = document.getElementById(`li_ttr${ref_id}`).previousSibling

@@ -16,7 +16,7 @@ while($dt_txt = ftc_ass($rq_txt)) {
 <?php
 	}
 ?>
-		<td class="txt_lgg"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> id="srv_txt_titre<?php echo $id_srv_txt ?>" placeholder="<?php echo $txt->phtitre->$id_lng; ?>" style="width: 100%;" value="<?php echo stripslashes(htmlspecialchars($dt_txt['titre'])) ?>" onchange="maj('cat_srv_txt','titre',this.value,<?php echo $id_srv_txt.','.$id ?>);" /></td>
+		<td class="txt_lgg"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> id="srv_txt_titre<?php echo $id_srv_txt ?>" placeholder="<?php echo $txt->phtitre->$id_lng; ?>" style="width: 100%;" value="<?php echo stripslashes(htmlspecialchars($dt_txt['titre'])) ?>" onchange="updateData('cat_srv_txt','titre',this.value,<?php echo $id_srv_txt.','.$id ?>);" /></td>
 	</tr>
 <?php
 }

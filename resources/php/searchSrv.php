@@ -4,26 +4,32 @@ $data = json_decode($request, true);
 if(isset($data['id_frn']))
 {
 	include("../../prm/fct.php");
+	include("../../prm/aut.php");
 	$id_dev_srv_ctg = $data['id_dev_srv_ctg'];
 	$id_dev_srv_vll = $data['id_dev_srv_vll'];
 	$id_dev_srv = $data['id_dev_srv'];
 	$id_dev_crc = $data['id_dev_crc'];
+	$cnf = $data['cnf'];
+	$txt = simplexml_load_file('../xml/searchTxt.xml');
 	if($id_dev_srv_ctg > 0 and $id_dev_srv_vll > 0){
+		$xmlTxt0 = 'src_srv1';
+		$xmlTxt1 = 'src_srv0';
 		$src = 0;
 	}else{
+		$xmlTxt2 = 'src_srv1';
+		$xmlTxt0 = 'src_srv0';
 		$dt_src_srv = ftc_ass(sel_quo("id_vll,ctg","dev_srv","id",$id_dev_srv));
 		$id_dev_srv_ctg = $dt_src_srv['ctg'];
 		$id_dev_srv_vll = $dt_src_srv['id_vll'];
 		$src = $data['id_frn'];
 	}
-	$dt_crc = ftc_ass(sel_quo("cnf","dev_crc","id",$id_dev_crc));
 	$rq_mdl = sel_quo("id","dev_mdl","id_crc",$id_dev_crc);
 	while($dt_mdl = ftc_ass($rq_mdl))
 	{
 		$rq_jrn = sel_quo("id","dev_jrn",array("opt","id_mdl"),array("1",$dt_mdl['id']));
 		while($dt_jrn = ftc_ass($rq_jrn))
 		{
-		if($dt_crc['cnf']>0)
+		if($cnf > 0)
 		{
 			$rq_prs = sel_quo("id","dev_prs",array("res","id_jrn"),array("1",$dt_jrn['id']));
 		}else{
@@ -42,7 +48,9 @@ if(isset($data['id_frn']))
 	}
 	if(isset($arr))
 	{
-		echo json_encode($arr);
+		$msg[] = $txt->$xmlTxt0->$id_lng." ".count($arr)." ".$txt->$xmlTxt1->$id_lng;
+		$qa = array_merge($msg,$arr);
+		echo json_encode($qa);
 	}else{
 		echo 0;
 	}

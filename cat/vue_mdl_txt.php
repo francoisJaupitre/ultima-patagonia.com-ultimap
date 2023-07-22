@@ -20,7 +20,7 @@ while($dt_txt = ftc_ass($rq_txt)) {
 		<td class="txt_lgg">
 			<table class="w-100">
 				<tr>
-					<td class="w-100"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> class="website" id="mdl_txt_titre<?php echo $id_mdl_txt ?>" placeholder="<?php echo $txt->phtitre->$id_lng; ?>" style="width: 100%;" value="<?php echo stripslashes(htmlspecialchars($dt_txt['titre'])) ?>" onchange="maj('cat_mdl_txt','titre',this.value,<?php echo $id_mdl_txt.','.$id ?>);" /></td>
+					<td class="w-100"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> class="website" id="mdl_txt_titre<?php echo $id_mdl_txt ?>" placeholder="<?php echo $txt->phtitre->$id_lng; ?>" style="width: 100%;" value="<?php echo stripslashes(htmlspecialchars($dt_txt['titre'])) ?>" onchange="updateData('cat_mdl_txt','titre',this.value,<?php echo $id_mdl_txt.','.$id ?>);" /></td>
 				</tr>
 <?php
 	if(!empty($dt_txt['web_uid'])) {

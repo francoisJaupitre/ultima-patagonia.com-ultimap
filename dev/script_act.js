@@ -402,7 +402,7 @@ function chk_cnf(){
 					if(xmlhttp.responseText=='nodat'){
 						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false); //remplazar por json
+						xhttp.open("GET","txt_js.xml",false); //remplazar por xml server side
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("chk_cnf");
@@ -413,7 +413,7 @@ function chk_cnf(){
 						var rsp = xmlhttp.responseText.split("|");
 						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false); //remplazar por json
+						xhttp.open("GET","txt_js.xml",false); //remplazar por xml server side
 						xhttp.send();
 						xmlDoc=xhttp.responseXML;
 						x=xmlDoc.getElementsByTagName("chk_cnf");

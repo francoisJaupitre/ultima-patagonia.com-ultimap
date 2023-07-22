@@ -57,15 +57,15 @@ else{
 ?>
 	<tr>
 		<td id="hbr_mail" class="fwb"><?php include("vue_hbr_mail.php"); ?></td>
-		<td><input type="text" <?php if(!$aut['cat'] or $id_frn) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($mel_hbr) ?>" onChange="maj('cat_hbr','mail',this.value,<?php echo $id ?>)" /></td>
+		<td><input type="text" <?php if(!$aut['cat'] or $id_frn) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($mel_hbr) ?>" onChange="updateData('cat_hbr','mail',this.value,<?php echo $id ?>)" /></td>
 	</tr>
 	<tr>
 		<td class="fwb"><?php echo $txt->contact->$id_lng.':'; ?></td>
-		<td><input type="text" <?php if(!$aut['cat'] or $id_frn) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($ctc_hbr) ?>" onChange="maj('cat_hbr','contact',this.value,<?php echo $id ?>)" /></td>
+		<td><input type="text" <?php if(!$aut['cat'] or $id_frn) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($ctc_hbr) ?>" onChange="updateData('cat_hbr','contact',this.value,<?php echo $id ?>)" /></td>
 	</tr>
 	<tr>
 		<td class="fwb"><?php echo $txt->telres->$id_lng.':'; ?></td>
-		<td><input type="text" <?php if(!$aut['cat'] or $id_frn) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($tel_hbr) ?>" onChange="maj('cat_hbr','tel_res',this.value,<?php echo $id ?>)" /></td>
+		<td><input type="text" <?php if(!$aut['cat'] or $id_frn) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($tel_hbr) ?>" onChange="updateData('cat_hbr','tel_res',this.value,<?php echo $id ?>)" /></td>
 	</tr>
 	<tr>
 		<td class="fwb"><?php echo $txt->res->$id_lng.':'; ?></td>
@@ -78,16 +78,16 @@ else{
 	<tr>
 		<td class="fwb"><?php echo $txt->infosbnq->$id_lng.':'; ?></td>
 		<td>
-			<textarea <?php if(!$aut['cat'] or $id_frn) {echo ' readonly';} ?> style="height: 100px;" onChange="maj('cat_hbr','bnq',this.value,<?php echo $id ?>)"><?php echo stripslashes($bnq_hbr) ?></textarea>
+			<textarea <?php if(!$aut['cat'] or $id_frn) {echo ' readonly';} ?> style="height: 100px;" onChange="updateData('cat_hbr','bnq',this.value,<?php echo $id ?>)"><?php echo stripslashes($bnq_hbr) ?></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td class="fwb"><?php echo $txt->frsfin->$id_lng.':'; ?></td>
 		<td>
 			<div class="wsn">
-				<input <?php if(!$aut['adm_fin'] or $id_frn) {echo ' disabled';} ?> id="hbr_frs<?php echo $id ?>" type="text" style="width: 35px;" value="<?php echo $frs_hbr*100 ?>" onChange="maj('cat_hbr','frs',this.value,<?php echo $id ?>)" />
+				<input <?php if(!$aut['adm_fin'] or $id_frn) {echo ' disabled';} ?> id="hbr_frs<?php echo $id ?>" type="text" style="width: 35px;" value="<?php echo $frs_hbr*100 ?>" onChange="updateData('cat_hbr','frs',this.value,<?php echo $id ?>)" />
 				%
-				<input type="text" <?php if(!$aut['adm_fin'] or $id_frn) {echo ' disabled';} ?> value="<?php echo stripslashes($notfrs_hbr) ?>" onChange="maj('cat_hbr','notfrs',this.value,<?php echo $id ?>)" />
+				<input type="text" <?php if(!$aut['adm_fin'] or $id_frn) {echo ' disabled';} ?> value="<?php echo stripslashes($notfrs_hbr) ?>" onChange="updateData('cat_hbr','notfrs',this.value,<?php echo $id ?>)" />
 			</div>
 		</td>
 	</tr>

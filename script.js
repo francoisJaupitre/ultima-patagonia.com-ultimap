@@ -115,36 +115,61 @@ function sup_frm_nobug(link,event){
 	event.stopPropagation();
 }
 
-function sup_frm(link,event){
-	var ref = escape(link);
-	if($("#"+ref).length){
-		var iframe = $("#"+ref)[0];
-		if(navonLine){
-			if(checkIframe){
-				if(typeof iframe.contentWindow.richTxtCheck === 'function'
-					&& !iframe.contentWindow.richTxtCheck()
-					&& !box("?","Some richtext has not been saved. Continue closure?",function(){closeFrame(ref)})
-				){
-					return;
+function sup_frm(link,event)
+{
+	var ref = escape(link)
+	if($("#"+ref).length)
+	{
+		var iframe = $("#"+ref)[0]
+		if(navonLine)
+		{
+			if(checkIframe)
+			{
+				if(typeof iframe.contentWindow.richTxtCheck === 'function' && !iframe.contentWindow.richTxtCheck() && !box("?","Some richtext has not been saved. Continue closure?", function()
+				{
+					closeFrame(ref)
+				}))
+				{
+					return
 				/*	"chk_frm": {
 				    "fr": "TEXTE(S) NON SAUVEGARDE(S)!&#xA;Quitter sans sauver?",
 				    "es": "TEXTO(S) SIN GUARDAR!&#xA;Cerrar sin guardar?"
 				  }				*/
 				}
-				if(typeof iframe.contentWindow.upd != 'undefined' && iframe.contentWindow.upd>0){setTimeout(function(){sup_frm(ref,event);return;},50);}
-				else{setTimeout(closeFrame(ref),50);return;}
+				if(typeof iframe.contentWindow.upd != 'undefined' && iframe.contentWindow.upd>0)
+				{
+					setTimeout(()=>{
+						sup_frm(ref,event)
+						return
+					}, 50)
+				}else{
+					setTimeout(()=>{
+						closeFrame(ref)
+						return
+					}, 50)
+				}
+			}else{
+				alert("fermer avec erreur")
+				closeFrame(ref)
 			}
-			else{
-				alert("fermer avec erreur");
-				closeFrame(ref);
-			}
-		}
-		else{
-			var msg = "Richtext not saved will be lost if you close now!<br/>If you got a red message, you should wait for being online and make a new change on the same field to update it.<br/>Close anyway?";
-			box("You are offline!",msg,function(){closeFrame(ref);},function(){if(typeof iframe.contentWindow.upd != 'undefined'){iframe.contentWindow.upd = 0;}});
+		}else{
+			var msg = "Richtext not saved will be lost if you close now!<br/>If you got a red message, you should wait for being online and make a new change on the same field to update it.<br/>Close anyway?"
+			box("You are offline!",msg,function()
+			{
+				closeFrame(ref)
+			}, function()
+			{
+				if(typeof iframe.contentWindow.upd != 'undefined')
+				{
+					iframe.contentWindow.upd = 0
+				}
+			})
 		}
 	}
-	if(typeof event !== 'undefined') {event.stopPropagation();}
+	if(typeof event !== 'undefined')
+	{
+		event.stopPropagation()
+	}
 }
 
 function act_frm(cbl){

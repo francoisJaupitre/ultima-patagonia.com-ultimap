@@ -116,74 +116,6 @@ function ajt_jrn_opt(id_jrn,ord) {
 	xmlhttp.send("id_mdl="+id_cat+"&id_jrn="+id_jrn+"&ord="+ord);
 }
 
-function ajt_prs(id_prs) {
-	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('CAT');
-	xmlhttp.onreadystatechange=function() {
-		if(xmlhttp.readyState==4) {
-			if(xmlhttp.status==200) {
-				if(xmlhttp.responseText!=0) {
-					vue_elem('jrn_prs',id_cat);
-					window.parent.act_frm('up_jrn');
-					//window.parent.act_frm('dt_jrn');??
-				}
-				else{
-					if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
-					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false); //remplazar por json
-					xhttp.send();
-					xmlDoc=xhttp.responseXML;
-					x=xmlDoc.getElementsByTagName("ajt_prs");
-					y=x[0].getElementsByTagName(id_lng);
-					alt(y[0].childNodes[0].nodeValue);
-				}
-			}
-			else if(xmlhttp.status==408) {ajt_prs(id_prs);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_PRS"+xmlhttp.statusText+" </span>";}
-			unload('CAT');
-		}
-	}
-	xmlhttp.open("POST","ajt_prs.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_jrn="+id_cat+"&id_prs="+id_prs);
-}
-
-function ajt_prs_opt(id_prs,ord) {
-	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('CAT ajt_prs_opt');
-	xmlhttp.onreadystatechange=function() {
-		if(xmlhttp.readyState==4) {
-			if(xmlhttp.status==200) {
-				if(xmlhttp.responseText!=0) {
-					vue_elem('jrn_prs',id_cat);
-					//	window.parent.act_frm('dt_jrn');??
-					window.parent.act_frm('up_jrn');
-					window.parent.act_frm('ajt_prs_opt');
-					window.parent.act_frm('prs_opt')
-				}
-				else{
-					if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
-					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false); //remplazar por json
-					xhttp.send();
-					xmlDoc=xhttp.responseXML;
-					x=xmlDoc.getElementsByTagName("ajt_prs");
-					y=x[0].getElementsByTagName(id_lng);
-					alt(y[0].childNodes[0].nodeValue);
-				}
-			}
-			else if(xmlhttp.status==408) {ajt_prs_opt(id_prs,ord);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_PRS_OPT"+xmlhttp.statusText+" </span>";}
-			unload('CAT ajt_prs_opt');
-		}
-	}
-	xmlhttp.open("POST","ajt_prs_opt.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_jrn="+id_cat+"&id_prs="+id_prs+"&ord="+ord);
-}
-
 function ajt_srv(id_srv) {
 	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
@@ -421,32 +353,4 @@ function ajt_frn_pay() {
 	xmlhttp.open("POST","ajt_frn_pay.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("id_frn="+id_cat);
-}
-
-function dup(cbl,id) {
-	if(window.XMLHttpRequest) {xhttp=new XMLHttpRequest();}
-	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false); //remplazar por json
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("dup_"+cbl);
-	y=x[0].getElementsByTagName(id_lng);
-	if(window.confirm(y[0].childNodes[0].nodeValue)==false) {return;}
-	if(window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('CAT');
-	xmlhttp.onreadystatechange=function() {
-		if(xmlhttp.readyState==4) {
-			if(xmlhttp.status==200) {
-				if(cbl=='chm') {vue_elem('hbr_chm',id_cat);/*window.parent.act_frm('hbr');*/}
-				else if(cbl=='trf') {vue_elem('dt_srv',id_cat);}
-			}
-			else if(xmlhttp.status==408) {dup(cbl,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR DUP "+xmlhttp.statusText+" </span>";}
-			unload('CAT');
-		}
-	}
-	xmlhttp.open("POST","dup.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("cbl="+cbl+"&id="+id);
 }

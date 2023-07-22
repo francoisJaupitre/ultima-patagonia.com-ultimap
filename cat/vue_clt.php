@@ -12,7 +12,7 @@ $dt_clt = ftc_ass(select("*","cat_clt","id",$id));
 					<tr class="lsb">
 						<td class="fwb"><?php echo $txt->clt->$id_lng.' :'; ?></td>
 						<td>
-							<div class="div_cat"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($dt_clt['nom']) ?>" onChange="maj('cat_clt','nom',this.value,<?php echo $id ?>);" /></div>
+							<div class="div_cat"><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 100%;" value="<?php echo stripslashes($dt_clt['nom']) ?>" onChange="updateData('cat_clt','nom',this.value,<?php echo $id ?>);" /></div>
 						</td>
 					</tr>
 					<tr>
@@ -21,7 +21,7 @@ $dt_clt = ftc_ass(select("*","cat_clt","id",$id));
 					</tr>
 					<tr class="tht">
 						<td class="fwb"><?php echo $txt->tel->$id_lng.' :'; ?></td>
-						<td><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 300px;" value="<?php echo stripslashes($dt_clt['tel']) ?>" onChange="maj('cat_clt','tel',this.value,<?php echo $id ?>)" /></td>
+						<td><input type="text" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 300px;" value="<?php echo stripslashes($dt_clt['tel']) ?>" onChange="updateData('cat_clt','tel',this.value,<?php echo $id ?>)" /></td>
 					</tr>
 					<tr>
 						<td class="fwb"><?php echo $txt->crr->$id_lng.' :'; ?></td>
@@ -29,7 +29,7 @@ $dt_clt = ftc_ass(select("*","cat_clt","id",$id));
 					</tr>
 					<tr>
 						<td class="fwb"><?php echo $txt->infos->$id_lng.' :'; ?></td>
-						<td><textarea <?php if(!$aut['cat']) {echo ' readonly';} ?> style="width: 300px;" onChange="maj('cat_clt','info',this.value,<?php echo $id ?>)"><?php echo stripslashes($dt_clt['info']) ?></textarea></td>
+						<td><textarea <?php if(!$aut['cat']) {echo ' readonly';} ?> style="width: 300px;" onChange="updateData('cat_clt','info',this.value,<?php echo $id ?>)"><?php echo stripslashes($dt_clt['info']) ?></textarea></td>
 					</tr>
 				</table>
 			</td>

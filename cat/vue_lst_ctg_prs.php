@@ -18,7 +18,7 @@ if($cbl!='prs') {
 }
 elseif($dt_prs['ctg']>0 and substr(upnoac($txt->nodef->$id_lng),0,strlen($src))==$src) {
 ?>
-	<li id="enter_ctg_prs" style="background-color: Chocolate;" onClick="maj('cat_prs','ctg','0',<?php echo $id ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
+	<li id="enter_ctg_prs" style="background-color: Chocolate;" onClick="updateData('cat_prs','ctg','0',<?php echo $id ?>);"><?php echo $txt->nodef->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 }
@@ -32,7 +32,7 @@ foreach($ctg_prs[$id_lng] as $ctg_id => $nom) {
 		}
 		elseif($cbl=='prs' and $ctg_id != $dt_prs['ctg']) {
 ?>
-	<li <?php if($flg_enter) {echo 'id="enter_ctg_prs" style="background-color: Chocolate;"';} ?>  onClick="maj('cat_prs','ctg',<?php echo $ctg_id.','.$id ?>);"><?php echo $nom; ?></li>
+	<li <?php if($flg_enter) {echo 'id="enter_ctg_prs" style="background-color: Chocolate;"';} ?>  onClick="updateData('cat_prs','ctg',<?php echo $ctg_id.','.$id ?>);"><?php echo $nom; ?></li>
 <?php
 			$flg_enter = false;
 		}

@@ -21,7 +21,7 @@ if($nb_mdl['total']!=0) {
 		$dt_mdl = ftc_ass(select("nom,info","cat_mdl","id",$id_mdl));
 ?>
 	<tr>
-		<td class="td_cat dsg"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $ord_mdl; ?>" onchange="maj('cat_crc_mdl','ord',this.value,<?php echo $id_crc_mdl.','.$id ?>);" /></td>
+		<td class="td_cat dsg"><input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="number" class="w25" value="<?php echo $ord_mdl; ?>" onchange="updateData('cat_crc_mdl','ord',this.value,<?php echo $id_crc_mdl.','.$id ?>);" /></td>
 		<td width="20%" class="td_cat dsg">
 			<span class="lnk_cat" onclick="window.parent.opn_frm('cat/ctr.php?cbl=mdl&id=<?php echo $id_mdl ?>');"><?php echo stripslashes($dt_mdl['nom']); if(!empty($dt_mdl['info'])) {echo stripslashes(' ['.$dt_mdl['info'].']');} ?></span>
 			<br/>
@@ -86,7 +86,7 @@ if($nb_mdl['total']!=0) {
 						}
 						else{$maj_sel_mdl_jrn[] = $id_jrn;}
 ?>
-						<input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if (isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {echo('checked="checked"');} ?> onclick="maj('cat_crc_mdl','sel_mdl_jrn','<?php echo implode(",",$maj_sel_mdl_jrn); ?>',<?php echo $id_crc_mdl.','.$id ?>);" />
+						<input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if (isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {echo('checked="checked"');} ?> onclick="updateData('cat_crc_mdl','sel_mdl_jrn','<?php echo implode(",",$maj_sel_mdl_jrn); ?>',<?php echo $id_crc_mdl.','.$id ?>);" />
 <?php
 					}
 ?>
@@ -128,7 +128,7 @@ if($nb_mdl['total']!=0) {
 </table>
 <div class="dsg">
 	<strong><?php echo $txt->fus->$id_lng; ?></strong>
-	<input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_crc_mdl['fus']) {echo('checked="checked"');} ?> onclick="if(this.checked) {maj('cat_crc_mdl','fus','1',<?php echo $id_crc_mdl ?>,<?php echo $id ?>)}else{maj('cat_crc_mdl','fus','0',<?php echo $id_crc_mdl ?>,<?php echo $id ?>)};" />
+	<input <?php if(!$aut['cat']) {echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($dt_crc_mdl['fus']) {echo('checked="checked"');} ?> onclick="if(this.checked) {updateData('cat_crc_mdl','fus','1',<?php echo $id_crc_mdl ?>,<?php echo $id ?>)}else{updateData('cat_crc_mdl','fus','0',<?php echo $id_crc_mdl ?>,<?php echo $id ?>)};" />
 </div>
 <table class="w-100">
 <?php
