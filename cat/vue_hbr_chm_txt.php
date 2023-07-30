@@ -15,7 +15,7 @@ if(num_rows($rq_txt) > 0) {
 <?php
 		if($aut['cat']) {
 ?>
-		<td class="sup_lgg" onclick="sup_lgg(<?php echo $id_chm_txt ?>,'chm',<?php echo $id_chm ?>);">
+		<td class="remove-chm-lgg" id="<?php echo $id_chm_txt.'_'.$id_chm ?>">
 			<img src="../prm/img/sup.png" />
 		</td>
 <?php

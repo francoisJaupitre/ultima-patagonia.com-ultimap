@@ -57,6 +57,18 @@ function vue_elem(obj,id,col) {
 					if(obj.substr(4,3)=='txt') {
 						flg_rch = true;
 						$('.rich').css('pointer-events','auto');
+						const tdLgg = document.getElementsByClassName("remove-lgg")
+						for(let item of tdLgg)
+							item.onclick = () => {
+								removeLgg(item.id)
+							}
+					}
+					else if(obj == 'hbr_chm_txt'){
+						const tdChm = document.getElementsByClassName("remove-chm-lgg")
+						for(let item of tdChm)
+							item.onclick = () => {
+								removeChmLgg(item.id[0], item.id[1])
+							}
 					}
 					else if(obj=='crc_rgn') {vue_cmd('sel_mdl');}
 					else if(obj=='mdl_vll') {vue_cmd('sel_jrn');}

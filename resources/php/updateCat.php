@@ -54,14 +54,14 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			if($tab=="cat_crc_mdl")
 			{
 				$id_crc = $data["id_sup"];
-				$dt = ftc_ass(select("ord","cat_crc_mdl","id",$id));
+				$dt = ftc_ass(sel_quo("ord","cat_crc_mdl","id",$id));
 				$ord_init = $dt['ord'];
-				$max = ftc_num(select("MAX(ord)","cat_crc_mdl","id_crc",$id_crc));
+				$max = ftc_num(sel_quo("MAX(ord)","cat_crc_mdl","id_crc",$id_crc));
 				if($val > $max[0])
 				{
 					$flg_col = false;
 				}else{
-					$rq_crc_mdl = select("id,ord","cat_crc_mdl","id_crc",$id_crc);
+					$rq_crc_mdl = sel_quo("id,ord","cat_crc_mdl","id_crc",$id_crc);
 					while($dt_crc_mdl = ftc_ass($rq_crc_mdl))
 					{
 						if($dt_crc_mdl['ord'] > $ord_init and $dt_crc_mdl['ord'] <= $val)
@@ -76,14 +76,14 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			}elseif($tab=="cat_mdl_jrn")
 			{
 				$id_mdl = $data["id_sup"];
-				$dt = ftc_ass(select("ord","cat_mdl_jrn","id",$id));
+				$dt = ftc_ass(sel_quo("ord","cat_mdl_jrn","id",$id));
 				$ord_init = $dt['ord'];
-				$max = ftc_num(select("MAX(ord)","cat_mdl_jrn","id_mdl",$id_mdl));
+				$max = ftc_num(sel_quo("MAX(ord)","cat_mdl_jrn","id_mdl",$id_mdl));
 				if($val>$max[0])
 				{
 					$flg_col = false;
 				}else{
-					$rq_mdl_jrn = select("id,ord","cat_mdl_jrn","id_mdl",$id_mdl);
+					$rq_mdl_jrn = sel_quo("id,ord","cat_mdl_jrn","id_mdl",$id_mdl);
 					while($dt_mdl_jrn = ftc_ass($rq_mdl_jrn))
 					{
 						if($dt_mdl_jrn['ord'] > $ord_init and $dt_mdl_jrn['ord'] <= $val)
@@ -98,14 +98,14 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			}elseif($tab=="cat_jrn_prs")
 			{
 				$id_jrn = $data["id_sup"];
-				$dt = ftc_ass(select("ord","cat_jrn_prs","id",$id));
+				$dt = ftc_ass(sel_quo("ord","cat_jrn_prs","id",$id));
 				$ord_init = $dt['ord'];
-				$max = ftc_num(select("MAX(ord)","cat_jrn_prs","id_jrn",$id_jrn));
+				$max = ftc_num(sel_quo("MAX(ord)","cat_jrn_prs","id_jrn",$id_jrn));
 				if($val>$max[0])
 				{
 					$flg_col = false;
 				}else{
-					$rq_jrn_prs = select("id,ord","cat_jrn_prs","id_jrn",$id_jrn);
+					$rq_jrn_prs = sel_quo("id,ord","cat_jrn_prs","id_jrn",$id_jrn);
 					while($dt_jrn_prs = ftc_ass($rq_jrn_prs))
 					{
 						if($dt_jrn_prs['ord'] > $ord_init and $dt_jrn_prs['ord'] <= $val)
@@ -123,14 +123,14 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			}elseif($tab=="cat_jrn_vll")
 			{
 				$id_jrn = $data["id_sup"];
-				$dt = ftc_ass(select("ord","cat_jrn_vll","id",$id));
+				$dt = ftc_ass(sel_quo("ord","cat_jrn_vll","id",$id));
 				$ord_init = $dt['ord'];
-				$max = ftc_num(select("MAX(ord)","cat_jrn_vll","id_jrn",$id_jrn));
+				$max = ftc_num(sel_quo("MAX(ord)","cat_jrn_vll","id_jrn",$id_jrn));
 				if($val>$max[0])
 				{
 					$flg_col = false;
 				}else{
-					$rq_jrn_vll = select("id,ord","cat_jrn_vll","id_jrn",$id_jrn);
+					$rq_jrn_vll = sel_quo("id,ord","cat_jrn_vll","id_jrn",$id_jrn);
 					while($dt_jrn_vll = ftc_ass($rq_jrn_vll))
 					{
 						if($dt_jrn_vll['ord'] > $ord_init and $dt_jrn_vll['ord'] <= $val)
@@ -145,14 +145,14 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			}elseif($tab=="cat_jrn_lieu")
 			{
 				$id_jrn = $data["id_sup"];
-				$dt = ftc_ass(select("ord","cat_jrn_lieu","id",$id));
+				$dt = ftc_ass(sel_quo("ord","cat_jrn_lieu","id",$id));
 				$ord_init = $dt['ord'];
-				$max = ftc_num(select("MAX(ord)","cat_jrn_lieu","id_jrn",$id_jrn));
+				$max = ftc_num(sel_quo("MAX(ord)","cat_jrn_lieu","id_jrn",$id_jrn));
 				if($val>$max[0])
 				{
 					$flg_col = false;
 				}else{
-					$rq_jrn_lieu = select("id,ord","cat_jrn_lieu","id_jrn",$id_jrn);
+					$rq_jrn_lieu = sel_quo("id,ord","cat_jrn_lieu","id_jrn",$id_jrn);
 					while($dt_jrn_lieu = ftc_ass($rq_jrn_lieu))
 					{
 						if($dt_jrn_lieu['ord'] > $ord_init and $dt_jrn_lieu['ord'] <= $val)
@@ -167,14 +167,14 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			}elseif($tab=="cat_prs_lieu")
 			{
 				$id_prs = $data["id_sup"];
-				$dt = ftc_ass(select("ord","cat_prs_lieu","id",$id));
+				$dt = ftc_ass(sel_quo("ord","cat_prs_lieu","id",$id));
 				$ord_init = $dt['ord'];
-				$max = ftc_num(select("MAX(ord)","cat_prs_lieu","id_prs",$id_prs));
+				$max = ftc_num(sel_quo("MAX(ord)","cat_prs_lieu","id_prs",$id_prs));
 				if($val>$max[0])
 				{
 					$flg_col = false;
 				}else{
-					$rq_prs_lieu = select("id,ord","cat_prs_lieu","id_prs",$id_prs);
+					$rq_prs_lieu = sel_quo("id,ord","cat_prs_lieu","id_prs",$id_prs);
 					while($dt_prs_lieu = ftc_ass($rq_prs_lieu))
 					{
 						if($dt_prs_lieu['ord'] > $ord_init and $dt_prs_lieu['ord'] <= $val)
@@ -225,11 +225,11 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		include("../cfg/crr.php");
 		if($tab=='dev_srv_pay')
 		{
-			$dt_pay = ftc_ass(select("crr","dev_srv_pay","id",$id));
+			$dt_pay = ftc_ass(sel_quo("crr","dev_srv_pay","id",$id));
 			upd_quo("dev_srv_pay",array("taux","sup"),array($cfg_crr_txf[$dt_pay['crr']],$cfg_crr_sp[$dt_pay['crr']]),$id);
 		}elseif($tab=='dev_hbr_pay')
 		{
-			$dt_pay = ftc_ass(select("crr","dev_hbr_pay","id",$id));
+			$dt_pay = ftc_ass(sel_quo("crr","dev_hbr_pay","id",$id));
 			upd_quo("dev_hbr_pay",array("taux","sup"),array($cfg_crr_txf[$dt_pay['crr']],$cfg_crr_sp[$dt_pay['crr']]),$id);
 		}
 	}elseif($col=='dsc')
@@ -238,7 +238,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		$val = str_replace('"',"'",$val);
 	}elseif($col=='web_uid')
 	{
-		$dt_web = ftc_ass(select('id',$tab,$col,$val));
+		$dt_web = ftc_ass(sel_quo('id',$tab,$col,$val));
 		if($dt_web['id']>0)
 		{
 			echo $txt->errwebuid->$id_lng;
@@ -247,29 +247,29 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 	}
 	if($tab=='cat_mdl_jrn' and $col=='opt')
 	{
-		$dt_ord_jrn = ftc_ass(select('ord','cat_mdl_jrn','id',$id));
-		$dt_jrn = ftc_ass(select('id','cat_mdl_jrn','id_mdl = '.$data["id_sup"].' and opt = 1 and ord',$dt_ord_jrn['ord']));
+		$dt_ord_jrn = ftc_ass(sel_quo('ord','cat_mdl_jrn','id',$id));
+		$dt_jrn = ftc_ass(sel_quo('id','cat_mdl_jrn',array('id_mdl', 'opt', 'ord'), array($data["id_sup"], 1, $dt_ord_jrn['ord'])));
 		upd_quo('cat_mdl_jrn','opt','0',$dt_jrn['id']);
 	}elseif($tab=='cat_jrn_prs' and $col=='opt')
 	{
-		$dt_ord_prs = ftc_ass(select('ord','cat_jrn_prs','id',$id));
-		$dt_prs = ftc_ass(select('id','cat_jrn_prs','id_jrn = '.$data["id_sup"].' and opt = 1 and ord',$dt_ord_prs['ord']));
+		$dt_ord_prs = ftc_ass(sel_quo('ord','cat_jrn_prs','id',$id));
+		$dt_prs = ftc_ass(sel_quo('id','cat_jrn_prs',array('id_jrn', 'opt', 'ord'), array($data["id_sup"], 1, $dt_ord_prs['ord'])));
 		upd_quo('cat_jrn_prs','opt','0',$dt_prs['id']);
 	}elseif($tab=='cat_prs_hbr' and $col=='opt')
 	{
-		$dt_hbr = ftc_ass(select('id','cat_prs_hbr','opt = 1 and id_prs',$data["id_sup"]));
+		$dt_hbr = ftc_ass(sel_quo('id','cat_prs_hbr',array('opt','id_prs'), array(1, $data["id_sup"])));
 		upd_quo('cat_prs_hbr','opt','0',$dt_hbr['id']);
 	}elseif($tab=='cat_srv')
 	{
 		if($col=='id_vll')
 		{
-			$rq_srv_trf = select("cat_srv_trf_bss.id,id_frn","cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf","id_srv",$id);
+			$rq_srv_trf = sel_quo("cat_srv_trf_bss.id,id_frn","cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf","id_srv",$id);
 			while($dt_srv_trf = ftc_ass($rq_srv_trf))
 			{
 				if($dt_srv_trf['id_frn']!=0)
 				{
 					$flg_frn_vll = true;
-					$rq_frn_vll = select("id_vll","cat_frn_vll","id_frn",$dt_srv_trf['id_frn']);
+					$rq_frn_vll = sel_quo("id_vll","cat_frn_vll","id_frn",$dt_srv_trf['id_frn']);
 					while($dt_frn_vll = ftc_ass($rq_frn_vll))
 					{
 						if($dt_frn_vll['id_vll']==$val) {
@@ -284,13 +284,13 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 		if($col=='ctg')
 		{
-			$rq_srv_trf = select("cat_srv_trf_bss.id,id_frn","cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf","id_srv",$id);
+			$rq_srv_trf = sel_quo("cat_srv_trf_bss.id,id_frn","cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf","id_srv",$id);
 			while($dt_srv_trf = ftc_ass($rq_srv_trf))
 			{
 				if($dt_srv_trf['id_frn']!=0)
 				{
 					$flg_frn_ctg_srv = true;
-					$rq_frn_ctg_srv = select("ctg_srv","cat_frn_ctg_srv","id_frn",$dt_srv_trf['id_frn']);
+					$rq_frn_ctg_srv = sel_quo("ctg_srv","cat_frn_ctg_srv","id_frn",$dt_srv_trf['id_frn']);
 					while($dt_frn_ctg_srv = ftc_ass($rq_frn_ctg_srv))
 					{
 						if($dt_frn_ctg_srv['ctg_srv']==$val)
@@ -307,8 +307,8 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 	}elseif($tab=='cat_srv_trf' and $col=='def')
 	{
-		$dt_srv = ftc_ass(select('id_srv','cat_srv_trf','id',$id));
-		$rq_trf = select('id','cat_srv_trf','id_srv',$dt_srv['id_srv']);
+		$dt_srv = ftc_ass(sel_quo('id_srv','cat_srv_trf','id',$id));
+		$rq_trf = sel_quo('id','cat_srv_trf','id_srv',$dt_srv['id_srv']);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			if($id != $dt_trf['id'])
@@ -319,13 +319,13 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 	}elseif($tab=='cat_srv_trf_bss' and ($col=='bs_min' or $col=='bs_max'))
 	{
 		$id_trf = $data["id_sup"];
-		$dt_trf = ftc_ass(select('bs_min,bs_max','cat_srv_trf_bss','id',$id));
+		$dt_trf = ftc_ass(sel_quo('bs_min, bs_max','cat_srv_trf_bss','id',$id));
 		if(($col=='bs_max' and $dt_trf['bs_min'] > $val and $val !='0') or ($col=='bs_min' and $dt_trf['bs_max'] < $val and $dt_trf['bs_max'] != '0' and $val !='0'))
 		{
 			echo $txt->errbss->$id_lng;
 			return;
 		}
-		$rq_bss = select('id,bs_min,bs_max','cat_srv_trf_bss','id!='.$id.' AND id_trf',$id_trf);
+		$rq_bss = sel_whe('id, bs_min, bs_max', 'cat_srv_trf_bss', 'id!='.$id.' AND id_trf = '.$id_trf);
 		while($dt_bss = ftc_ass($rq_bss))
 		{
 			if($val >= $dt_bss['bs_min'] and $dt_bss['bs_min']!=0 and $val <= $dt_bss['bs_max'] and $dt_bss['bs_max']!=0 and $val != 0)
@@ -343,7 +343,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 	}elseif($tab=='cat_srv_trf_ssn' and ($col=="dt_min" || $col=="dt_max"))
 	{
-		$dt_srv = ftc_ass(select('id_srv,dt_min,dt_max','cat_srv_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf','cat_srv_trf_ssn.id',$id));
+		$dt_srv = ftc_ass(sel_quo('id_srv,dt_min,dt_max','cat_srv_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf','cat_srv_trf_ssn.id',$id));
 		if(($col=='dt_max' and strtotime($dt_srv['dt_min']) > strtotime($val) and $val !='0000-00-00' and !$flg_y) or ($col=='dt_min' and strtotime($dt_srv['dt_max']) < strtotime($val) and $dt_srv['dt_max'] != '0000-00-00'))
 		{
 			echo $txt->errdat->$id_lng;
@@ -354,7 +354,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			$y=$dt[0]+1;
 			$val = $y.'-'.$dt[1].'-'.$dt[2];
 		}
-		$rq_trf = select('cat_srv_trf_ssn.id,cat_srv_trf_ssn.dt_min,cat_srv_trf_ssn.dt_max','cat_srv_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf','cat_srv_trf_ssn.id!='.$id.' AND id_srv',$dt_srv['id_srv']);
+		$rq_trf = sel_whe('cat_srv_trf_ssn.id,cat_srv_trf_ssn.dt_min,cat_srv_trf_ssn.dt_max','cat_srv_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf','cat_srv_trf_ssn.id!='.$id.' AND id_srv = '.$dt_srv['id_srv']);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			if(strtotime($val) >= strtotime($dt_trf['dt_min']) and strtotime($val) <= strtotime($dt_trf['dt_max']))
@@ -385,8 +385,8 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		delete('cat_vll_hbr',"id_chm",$data["id_sup"]);
 	}elseif($tab=='cat_hbr_chm_trf' and $col=='def')
 	{
-		$dt_chm = ftc_ass(select('id_chm','cat_hbr_chm_trf','id',$id));
-		$rq_trf = select('id','cat_hbr_chm_trf','id_chm',$dt_chm['id_chm']);
+		$dt_chm = ftc_ass(sel_quo('id_chm','cat_hbr_chm_trf','id',$id));
+		$rq_trf = sel_quo('id','cat_hbr_chm_trf','id_chm',$dt_chm['id_chm']);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			if($id != $dt_trf['id'])
@@ -396,7 +396,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 	}elseif($tab=='cat_hbr_chm_trf_ssn' and ($col=="dt_min" || $col=="dt_max"))
 	{
-		$dt_chm = ftc_ass(select('id_chm,dt_min,dt_max','cat_hbr_chm_trf INNER JOIN cat_hbr_chm_trf_ssn ON cat_hbr_chm_trf.id = cat_hbr_chm_trf_ssn.id_trf','cat_hbr_chm_trf_ssn.id',$id));
+		$dt_chm = ftc_ass(sel_quo('id_chm,dt_min,dt_max','cat_hbr_chm_trf INNER JOIN cat_hbr_chm_trf_ssn ON cat_hbr_chm_trf.id = cat_hbr_chm_trf_ssn.id_trf','cat_hbr_chm_trf_ssn.id',$id));
 		if(($col=='dt_max' and strtotime($dt_chm['dt_min']) > strtotime($val) and $val !='0000-00-00' and !$flg_y) or ($col=='dt_min' and strtotime($dt_chm['dt_max']) < strtotime($val) and $dt_chm['dt_max'] != '0000-00-00'))
 		{
 			echo $txt->errdat->$id_lng;
@@ -407,7 +407,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			$y=$dt[0]+1;
 			$val = $y.'-'.$dt[1].'-'.$dt[2];
 		}
-		$rq_trf = select('cat_hbr_chm_trf_ssn.id,cat_hbr_chm_trf_ssn.dt_min,cat_hbr_chm_trf_ssn.dt_max','cat_hbr_chm_trf INNER JOIN cat_hbr_chm_trf_ssn ON cat_hbr_chm_trf.id = cat_hbr_chm_trf_ssn.id_trf','cat_hbr_chm_trf_ssn.id!='.$id.' AND id_chm',$dt_chm['id_chm']);
+		$rq_trf = sel_whe('cat_hbr_chm_trf_ssn.id,cat_hbr_chm_trf_ssn.dt_min,cat_hbr_chm_trf_ssn.dt_max','cat_hbr_chm_trf INNER JOIN cat_hbr_chm_trf_ssn ON cat_hbr_chm_trf.id = cat_hbr_chm_trf_ssn.id_trf','cat_hbr_chm_trf_ssn.id!='.$id.' AND id_chm = '.$dt_chm['id_chm']);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			if(strtotime($val) >= strtotime($dt_trf['dt_min']) and strtotime($val) <= strtotime($dt_trf['dt_max']))
@@ -422,8 +422,8 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 	}elseif($tab=='cat_hbr_rgm_trf' and $col=='def')
 	{
-		$dt_rgm = ftc_ass(select('id_rgm','cat_hbr_rgm_trf','id',$id));
-		$rq_trf = select('id','cat_hbr_rgm_trf','id_rgm',$dt_rgm['id_rgm']);
+		$dt_rgm = ftc_ass(sel_quo('id_rgm','cat_hbr_rgm_trf','id',$id));
+		$rq_trf = sel_quo('id','cat_hbr_rgm_trf','id_rgm',$dt_rgm['id_rgm']);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			if($id != $dt_trf['id'])
@@ -433,7 +433,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 	}elseif($tab=='cat_hbr_rgm_trf_ssn' and ($col=="dt_min" || $col=="dt_max"))
 	{
-		$dt_rgm = ftc_ass(select('id_rgm,dt_min,dt_max','cat_hbr_rgm_trf INNER JOIN cat_hbr_rgm_trf_ssn ON cat_hbr_rgm_trf.id = cat_hbr_rgm_trf_ssn.id_trf','cat_hbr_rgm_trf_ssn.id',$id));
+		$dt_rgm = ftc_ass(sel_quo('id_rgm,dt_min,dt_max','cat_hbr_rgm_trf INNER JOIN cat_hbr_rgm_trf_ssn ON cat_hbr_rgm_trf.id = cat_hbr_rgm_trf_ssn.id_trf','cat_hbr_rgm_trf_ssn.id',$id));
 		if(($col=='dt_max' and strtotime($dt_rgm['dt_min']) > strtotime($val) and $val !='0000-00-00' and !$flg_y) or ($col=='dt_min' and strtotime($dt_rgm['dt_max']) < strtotime($val) and $dt_rgm['dt_max'] != '0000-00-00'))
 		{
 			echo $txt->errdat->$id_lng;
@@ -444,7 +444,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			$y=$dt[0]+1;
 			$val = $y.'-'.$dt[1].'-'.$dt[2];
 		}
-		$rq_trf = select('cat_hbr_rgm_trf_ssn.id,cat_hbr_rgm_trf_ssn.dt_min,cat_hbr_rgm_trf_ssn.dt_max','cat_hbr_rgm_trf INNER JOIN cat_hbr_rgm_trf_ssn ON cat_hbr_rgm_trf.id = cat_hbr_rgm_trf_ssn.id_trf','cat_hbr_rgm_trf_ssn.id!='.$id.' AND id_rgm',$dt_rgm['id_rgm']);
+		$rq_trf = sel_whe('cat_hbr_rgm_trf_ssn.id,cat_hbr_rgm_trf_ssn.dt_min,cat_hbr_rgm_trf_ssn.dt_max','cat_hbr_rgm_trf INNER JOIN cat_hbr_rgm_trf_ssn ON cat_hbr_rgm_trf.id = cat_hbr_rgm_trf_ssn.id_trf','cat_hbr_rgm_trf_ssn.id!='.$id.' AND id_rgm',$dt_rgm['id_rgm']);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			if(strtotime($val) >= strtotime($dt_trf['dt_min']) and strtotime($val) <= strtotime($dt_trf['dt_max']) and $id != $dt_trf['id'])
@@ -493,7 +493,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 	{
 		echo json_encode(array($res,(string)$msg));
 	}else{
-		echo json_encode($res);
+		echo json_encode(array($res));
 	}
 	return;
 }

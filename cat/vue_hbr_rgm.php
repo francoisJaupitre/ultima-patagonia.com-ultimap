@@ -40,7 +40,7 @@ while ($dt_rgm = ftc_ass($rq_rgm)) {
 <?php
 if($aut['cat'] and !$vrl) {
 ?>
-				<td onclick="sup_hbr_rgm(<?php echo $id_rgm ?>);"><img src="../prm/img/sup.png" /></td>
+				<td onclick="removeHbrRgm(<?php echo $id_rgm ?>);"><img src="../prm/img/sup.png" /></td>
 <?php
 }
 ?>
@@ -97,7 +97,7 @@ if($aut['cat'] and !$vrl) {
 <?php
 			if($nb_ssn['total']>1 and $aut['cat']) {
 ?>
-							<td onclick="sup_hbr_rgm_trf_ssn(<?php echo $id_ssn.','.$id_rgm ?>)"><img src="../prm/img/sup.png" /></td>
+							<td onclick="removeHbrRgmTrfSsn(<?php echo $id_ssn.','.$id_rgm ?>)"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 ?>
@@ -128,7 +128,7 @@ if($aut['cat'] and !$vrl) {
 <?php
 		if($aut['cat'] and !$vrl) {
 ?>
-				<td onclick="sup_hbr_rgm_trf(<?php echo $id_trf ?>)"><img src="../prm/img/sup.png"></td>
+				<td onclick="removeHbrRgmTrf(<?php echo $id_trf ?>)"><img src="../prm/img/sup.png"></td>
 <?php
 		}
 ?>

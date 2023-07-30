@@ -1,7 +1,8 @@
 <?php
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
-if(isset($data['id_crc'])) {
+if(isset($data['id_crc']))
+{
 	include("../../prm/fct.php");
 	include("../../prm/aut.php");
 	$id_crc = $data['id_crc'];

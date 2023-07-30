@@ -247,11 +247,51 @@
     "pt": "PUBLICAÇÃO CANCELADA!&#xA;Este URL já está em uso."
   },
   "dup_chm": {
-    "fr": "Créer une COPIE de cette chambre et ses tarifs?",
-    "es": "Crear una COPIA de esta habitacíon y sus tarifas?"
+    "fr": "Créer une COPIE de cette chambre et ses tarifs ?",
+    "es": "¿Crear una COPIA de esta habitacíon y sus tarifas?"
   },
   "dup_trf": {
-    "fr": "Créer une COPIE de ce tarif et ses bases?",
-    "es": "Crear una COPIA de esta tarifa y sus bases?"
+    "fr": "Créer une COPIE de ce tarif et ses bases ?",
+    "es": "¿Crear una COPIA de esta tarifa y sus bases?"
+  },
+  "sup_lgg": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER ce texte ?",
+    "es": "¿Está seguro de querer SUPRIMIR este texto?"
+  },
+  "sup_srv_trf": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER ce tarif ?",
+    "es": "¿Está seguro de querer SUPRIMIR esta tarifa?"
+  },
+  "sup_srv_trf_ssn": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER cette saison ?",
+    "es": "¿Está seguro de querer SUPRIMIR esta temporada?"
+  },
+  "sup_srv_trf_bss": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER ces bases ?",
+    "es": "¿Está seguro de querer SUPRIMIR estas bases?"
+  },
+  "sup_hbr_chm": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER cette chambre ?",
+    "es": "¿Está seguro de querer SUPRIMIR esta habitación?"
+  },
+  "sup_hbr_chm_trf": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER ces tarifs ?",
+    "es": "¿Está seguro de querer SUPRIMIR estas tarifas?"
+  },
+  "sup_hbr_chm_trf_ssn": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER cette saison ?",
+    "es": "¿Está seguro de querer SUPRIMIR esta temporada?"
+  },
+  "sup_hbr_rgm": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER ce régime ?",
+    "es": "¿Está seguro de querer SUPRIMIR este regimen?"
+  },
+  "sup_hbr_rgm_trf": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER ces tarifs ?",
+    "es": "¿Está seguro de querer SUPRIMIR estas tarifas?"
+  },
+  "sup_hbr_rgm_trf_ssn": {
+    "fr": "Etes-vous sûr de vouloir SUPPRIMER cette saison ?",
+    "es": "¿Está seguro de querer SUPRIMIR esta temporada?"
   }
 }

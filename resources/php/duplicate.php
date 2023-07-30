@@ -9,11 +9,11 @@ if(isset($data['cbl']) and isset($data['id']))
 	if($cbl=='chm')
 	{
 		$id_chm = $data['id'];
-		$dt_chm = ftc_ass(select("*", "cat_hbr_chm", "id", $id_chm));
+		$dt_chm = ftc_ass(sel_quo("*", "cat_hbr_chm", "id", $id_chm));
 		unset($dt_chm['id']);
 		$dt_chm['nom'] .= '(1)';
 		$id_chm_new = insert("cat_hbr_chm", array_keys($dt_chm), array_values($dt_chm));
-		$rq_trf = select("*", "cat_hbr_chm_trf", "id_chm", $id_chm);
+		$rq_trf = sel_quo("*", "cat_hbr_chm_trf", "id_chm", $id_chm);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
 			$id_trf = $dt_trf['id'];
@@ -22,7 +22,7 @@ if(isset($data['cbl']) and isset($data['id']))
 			$dt_trf['usr'] = $id_usr;
 			$dt_trf['dt_cat'] = date("Y-m-d");
 			$id_trf_new = insert("cat_hbr_chm_trf", array_keys($dt_trf), array_values($dt_trf));
-			$rq_ssn = select("*", "cat_hbr_chm_trf_ssn", "id_trf", $id_trf);
+			$rq_ssn = sel_quo("*", "cat_hbr_chm_trf_ssn", "id_trf", $id_trf);
 			while($dt_ssn = ftc_ass($rq_ssn))
 			{
 				unset($dt_ssn['id']);
@@ -30,7 +30,7 @@ if(isset($data['cbl']) and isset($data['id']))
 				insert("cat_hbr_chm_trf_ssn", array_keys($dt_ssn), array_values($dt_ssn));
 			}
 		}
-		$rq_txt = select("*", "cat_hbr_chm_txt", "id_hbr_chm", $id_chm);
+		$rq_txt = sel_quo("*", "cat_hbr_chm_txt", "id_hbr_chm", $id_chm);
 		while($dt_txt = ftc_ass($rq_txt))
 		{
 			unset($dt_txt['id']);
@@ -40,19 +40,19 @@ if(isset($data['cbl']) and isset($data['id']))
 	}elseif($cbl=='trf')
 	{
 		$id_trf = $data['id'];
-		$dt_trf = ftc_ass(select("*", "cat_srv_trf", "id", $id_trf));
+		$dt_trf = ftc_ass(sel_quo("*", "cat_srv_trf", "id", $id_trf));
 		unset($dt_trf['id']);
 		$dt_trf['def'] = 0;
 		$id_trf_new = insert("cat_srv_trf", array_keys($dt_trf), array_values($dt_trf));
-		$rq_bss = select("*", "cat_srv_trf_bss", "id_trf", $id_trf);
+		$rq_bss = sel_quo("*", "cat_srv_trf_bss", "id_trf", $id_trf);
 		while($dt_bss = ftc_ass($rq_bss))
 		{
 			unset($dt_bss['id']);
 			$dt_bss['id_trf'] = $id_trf_new;
 			insert("cat_srv_trf_bss", array_keys($dt_bss), array_values($dt_bss));
 		}
-		$dt_srv = ftc_ass(select("id_srv", "cat_srv_trf", "id", $id_trf));
-		$max = ftc_num(select("MAX(dt_max)", "cat_srv_trf_ssn INNER JOIN cat_srv_trf ON cat_srv_trf_ssn.id_trf = cat_srv_trf.id", "cat_srv_trf.id_srv", $dt_srv['id_srv']));
+		$dt_srv = ftc_ass(sel_quo("id_srv", "cat_srv_trf", "id", $id_trf));
+		$max = ftc_num(sel_quo("MAX(dt_max)", "cat_srv_trf_ssn INNER JOIN cat_srv_trf ON cat_srv_trf_ssn.id_trf = cat_srv_trf.id", "cat_srv_trf.id_srv", $dt_srv['id_srv']));
 		if(!empty($max[0]))
 		{
 			if($max[0] != '0000-00-00')

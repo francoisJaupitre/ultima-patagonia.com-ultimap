@@ -13,9 +13,9 @@ if(isset($data['id_prs']) and isset($data['id_jrn']))
   {
     echo json_encode($txt->err_ajt_prs->$id_lng);
   }else{
-    $max = ftc_num(select("MAX(ord)","cat_jrn_prs","id_jrn",$id_jrn));
+    $max = ftc_num(sel_quo("MAX(ord)", "cat_jrn_prs", "id_jrn", $id_jrn));
     $ord_prs = $max[0] + 1;
-    insert('cat_jrn_prs',array("id_jrn","id_prs","ord","opt"),array($id_jrn,$id_prs,$ord_prs,1));
+    insert('cat_jrn_prs', array("id_jrn", "id_prs", "ord", "opt"), array($id_jrn, $id_prs, $ord_prs, 1));
     echo 1;
   }
 }

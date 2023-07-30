@@ -68,7 +68,7 @@ while($dt_trf = ftc_ass($rq_trf)) {
 		}
 		if($aut['cat'] and !$vrl) {
 ?>
-							<li onclick="sup_srv_trf(<?php echo $id_trf ?>);"><?php echo $txt->del->$id_lng; ?></li>
+							<li onclick="removeSrvTrf(<?php echo $id_trf ?>);"><?php echo $txt->del->$id_lng; ?></li>
 <?php
 		}
 ?>
@@ -85,7 +85,7 @@ while($dt_trf = ftc_ass($rq_trf)) {
 <?php
 			if($nb_ssn['total']>1 and $aut['cat']) {
 ?>
-			<td class="td_ssn<?php echo $id_ssn; ?>" onclick="sup_srv_trf_ssn(<?php echo $id_ssn.','.$id_trf ?>)"><img src="../prm/img/sup.png" /></td>
+			<td class="td_ssn<?php echo $id_ssn; ?>" onclick="removeSrvTrfSsn(<?php echo $id_ssn.','.$id_trf ?>)"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			else{echo '<td class="td_ssn'.$id_ssn.'"></td>';}
@@ -132,7 +132,7 @@ while($dt_trf = ftc_ass($rq_trf)) {
 <?php
 			if($nb_bss['total']>1 and $aut['cat'] and !$vrl) {
 ?>
-			<td class="td_bss<?php echo $id_bss; ?>" onclick="sup_srv_trf_bss(<?php echo $id_bss ?>)"><img src="../prm/img/sup.png" /></td>
+			<td class="td_bss<?php echo $id_bss; ?>" onclick="removeSrvTrfBss(<?php echo $id_bss ?>)"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 			else{echo '<td class="td_bss'.$id_bss.'"></td>';}

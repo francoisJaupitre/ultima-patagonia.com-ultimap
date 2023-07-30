@@ -24,15 +24,16 @@ if(isset($data['id_cat_hbr']))
 	if($id_dev_prs != 0 and $id_dev_hbr != 0)
 	{
 		$xmlTxt1 = 'src_hbr0';
-		if($res == 'opt' or $res == 'sel')
-		{
-			$xmlTxt0 = 'src_hbr2';
-		}elseif($res == 'ajt')
+		if($res == 'ajt')
 		{
 			$xmlTxt0 = 'src_hbr1';
+		}elseif($res == 'opt' or $res == 'sel')
+		{
+			$xmlTxt0 = 'src_hbr2';
+
 		}elseif($res == 'sup')
 		{
-			$xmlTxt0 = 'src_hbr0';
+			$xmlTxt0 = 'src_hbr3';
 		}
 	}elseif($id_dev_prs != 0 and $id_dev_hbr == 0)
 	{

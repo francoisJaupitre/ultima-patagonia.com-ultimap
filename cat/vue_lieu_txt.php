@@ -8,9 +8,10 @@ while($dt_txt = ftc_ass($rq_txt)) {
 	<tr>
 		<td class="nom_lgg"><?php echo $nom_lgg[$dt_txt['lgg']]; ?></td>
 <?php
-	if($aut['cat']) {
+	if($aut['cat'])
+	{
 ?>
-		<td class="sup_lgg" onclick="sup_lgg(<?php echo $id_lieu_txt ?>);">
+		<td class="remove-lgg" id="<?php echo $id_lieu_txt ?>">
 			<img src="../prm/img/sup.png" />
 		</td>
 <?php

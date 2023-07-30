@@ -44,7 +44,7 @@ while($dt_chm = ftc_ass($rq_chm)) {
 	}
 	if($aut['cat'] and !$vrl) {
 ?>
-								<li onclick="sup_hbr_chm(<?php echo $id_chm ?>);"><?php echo $txt->del->$id_lng; ?></li>
+								<li onclick="removeHbrChm(<?php echo $id_chm ?>);"><?php echo $txt->del->$id_lng; ?></li>
 <?php
 	}
 ?>
@@ -102,7 +102,7 @@ while($dt_chm = ftc_ass($rq_chm)) {
 <?php
 			if($nb_ssn['total']>1 and $aut['cat']) {
 ?>
-							<td onclick="sup_hbr_chm_trf_ssn(<?php echo $id_ssn ?>)"><img src="../prm/img/sup.png" /></td>
+							<td onclick="removeHbrChmTrfSsn(<?php echo $id_ssn ?>)"><img src="../prm/img/sup.png" /></td>
 <?php
 			}
 ?>
@@ -134,7 +134,7 @@ while($dt_chm = ftc_ass($rq_chm)) {
 <?php
 		if($aut['cat'] and !$vrl) {
 ?>
-				<td onclick="sup_hbr_chm_trf(<?php echo $id_trf ?>)"><img src="../prm/img/sup.png" /></td>
+				<td onclick="removeHbrChmTrf(<?php echo $id_trf ?>)"><img src="../prm/img/sup.png" /></td>
 <?php
 		}
 ?>

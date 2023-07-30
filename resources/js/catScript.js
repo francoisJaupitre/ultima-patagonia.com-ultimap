@@ -16,6 +16,17 @@ var id_lng, cbl_cat, id_cat, aut, url, flg_maj = true, upd = 0;
     document.getElementById("delElem").onclick = () => { deleteElem(cbl_cat, id_cat) }
   if(document.getElementById("lightCopElem"))
     document.getElementById("lightCopElem").onclick = () => { lightCopyElem(cbl_cat, id_cat) }
+  const tdLgg = document.getElementsByClassName("remove-lgg")
+  for(let item of tdLgg)
+    item.onclick = () => {
+      removeLgg(item.id)
+    }
+  const tdChm = document.getElementsByClassName("remove-chm-lgg")
+  for(let item of tdChm)
+    item.onclick = () => {
+      console.log(item.id)
+      removeChmLgg(item.id.split('_')[0], item.id.split('_')[1])
+    }
 })()
 
 const copyElem = async function(cbl, id)
@@ -165,30 +176,264 @@ const insertWebsite = async function(elem,uid,id,lgg,lng)
 const duplicate = async function(cbl, id)
 {
   const obj = await getTxt("../resources/json/scriptText.json")
-  window.parent.box("?",obj[`dup_${cbl}`][id_lng], () => {}, ()=>{
-    return
-  })
-  load('CAT duplicate')
-  const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/duplicate.php")
-  xhr.setRequestHeader("Content-Type", "application/json")
-  xhr.send(JSON.stringify({ cbl, id }))
-  xhr.onreadystatechange = () => {
-    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
-    {
-      if(cbl=='chm')
+  window.parent.box("?",obj[`dup_${cbl}`][id_lng], () => {
+    load('CAT duplicate')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/duplicate.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ cbl, id }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
       {
-        vue_elem('hbr_chm', id_cat)
-      }else if(cbl=='trf')
+        if(cbl=='chm')
+        {
+          vue_elem('hbr_chm', id_cat)
+        }else if(cbl=='trf')
+        {
+          vue_elem('dt_srv', id_cat)
+        }
+        unload('CAT duplicate')
+      }
+    }
+  })
+}
+
+const removeLgg = async function(id)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_lgg`][id_lng], () => {
+    load('CAT removeLgg')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeLgg.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ cbl: cbl_cat, id }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem(`${cbl_cat}_txt`,id_cat)
+        window.parent.act_frm(cbl_cat)
+        act_acc()
+        unload('CAT removeLgg')
+      }
+    }
+  })
+}
+
+const removeSrvTrf = async function(id_srv_trf)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_srv_trf`][id_lng], () => {
+    load('CAT removeSrvTrf')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeSrvTrf.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_srv_trf }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
       {
         vue_elem('dt_srv', id_cat)
+				window.parent.act_frm('frn_srv')
+        act_acc()
+        unload('CAT removeSrvTrf')
       }
-      unload('CAT duplicate')
     }
-  }
+  })
+}
+
+const removeSrvTrfSsn = async function(id_srv_trf_ssn, id_srv_trf)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_srv_trf_ssn`][id_lng], () => {
+    load('CAT removeSrvTrfSsn')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeSrvTrfSsn.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_srv_trf_ssn, id_srv_trf }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        const rsp = JSON.parse(xhr.response)
+        if(rsp == 1)
+        {
+          const tdSsn = document.getElementsByClassName(`td_ssn${id_srv_trf_ssn}`)
+          for(let item of tdSsn)
+            item.display = "none"
+        }else{
+          vue_elem('dt_srv',id_cat)
+        }
+        act_acc()
+        unload('CAT removeSrvTrfSsn')
+      }
+    }
+  })
+}
+
+const removeSrvTrfBss = async function(id_srv_trf_bss)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_srv_trf_bss`][id_lng], () => {
+    load('CAT removeSrvTrfBss')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeSrvTrfBss.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_srv_trf_bss }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem('dt_srv',id_cat)
+        unload('CAT removeSrvTrfBss')
+      }
+    }
+  })
+}
+
+const removeHbrChm = async function(id_hbr_chm)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_hbr_chm`][id_lng], () => {
+    load('CAT removeHbrChm')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeHbrChm.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_hbr_chm }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        if(xhr.response.length > 0)
+          alt(JSON.parse(xhr.response))
+        }else{
+          vue_elem('hbr_chm',id_cat)
+          vue_elem('hbr_rgm',id_cat)
+          act_acc()
+        }
+        unload('CAT removeHbrChm')
+      }
+    }
+  })
+}
+
+const removeHbrChmTrf = async function(id_hbr_chm_trf)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_hbr_chm_trf`][id_lng], () => {
+    load('CAT removeHbrChmTrf')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeHbrChmTrf.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_hbr_chm_trf }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem('hbr_chm', id_cat)
+        act_acc()
+        unload('CAT removeHbrChmTrf')
+      }
+    }
+  })
+}
+
+const removeHbrChmTrfSsn = async function(id_hbr_chm_trf_ssn)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_hbr_chm_trf_ssn`][id_lng], () => {
+    load('CAT removeHbrChmTrfSsn')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeHbrChmTrfSsn.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_hbr_chm_trf_ssn }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem('hbr_chm', id_cat)
+        act_acc()
+        unload('CAT removeHbrChmTrfSsn')
+      }
+    }
+  })
+}
+
+const removeHbrRgm = async function(id_hbr_chm)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_hbr_rgm`][id_lng], () => {
+    load('CAT removeHbrRgm')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeHbrRgm.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_hbr_rgm }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem('hbr_rgm',id_cat)
+        window.parent.act_frm('hbr')
+        if(xhr.response.length > 0)
+          const rsp = JSON.parse(xhr.response)
+          for(let i = 0; i < rsp.length; i++)
+            if(rsp[i] > 0)
+            {
+              vue_elem(`hbr_chm_rgm${rsp[i]}`, id_cat);
+            }
+        }
+        unload('CAT removeHbrRgm')
+      }
+    }
+  })
+}
+
+const removeHbrRgmTrf = async function(id_hbr_rgm_trf)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_hbr_rgm_trf`][id_lng], () => {
+    load('CAT removeHbrRgmTrf')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeHbrRgmTrf.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_hbr_rgm_trf }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem('hbr_rgm',id_cat)
+        unload('CAT removeHbrRgmTrf')
+      }
+    }
+  })
+}
+
+const removeHbrRgmTrfSsn = async function(id_hbr_rgm_trf_ssn)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj[`sup_hbr_rgm_trf`][id_lng], () => {
+    load('CAT removeHbrRgmTrf')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/removeHbrRgmTrfSsn.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_hbr_rgm_trf_ssn }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        vue_elem('hbr_rgm',id_cat)
+        unload('CAT removeHbrRgmTrfSsn')
+      }
+    }
+  })
 }
 
 /* asynchronous functions above */
+
+const removeChmLgg = (id, id_chm) => {
+  load('CAT removeChmLgg')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/removeLgg.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ cbl: 'hbr_chm', id }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      vue_elem(`hbr_chm_txt${id_chm}`, id_chm)
+      unload('CAT removeChmLgg')
+    }
+  }
+}
 
 const updateData = (tab, col, val, id, id_sup) => {
 	if(flg_maj)

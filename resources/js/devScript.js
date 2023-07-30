@@ -226,7 +226,7 @@ const sendMail = (devData) => {
 				if(typeof emailRequest['lst_srv'] !== 'undefined')
 				{
 					const rsp_srv = emailRequest['lst_srv'].split("|")
-					for(var j = 2; j < rsp_srv.length; j++)
+					for(var j = 0; j < rsp_srv.length; j++)
 					{
 						vue_elem(`srv_res${rsp_srv[j]}`, rsp_srv[j])
 						vue_elem(`srv_frn${rsp_srv[j]}`, rsp_srv[j])
@@ -238,7 +238,7 @@ const sendMail = (devData) => {
 				else if(typeof emailRequest['lst_hbr'] !== 'undefined')
 				{
 					const rsp_hbr = emailRequest['lst_hbr'].split("|")
-					for(var j = 2; j < rsp_hbr.length; j++)
+					for(var j = 0; j < rsp_hbr.length; j++)
 						vue_elem(`hbr_res${rsp_hbr[j]}`, rsp_hbr[j])
 					window.parent.act_frm(`cat_res_hbr${emailRequest['id_hbr']}`)
 					window.parent.act_frm('hbr_ope')

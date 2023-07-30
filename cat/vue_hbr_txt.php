@@ -10,7 +10,7 @@ while($dt_txt = ftc_ass($rq_txt)) {
 <?php
 	if($aut['cat']) {
 ?>
-		<td class="sup_lgg" onclick="sup_lgg(<?php echo $id_hbr_txt ?>);">
+		<td class="remove-lgg" id="<?php echo $id_hbr_txt ?>">
 			<img src="../prm/img/sup.png" />
 		</td>
 <?php
