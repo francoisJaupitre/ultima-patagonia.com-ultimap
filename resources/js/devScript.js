@@ -141,6 +141,29 @@ const newVersion = async function(id_crc)
   })
 }
 
+const prevSortElem = async function(elem, val, id, id_sup, id_cat_sup, id_sup2)
+{
+  if(cnf > 0)
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    window.parent.box("?",obj["cnf"][id_lng], sortElem(elem, val, id, id_sup, id_cat_sup, id_sup2), () => {
+      if(obj == 'mdl')
+      {
+        vue_mdl('ttr',id)
+      }else if(obj == 'jrn')
+      {
+        vue_jrn('ttr',id)
+      }else if(obj == 'prs')
+      {
+        vue_prs('ttr',id)
+      }
+      return;
+    })
+  }else{
+    sortElem(elem, val, id, id_sup, id_cat_sup, id_sup2)
+  }
+}
+
 /* asynchronous functions above */
 
 const emailWriter = (data) => {
@@ -397,7 +420,7 @@ const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
         if(res > -1 && xhr.response != 0)
         {
           const rsp = JSON.parse(xhr.response)
-          window.parent.box("?",rsp[0], () => {   //remplazar par xml server side
+          window.parent.box("?",rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
             {
               maj('dev_srv', 'res', res, rsp[i])
@@ -425,6 +448,128 @@ const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
         })
       }
       unload('DEV searchFrn')
+    }
+  }
+}
+
+const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
+  if(obj == 'mdl' && !cls_rch('dsc_mdl,dt_mdl', id))
+  {
+    vue_mdl('ttr', id)
+    return
+  }else if(obj == 'jrn' && !cls_rch('dt_mdl', id_sup))
+  {
+    vue_jrn('ttr', id)
+    return
+  }else if(obj == 'prs' && !cls_rch('dt_jrn', id_sup))
+  {
+    vue_prs('ttr', id)
+    return
+  }else if(id_cat_sup > 0)
+  {
+		if(obj == 'mdl' && sup_cat('crc', id_sup) == 0)
+    {
+      vue_mdl('ttr', id)
+      return
+    }else if(obj == 'jrn' && sup_cat('mdl', id_sup) == 0)
+    {
+      vue_jrn('ttr', id)
+      return
+    }else if(obj == 'prs' && sup_cat('jrn', id_sup, id_sup2) == 0)
+    {
+      vue_prs('ttr', id)
+      return
+    }
+	}
+  load('DEV sortElem')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/sortElem.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ obj, val, id, id_sup }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      const rsp = JSON.parse(xhr.response)
+      if(rsp[0] != 0)
+      {
+				if(obj == "mdl")
+        {
+					if(rsp[0] != 1)
+          {
+						const x = document.getElementsByClassName(`mdl_dev_srv${id}`)
+            for(let i = 0; i < x.length; i++)
+              vue_elem(x[i].id, x[i].id.substr(7))
+						const y = document.getElementsByClassName(`mdl_dev_hbr${id}`)
+            for(let i = 0; i < y.length; i++)
+              vue_elem(y[i].id, y[i].id.substr(7))
+						if(x.length > 0 || y.length > 0)
+            {
+              vue_crc('res')
+            }
+					}
+					vue_crc('dt')
+          act_trf('crc', id_sup)
+				}else if(obj == "jrn")
+        {
+          if(rsp[0] != 1)
+          {
+						const x1 = document.getElementsByClassName(`jrn_dev_srv${id}`)
+            for(i = 0; i < x1.length; i++)
+              vue_elem(x1[i].id, x1[i].id.substr(7))
+						const y1 = document.getElementsByClassName(`jrn_dev_hbr${id}`)
+            for(i = 0; i < y1.length; i++)
+              vue_elem(y1[i].id, y1[i].id.substr(7))
+						const x2 = document.getElementById(`jrn_dev_srv${id}`)
+						const y2 = document.getElementById(`jrn_dev_hbr${id}`)
+						if(x.length > 0 || y.length > 0 || x2 || y2)
+            {
+              vue_crc('res')
+            }
+					}
+					vue_mdl('dt', id_sup)
+          act_trf('mdl', id_sup)
+				}else if(obj == "prs")
+        {
+          vue_jrn('dt', id_sup)
+        }
+			}else{
+				if(obj == "mdl")
+        {
+          vue_mdl('ttr', id)
+        }else if(obj == "jrn")
+        {
+          vue_jrn('ttr', id)
+        }else if(obj == "prs")
+        {
+          vue_prs('ttr', id)
+        }
+        alt(rsp[1])
+			}
+      unload('DEV sortElem')
+    }
+  }
+}
+
+const sortJrnByDate = (val, id_dev_jrn, id_sup) => {
+  load('DEV sortJrnByDate')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/sortJrnByDate.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ val, id_dev_jrn, id_dev_crc }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      const x = document.getElementsByClassName(`jrn_dev_srv${id_dev_jrn}`)
+      for(i = 0; i < x.length; i++)
+        vue_elem(x[i].id, x[i].id.substr(7))
+      const y = document.getElementsByClassName(`jrn_dev_hbr${id_dev_jrn}`)
+      for(i = 0; i < y.length; i++)
+        vue_elem(y[i].id, y[i].id.substr(7))
+      if(x.length > 0 || y.length > 0)
+        vue_crc('res')
+      sel_mdl('ttr_jrn')
+      act_trf('crc', id_dev_crc)
+      unload('DEV sortJrnByDate')
     }
   }
 }

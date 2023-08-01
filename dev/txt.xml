@@ -743,4 +743,8 @@
 		<es>COMANDOS</es>
 		<pt>COMANDOS</pt>
 	</cmd>
+	<ord>
+		<fr>Valeur incorrecte !</fr>
+		<es>¡Valor incorrecto!</es>
+	</ord>
 </textes>

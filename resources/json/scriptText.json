@@ -293,5 +293,9 @@
   "sup_hbr_rgm_trf_ssn": {
     "fr": "Etes-vous sûr de vouloir SUPPRIMER cette saison ?",
     "es": "¿Está seguro de querer SUPRIMIR esta temporada?"
+  },
+  "cnf": {
+    "fr": "Circuit confirmé! Etes-vous sûr ?",
+    "es": "¡Circuito confirmado! ¿Está seguro?"
   }
 }

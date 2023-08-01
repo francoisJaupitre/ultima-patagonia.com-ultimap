@@ -61,7 +61,7 @@ if($id_cat_jrn>-1){
 ?>
 	<td <?php if($id_cat_jrn>-1){echo 'width="56%"';} ?> class="<?php if($id_cat_jrn==-1){echo 'dsg2';}elseif($opt_jrn){echo 'lcrl';}else{echo 'tht';} ?>" style="color: #<?php echo $col[$id_col_mdl]; ?>">
 		<div style="float: left;">
-			<input <?php if(!$aut['dev'] or $cnf>0){echo ' disabled';} ?> type="text" autocomplete="off" placeholder="<?php echo $txt->phdate->$id_lng; ?>" class="w74" style=" float: right; color: #<?php echo $col[$id_col_mdl] ?>;" value="<?php if($date_jrn!='0000-00-00'){echo date("d/m/Y", strtotime($date_jrn));} ?>" onchange="ord_dat(this.value,<?php echo ($id_dev_jrn.','.$id_dev_mdl); ?>)" />
+			<input <?php if(!$aut['dev'] or $cnf>0){echo ' disabled';} ?> type="text" autocomplete="off" placeholder="<?php echo $txt->phdate->$id_lng; ?>" class="w74" style=" float: right; color: #<?php echo $col[$id_col_mdl] ?>;" value="<?php if($date_jrn!='0000-00-00'){echo date("d/m/Y", strtotime($date_jrn));} ?>" onchange="sortJrnByDate(this.value,<?php echo ($id_dev_jrn.','.$id_dev_mdl); ?>)" />
 <?php
 if($id_cat_jrn>-1){
 ?>
@@ -71,7 +71,7 @@ if($id_cat_jrn>-1){
 }
 ?>
 			<strong><?php if($opt_jrn){echo $txt->jour->$id_lng;} else{echo $txt->opt->$id_lng;} ?></strong>
-			<input <?php if(!$aut['dev'] or !$opt_jrn or $cnf>0){echo ' disabled';} ?> type="number" style="width: 30px; color: #<?php echo $col[$id_col_mdl] ?>;" value="<?php echo $ord_jrn; ?>" onchange="ord('jrn',this.value,<?php echo $id_dev_jrn.','.$id_dev_mdl.','.$id_cat_mdl ?>)" />
+			<input <?php if(!$aut['dev'] or !$opt_jrn or $cnf>0){echo ' disabled';} ?> type="number" style="width: 30px; color: #<?php echo $col[$id_col_mdl] ?>;" value="<?php echo $ord_jrn; ?>" onchange="prevSortElem('jrn',this.value,<?php echo $id_dev_jrn.','.$id_dev_mdl.','.$id_cat_mdl ?>)" />
 			<span style="display: inline-block; width: 95px; text-align: center;"><?php echo $txt->jours->$jour->$id_lng; ?></span>
 		</div>
 <?php

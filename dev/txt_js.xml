@@ -51,14 +51,6 @@
 		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
 		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
 	</grd2>
-	<cnf>
-		<fr>Circuit confirmé! Etes-vous sûr?</fr>
-		<es>Circuito confirmado! Está seguro?</es>
-	</cnf>
-	<ord>
-		<fr>Valeur incorrecte!</fr>
-		<es>Valor incorrecto!</es>
-	</ord>
 	<act_txt_crc>
 		<fr>ACTUALISER les textes de ce circuit?</fr>
 		<es>ACTUALIZAR los textos de este circuito?</es>

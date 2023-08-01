@@ -250,9 +250,9 @@ const searchFrn = (res, id_frn, id_dev_srv, id_dev_crc) => {
       if(xhr.response != 0)
       {
         const rsp = JSON.parse(xhr.response)
-        window.parent.box("?",obj["src_frn1"][id_lng]+` ${rsp.length} `+obj["src_frn2"][id_lng], () => {   //remplazar par xml server side
-          for(let i = 0; i < rsp.length; i++)
-            maj('dev_srv','res',res,rsp[i])
+        window.parent.box("?",rsp[0], () => {
+          for(let i = 1; i < rsp.length; i++)
+            maj('dev_srv', 'res', res, rsp[i])
         })
         window.parent.act_frm('frn_ope')
       }

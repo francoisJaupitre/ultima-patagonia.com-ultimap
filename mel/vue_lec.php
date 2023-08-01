@@ -185,11 +185,11 @@ if(isset($uid) and $uid>0){
 <?php
   }
 ?>
-          <button type"button" onclick="flag(<?php echo $id_mel ?>,'<?php echo $box ?>',<?php echo $uid ?>);"><img src="../prm/img/flg.png"/></button>
+          <button onclick="flag(<?php echo $id_mel ?>,'<?php echo $box ?>',<?php echo $uid ?>);"><img src="../prm/img/flg.png"/></button>
 <?php
   if($box != 'INBOX.TRASH'){
 ?>
-          <button type"button" onclick="del(<?php echo $id_mel ?>,'<?php echo $box ?>',<?php echo $uid ?>);"><img src="../prm/img/trash.png" /></button>
+          <button onclick="del(<?php echo $id_mel ?>,'<?php echo $box ?>',<?php echo $uid ?>);"><img src="../prm/img/trash.png" /></button>
 <?
   }
 ?>
@@ -227,14 +227,14 @@ if(isset($uid) and $uid>0){
   if(isset($new_dev)){
 ?>
           <input type="hidden" id="newDev" value="<?php echo $new_dev; ?>">
-          <button type"button" onclick="ajt_ctc('<?php echo $new_dev; ?>')">CREER CONTACT CRM</button>
-          <button type"button" id="adDev">CREER DEVIS</button>
+          <button onclick="ajt_ctc('<?php echo $new_dev; ?>')">CREER CONTACT CRM</button>
+          <button id="adDev">CREER DEVIS</button>
 <?php
   }
   else{
     $new_dev = rawurlencode("nom=".$from."&mail=".$addr);
   ?>
-            <button type"button" onclick="ajt_ctc('<?php echo $new_dev; ?>')">CREER CONTACT CRM</button>
+            <button onclick="ajt_ctc('<?php echo $new_dev; ?>')">CREER CONTACT CRM</button>
   <?php
   }
 ?>

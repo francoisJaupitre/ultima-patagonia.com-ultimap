@@ -52,7 +52,7 @@ $nb_hbr = num_rows($rq_hbr);
 	<td width="58%" class="<?php if($opt_prs){echo 'lmcf';} else{echo 'tht';} ?>">
 		<div style="float: left; padding-right: 5px;">
 			<strong><?php if($opt_prs){echo $txt->prs->$id_lng;} else{echo $txt->opt->$id_lng;} ?></strong>
-			<input type="number" <?php if((!$aut['dev'] and $cnf<1) or (!$aut['res'] and $cnf>0)){echo ' disabled';} ?> style="width: 25px;" value="<?php echo $ord_prs; ?>" onchange="ord('prs',this.value,<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_cat_jrn.','.$id_dev_mdl ?>)" />
+			<input type="number" <?php if((!$aut['dev'] and $cnf<1) or (!$aut['res'] and $cnf>0)){echo ' disabled';} ?> style="width: 25px;" value="<?php echo $ord_prs; ?>" onchange="prevSortElem('prs',this.value,<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_cat_jrn.','.$id_dev_mdl ?>)" />
 		</div>
 		<div style="display: block; overflow: hidden;">
 			<input type="text" <?php if((!$aut['dev'] and $cnf<1) or (!$aut['res'] and $cnf>0)){echo ' disabled';} ?> id="prs_titre<?php echo $id_dev_prs ?>" class="w-100" value="<?php echo stripslashes(htmlspecialchars($ttr_prs)) ?>" onchange="maj('dev_prs','titre',this.value,<?php echo $id_dev_prs ?>)" />
