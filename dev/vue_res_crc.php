@@ -528,7 +528,7 @@ if($vue_res){
 						}
 						if($aut['dev']){
 ?>
-								<li onclick="searchHbr(<?php echo $hb.','.$chm ?>,0,0,0,0,'act_trf');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb.','.$chm ?>,0,0,0,0,'updateRates');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 						}
 ?>
@@ -702,7 +702,7 @@ if($vue_res){
 				}
 				if($aut['dev']){
 ?>
-								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'act_trf');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'updateRates');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'sup');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->sup->$id_lng; ?></li>
 <?php
 				}

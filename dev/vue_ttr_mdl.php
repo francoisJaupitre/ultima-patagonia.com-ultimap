@@ -49,11 +49,11 @@ if(isset($_POST['id_dev_mdl'])){
 <?php
 if($aut['dev'] and $cnf<1){
 ?>
-				<li onclick="act_trf('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+				<li onclick="prevUpdateRates('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 	if($id_cat_mdl == 0){
 ?>
-				<li onclick="act_txt('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+				<li onclick="prevUpdateText('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
 <?php
 	}
 	if($trf_mdl){
@@ -95,7 +95,7 @@ if($id_cat_mdl > 0 and $aut['dev']){
 			<br/>
 			<strong><?php echo $txt->cat->$id_lng; ?></strong>
 			<ul>
-				<li onclick="act_txt('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+				<li onclick="prevUpdateText('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
 				<li onclick="act_elem('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->actjrn->$id_lng; ?></li>
 				<li onclick="sup_cat('mdl',<?php echo $id_dev_mdl ?> );document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->supcat->$id_lng; ?></li>
 			</ul>

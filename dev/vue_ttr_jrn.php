@@ -91,11 +91,11 @@ if($id_cat_jrn>-1){
 <?php
 	if($aut['dev'] and $cnf<1){
 ?>
-					<li onclick="act_trf('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+					<li onclick="prevUpdateRates('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 		if($id_cat_jrn == 0){
 ?>
-					<li onclick="act_txt('jrn',<?php echo $id_dev_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+					<li onclick="prevUpdateText('jrn',<?php echo $id_dev_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
 <?php
 		}
 		if(!$trf_mdl and $ord_mdl > 1 and $ord_jrn == $min_jrn[0] and !$flg_jrn_opt){
@@ -127,7 +127,7 @@ if($id_cat_jrn>-1){
 				<br/>
 				<strong><?php echo $txt->cat->$id_lng; ?></strong>
 				<ul>
-					<li onclick="act_txt('jrn',<?php echo $id_dev_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+					<li onclick="prevUpdateText('jrn',<?php echo $id_dev_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
 					<li onclick="act_elem('jrn',<?php echo $id_dev_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->actprs->$id_lng; ?></li>
 					<li onclick="sup_cat('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl ?> );document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->supcat->$id_lng; ?></li>
 				</ul>

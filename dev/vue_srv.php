@@ -107,8 +107,8 @@ if($id_cat_srv > 0 and $aut['dev']) {
 				<br/>
 				<strong><?php echo $txt->cat->$id_lng; ?></strong>
 				<ul>
-					<li onclick="act_txt('srv',<?php echo $id_dev_srv.','.$id_dev_prs ?>);document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
-					<li onclick="act_trf('srv',<?php echo $id_dev_srv.','.$id_dev_prs ?>);document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+					<li onclick="prevUpdateText('srv',<?php echo $id_dev_srv.','.$id_dev_prs ?>);document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+					<li onclick="prevUpdateRates('srv',<?php echo $id_dev_srv.','.$id_dev_prs ?>);document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 					<li onclick="sup_cat('srv',<?php echo $id_dev_srv.','.$id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?> );document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->supcat->$id_lng; ?></li>
 				</ul>
 <?php

@@ -492,8 +492,8 @@ if($id_cat_hbr > 0 and $aut['dev']) {
 					<br/>
 					<strong><?php echo $txt->cat->$id_lng; ?></strong>
 					<ul>
-						<li onclick="act_txt('hbr',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
-						<li onclick="act_trf('hbr',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+						<li onclick="prevUpdateText('hbr',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+						<li onclick="prevUpdateRates('hbr',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 	if($opt_hbr == 0) {
 ?>

@@ -51,54 +51,6 @@
 		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
 		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
 	</grd2>
-	<act_txt_crc>
-		<fr>ACTUALISER les textes de ce circuit?</fr>
-		<es>ACTUALIZAR los textos de este circuito?</es>
-	</act_txt_crc>
-	<act_txt_mdl>
-		<fr>ACTUALISER les textes de ce module?</fr>
-		<es>ACTUALIZAR los textos de este modulo?</es>
-	</act_txt_mdl>
-	<act_txt_jrn>
-		<fr>ACTUALISER les textes de cette journée?</fr>
-		<es>ACTUALIZAR los textos de esta jornada?</es>
-	</act_txt_jrn>
-	<act_txt_prs>
-		<fr>ACTUALISER les textes de cette prestation?</fr>
-		<es>ACTUALIZAR los textos de esta prestación?</es>
-	</act_txt_prs>
-	<act_txt_hbr>
-		<fr>ACTUALISER les textes de cet hébergement?</fr>
-		<es>ACTUALIZAR los textos de este alojamiento?</es>
-	</act_txt_hbr>
-	<act_txt_srv>
-		<fr>ACTUALISER les textes de ce service?</fr>
-		<es>ACTUALIZAR los textos de este servicio?</es>
-	</act_txt_srv>
-	<act_trf_crc>
-		<fr>ACTUALISER les tarifs de ce circuit?</fr>
-		<es>ACTUALIZAR las tarifas de este circuito?</es>
-	</act_trf_crc>
-	<act_trf_mdl>
-		<fr>ACTUALISER les tarifs de ce module?</fr>
-		<es>ACTUALIZAR las tarifas de este modulo?</es>
-	</act_trf_mdl>
-	<act_trf_jrn>
-		<fr>ACTUALISER les tarifs de cette journée?</fr>
-		<es>ACTUALIZAR las tarifas de esta jornada?</es>
-	</act_trf_jrn>
-	<act_trf_prs>
-		<fr>ACTUALISER les tarifs de cette prestation?</fr>
-		<es>ACTUALIZAR las tarifas de esta prestación?</es>
-	</act_trf_prs>
-	<act_trf_hbr>
-		<fr>ACTUALISER les tarifs de cet hébergement?</fr>
-		<es>ACTUALIZAR las tarifas de este alojamiento?</es>
-	</act_trf_hbr>
-	<act_trf_srv>
-		<fr>ACTUALISER les tarifs de ce service?</fr>
-		<es>ACTUALIZAR las tarifas de este servicio?</es>
-	</act_trf_srv>
 	<act_elem_crc>
 		<fr>Cette option remplacera tous les éléments présents dans ce circuit?&#xA;Toutes les informations seront perdues!</fr>
 		<es>Esta opción remplazara todos los elementos presentes en este circuito?&#xA;Todas las informaciones se borrarán!</es>

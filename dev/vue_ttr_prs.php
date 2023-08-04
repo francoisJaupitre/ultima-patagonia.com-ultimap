@@ -68,11 +68,11 @@ $nb_hbr = num_rows($rq_hbr);
 <?php
 if($aut['dev'] and $cnf<1){
 ?>
-					<li onclick="act_trf('prs',<?php echo $id_dev_prs.','.$id_dev_jrn ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+					<li onclick="prevUpdateRates('prs',<?php echo $id_dev_prs.','.$id_dev_jrn ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 	if($id_cat_prs == 0){
 ?>
-					<li onclick="act_txt('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+					<li onclick="prevUpdateText('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
 <?php
 	}
 	if($ord_jrn > $min_jrn[0] and !$flg_prs_opt){
@@ -105,7 +105,7 @@ if($id_cat_prs > 0 and $aut['dev']){
 				<strong><?php echo $txt->cat->$id_lng; ?></strong>
 				<ul>
 
-					<li onclick="act_txt('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
+					<li onclick="prevUpdateText('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
 					<li onclick="act_elem('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->actelem->$id_lng; ?></li>
 					<li onclick="sup_cat('prs',<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?> );document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->supcat->$id_lng; ?></li>
 				</ul>

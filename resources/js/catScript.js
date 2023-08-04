@@ -445,7 +445,7 @@ const updateData = (tab, col, val, id, id_sup) => {
   if(id_sup > 0)
     load('CAT updateData')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/updateCat.php")
+  xhr.open("POST","../resources/php/updateCatDB.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ tab, col, val, id, id_sup }))
   xhr.onreadystatechange = () => {

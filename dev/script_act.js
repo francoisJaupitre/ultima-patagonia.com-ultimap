@@ -12,12 +12,12 @@ function maj(tab,col,val,id,id_sup){
 				else if(col=='version'){act_tab();act_acc();vue_elem('crc',id,col);window.parent.act_frm('grp_crc');}
 				else if(col=='titre'){act_acc();}
 				else if(col=='id_grp'){window.parent.act_frm('grp_crc');window.parent.act_frm('grp_clt');window.parent.act_frm('clt_crc');vue_elem('crc_ty_mrq',id,col);vue_elem('crc_com',id);vue_elem('crc_mrq_hbr',id);/*vue_elem('crc',id,'com');*/vue_elem('crc',id,'frs');vue_elem('crc_crr',id,col);vue_elem('crc_grp',id,col);vue_elem('clt_crc',id,col);act_acc();vue_crc('trf');sel_mdl('trf_mdl');}
-				else if(col=='lgg'){vue_elem('crc_lgg',id,col);act_txt('crc',id);}
+				else if(col=='lgg'){vue_elem('crc_lgg',id,col);prevUpdateText('crc',id);}
 				else if(col=='ty_mrq'){vue_elem('crc_ty_mrq',id);vue_elem('crc_com',id);vue_elem('crc_mrq_hbr',id);sel_mdl('trf_mdl');sel_mdl('dt_prs');}
 				else if(col=='com' || col=='mrq_hbr' || col=='frs'){vue_elem('crc',id,col);sel_mdl('dt_prs');}
 				else if(col=='crr'){vue_elem('crc_crr',id,col);sel_mdl('dt_prs');}
 				else if(col=='vue_sgl' || col=='vue_dbl' || col=='vue_tpl' || col=='vue_qdp' || col=='psg'){vue_crc('trf');sel_mdl('dt_prs');vue_crc('res');}
-				else if(col=='ptl'){vue_crc('trf');act_trf('crc',id);sel_mdl('dt_prs');vue_crc('res');}
+				else if(col=='ptl'){vue_crc('trf');prevUpdateRates('crc',id);sel_mdl('dt_prs');vue_crc('res');}
 				else if(col=='sgl' || col=='dbl_mat' || col=='dbl_twn' || col=='tpl_mat' || col=='tpl_twn' || col=='qdp'){vue_elem('crc',id,col);vue_elem('crc_err_rmn',id_dev_crc);vue_crc('res');sel_mdl('dt_prs');window.parent.act_frm('crc_res_hbr'+id_dev_crc);window.parent.act_frm('hbr_ope');}
 			}
 			else if(tab=='dev_crc_bss'){
@@ -42,7 +42,7 @@ function maj(tab,col,val,id,id_sup){
 					vue_mdl('ttr',id);vue_mdl('trf',id);//vue_mdl('pax',id);
 				}
 				else if(col=='vue_sgl' || col=='vue_dbl' || col=='vue_tpl' || col=='vue_qdp' || col=='psg'){vue_mdl('trf',id);sel_jrn('dt_prs',id);vue_crc('res');}
-				else if(col=='ptl'){vue_mdl('trf',id);act_trf('mdl',id);sel_jrn('dt_prs',id);vue_crc('res');}
+				else if(col=='ptl'){vue_mdl('trf',id);prevUpdateRates('mdl',id);sel_jrn('dt_prs',id);vue_crc('res');}
 				else if(col=='col'){vue_mdl('ttr',id);vue_mdl('dsc',id);sel_jrn('ttr_jrn',id);sel_jrn('dsc_jrn',id);}
 				else if(col=='com' || col=='mrq_hbr'){vue_elem('mdl',id,col);sel_mdl('dt_prs');}
 				else if(col=='sgl' || col=='dbl_mat' || col=='dbl_twn' || col=='tpl_mat' || col=='tpl_twn' || col=='qdp'){vue_elem('mdl',id,col);vue_elem('mdl_err_rmn'+id,id);vue_crc('res');sel_jrn('dt_prs',id);window.parent.act_frm('mdl_res_hbr'+id);window.parent.act_frm('hbr_ope');}
@@ -134,94 +134,6 @@ function maj(tab,col,val,id,id_sup){
 	eval('xmlhttp_maj'+id+col).open("POST","maj.php",true);
 	eval('xmlhttp_maj'+id+col).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	eval('xmlhttp_maj'+id+col).send("tab="+tab+"&col="+col+"&val="+encodeURIComponent(val)+"&id="+id+"&id_sup="+id_sup);
-}
-
-function act_txt(obj,id,id_sup){
-	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false); //remplazar por json
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("act_txt_"+obj);
-	y=x[0].getElementsByTagName(id_lng);
-	if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-	if(cnf>0){
-		x=xmlDoc.getElementsByTagName("cnf");
-		y=x[0].getElementsByTagName(id_lng);
-		if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-	}
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV act_txt');
-	var lgg = document.getElementById("lgg").value;
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				if(obj=='crc'){vue_crc('ttr');vue_crc('ttf');vue_crc('dsc');sel_mdl('ttr_mdl');sel_mdl('dsc_mdl');sel_mdl('ttr_jrn');sel_mdl('dsc_jrn');sel_mdl('ttr_prs');sel_mdl('dsc_prs');sel_mdl('dt_prs');}
-				else if(obj=='mdl'){vue_mdl('ttr',id);vue_mdl('dsc',id);sel_jrn('ttr_jrn',id);sel_jrn('dsc_jrn',id);sel_jrn('ttr_prs',id);sel_jrn('dsc_prs',id);sel_jrn('dt_prs',id);}
-				else if(obj=='jrn'){vue_jrn('ttr',id);vue_jrn('dsc',id);sel_prs('ttr_prs',id);sel_prs('dsc_prs',id);sel_prs('dt_prs',id);}
-				else if(obj=='prs'){vue_prs('ttr',id);vue_prs('dsc',id);vue_prs('dt',id);}
-				else if(obj=='srv' || obj=='hbr'){vue_prs('dt',id_sup);}
-				if(xmlhttp.responseText!=1){alt(xmlhttp.responseText);}
-			}
-			else if(xmlhttp.status==408){act_txt(obj,id,id_sup);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR ACT_TXT "+xmlhttp.statusText+" </span>";}
-			unload('DEV act_txt');
-		}
-	}
-	xmlhttp.open("POST","act_txt.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("obj="+obj+"&id="+id+"&lgg="+lgg);
-}
-
-function act_trf(obj,id,id_sup){
-	if(obj != 'hbr_all' && obj != 'frn_all'){
-		if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-		else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","txt_js.xml",false); //remplazar por json
-		xhttp.send();
-		xmlDoc=xhttp.responseXML;
-		x=xmlDoc.getElementsByTagName("act_trf_"+obj);
-		y=x[0].getElementsByTagName(id_lng);
-		if(window.confirm(y[0].childNodes[0].nodeValue)==false){return 0;}
-	}
-	else{
-		var arr = id;
-		var id = arr.join('_');
-	}
-	if(cnf>0 && obj != 'hbr_all' && obj != 'frn_all'){
-		x=xmlDoc.getElementsByTagName("cnf");
-		y=x[0].getElementsByTagName(id_lng);
-		if(window.confirm(y[0].childNodes[0].nodeValue)==false){return 0;}
-	}
-	if(window.XMLHttpRequest){eval('xmlhttp_act_trf_'+obj+'_'+id+'=new XMLHttpRequest()');}
-	else{eval('xmlhttp_act_trf_'+obj+'_'+id+'=new ActiveXObject("Microsoft.XMLHTTP")');}
-	if(obj != 'hbr_all' && obj != 'frn_all'){load('DEV');}
-	eval('xmlhttp_act_trf_'+obj+'_'+id).onreadystatechange=function(){
-		if(eval('xmlhttp_act_trf_'+obj+'_'+id).readyState==4){
-			if(eval('xmlhttp_act_trf_'+obj+'_'+id).status==200){
-				if(obj == 'crc'){sel_mdl('dt_prs');}
-				else if(obj == 'mdl'){sel_jrn('dt_prs',id);}
-				else if(obj == 'jrn'){sel_prs('dt_prs',id);}
-				else if(obj == 'prs'){vue_prs('dt',id);}
-				else if(obj == 'srv' || obj == 'hbr'){vue_prs('dt',id_sup);}
-				else if(obj == 'hbr_all'){
-					for(var i= 0; i < arr.length; i++){sel_srv('hbr',arr[i]);}
-				}
-				else if(obj == 'frn_all'){
-					for(var i= 0; i < arr.length; i++){sel_srv('srv',arr[i]);}
-				}
-				vue_crc('res');
-				if(eval('xmlhttp_act_trf_'+obj+'_'+id).responseText!=1){alt(eval('xmlhttp_act_trf_'+obj+'_'+id).responseText);}
-			}
-			else if(eval('xmlhttp_act_trf_'+obj+'_'+id).status==408){act_trf(obj,id,id_sup);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR ACT_TRF "+eval('xmlhttp_act_trf_'+obj+'_'+id).statusText+" </span>";}
-			if(obj != 'hbr_all' && obj != 'frn_all'){unload('DEV');}
-		}
-	}
-	eval('xmlhttp_act_trf_'+obj+'_'+id).open("POST","act_trf.php",true);
-	eval('xmlhttp_act_trf_'+obj+'_'+id).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	eval('xmlhttp_act_trf_'+obj+'_'+id).send("obj="+obj+"&id="+id+"&id_sup="+id_sup);
 }
 
 function act_elem(obj,id){

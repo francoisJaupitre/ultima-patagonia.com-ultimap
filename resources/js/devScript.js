@@ -164,6 +164,45 @@ const prevSortElem = async function(elem, val, id, id_sup, id_cat_sup, id_sup2)
   }
 }
 
+const prevUpdateText = async function(elem, id, id_sup)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?",obj[`act_txt_${elem}`][id_lng], () => {
+    if(cnf > 0)
+    {
+      window.parent.box("?",obj['cnf'][id_lng], () => {
+        updateText(elem, id, id_sup)
+      })
+    }else{
+      updateText(elem, id, id_sup)
+    }
+  })
+}
+
+const prevUpdateRates = async function(elem, id, id_sup)
+{
+  if(elem != 'hbr_all' && elem != 'frn_all')
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    window.parent.box("?",obj[`act_trf_${elem}`][id_lng], () => {
+      if(cnf > 0)
+      {
+        window.parent.box("?",obj['cnf'][id_lng], () => {
+          updateRates(elem, id, id_sup)
+        }, ()=>{
+          return 0
+        })
+      }else{
+        updateRates(elem, id, id_sup)
+      }
+    }, ()=>{
+      return 0
+    })
+  }else{
+    updateRates(elem, id, id_sup)
+  }
+}
+
 /* asynchronous functions above */
 
 const emailWriter = (data) => {
@@ -336,16 +375,16 @@ const searchHbr = function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hb
         else if(id_dev_prs == 0 && id_dev_hbr == 0)
         {
           let ids = rsp
-          if(res == 'act_trf')
+          if(res == 'updateRates')
           {
             window.parent.box("?",ids.shift(), () => {
               if(cnf>0)
               {
                 window.parent.box("?",ids.shift(), () => {
-                  act_trf('hbr_all', ids, 0)
+                  prevUpdateRates('hbr_all', ids, 0)
                 })
               }else{
-                act_trf('hbr_all', ids, 0)
+                prevUpdateRates('hbr_all', ids, 0)
               }
             })
           }
@@ -440,10 +479,10 @@ const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
           if(cnf>0)
           {
             window.parent.box("?",ids.shift(), ()=>{
-              act_trf('frn_all', rsp, 0)
+              prevUpdateRates('frn_all', rsp, 0)
             })
           }else{
-            act_trf('frn_all', rsp, 0)
+            prevUpdateRates('frn_all', rsp, 0)
           }
         })
       }
@@ -508,7 +547,7 @@ const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
             }
 					}
 					vue_crc('dt')
-          act_trf('crc', id_sup)
+          prevUpdateRates('crc', id_sup)
 				}else if(obj == "jrn")
         {
           if(rsp[0] != 1)
@@ -527,7 +566,7 @@ const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
             }
 					}
 					vue_mdl('dt', id_sup)
-          act_trf('mdl', id_sup)
+          prevUpdateRates('mdl', id_sup)
 				}else if(obj == "prs")
         {
           vue_jrn('dt', id_sup)
@@ -568,8 +607,118 @@ const sortJrnByDate = (val, id_dev_jrn, id_sup) => {
       if(x.length > 0 || y.length > 0)
         vue_crc('res')
       sel_mdl('ttr_jrn')
-      act_trf('crc', id_dev_crc)
+      prevUpdateRates('crc', id_dev_crc)
       unload('DEV sortJrnByDate')
+    }
+  }
+}
+
+const updateText = (obj, id, id_sup) => {
+  load('DEV updateText')
+  const lgg = document.getElementById("lgg").value
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/updateDevText.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ obj, id, lgg }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      switch (obj) {
+        case 'crc':
+          vue_crc('ttr')
+          vue_crc('ttf')
+          vue_crc('dsc')
+          sel_mdl('ttr_mdl')
+          sel_mdl('dsc_mdl')
+          sel_mdl('ttr_jrn')
+          sel_mdl('dsc_jrn')
+          sel_mdl('ttr_prs')
+          sel_mdl('dsc_prs')
+          sel_mdl('dt_prs')
+          break
+        case 'mdl':
+          vue_mdl('ttr', id)
+          vue_mdl('dsc', id)
+          sel_jrn('ttr_jrn', id)
+          sel_jrn('dsc_jrn', id)
+          sel_jrn('ttr_prs', id)
+          sel_jrn('dsc_prs', id)
+          sel_jrn('dt_prs', id)
+          break
+        case 'jrn':
+          vue_jrn('ttr', id)
+          vue_jrn('dsc', id)
+          sel_prs('ttr_prs', id)
+          sel_prs('dsc_prs', id)
+          sel_prs('dt_prs', id)
+          break
+        case 'prs':
+          vue_prs('ttr', id)
+          vue_prs('dsc', id)
+          vue_prs('dt', id)
+          break
+        case 'srv':
+        case 'hbr':
+          vue_prs('dt', id_sup)
+          break
+      }
+      const rsp = JSON.parse(xhr.response)
+  		if(rsp != 1)
+      {
+        alt(rsp);
+      }
+      unload('DEV updateText')
+  	}
+  }
+}
+
+const updateRates = (obj, id, id_sup) => {
+  if(obj == 'hbr_all' || obj == 'frn_all')
+  {
+    var arr = id
+		var id = arr.join('_')
+  }else{
+    load('DEV updateRates')
+  }
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/updateDevRates.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ obj, id, id_sup }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      //const rsp = JSON.parse(xhr.response)
+      switch (obj) {
+        case 'crc':
+          sel_mdl('dt_prs')
+          break
+        case 'mdl':
+          sel_jrn('dt_prs', id)
+          break
+        case 'jrn':
+          sel_prs('dt_prs', id)
+          break
+        case 'prs':
+          vue_prs('prs', id)
+          break
+        case 'srv':
+        case 'hbr':
+          vue_prs('prs', id_sup)
+          break
+        case 'hbr_all':
+          for(let i = 0; i < arr.length; i++)
+            sel_srv('hbr',arr[i])
+          break
+        case 'srv_all':
+          for(let i = 0; i < arr.length; i++)
+            sel_srv('srv',arr[i])
+          break
+      }
+      vue_crc('res')
+      if(obj != 'hbr_all' && obj != 'frn_all')
+      {
+        unload('DEV updateRates')
+      }
     }
   }
 }

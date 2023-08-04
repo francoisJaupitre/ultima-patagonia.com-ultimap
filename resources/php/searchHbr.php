@@ -55,7 +55,7 @@ if(isset($data['id_cat_hbr']))
 		$xmlTxt1 = 'src_hbr7';
 	}else if($id_dev_prs == 0 and $id_dev_hbr == 0)
 	{
-		if($res == 'act_trf')
+		if($res == 'updateRates')
 		{
 			$xmlTxt0 = 'src_hbr8';
 			$xmlTxt1 = 'src_hbr9';
@@ -98,8 +98,8 @@ if(isset($data['id_cat_hbr']))
 						$arr[] = $dt_hbr['id']; //MAJ_RES
 					}
 					elseif($id_dev_prs == 0 and $id_dev_hbr == 0 and $dt_hbr['id_cat'] == $id_cat_hbr and $dt_hbr['id_cat_chm'] == $id_cat_chm){
-						if($res == 'act_trf')
-						{//ACT_TRF_ALL
+						if($res == 'updateRates')
+						{//update all rates
 							$arr[] = $dt_hbr['id'];
 						}elseif($res == 'sup'){ //SUP_ALL
 							$arr[] = array($dt_hbr['id'],$dt_prs['id']);

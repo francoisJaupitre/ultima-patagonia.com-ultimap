@@ -41,11 +41,11 @@ if(isset($_POST['id_dev_crc'])){
 <?php
 if($aut['dev'] and $cnf<1){
 ?>
-				<li onclick="act_trf('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->acttrf->$id_lng; ?></li>
+				<li onclick="prevUpdateRates('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 	if($id_cat_crc == 0){
 ?>
-				<li onclick="act_txt('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->acttxt->$id_lng; ?></li>
+				<li onclick="prevUpdateText('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->acttxt->$id_lng; ?></li>
 <?php
 	}
 ?>
@@ -107,7 +107,7 @@ if($id_cat_crc != 0 and $aut['dev']){
 			<br/>
 			<strong><?php echo $txt->cat->$id_lng; ?></strong>
 			<ul>
-				<li onclick="act_txt('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->acttxt->$id_lng; ?></li>
+				<li onclick="prevUpdateText('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->acttxt->$id_lng; ?></li>
 				<li onclick="act_elem('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->actmdl->$id_lng; ?></li>
 			</ul>
 <?php

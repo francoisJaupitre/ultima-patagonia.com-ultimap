@@ -297,5 +297,53 @@
   "cnf": {
     "fr": "Circuit confirmé! Etes-vous sûr ?",
     "es": "¡Circuito confirmado! ¿Está seguro?"
+  },
+  "act_txt_crc": {
+    "fr": "Actualiser les textes de ce circuit ?",
+    "es": "¿Actualizar los textos de este circuito?"
+  },
+  "act_txt_mdl": {
+    "fr": "Actualiser les textes de ce module ?",
+    "es": "¿Actualizar los textos de este modulo?"
+  },
+  "act_txt_jrn": {
+    "fr": "Actualiser les textes de cette journée ?",
+    "es": "¿Actualizar los textos de esta jornada?"
+  },
+  "act_txt_prs": {
+    "fr": "Actualiser les textes de cette prestation ?",
+    "es": "¿Actualizar los textos de esta prestación?"
+  },
+  "act_txt_hbr": {
+    "fr": "Actualiser les textes de cet hébergement ?",
+    "es": "¿Actualizar los textos de este alojamiento?"
+  },
+  "act_txt_srv": {
+    "fr": "Actualiser les textes de ce service ?",
+    "es": "¿Actualizar los textos de este servicio?"
+  },
+  "act_trf_crc": {
+    "fr": "Actualiser les tarifs de ce circuit ?",
+    "es": "¿Actualizar las tarifas de este circuito?"
+  },
+  "act_trf_mdl": {
+    "fr": "Actualiser les tarifs de ce module ?",
+    "es": "¿Actualizar las tarifas de este modulo?"
+  },
+  "act_trf_jrn": {
+    "fr": "Actualiser les tarifs de cette journée ?",
+    "es": "¿Actualizar las tarifas de esta jornada?"
+  },
+  "act_trf_prs": {
+    "fr": "Actualiser les tarifs de cette prestation ?",
+    "es": "¿Actualizar las tarifas de esta prestación?"
+  },
+  "act_trf_hbr": {
+    "fr": "Actualiser les tarifs de cet hébergement ?",
+    "es": "¿Actualizar las tarifas de este alojamiento?"
+  },
+  "act_trf_srv": {
+    "fr": "Actualiser les tarifs de ce service ?",
+    "es": "¿Actualizar las tarifas de este servicio?"
   }
 }
