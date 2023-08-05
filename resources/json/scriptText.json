@@ -345,5 +345,21 @@
   "act_trf_srv": {
     "fr": "Actualiser les tarifs de ce service ?",
     "es": "¿Actualizar las tarifas de este servicio?"
+  },
+  "act_elem_crc": {
+    "fr": "Cette option remplacera tous les éléments présents dans ce circuit?&#xA;Toutes les informations seront perdues !",
+    "es": "Esta opción remplazara todos los elementos presentes en este circuito?&#xA;Todas las informaciones se borrarán!"
+  },
+  "act_elem_mdl": {
+    "fr": "Actualiser les éléments de ce module ?",
+    "es": "¿Actualizar los elementos en este modulo?"
+  },
+  "act_elem_jrn": {
+    "fr": "Actualiser les éléments de cette journée ?",
+    "es": "¿Actualizar los elementos en esta jornada?"
+  },
+  "act_elem_prs": {
+    "fr": "Cette option remplacera tous les éléments présents dans cette prestation?&#xA;Toutes les informations seront perdues !",
+    "es": "¡Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;Todas las informaciones se borrarán!"
   }
 }

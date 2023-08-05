@@ -136,45 +136,6 @@ function maj(tab,col,val,id,id_sup){
 	eval('xmlhttp_maj'+id+col).send("tab="+tab+"&col="+col+"&val="+encodeURIComponent(val)+"&id="+id+"&id_sup="+id_sup);
 }
 
-function act_elem(obj,id){
-	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false); //remplazar por json
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("act_elem_"+obj);
-	y=x[0].getElementsByTagName(id_lng);
-	if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-	if(cnf>0){
-		x=xmlDoc.getElementsByTagName("cnf");
-		y=x[0].getElementsByTagName(id_lng);
-		if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-	}
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	var lgg = document.getElementById("lgg").value;
-	load('DEV');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){vue_crc('res');
-				var rsp = xmlhttp.responseText.split("|");
-				if(obj=='crc'){vue_crc('ttf');vue_crc('dt');}
-				else if(obj=='mdl'){vue_crc('ttf');vue_mdl('dt',id);sel_mdl('end_mdl_apr',id);sel_mdl('ttr_jrn_apr',id);}
-				else if(obj=='jrn'){vue_jrn('dt',id);}
-				else if(obj=='prs'){vue_prs('dt',id);}
-				if(rsp[0].length>0){alt(rsp[0]);}
-				if(rsp[1].length>0){alt(rsp[1]);}
-			}
-			else if(xmlhttp.status==408){act_elem(obj,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR ACT_ELEM "+xmlhttp.statusText+" </span>";}
-			unload('DEV');
-		}
-	}
-	xmlhttp.open("POST","act_elem.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("obj="+obj+"&id="+id+"&lgg="+lgg);
-}
-
 function hbr_def(id_hbr_def){
 	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}

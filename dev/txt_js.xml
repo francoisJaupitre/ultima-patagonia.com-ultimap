@@ -51,22 +51,6 @@
 		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
 		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
 	</grd2>
-	<act_elem_crc>
-		<fr>Cette option remplacera tous les éléments présents dans ce circuit?&#xA;Toutes les informations seront perdues!</fr>
-		<es>Esta opción remplazara todos los elementos presentes en este circuito?&#xA;Todas las informaciones se borrarán!</es>
-	</act_elem_crc>
-	<act_elem_mdl>
-		<fr>ACTUALISER les éléments de ce module?</fr>
-		<es>ACTUALIZAR los elementos en este modulo?</es>
-	</act_elem_mdl>
-	<act_elem_jrn>
-		<fr>ACTUALISER les éléments de cette journée?</fr>
-		<es>ACTUALIZAR los elementos en esta jornada?</es>
-	</act_elem_jrn>
-	<act_elem_prs>
-		<fr>Cette option remplacera tous les éléments présents dans cette prestation?&#xA;Toutes les informations seront perdues!</fr>
-		<es>Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;Todas las informaciones se borrarán!</es>
-	</act_elem_prs>
 	<hbr_def>
 		<fr>Sélectionner les hôtels par défaut pour chaque hébergement non défini de ce circuit?</fr>
 		<es>Seleccionar los hoteles por defecto para cada alojamiento no definido en este circuito?</es>

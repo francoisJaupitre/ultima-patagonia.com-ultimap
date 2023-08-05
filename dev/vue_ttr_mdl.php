@@ -96,7 +96,7 @@ if($id_cat_mdl > 0 and $aut['dev']){
 			<strong><?php echo $txt->cat->$id_lng; ?></strong>
 			<ul>
 				<li onclick="prevUpdateText('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
-				<li onclick="act_elem('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->actjrn->$id_lng; ?></li>
+				<li onclick="prevUpdateElem('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->actjrn->$id_lng; ?></li>
 				<li onclick="sup_cat('mdl',<?php echo $id_dev_mdl ?> );document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->supcat->$id_lng; ?></li>
 			</ul>
 <?php

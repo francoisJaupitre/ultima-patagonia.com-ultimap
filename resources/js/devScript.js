@@ -203,6 +203,20 @@ const prevUpdateRates = async function(elem, id, id_sup)
   }
 }
 
+const prevUpdateElem = async function(elem, id)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?",obj[`act_elem_${elem}`][id_lng], () => {
+    if(cnf>0){
+      window.parent.box("?",obj['cnf'][id_lng], () => {
+        prevUpdateElem(elem, id)
+      })
+    }else{
+      prevUpdateElem(elem, id)
+    }
+  })
+}
+
 /* asynchronous functions above */
 
 const emailWriter = (data) => {
@@ -719,6 +733,49 @@ const updateRates = (obj, id, id_sup) => {
       {
         unload('DEV updateRates')
       }
+    }
+  }
+}
+
+const updateElem = (obj, id) => {
+  load('DEV updateElem')
+  const lgg = document.getElementById("lgg").value
+  const xhr = new XMLHttpRequest
+  xhr.open("POST","../resources/php/updateDevElem.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ obj, id, lgg }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      vue_crc('res');
+      switch (obj) {
+        case 'crc':
+          vue_crc('ttf')
+          vue_crc('dt')
+          break
+        case 'mdl':
+          vue_crc('ttf')
+          vue_mdl('dt', id)
+          sel_mdl('end_mdl_apr', id)
+          sel_mdl('ttr_jrn_apr', id)
+          break
+        case 'jrn':
+          vue_jrn('dt', id)
+          break
+        case 'prs':
+          vue_prs('dt', id)
+          break
+      }
+      const rsp = JSON.parse(xhr.response)
+      if(rsp[0].length > 0)
+      {
+        alt(rsp[0])
+      }
+      if(rsp[1].length > 0)
+      {
+        alt(rsp[1])
+      }
+      unload('DEV updateElem')
     }
   }
 }

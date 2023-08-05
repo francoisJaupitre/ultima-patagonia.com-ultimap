@@ -106,7 +106,7 @@ if($id_cat_prs > 0 and $aut['dev']){
 				<ul>
 
 					<li onclick="prevUpdateText('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->acttxt->$id_lng; ?></li>
-					<li onclick="act_elem('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->actelem->$id_lng; ?></li>
+					<li onclick="prevUpdateElem('prs',<?php echo $id_dev_prs ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->actelem->$id_lng; ?></li>
 					<li onclick="sup_cat('prs',<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?> );document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->supcat->$id_lng; ?></li>
 				</ul>
 <?php

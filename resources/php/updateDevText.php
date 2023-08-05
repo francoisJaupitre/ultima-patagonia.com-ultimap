@@ -53,9 +53,6 @@ if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($d
 			$id_cat_chm = $dt_dev_hbr['id_cat_chm'];
 			include("updateHbrText.php");
 			break;
-		default:
-			// code...
-			break;
 	}
 	$err = '';
 	if($err_crc != '')
