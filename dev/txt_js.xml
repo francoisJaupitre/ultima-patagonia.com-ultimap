@@ -51,10 +51,6 @@
 		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
 		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
 	</grd2>
-	<hbr_def>
-		<fr>Sélectionner les hôtels par défaut pour chaque hébergement non défini de ce circuit?</fr>
-		<es>Seleccionar los hoteles por defecto para cada alojamiento no definido en este circuito?</es>
-	</hbr_def>
 	<chk_cnf>
 		<fr>Définir des dates pour ce circuit.</fr>
 		<es>Definir fechas para este circuito.</es>

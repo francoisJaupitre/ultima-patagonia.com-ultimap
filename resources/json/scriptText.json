@@ -361,5 +361,9 @@
   "act_elem_prs": {
     "fr": "Cette option remplacera tous les éléments présents dans cette prestation?&#xA;Toutes les informations seront perdues !",
     "es": "¡Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;Todas las informaciones se borrarán!"
+  },
+  "hbr_def": {
+    "fr": "Sélectionner les hôtels par défaut pour chaque hébergement non défini de ce circuit ?",
+    "es": "¿Seleccionar los hoteles por defecto para cada alojamiento no definido en este circuito?"
   }
 }

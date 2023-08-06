@@ -136,38 +136,6 @@ function maj(tab,col,val,id,id_sup){
 	eval('xmlhttp_maj'+id+col).send("tab="+tab+"&col="+col+"&val="+encodeURIComponent(val)+"&id="+id+"&id_sup="+id_sup);
 }
 
-function hbr_def(id_hbr_def){
-	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false); //remplazar por json
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("hbr_def");
-	y=x[0].getElementsByTagName(id_lng);
-	if(window.confirm(y[0].childNodes[0].nodeValue)==false){return;}
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				sel_mdl('dt_prs');
-				vue_crc('res');
-				var rsp = xmlhttp.responseText.split("|");
-				if(rsp[0].length>0){alt(rsp[0]);}
-				if(rsp[1].length>0){alt(rsp[1]);}
-				if(rsp[2].length>0){alt(rsp[2]);}
-			}
-			else if(xmlhttp.status==408){hbr_def(id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR HBR_DEF "+xmlhttp.statusText+" </span>";}
-			unload('DEV');
-		}
-	}
-	xmlhttp.open("POST","hbr_def.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_dev_crc="+id_dev_crc+"&hbr_def="+id_hbr_def);
-}
-
 function chk_cnf(){
 	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}

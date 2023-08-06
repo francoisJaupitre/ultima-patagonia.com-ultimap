@@ -217,6 +217,39 @@ const prevUpdateElem = async function(elem, id)
   })
 }
 
+const defineHbr = async function(id_hbr_def)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?",obj["hbr_def"][id_lng], () => {
+    load('DEV defineHbr')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/defineHbr.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_dev_crc, id_hbr_def }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        const rsp = JSON.parse(xhr.response)
+        sel_mdl('dt_prs')
+        vue_crc('res')
+        if(rsp[0].length > 0)
+        {
+          alt(rsp[0])
+        }
+        if(rsp[1].length > 0)
+        {
+          alt(rsp[1])
+        }
+        if(rsp[2].length > 0)
+        {
+          alt(rsp[2])
+        }
+        unload('DEV defineHbr')
+      }
+    }
+  })
+}
+
 /* asynchronous functions above */
 
 const emailWriter = (data) => {
