@@ -51,14 +51,6 @@
 		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
 		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
 	</grd2>
-	<chk_cnf>
-		<fr>Définir des dates pour ce circuit.</fr>
-		<es>Definir fechas para este circuito.</es>
-	</chk_cnf>
-	<chk_cnf>
-		<fr>Sélectionner une seule base ou garder les hébergements dans le catalogue pour le(s) module(s): </fr>
-		<es>Selecionar una sola base o guardar los alojamientos en el catalogo para el(los) modulo(s): </es>
-	</chk_cnf>
 	<cnf_ok>
 		<fr>CONFIRMER ce devis?</fr>
 		<es>CONFIRMAR esta cotización?</es>

@@ -132,7 +132,6 @@ else{
 	}
 }
 if(isset($ids_dev_crc)) {$id_dev_crc = implode('|',$ids_dev_crc);}
-//echo $id_dev_crc."||".$err."||".$alt;
 $qa = array($id_dev_crc, $err, $alt);
 echo json_encode($qa);
 ?>

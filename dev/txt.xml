@@ -747,4 +747,12 @@
 		<fr>Valeur incorrecte !</fr>
 		<es>¡Valor incorrecto!</es>
 	</ord>
+	<chk_cnf1>
+		<fr>Définir des dates pour ce circuit.</fr>
+		<es>Definir fechas para este circuito.</es>
+	</chk_cnf1>
+	<chk_cnf2>
+		<fr>Sélectionner une seule base ou garder les hébergements dans le catalogue pour le(s) module(s): </fr>
+		<es>Selecionar una sola base o guardar los alojamientos en el catalogo para el(los) modulo(s): </es>
+	</chk_cnf2>
 </textes>

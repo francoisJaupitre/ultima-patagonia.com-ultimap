@@ -136,50 +136,6 @@ function maj(tab,col,val,id,id_sup){
 	eval('xmlhttp_maj'+id+col).send("tab="+tab+"&col="+col+"&val="+encodeURIComponent(val)+"&id="+id+"&id_sup="+id_sup);
 }
 
-function chk_cnf(){
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				if(xmlhttp.responseText==0){ok_cnf();}
-				else{
-					if(xmlhttp.responseText=='nodat'){
-						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false); //remplazar por xml server side
-						xhttp.send();
-						xmlDoc=xhttp.responseXML;
-						x=xmlDoc.getElementsByTagName("chk_cnf");
-						y=x[0].getElementsByTagName(id_lng);
-						alt(y[0].childNodes[0].nodeValue);
-					}
-					else{
-						var rsp = xmlhttp.responseText.split("|");
-						if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-						else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-						xhttp.open("GET","txt_js.xml",false); //remplazar por xml server side
-						xhttp.send();
-						xmlDoc=xhttp.responseXML;
-						x=xmlDoc.getElementsByTagName("chk_cnf");
-						y=x[1].getElementsByTagName(id_lng);
-						var msg = y[0].childNodes[0].nodeValue;
-						for(var i= 0; i < rsp.length; i++){msg = msg + rsp[i] +', ';}
-						alt(msg);
-					}
-				}
-			}
-			else if(xmlhttp.status==408){chk_cnf();}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR CHK_CNF "+xmlhttp.statusText+" </span>";}
-			unload('DEV');
-		}
-	}
-	xmlhttp.open("POST","chk_cnf.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_dev_crc="+id_dev_crc);
-}
-
 function ok_cnf(){
 	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
 	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}

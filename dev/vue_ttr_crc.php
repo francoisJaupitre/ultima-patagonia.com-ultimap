@@ -60,9 +60,10 @@ if($aut['dev'] and $cnf<1){
 ?>
 				<li id="newVersion"><?php echo $txt->vrs->$id_lng; ?></li>
 <?php
-if($aut['dev'] and $cnf<1){
+if($aut['dev'] and $cnf < 1)
+{
 ?>
-				<li onclick="if(cls_rch('crc')){chk_cnf();}"><?php echo $txt->conf->$id_lng; ?></li>
+				<li id="confirmation"><?php echo $txt->conf->$id_lng; ?></li>
 <?php
 }
 if($aut['cat'] and $id_cat_crc == 0){

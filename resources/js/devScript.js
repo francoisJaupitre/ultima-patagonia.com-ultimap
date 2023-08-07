@@ -24,7 +24,9 @@ var cnf, aut, id_dev_crc // encapsuler ci-dessous asap
       document.body.onfocus = null
     }
   }*/
-  document.getElementById("newVersion").onclick = () => { newVersion(id_dev_crc) }
+  document.getElementById("newVersion").onclick = () => { newVersion() }
+  document.getElementById("confirmation").onclick = () => { prevConfirmation() }
+
 })()
 
 const mailFrn = async function(id_res_frn)
@@ -119,7 +121,7 @@ const mailHbr = async function(id_res_hbr,id_res_chm)
 	}
 }
 
-const newVersion = async function(id_crc)
+const newVersion = async function()
 {
   const obj = await getTxt("../resources/json/scriptText.json")
   window.parent.box("?",obj["vrs"][id_lng], () => {
@@ -127,7 +129,7 @@ const newVersion = async function(id_crc)
     const xhr = new XMLHttpRequest
     xhr.open("POST","../resources/php/newVersion.php")
     xhr.setRequestHeader("Content-Type", "application/json")
-    xhr.send(JSON.stringify({ id_crc }))
+    xhr.send(JSON.stringify({ id_crc : id_dev_crc }))
     xhr.onreadystatechange = () => {
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
       {
@@ -809,6 +811,41 @@ const updateElem = (obj, id) => {
         alt(rsp[1])
       }
       unload('DEV updateElem')
+    }
+  }
+}
+
+const prevConfirmation = () => {
+  if(cls_rch('crc'))
+  {
+    load('DEV prevConfirmation')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST","../resources/php/prevConfirmation.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_dev_crc }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        const rsp = JSON.parse(xhr.response)
+        if(rsp[0] == 0)
+        {
+          ok_cnf()
+        }else{
+          let msg = rsp[0]
+          if(rsp.length > 1)
+          {
+            for(let i = 1; i < rsp.length; i++)
+            {
+              if(i > 1){
+                msg += ', '
+              }
+              msg += rsp[i]
+            }
+          }
+          alt(msg)
+        }
+        unload('DEV prevConfirmation')
+      }
     }
   }
 }

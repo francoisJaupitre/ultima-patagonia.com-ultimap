@@ -139,7 +139,6 @@ if(isset($data['cbl']) and isset($data['nom']))
 			$id = insert('cat_bnq',array('nom','dt_cat','usr'),array($nom,date("Y-m-d"),$id_usr));
 			break;
 	}
-	//echo $id."|".$err."|".$alt;
 	$qa = array($id, $err, $alt);
 	echo json_encode($qa);
 }
