@@ -15,7 +15,7 @@ if($dt_res2['id_frn']>0){
 <?php
 	}
 ?>
-			<li onclick="window.open('../fct/docx_frn.php?id=<?php echo $dt_res['id_crc'] ?>&frn=<?php echo $dt_res2['id_frn'] ?>');document.getElementById('vue_cmd_srv<?php echo $dt_res2['id_dev_srv']; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
+			<li onclick="window.open('../resources/php/docxFrn.php?id=<?php echo $dt_res['id_crc'] ?>&frn=<?php echo $dt_res2['id_frn'] ?>');document.getElementById('vue_cmd_srv<?php echo $dt_res2['id_dev_srv']; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
 		</ul>
 	</div>
 </div>

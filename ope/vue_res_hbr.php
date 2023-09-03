@@ -27,7 +27,7 @@ else{
 }
 if($dt_res2['id_hbr_res']==2 or $dt_res2['id_hbr_rva']!=''){
 ?>
-<input type="text" <?php if(!$aut['res']){echo ' disabled';} ?> placeholder="<?php echo $txt->codrva->$id_lng; ?>" style="width: 120px;" value="<?php echo stripslashes($dt_res2['id_hbr_rva']) ?>" onChange="maj('dev_hbr','rva',this.value,<?php echo $dt_res2['id_dev_hbr'] ?>)" />
+<input type="text" <?php if(!$aut['res']){echo ' disabled';} ?> placeholder="<?php echo $txt->codrva->$id_lng; ?>" style="width: 120px;" value="<?php echo stripslashes($dt_res2['id_hbr_rva']) ?>" onChange="updateData('dev_hbr','rva',this.value,<?php echo $dt_res2['id_dev_hbr'] ?>)" />
 <?php
 }
 ?>

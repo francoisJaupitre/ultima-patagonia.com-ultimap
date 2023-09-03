@@ -1,12 +1,12 @@
-<?php
+<?php //CREATE A NEW ROOM OR SERVICE RATES BASED ON EXISTING ONES
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['cbl']) and isset($data['id']))
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	$cbl = $data['cbl'];
-	if($cbl=='chm')
+	if($cbl == 'chm')
 	{
 		$id_chm = $data['id'];
 		$dt_chm = ftc_ass(sel_quo("*", "cat_hbr_chm", "id", $id_chm));
@@ -37,7 +37,7 @@ if(isset($data['cbl']) and isset($data['id']))
 			$dt_txt['id_hbr_chm'] = $id_chm_new;
 			insert("cat_hbr_chm_txt", array_keys($dt_txt), array_values($dt_txt));
 		}
-	}elseif($cbl=='trf')
+	}elseif($cbl == 'trf')
 	{
 		$id_trf = $data['id'];
 		$dt_trf = ftc_ass(sel_quo("*", "cat_srv_trf", "id", $id_trf));

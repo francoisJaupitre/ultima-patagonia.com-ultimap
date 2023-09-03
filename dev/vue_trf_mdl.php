@@ -151,7 +151,7 @@ if($trf_mdl){
 <?php
 	}
 ?>
-	<span id="mdl_err_rmn<?php echo $id_dev_mdl ?>" class="fwb red"><?php if($bss_cnf > 0 and $sgl_mdl + ($dbl_mat_mdl + $dbl_twn_mdl) * 2 + ($tpl_mat_mdl + $tpl_twn_mdl) * 3 + $qdp_mdl * 4 != $bss_cnf + $ptl - $psg) {echo $txt->err->rmn->$id_lng;} ?></span>
+	<span id="mdl_err_rmn<?php echo $id_dev_mdl ?>" class="fwb red"><?php if($bss_cnf > 0 and $sgl_mdl + ($dbl_mat_mdl + $dbl_twn_mdl) * 2 + ($tpl_mat_mdl + $tpl_twn_mdl) * 3 + $qdp_mdl * 4 != $bss_cnf + $ptl - $psg) {echo $txt->err_rmn->$id_lng;} ?></span>
 	<span class="wsn fwb">
 <?php
 	if(isset($bss_mdl)){

@@ -15,7 +15,7 @@ var cnf, aut, id_dev_crc // encapsuler ci-dessous asap
   {
     const id_scrll_jrn = document.getElementById('id_scrll_jrn').value
     const id_scrll_mdl = document.getElementById('id_scrll_mdl').value
-    scroll2(id_scrll_jrn,id_scrll_mdl)
+    scroll2(id_scrll_jrn, id_scrll_mdl)
   }
   /*document.body.onblur = () => {
     const fos = document.activeElement
@@ -25,23 +25,24 @@ var cnf, aut, id_dev_crc // encapsuler ci-dessous asap
     }
   }*/
   document.getElementById("newVersion").onclick = () => { newVersion() }
-  document.getElementById("confirmation").onclick = () => { prevConfirmation() }
+  if(document.getElementById("confirmation"))
+    document.getElementById("confirmation").onclick = () => { prevConfirmation() }
 
 })()
 
-const mailFrn = async function(id_res_frn)
+const mailFrn = async function(id_res_frn, res)
 {
 	if(id_res_frn == 0)
 	{
 		const obj = await getTxt("../resources/json/scriptText.json")
-		window.parent.box("?",obj["mailFrn"][cnf][id_lng], ()=>{}, () => {
+		window.parent.box("?", obj[`mailFrn${cnf}`][res][id_lng], ()=>{}, () => {
 			return
 		})
 	}
 	const xhr = new XMLHttpRequest
-	xhr.open("POST","../resources/php/mailFrn.php")
+	xhr.open("POST", "../resources/php/mailFrn.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
-	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn }	))
+	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn, res }	))
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
@@ -50,7 +51,8 @@ const mailFrn = async function(id_res_frn)
 				const link = document.createElement('a')
 				link.style.display = 'none'
 				document.body.appendChild(link)
-				vue_crc('res')
+				if(res > 0)
+          vue_crc('res')
 				const rsp_mel = xhr.responseText.split("||")
 				for(var i = 1; i < rsp_mel.length; i++)
 				{
@@ -58,38 +60,49 @@ const mailFrn = async function(id_res_frn)
 					link.setAttribute('download', rsp_srv[1])
 					link.setAttribute('href', rsp_srv[0])
 	  			link.click()
-					for(var j = 2; j < rsp_srv.length; j++)
-					{
-						vue_elem(`srv_res${rsp_srv[j]}`, rsp_srv[j])
-						vue_elem(`srv_frn${rsp_srv[j]}`, rsp_srv[j])
-					}
+          if(res > 0)
+          {
+            for(var j = 2; j < rsp_srv.length; j++)
+            {
+              vue_elem(`srv_res${rsp_srv[j]}`, rsp_srv[j])
+              vue_elem(`srv_frn${rsp_srv[j]}`, rsp_srv[j])
+            }
+          }
 				}
 				document.body.removeChild(link)
-				window.parent.act_frm(`crc_res_srv${id_dev_crc}`)
-				window.parent.act_frm(`crc_res_frn${id_dev_crc}`)
-				window.parent.act_frm('frn_ope')
+        if(res > 0)
+        {
+          window.parent.act_frm(`crc_res_srv${id_dev_crc}`)
+          window.parent.act_frm(`crc_res_frn${id_dev_crc}`)
+          window.parent.act_frm('frn_ope')
+        }
 				alt(rsp_mel[0])
 			}else{
 				load('emailPopup')
-				emailWriter(JSON.parse(xhr.response))
+				emailWriter(JSON.parse(xhr.response), res)
 			}
 		}
 	}
 }
 
-const mailHbr = async function(id_res_hbr,id_res_chm)
+const mailHbr = async function(id_res_hbr, id_res_chm, res)
 {
 	if(id_res_hbr == 0)
 	{
 		const obj = await getTxt("../resources/json/scriptText.json")
-		window.parent.box("?",obj["mailHbr"][cnf][id_lng], ()=>{}, () => {
-			return
-		})
+    if(res == 0)
+      window.parent.box("?", obj[`mailHbr`][id_lng], ()=>{}, () => {
+  			return
+  		})
+		else
+      window.parent.box("?", obj[`mailHbr${res}`][cnf][id_lng], ()=>{}, () => {
+  			return
+  		})
 	}
 	const xhr = new XMLHttpRequest
-	xhr.open("POST","../resources/php/mailHbr.php")
+	xhr.open("POST", "../resources/php/mailHbr.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
-	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm }	))
+	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm, res }	))
 	xhr.onreadystatechange = () => {
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
@@ -98,24 +111,29 @@ const mailHbr = async function(id_res_hbr,id_res_chm)
 				const link = document.createElement('a')
 				link.style.display = 'none'
 				document.body.appendChild(link)
-				vue_crc('res')
+        if(res > 0)
+				  vue_crc('res')
 				const rsp_mel = xhr.responseText.split("||")
 				for(var i = 1; i < rsp_mel.length; i++)
 				{
-					const rsp_hbr = rsp_mel[i].split("|")
+          const rsp_hbr = rsp_mel[i].split("|")
 					link.setAttribute('download', rsp_srv[1])
 					link.setAttribute('href', rsp_srv[0])
 	  			link.click()
-					for(var j = 2; j < rsp_hbr.length; j++)
-						vue_elem(`hbr_res${rsp_hbr[j]}`, rsp_hbr[j])
+          if(res > 0)
+            for(var j = 2; j < rsp_hbr.length; j++)
+              vue_elem(`hbr_res${rsp_hbr[j]}`, rsp_hbr[j])
 				}
 				document.body.removeChild(link)
-				window.parent.act_frm(`crc_res_hbr${id_dev_crc}`)
-				window.parent.act_frm('hbr_ope')
-				alt(rsp_mel[0])
+        if(res > 0)
+        {
+          window.parent.act_frm(`crc_res_hbr${id_dev_crc}`)
+          window.parent.act_frm('hbr_ope')
+        }
+        alt(rsp_mel[0])
 			}else{
 				load('emailPopup')
-				emailWriter(JSON.parse(xhr.response))
+				emailWriter(JSON.parse(xhr.response), res)
 			}
 		}
 	}
@@ -124,10 +142,10 @@ const mailHbr = async function(id_res_hbr,id_res_chm)
 const newVersion = async function()
 {
   const obj = await getTxt("../resources/json/scriptText.json")
-  window.parent.box("?",obj["vrs"][id_lng], () => {
+  window.parent.box("?", obj["vrs"][id_lng], () => {
     load('DEV newVersion')
     const xhr = new XMLHttpRequest
-    xhr.open("POST","../resources/php/newVersion.php")
+    xhr.open("POST", "../resources/php/newVersion.php")
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(JSON.stringify({ id_crc : id_dev_crc }))
     xhr.onreadystatechange = () => {
@@ -148,36 +166,29 @@ const prevSortElem = async function(elem, val, id, id_sup, id_cat_sup, id_sup2)
   if(cnf > 0)
   {
     const obj = await getTxt("../resources/json/scriptText.json")
-    window.parent.box("?",obj["cnf"][id_lng], sortElem(elem, val, id, id_sup, id_cat_sup, id_sup2), () => {
+    window.parent.box("?", obj["cnf"][id_lng], sortElem(elem, val, id, id_sup, id_cat_sup, id_sup2), () => {
       if(obj == 'mdl')
-      {
-        vue_mdl('ttr',id)
-      }else if(obj == 'jrn')
-      {
-        vue_jrn('ttr',id)
-      }else if(obj == 'prs')
-      {
-        vue_prs('ttr',id)
-      }
+        vue_mdl('ttr', id)
+      else if(obj == 'jrn')
+        vue_jrn('ttr', id)
+      else if(obj == 'prs')
+        vue_prs('ttr', id)
       return;
     })
-  }else{
+  }else
     sortElem(elem, val, id, id_sup, id_cat_sup, id_sup2)
-  }
 }
 
 const prevUpdateText = async function(elem, id, id_sup)
 {
   const obj = await getTxt("../resources/json/scriptText.json")
-  window.parent.box("?",obj[`act_txt_${elem}`][id_lng], () => {
+  window.parent.box("?", obj[`act_txt_${elem}`][id_lng], () => {
     if(cnf > 0)
-    {
-      window.parent.box("?",obj['cnf'][id_lng], () => {
+      window.parent.box("?", obj['cnf'][id_lng], () => {
         updateText(elem, id, id_sup)
       })
-    }else{
+    else
       updateText(elem, id, id_sup)
-    }
   })
 }
 
@@ -186,46 +197,42 @@ const prevUpdateRates = async function(elem, id, id_sup)
   if(elem != 'hbr_all' && elem != 'frn_all')
   {
     const obj = await getTxt("../resources/json/scriptText.json")
-    window.parent.box("?",obj[`act_trf_${elem}`][id_lng], () => {
+    window.parent.box("?", obj[`act_trf_${elem}`][id_lng], () => {
       if(cnf > 0)
-      {
-        window.parent.box("?",obj['cnf'][id_lng], () => {
+        window.parent.box("?", obj['cnf'][id_lng], () => {
           updateRates(elem, id, id_sup)
         }, ()=>{
           return 0
         })
-      }else{
+      else
         updateRates(elem, id, id_sup)
-      }
     }, ()=>{
       return 0
     })
-  }else{
+  }else
     updateRates(elem, id, id_sup)
-  }
 }
 
 const prevUpdateElem = async function(elem, id)
 {
   const obj = await getTxt("../resources/json/scriptText.json")
-  window.parent.box("?",obj[`act_elem_${elem}`][id_lng], () => {
-    if(cnf>0){
-      window.parent.box("?",obj['cnf'][id_lng], () => {
-        prevUpdateElem(elem, id)
+  window.parent.box("?", obj[`act_elem_${elem}`][id_lng], () => {
+    if(cnf>0)
+      window.parent.box("?", obj['cnf'][id_lng], () => {
+        updateElem(elem, id)
       })
-    }else{
-      prevUpdateElem(elem, id)
-    }
+    else
+      updateElem(elem, id)
   })
 }
 
 const defineHbr = async function(id_hbr_def)
 {
   const obj = await getTxt("../resources/json/scriptText.json")
-  window.parent.box("?",obj["hbr_def"][id_lng], () => {
+  window.parent.box("?", obj["hbr_def"][id_lng], () => {
     load('DEV defineHbr')
     const xhr = new XMLHttpRequest
-    xhr.open("POST","../resources/php/defineHbr.php")
+    xhr.open("POST", "../resources/php/defineHbr.php")
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(JSON.stringify({ id_dev_crc, id_hbr_def }))
     xhr.onreadystatechange = () => {
@@ -235,26 +242,119 @@ const defineHbr = async function(id_hbr_def)
         sel_mdl('dt_prs')
         vue_crc('res')
         if(rsp[0].length > 0)
-        {
           alt(rsp[0])
-        }
         if(rsp[1].length > 0)
-        {
           alt(rsp[1])
-        }
         if(rsp[2].length > 0)
-        {
           alt(rsp[2])
-        }
         unload('DEV defineHbr')
       }
     }
   })
 }
 
+const confirmation = async function()
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  window.parent.box("?", obj["cnf_ok"][id_lng], () => {
+    load('DEV confirmation')
+    const xhr = new XMLHttpRequest
+    xhr.open("POST", "../resources/php/confirmation.php")
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify({ id_dev_crc }))
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+      {
+        window.parent.act_frm('tsk')
+				window.parent.act_frm('tsk_grp')
+				window.parent.act_frm('grp_crc')
+        const rsp = JSON.parse(xhr.response)
+				if(rsp[0] == '1')
+					alt(rsp[1])
+				document.location.replace(window.location.pathname+'?id='+id_dev_crc)
+				const cbl_lst = parent.window.frames[0].document.getElementById('cbl').value
+				if(cbl_lst == 'acc' || cbl_lst == 'pay' || cbl_lst == 'cnf' || cbl_lst == 'dev')
+          parent.window.frames[0].vue_lst(cbl_lst)
+        unload('DEV confirmation')
+      }
+    }
+  })
+}
+
+const prevFusion = async function(val, id_dev_mdl)
+{
+  if(cnf > 0)
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    window.parent.box("?", obj['cnf'][id_lng], () => {
+      fusion(val, id_dev_mdl)
+    })
+  }else
+    fusion(val, id_dev_mdl)
+}
+
+const prevChangeParent = async function(obj, id, id_sup, id_sup2)
+{
+  if(cnf > 0)
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    window.parent.box("?", obj['cnf'][id_lng], () => {
+      changeParent(obj, id, id_sup, id_sup2)
+    })
+  }else
+    changeParent(obj, id, id_sup, id_sup2)
+}
+
+const closeRichText = async function(arr, id, goOn, getBack)
+{
+  const cbl = arr.split(',')
+  var rich = new Array()
+  for(let i = 0; i < cbl.length; i++)
+  {
+    if(cbl[0] == 'crc')
+      rich = rich.concat(Array.from(document.getElementsByClassName("rich")))
+    else if(cbl[0] == 'dt_crc')
+      rich = rich.concat(Array.from(document.getElementsByClassName("rich_dt_crc")))
+    else
+      rich = rich.concat(Array.from(document.getElementsByClassName(`rich_${cbl[i]}${id}`)))
+  }
+  if(rich.length > 0 && richTxtCheck(rich) === false)
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    window.parent.box("?", obj['chk_rch'][id_lng], () => {
+      goOn()
+    }, () => {
+      getBack()
+    })
+  }else{
+    goOn()
+  }
+}
+
+const addGrp = async function(id_clt)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  const nom = prompt(obj['ajt_grp'][id_lng])
+  if(nom == null || nom == '')
+    return
+  load('DEV addGrp')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/addGrp.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ nom, id_dev_crc, id_clt }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      vue_elem('crc_grp',id_dev_crc,'id_grp')
+      vue_elem('clt_crc',id_dev_crc,'id_grp')
+      unload('DEV addGrp')
+    }
+  }
+}
+
 /* asynchronous functions above */
 
-const emailWriter = (data) => {
+const emailWriter = (data, res) => {
 	const emailFrom = data['emailFrom']
 	const emailTo = data['emailTo']
 	const emailSubject = data['emailSubject']
@@ -275,6 +375,7 @@ const emailWriter = (data) => {
 	const emailBox = parent.window.document.createElement("div")
 	emailBox.id = "emailBox"
 	emailBox.classList.add("emailPopup")
+  emailBox.innerHTML += '<div id="shadowing"></div>'
 	emailBox.innerHTML += '<div><button id="sendBtn">Send</button><button id="closeBtn">Close</button></div>'
 	emailBox.innerHTML += `<div><label for="from">From: </label><input id="from" value="${emailFrom}" /></div>`
 	emailBox.innerHTML += `<div><label for="subj">Subject: </label><input id="subj" value="${emailSubject}" /></div>`
@@ -294,7 +395,8 @@ const emailWriter = (data) => {
 	}
 	const sendBtn = parent.window.document.getElementById("sendBtn")
 	sendBtn.onclick = () => {
-		sendMail(devData)
+    window.parent.document.getElementById("emailBox").childNodes[0].style.display = 'block'
+		sendMail(devData, res)
 	}
 	const closeBtn = parent.window.document.getElementById("closeBtn")
 	closeBtn.onclick = () => {
@@ -302,7 +404,7 @@ const emailWriter = (data) => {
 	}
 }
 
-const sendMail = (devData) => {
+const sendMail = (devData, res) => {
 	const emailRequest = {
 		from : parent.window.document.getElementById("from").value,
 		to : parent.window.document.getElementById("to").value,
@@ -322,38 +424,41 @@ const sendMail = (devData) => {
 		emailRequest['id_grp'] = devData['emailGRP']
 		emailRequest['id_hbr'] = devData['emailHBR']
 	}
+  emailRequest['res'] = res
 	const xhr = new XMLHttpRequest
-	xhr.open("POST","../resources/php/sendMail.php")
+	xhr.open("POST", "../resources/php/sendMail.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
 	xhr.send(JSON.stringify(emailRequest))
 	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
 			if(xhr.responseText.length > 0)
 				alt(xhr.responseText)
 			else{
 				closeEmail()
-				vue_crc('res')
-				if(typeof emailRequest['lst_srv'] !== 'undefined')
-				{
-					const rsp_srv = emailRequest['lst_srv'].split("|")
-					for(var j = 0; j < rsp_srv.length; j++)
-					{
-						vue_elem(`srv_res${rsp_srv[j]}`, rsp_srv[j])
-						vue_elem(`srv_frn${rsp_srv[j]}`, rsp_srv[j])
-					}
-					window.parent.act_frm(`frn_ope_frn${emailRequest['id_frn']}`)
-					window.parent.act_frm(`frn_ope_srv${emailRequest['id_frn']}`)
-					window.parent.act_frm('frn_ope')
-				}
-				else if(typeof emailRequest['lst_hbr'] !== 'undefined')
-				{
-					const rsp_hbr = emailRequest['lst_hbr'].split("|")
-					for(var j = 0; j < rsp_hbr.length; j++)
-						vue_elem(`hbr_res${rsp_hbr[j]}`, rsp_hbr[j])
-					window.parent.act_frm(`cat_res_hbr${emailRequest['id_hbr']}`)
-					window.parent.act_frm('hbr_ope')
-				}
+        if(res > 0){
+          vue_crc('res')
+          if(typeof emailRequest['lst_srv'] !== 'undefined')
+          {
+            const rsp_srv = emailRequest['lst_srv'].split("|")
+            for(var j = 0; j < rsp_srv.length; j++)
+            {
+              vue_elem(`srv_res${rsp_srv[j]}`, rsp_srv[j])
+              vue_elem(`srv_frn${rsp_srv[j]}`, rsp_srv[j])
+            }
+            window.parent.act_frm(`frn_ope_frn${emailRequest['id_frn']}`)
+            window.parent.act_frm(`frn_ope_srv${emailRequest['id_frn']}`)
+            window.parent.act_frm('frn_ope')
+          }
+          else if(typeof emailRequest['lst_hbr'] !== 'undefined')
+          {
+            const rsp_hbr = emailRequest['lst_hbr'].split("|")
+            for(var j = 0; j < rsp_hbr.length; j++)
+            vue_elem(`hbr_res${rsp_hbr[j]}`, rsp_hbr[j])
+            window.parent.act_frm(`cat_res_hbr${emailRequest['id_hbr']}`)
+            window.parent.act_frm('hbr_ope')
+          }
+        }
 			}
 		}
 		unload('emailPopup')
@@ -365,11 +470,10 @@ const closeEmail = () => {
 	unload('emailPopup')
 }
 
-const searchHbr = function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_prs,res)
-{
+const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, id_dev_prs, res) => {
   load('DEV searchHbr')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/searchHbr.php")
+  xhr.open("POST", "../resources/php/searchHbr.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, id_dev_prs, id_dev_crc, cnf, res }))
   xhr.onreadystatechange = () => {
@@ -405,14 +509,14 @@ const searchHbr = function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hb
         }
         else if(id_dev_prs != 0 && id_dev_hbr == 0)
         {
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
               ajt_hbr(id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, 0, rsp[i], 0)
           })
         }
         else if(id_dev_prs == 0 && id_dev_hbr != 0)
         {
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
             {
               maj('dev_hbr', 'res', res, rsp[i])
@@ -426,10 +530,10 @@ const searchHbr = function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hb
           let ids = rsp
           if(res == 'updateRates')
           {
-            window.parent.box("?",ids.shift(), () => {
+            window.parent.box("?", ids.shift(), () => {
               if(cnf>0)
               {
-                window.parent.box("?",ids.shift(), () => {
+                window.parent.box("?", ids.shift(), () => {
                   prevUpdateRates('hbr_all', ids, 0)
                 })
               }else{
@@ -439,10 +543,10 @@ const searchHbr = function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hb
           }
           else if(res == 'sup')
           {
-            window.parent.box("?",ids.shift(), () => {
+            window.parent.box("?", ids.shift(), () => {
               if(cnf > 0)
               {
-                window.parent.box("?",ids.shift(), ()=>{
+                window.parent.box("?", ids.shift(), ()=>{
                   for(let i = 0; i < rsp.length; i++)
                   {
                     sup('hbr', rsp[i][0], rsp[i][1], 1, id_cat_hbr)
@@ -467,7 +571,7 @@ const searchHbr = function(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hb
 const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv) => {
   load('DEV searchSrv')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/searchSrv.php")
+  xhr.open("POST", "../resources/php/searchSrv.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc, id_frn, cnf }))
   xhr.onreadystatechange = () => {
@@ -478,14 +582,14 @@ const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv) => {
         const rsp = JSON.parse(xhr.response)
         if(id_dev_srv_vll > 0 && id_dev_srv > 0)
         {
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
-              maj('dev_srv','id_frn',id_frn,rsp[i])
+              maj('dev_srv', 'id_frn', id_frn, rsp[i])
           })
         }else{
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
-              maj('dev_srv','id_frn',0,rsp[i])
+              maj('dev_srv', 'id_frn', 0, rsp[i])
           })
         }
       }
@@ -494,10 +598,10 @@ const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv) => {
   }
 }
 
-const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
+const searchFrn = (res, id_frn, id_dev_srv, id_dev_prs) => {
   load('DEV searchFrn')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/searchFrn.php")
+  xhr.open("POST", "../resources/php/searchFrn.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ id_frn, id_dev_srv, id_dev_crc, res, cnf }))
   xhr.onreadystatechange = () => {
@@ -508,7 +612,7 @@ const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
         if(res > -1 && xhr.response != 0)
         {
           const rsp = JSON.parse(xhr.response)
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
             {
               maj('dev_srv', 'res', res, rsp[i])
@@ -524,10 +628,10 @@ const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
       {
         const rsp = JSON.parse(xhr.response)
         let ids = rsp
-        window.parent.box("?",ids.shift(), () => {
+        window.parent.box("?", ids.shift(), () => {
           if(cnf>0)
           {
-            window.parent.box("?",ids.shift(), ()=>{
+            window.parent.box("?", ids.shift(), ()=>{
               prevUpdateRates('frn_all', rsp, 0)
             })
           }else{
@@ -541,15 +645,15 @@ const searchFrn = (res,id_frn,id_dev_srv,id_dev_prs) => {
 }
 
 const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
-  if(obj == 'mdl' && !cls_rch('dsc_mdl,dt_mdl', id))
+  if(obj == 'mdl' && !closeRichText('dsc_mdl, dt_mdl', id))
   {
     vue_mdl('ttr', id)
     return
-  }else if(obj == 'jrn' && !cls_rch('dt_mdl', id_sup))
+  }else if(obj == 'jrn' && !closeRichText('dt_mdl', id_sup))
   {
     vue_jrn('ttr', id)
     return
-  }else if(obj == 'prs' && !cls_rch('dt_jrn', id_sup))
+  }else if(obj == 'prs' && !closeRichText('dt_jrn', id_sup))
   {
     vue_prs('ttr', id)
     return
@@ -571,7 +675,7 @@ const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
 	}
   load('DEV sortElem')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/sortElem.php")
+  xhr.open("POST", "../resources/php/sortElem.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ obj, val, id, id_sup }))
   xhr.onreadystatechange = () => {
@@ -641,7 +745,7 @@ const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
 const sortJrnByDate = (val, id_dev_jrn, id_sup) => {
   load('DEV sortJrnByDate')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/sortJrnByDate.php")
+  xhr.open("POST", "../resources/php/sortJrnByDate.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ val, id_dev_jrn, id_dev_crc }))
   xhr.onreadystatechange = () => {
@@ -666,7 +770,7 @@ const updateText = (obj, id, id_sup) => {
   load('DEV updateText')
   const lgg = document.getElementById("lgg").value
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/updateDevText.php")
+  xhr.open("POST", "../resources/php/updateDevText.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ obj, id, lgg }))
   xhr.onreadystatechange = () => {
@@ -730,7 +834,7 @@ const updateRates = (obj, id, id_sup) => {
     load('DEV updateRates')
   }
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/updateDevRates.php")
+  xhr.open("POST", "../resources/php/updateDevRates.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ obj, id, id_sup }))
   xhr.onreadystatechange = () => {
@@ -756,11 +860,11 @@ const updateRates = (obj, id, id_sup) => {
           break
         case 'hbr_all':
           for(let i = 0; i < arr.length; i++)
-            sel_srv('hbr',arr[i])
+            sel_srv('hbr', arr[i])
           break
         case 'srv_all':
           for(let i = 0; i < arr.length; i++)
-            sel_srv('srv',arr[i])
+            sel_srv('srv', arr[i])
           break
       }
       vue_crc('res')
@@ -776,7 +880,7 @@ const updateElem = (obj, id) => {
   load('DEV updateElem')
   const lgg = document.getElementById("lgg").value
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/updateDevElem.php")
+  xhr.open("POST", "../resources/php/updateDevElem.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ obj, id, lgg }))
   xhr.onreadystatechange = () => {
@@ -816,11 +920,11 @@ const updateElem = (obj, id) => {
 }
 
 const prevConfirmation = () => {
-  if(cls_rch('crc'))
+  if(closeRichText('crc'))
   {
     load('DEV prevConfirmation')
     const xhr = new XMLHttpRequest
-    xhr.open("POST","../resources/php/prevConfirmation.php")
+    xhr.open("POST", "../resources/php/prevConfirmation.php")
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(JSON.stringify({ id_dev_crc }))
     xhr.onreadystatechange = () => {
@@ -829,7 +933,7 @@ const prevConfirmation = () => {
         const rsp = JSON.parse(xhr.response)
         if(rsp[0] == 0)
         {
-          ok_cnf()
+          confirmation()
         }else{
           let msg = rsp[0]
           if(rsp.length > 1)
@@ -846,6 +950,83 @@ const prevConfirmation = () => {
         }
         unload('DEV prevConfirmation')
       }
+    }
+  }
+}
+
+const fusion = (val, id_dev_mdl) => {
+  load('DEV fusion')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/fusion.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ val, id_dev_mdl, id_dev_crc }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      vue_crc('ttf')
+      sel_jrn('ttr_jrn_lst', id_dev_mdl)
+      vue_mdl('end', id_dev_mdl)
+      sel_mdl('ttr_jrn_apr', id_dev_mdl)
+      sel_mdl('end_mdl_apr', id_dev_mdl)
+      if(xhr.response.length > 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        alt(rsp[0])
+      }
+      unload('DEV fusion')
+    }
+  }
+}
+
+const changeParent = (obj, id, id_sup, id_sup2) => {
+  load('DEV changeParent')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/changeParent.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ obj, id }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response.length > 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        if(rsp[0] == '1')
+        {
+          vue_mdl('ttr', id_sup)
+          vue_mdl('dt', id_sup)
+          vue_mdl('end', id_sup)
+          sel_mdl('ttr_mdl_avt', id_sup)
+          sel_mdl('dt_mdl_avt', id_sup)
+          sel_mdl('end_mdl_avt', id_sup)
+        }else if(rsp[0] == '2')
+        {
+          vue_mdl('ttr', id_sup)
+          vue_mdl('dt', id_sup)
+          vue_mdl('end', id_sup)
+          sel_mdl('ttr_mdl_apr', id_sup)
+          sel_mdl('dt_mdl_apr', id_sup)
+          sel_mdl('end_mdl_apr', id_sup)
+        }else if(rsp[0] == '3')
+        {
+          vue_jrn('ttr', id_sup)
+          vue_jrn('dt', id_sup)
+          vue_jrn('end', id_sup)
+          sel_jrn('ttr_jrn_avt1', id_sup2, id_sup)
+          sel_jrn('dt_jrn_avt1', id_sup2, id_sup)
+          sel_jrn('end_jrn_avt1', id_sup2, id_sup)
+        }else if(rsp[0] == '4')
+        {
+          vue_jrn('ttr', id_sup)
+          vue_jrn('dt', id_sup)
+          vue_jrn('end', id_sup)
+          sel_jrn('ttr_jrn_apr1', id_sup2, id_sup)
+          sel_jrn('dt_jrn_apr1', id_sup2, id_sup)
+          sel_jrn('end_jrn_apr1', id_sup2, id_sup)
+        }else{
+          alt(rsp[0])
+        }
+      }
+      unload('DEV changeParent')
     }
   }
 }

@@ -54,8 +54,8 @@ if(isset($_GET['id']) and $_GET['id']>0){
 			$id_dev_jrn = $dt_jrn['id'];
 			$date_jrn = $dt_jrn['date'];
 			if(empty($date_jrn) or $date_jrn=="0000-00-00"){
-				$rsp_crc .= $txt->res_frn->msg3->$id_lng.$dt_jrn['ord'].".\n";
-				$rsp_mdl .= $txt->res_frn->msg3->$id_lng.$dt_jrn['ord'].".\n";
+				$rsp_crc .= $txt->res_frn->msg3->$id_lng."\n";
+				$rsp_mdl .= $txt->res_frn->msg3->$id_lng."\n";
 				$flg_send_crc = false;
 				$flg_send_mdl = false;
 			}

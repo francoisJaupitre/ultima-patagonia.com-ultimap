@@ -1,12 +1,12 @@
-<?php
+<?php //GET QUOTATION TEXTS FROM CATALOG
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($data['id']) and $data['id'] > 0)
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	include("../../cfg/lng.php");
-	$txt = simplexml_load_file('../../dev/txt.xml');
+	$txt = simplexml_load_file('../xml/updateTxt.xml');
 	$obj = $data['obj'];
 	$id_lgg = $data['lgg'];
 	$err_crc = '';

@@ -1,12 +1,12 @@
-<?php
+<?php //GET QUOTATION RATES FROM CATALOG
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
-if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0 and isset($data['id_sup']))
+if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0)
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../cfg/crr.php");
 	include("../../cfg/lng.php");
-	$txt = simplexml_load_file('../../dev/txt.xml');
+	$txt = simplexml_load_file('../xml/updateTxt.xml');
 	$obj = $data['obj'];
 	$err_hbr = $err_srv = '';
 	switch ($obj)
@@ -122,9 +122,20 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0 and isset($dat
 					$id_dev_mdl = $dt_dev_jrn['id_mdl'];
 					if($date != '0000-00-00')
 					{
-						$dt_trf1 = ftc_all(sel_quo("*", "cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf", "id_srv", $id_cat_srv));
+						$dt_trf1 = ftc_all(sel_quo(
+							"*",
+							"cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf",
+							"id_srv",
+							$id_cat_srv
+						));
 					}
-					$dt_trf2 = ftc_all(sel_quo("*", "cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf", array("def", "id_srv") array(1, $id_cat_srv), "dt_max DESC"));
+					$dt_trf2 = ftc_all(sel_quo(
+						"*",
+						"cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf",
+						array("def", "id_srv"),
+						array(1, $id_cat_srv),
+						"dt_max DESC"
+					));
 					$err_bss = '';
 					$dt_min = $dt_max = '0000-00-00';
 					if($dt_dev_mdl['trf'])
@@ -156,7 +167,7 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0 and isset($dat
 						if($flg_crr)
 						{
 							$id_crr = $id_crr_crc;
-							include("../../dev/clc_crr.php");
+							include("calculateCrrRates.php");
 							upd_quo("dev_srv", array("crr", "taux", "sup", 'dt_min', 'dt_max'), array($cur, $taux, $sup, $dt_min, $dt_max), $id_dev_srv);
 						}else{
 							upd_quo('dev_srv', array('dt_min', 'dt_max'), array($dt_min, $dt_max), $id_dev_srv);
@@ -179,7 +190,7 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0 and isset($dat
 				}else{
 					$cur = $id_crr_srv;
 					$id_crr = $id_crr_crc;
-					include("../../dev/clc_crr.php");
+					include("calculateCrrRates.php");
 					upd_quo("dev_srv", array("taux", "sup"), array($taux, $sup), $id_dev_srv);
 					if($date != '0000-00-00')
 					{
@@ -215,13 +226,13 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0 and isset($dat
 				}else{
 					$cur = $dt_dev_hbr['crr_chm'];
 					$id_crr = $id_crr_crc;
-					include("../../dev/clc_crr.php");
+					include("calculateCrrRates.php");
 					upd_quo("dev_hbr", array("taux_chm", "sup_chm"), array($taux, $sup), $id_dev_hbr);
 					if($dt_dev_hbr['crr_rgm'] > 0)
 					{
 						$cur = $dt_dev_hbr['crr_rgm'];
 						$id_crr = $id_crr_crc;
-						include("../../dev/clc_crr.php");
+						include("calculateCrrRates.php");
 						upd_quo("dev_hbr", array("taux_rgm", "sup_rgm"), array($taux, $sup), $id_dev_hbr);
 					}
 				}

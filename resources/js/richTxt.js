@@ -41,7 +41,12 @@ const richTxtInit = (elem,tab,col,id) => {
 			save_enablewhendirty: false,
 			menubar: false,
 			save_onsavecallback: (elem) => {
-				maj(tab,col,elem.getContent(),id)
+				if(typeof maj === 'function')
+				{
+					maj(tab,col,elem.getContent(),id)
+				}else{
+					updateData(tab,col,elem.getContent(),id)
+				}
 				elem.getBody().style.backgroundColor = "#FFFFFF"
 			},
 			setup : (elem) => {
@@ -56,16 +61,15 @@ const richTxtInit = (elem,tab,col,id) => {
 	}
 }
 
-function richTxtCheck()
+function richTxtCheck(arr)
 {
 	if(typeof tinyMCE !== "undefined" && tinyMCE.activeEditor)
 	{
-		const rich = document.getElementsByClassName("rich")
-		for(let i = 0; i < rich.length; i++)
+		for(let i = 0; i < arr.length; i++)
 		{
-			if(tinyMCE.get(rich[i].id))
+			if(tinyMCE.get(arr[i].id))
 			{
-				if(rich[i].style.backgroundColor != '' && rich[i].style.backgroundColor != 'rgb(255, 255, 255)')
+				if(document.getElementById(arr[i].id).style.backgroundColor != '' && document.getElementById(arr[i].id).style.backgroundColor != 'rgb(255, 255, 255)')
 					return false
 			}
 		}

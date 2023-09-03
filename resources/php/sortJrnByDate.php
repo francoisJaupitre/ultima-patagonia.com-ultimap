@@ -1,13 +1,12 @@
-<?php
+<?php //CHANGE DATES OF DAYS IN A QUOTATION
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data["id_dev_jrn"]) and isset($data["id_dev_crc"]) and isset($data["val"]))
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	$id_dev_jrn = $data["id_dev_jrn"];
 	$id_dev_crc = $data["id_dev_crc"];
 	$val = $data["val"];
-	//$msg = '';
 	if($val != '')
 	{
 		$dt = explode('/',$val);
@@ -17,7 +16,7 @@ if(isset($data["id_dev_jrn"]) and isset($data["id_dev_crc"]) and isset($data["va
 			{
 				$y = date("Y");
 			}else{
-				$y = date("Y")+1;
+				$y = date("Y") + 1;
 			}
 		}else{
 			$y = $dt[2];
@@ -37,16 +36,25 @@ if(isset($data["id_dev_jrn"]) and isset($data["id_dev_crc"]) and isset($data["va
 			if($date_jrn != '0000-00-00')
 			{
 				$date = date('Y-m-d', strtotime ("+".$dt_jrn['ord'] - $ord_jrn." days $date_jrn"));
-				upd_quo("dev_jrn","date",$date,$dt_jrn['id']);
+				upd_quo("dev_jrn", "date", $date, $dt_jrn['id']);
 			}else{
 				upd_quo("dev_jrn", "date", "0000-00-00", $dt_jrn['id']);
 			}
-			$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id","dev_srv.res","3","(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",$dt_jrn['id']);
-			//$msg .= $result."->res_srv_chg";
-			$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id","dev_hbr.res","3","(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",$dt_jrn['id']);
-			//$msg .= $result."->res_hbr_chg";
+			$result = upd_var_noq(
+				"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+				"dev_srv.res",
+				"3",
+				"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+				$dt_jrn['id']
+			);
+			$result = upd_var_noq(
+				"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+				"dev_hbr.res",
+				"3",
+				"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+				$dt_jrn['id']
+			);
 		}
 	}
-	//echo json_encode(array($msg."1"));
 }
 ?>

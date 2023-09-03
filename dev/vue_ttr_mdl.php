@@ -27,7 +27,7 @@ if(isset($_POST['id_dev_mdl'])){
 <td class="lslm" style="color: #<?php echo $col[$id_col_mdl]; ?>">
 	<div style="float: left;">
 		<span class="vatdib">
-			<input id="chk_mdl<?php echo $id_dev_mdl ?>" class="dev_img chk_img vue_mdl" type="checkbox" autocomplete="off" <?php if($vue_mdl==1){echo 'checked';} ?> onclick="if(cls_rch('dsc_mdl,dt_mdl',<?php echo $id_dev_mdl ?>)){chk_mdl(<?php echo $id_dev_mdl ?>);}" />
+			<input id="chk_mdl<?php echo $id_dev_mdl ?>" class="dev_img chk_img vue_mdl" type="checkbox" autocomplete="off" <?php if($vue_mdl){echo 'checked';} ?> onclick="closeRichText('dsc_mdl,dt_mdl',<?php echo $id_dev_mdl ?>,function(){chk_mdl(<?php echo $id_dev_mdl ?>)},function(){document.getElementById('chk_mdl<?php echo $id_dev_mdl ?>').checked = true});" />
 			<label for="chk_mdl<?php echo $id_dev_mdl ?>"><img src="../prm/img/maxi.png" /></label>
 			<strong><?php echo $txt->mdl->$id_lng; ?></strong>
 			<input <?php if(!$aut['dev'] or $cnf>0){echo ' disabled';} ?> type="number" style="color: #<?php echo $col[$id_col_mdl]; ?>; width: 30px; margin-right: 10px;" value="<?php echo $ord_mdl ?>" onchange="prevSortElem('mdl',this.value,<?php echo $id_dev_mdl.','.$id_dev_crc.','.$id_cat_crc ?>)" />
@@ -68,7 +68,7 @@ if($aut['dev'] and $cnf<1){
 	}
 	elseif($ord_mdl > 1){
 ?>
-				<li onclick="if(cls_rch('dt_crc')){trsf('mdl',<?php echo $id_dev_mdl.','.$id_dev_mdl ?>);}document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->trsfmdl->$id_lng; ?></li>
+				<li onclick="closeRichText('dt_crc','',function(){prevChangeParent('mdl',<?php echo $id_dev_mdl.','.$id_dev_mdl ?>);})"><?php echo $txt->trsfmdl->$id_lng; ?></li>
 <?php
 	}
 }
@@ -106,7 +106,7 @@ if($id_cat_mdl > 0 and $aut['dev']){
 			<strong><?php echo $txt->aff->$id_lng; ?></strong>
 			<ul>
 				<li onclick="mdf_vue('mdl','jrn','true',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->maxjrn->$id_lng; ?></li>
-				<li onclick="if(cls_rch('dt_mdl',<?php echo $id_dev_mdl ?>)){mdf_vue('mdl','jrn','false',<?php echo $id_dev_mdl ?>);}document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->minjrn->$id_lng; ?></li>
+				<li onclick="closeRichText('dt_mdl',<?php echo $id_dev_mdl ?>,function(){mdf_vue('mdl','jrn','false',<?php echo $id_dev_mdl ?>);})"><?php echo $txt->minjrn->$id_lng; ?></li>
 			</ul>
 		</div>
 	</div>

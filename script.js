@@ -125,7 +125,10 @@ function sup_frm(link,event)
 		{
 			if(checkIframe)
 			{
-				if(typeof iframe.contentWindow.richTxtCheck === 'function' && !iframe.contentWindow.richTxtCheck() && !box("?","Some richtext has not been saved. Continue closure?", function()
+				if(
+					typeof iframe.contentWindow.richTxtCheck === 'function'
+					&& !iframe.contentWindow.richTxtCheck(iframe.contentWindow.document.getElementsByClassName("rich"))
+					&& !box("?","Some richtext has not been saved. Continue closure?", function()
 				{
 					closeFrame(ref)
 				}))

@@ -4,7 +4,7 @@ $id_dev_jrn = $_POST['id_dev_jrn'];
 $ord_prs = $_POST['ord_prs'];
 $id_lgg = $_POST['lgg'];
 $cnf = $_POST['cnf'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 if($_POST['ctg_prs']>0) {$ctg_prs = $_POST['ctg_prs'];}
 else{$ctg_prs = 0;}
 include("../prm/fct.php");
@@ -15,7 +15,8 @@ $id_dev_mdl = $dt_jrn['id_mdl'];
 $id_cat_jrn = $dt_jrn['id_cat'];
 $date = $dt_jrn['date'];
 $ord_jrn = $dt_jrn['ord'];
-$alt = $err = $err_prs = $err_hbr = $err_srv = '';
+$alt = array();
+$err = $err_prs = $err_hbr = $err_srv = '';
 $ant_prs = 0;
 if($ord_prs == -1) {
 	$opt_prs = 0;
@@ -26,12 +27,11 @@ if($ord_prs == -1) {
 		while($dt_cat = ftc_ass($rq_cat)) {
 			$rq_jrn_prs = sel_whe("id_prs,ord","cat_jrn_prs","ord >".$dt_cat['ord']." AND id_jrn=".$id_cat_jrn,"ord DESC","DISTINCT");
 			while($dt_jrn_prs = ftc_ass($rq_jrn_prs)) {
-				//$flg = true;
 				$rq_dev_prs = sel_quo("id,id_cat,ord","dev_prs","id_jrn",$id_dev_jrn,"ord DESC");
 				while($dt_dev_prs = ftc_ass($rq_dev_prs)) {
-					if($dt_dev_prs['id_cat']==$dt_jrn_prs['id_prs']/* and $flg*/) {
+					if($dt_dev_prs['id_cat']==$dt_jrn_prs['id_prs'])
+					{
 						upd_noq("dev_prs","ord","ord+1",$dt_dev_prs['id']);
-						//$flg = false;
 						$ord_prs = $dt_dev_prs['ord'];
 						$ant_prs = $dt_dev_prs['id'];
 					}
@@ -56,7 +56,7 @@ $dt_rmn = ftc_ass($rq_rmn);
 if(!empty($dt_rmn['id'])) {$id_rmn=$dt_rmn['id'];}
 else{$id_rmn=0;}
 if($id_cat_prs>0) {
-	include("ins_prs.php");
+	include("../resources/php/setPrsData.php");
 	if($err_prs != '') {$err .= $txt->err->prs->$id_lng.$err_prs."\n";}
 	if($err_hbr != '') {$err .= $txt->err->hbr->$id_lng.$err_hbr."\n";}
 	if($err_srv != '') {$err .= $txt->err->srv->$id_lng.$err_srv."\n";}
@@ -66,5 +66,5 @@ if($id_cat_prs>0) {
 	}
 }
 else{$id_dev_prs = insert("dev_prs",array("id_jrn","id_rmn","ord","opt","ctg"),array($id_dev_jrn,$id_rmn,$ord_prs,$opt_prs,$ctg_prs));}
-echo $id_dev_prs."|".$ant_prs."|".$ord_prs."|".$err."|".$alt;
+echo $id_dev_prs."|".$ant_prs."|".$ord_prs."|".$err."|".implode(",\n", $alt);
 ?>

@@ -1,14 +1,18 @@
-<?php
-if(isset($ids_rgn)){
-?>
 <span class="vdp">
 <?php
-	echo $txt->rgn->$id_lng.'(s) : ';
-	foreach ($ids_rgn as $id_rgn) {echo '<strong>'.$rgn[$id_rgn].'</strong> | ';}
+echo $txt->rgn->$id_lng.'(s) : ';
+if(isset($ids_rgn))
+{
+	foreach ($ids_rgn as $id_rgn)
+	{
+		echo '<strong>'.$rgn[$id_rgn].'</strong> | ';
+	}
+}
 ?>
 </span>
 <?php
-	if($aut['dev']) {
+if($aut['dev'])
+{
 ?>
 			<span class="dib">
 				<div class="sel" onclick="vue_cmd('sel_rgn_mdl<?php echo $id_dev_mdl ?>')">
@@ -21,6 +25,6 @@ if(isset($ids_rgn)){
 				</div>
 			</span>
 <?php
-	}
+
 }
 ?>

@@ -1,7 +1,11 @@
-<?php
-if($id_cat_jrn>0)
+<?php //GET DAY TEXTS FROM CATALOG TO QUOTATION
+if($id_cat_jrn > 0)
 {
-	$dt_cat_jrn = ftc_ass(sel_quo('nom, titre, dsc','cat_jrn INNER JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn',array('lgg', 'cat_jrn.id'), array($id_lgg, $id_cat_jrn)));
+	$dt_cat_jrn = ftc_ass(sel_quo(
+		'nom, titre, dsc','cat_jrn INNER JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn',
+		array('lgg', 'cat_jrn.id'),
+		array($id_lgg, $id_cat_jrn)
+	));
 	if(empty($dt_cat_jrn['nom']))
 	{
 		unset($dt_cat_jrn['nom']);

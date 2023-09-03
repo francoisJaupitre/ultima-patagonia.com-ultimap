@@ -9,11 +9,12 @@ $res = $_POST['res'];
 $dt_res = $_POST['dt_res'];
 if($_POST['rva']!='undefined'){$rva = $_POST['rva'];}
 else{$rva = "";}
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 include("../prm/fct.php");
 include("../cfg/crr.php");
 include("../cfg/lng.php");
-$alt = $err = $err_hbr = "";
+$alt = array();
+$err = $err_hbr = "";
 if($id_dev_hbr == 0){$id_dev_prs = $_POST['id_dev_prs'];}
 else{
 	$dt_dev_hbr = ftc_ass(select("id_prs","dev_hbr","id",$id_dev_hbr));
@@ -42,13 +43,13 @@ elseif($id_dev_hbr==0){$id_dev_hbr = insert("dev_hbr",array("id_prs","id_vll","r
 if($id_cat_hbr < 0){upd_quo("dev_hbr","id_cat",$id_cat_hbr,$id_dev_hbr);}
 elseif($id_cat_hbr == 0){upd_quo("dev_hbr","id_cat","NULL",$id_dev_hbr);}
 else{
-	include("act_hbr.php");
+	include("../resources/php/setHbrData.php");
 	if($err_hbr != ""){$err = $txt->err->hbr->$id_lng.$err_hbr;}
 	if(isset($lst_nvtrf)){
 		$err .= $txt->err->nvtrf->$id_lng."\n";
 		foreach($lst_nvtrf as $nom){$err .= "-> ".$nom."\n";}
 	}
-	echo $err."|".$alt;
+	echo $err."|".implode(",\n", $alt);
 }
 $flg_opt = false;
 $rq_opt = select("id,opt","dev_hbr","id_prs",$id_dev_prs);

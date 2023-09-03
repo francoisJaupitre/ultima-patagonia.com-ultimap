@@ -33,6 +33,11 @@ if(isset($_POST['id_dev_mdl'])){
   $grp_crc = $dt_mdl['id_grp'];
   $num_grp_pax = num_rows(sel_quo("id","grp_pax",array("id_grp","prt"),array($grp_crc,1)));
   $ptl = $dt_mdl['ptl'];
+	$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
+	while($dt_rgn = ftc_ass($rq_rgn))
+	{
+		$ids_rgn[] = $dt_rgn['id_rgn'];
+	}
   $dt_crc = ftc_ass(select("com,mrq_hbr,frs,ty_mrq,crr,vue_sgl,vue_tpl,vue_qdp,ptl,psg","dev_crc","id",$id_dev_crc));
   $com_crc = $dt_crc['com'];
   $mrq_hbr_crc = $dt_crc['mrq_hbr'];

@@ -322,17 +322,18 @@ if($vue_res){
 							<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 							<ul>
 								<li onclick="window.parent.opn_frm('cat/ctr.php?cbl=frn&id=<?php echo $fr;?>');document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->cat->$id_lng; ?></li>
-								<li onclick="window.open('../fct/docx_frn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>');document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
-								<li onclick="window.open('../fct/vch_frn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>');document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->vch->$id_lng; ?></li>
+								<li onclick="window.open('../resources/php/docxFrn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>');"><?php echo $txt->lst_res->$id_lng; ?></li>
+								<li onclick="window.open('../resources/php/vchFrn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>');"><?php echo $txt->vch->$id_lng; ?></li>
+								<li onclick="mailFrn(<?php echo $fr; ?>, 0);"><?php echo $txt->maildevis->$id_lng; ?></li>
 <?php
 			if($aut['res']){
 ?>
-								<li onclick="mailFrn(<?php echo $fr; ?>);document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->mailres->$id_lng; ?></li>
+								<li onclick="mailFrn(<?php echo $fr; ?>, 1);"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 			}
 			if($aut['dev']){
 ?>
-								<li onclick="searchFrn(0,<?php echo $fr ?>,0);document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchFrn(0,<?php echo $fr ?>,0);"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 			}
 ?>
@@ -518,17 +519,18 @@ if($vue_res){
 							<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 							<ul>
 								<li onclick="window.parent.opn_frm('cat/ctr.php?cbl=hbr&id=<?php echo $hb;?>');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->cat->$id_lng; ?></li>
-								<li onclick="window.open('../fct/docx_hbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb;?>&chm=<?php echo $chm;?>');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
-								<li onclick="window.open('../fct/vch_hbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb;?>');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->vch->$id_lng; ?></li>
+								<li onclick="window.open('../resources/php/docxHbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb;?>&chm=<?php echo $chm;?>');"><?php echo $txt->lst_res->$id_lng; ?></li>
+								<li onclick="window.open('../resources/php/vchHbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb;?>');"><?php echo $txt->vch->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb.','.$chm.',0'; ?>);"><?php echo $txt->maildevis->$id_lng; ?></li>
 <?php
 						if($aut['res']){
 ?>
-								<li onclick="mailHbr(<?php echo $hb.','.$chm; ?>);document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->mailres->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb.','.$chm.',1'; ?>);"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 						}
 						if($aut['dev']){
 ?>
-								<li onclick="searchHbr(<?php echo $hb.','.$chm ?>,0,0,0,0,'updateRates');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb.','.$chm ?>,0,0,0,0,'updateRates');"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 						}
 ?>
@@ -693,17 +695,18 @@ if($vue_res){
 							<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 							<ul>
 								<li onclick="window.parent.opn_frm('cat/ctr.php?cbl=hbr&id=<?php echo $hb_opt;?>');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->cat->$id_lng; ?></li>
+								<li onclick="window.open('../resources/php/docxHbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb_opt;?>&chm=<?php echo $chm_opt;?>');"><?php echo $txt->lst_res->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb_opt.','.$chm_opt.',0'; ?>);"><?php echo $txt->maildevis->$id_lng; ?></li>
 <?php
 				if($aut['res']){
 ?>
-								<li onclick="window.open('../fct/docx_hbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb_opt;?>&chm=<?php echo $chm_opt;?>');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
-								<li onclick="mailHbr(<?php echo $hb_opt.','.$chm_opt; ?>);document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->mailres->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb_opt.','.$chm_opt.',1'; ?>);"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 				}
 				if($aut['dev']){
 ?>
-								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'updateRates');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->acttrf->$id_lng; ?></li>
-								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'sup');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->sup->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'updateRates');"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'sup');"><?php echo $txt->sup->$id_lng; ?></li>
 <?php
 				}
 ?>

@@ -106,8 +106,8 @@ elseif(!$clt_tmpl[$id_clt]){
 				$id_cat_jrn = $dt_jrn['id_cat'];
 				$date_jrn = $dt_jrn['date'];
 				if(empty($date_jrn) or $date_jrn=="0000-00-00"){
-					$rsp_crc .= $txt->res_frn->msg3->$id_lng.$dt_jrn['ord'].".\n";
-					$rsp_mdl .= $txt->res_frn->msg3->$id_lng.$dt_jrn['ord'].".\n";
+					$rsp_crc .= $txt->res_frn->msg3->$id_lng."\n";
+					$rsp_mdl .= $txt->res_frn->msg3->$id_lng."\n";
 				}
 				if($id_cat_jrn>0){
 					$rq_jrn_vll = sel_quo("id_vll","cat_jrn_vll","id_jrn",$id_cat_jrn,"ord");

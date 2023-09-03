@@ -1,10 +1,10 @@
-<?php
+<?php //CHECK IF QUOTATION IS OK TO CONFIRM
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
-if(isset($data['id_dev_crc']) and $data['id_dev_crc']> 0)
+if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0)
 {
 	$id_dev_crc = $data['id_dev_crc'];
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	$txt = simplexml_load_file('../../dev/txt.xml');
 	$i = 0;

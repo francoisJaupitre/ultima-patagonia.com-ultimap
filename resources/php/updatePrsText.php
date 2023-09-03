@@ -1,7 +1,12 @@
-<?php
-if($id_cat_prs != 0)
+<?php //GET PRESTATION TEXTS FROM CATALOG TO QUOTATION
+if($id_cat_prs > 0)
 {
-	$dt_cat_prs = ftc_ass(sel_quo('nom, titre, dsc, ctg','cat_prs INNER JOIN cat_prs_txt ON cat_prs.id = cat_prs_txt.id_prs',array('lgg', 'cat_prs.id'), array($id_lgg, $id_cat_prs)));
+	$dt_cat_prs = ftc_ass(sel_quo(
+		'nom, titre, dsc, ctg',
+		'cat_prs INNER JOIN cat_prs_txt ON cat_prs.id = cat_prs_txt.id_prs',
+		array('lgg', 'cat_prs.id'),
+		array($id_lgg, $id_cat_prs)
+	));
 	if(empty($dt_cat_prs['nom']))
 	{
 		unset($dt_cat_prs['nom']);

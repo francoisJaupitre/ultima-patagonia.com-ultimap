@@ -141,14 +141,26 @@
 		<fr>VOUCHERS</fr>
 		<es>VOUCHERS</es>
 	</vch>
-	<mailshbr>
-		<fr>EMAILS HEBERGEMENTS</fr>
-		<es>EMAILS ALOJAMIENTOS</es>
-	</mailshbr>
-	<mailsfrn>
-		<fr>EMAILS FOURNISSEURS</fr>
-		<es>EMAILS PROVEEDORES</es>
-	</mailsfrn>
+	<mailsdevishbr>
+		<fr>EMAILS COTATIONS HEBERGEMENTS</fr>
+		<es>EMAILS COTIZACIONES ALOJAMIENTOS</es>
+	</mailsdevishbr>
+	<mailsreshbr>
+		<fr>EMAILS RESAS HEBERGEMENTS</fr>
+		<es>EMAILS RESERVAS ALOJAMIENTOS</es>
+	</mailsreshbr>
+	<mailsdevisfrn>
+		<fr>EMAILS COTATIONS FOURNISSEURS</fr>
+		<es>EMAILS COTIZACIONES PROVEEDORES</es>
+	</mailsdevisfrn>
+	<mailsresfrn>
+		<fr>EMAILS RESAS FOURNISSEURS</fr>
+		<es>EMAILS RESERVAS PROVEEDORES</es>
+	</mailsresfrn>
+	<maildevis>
+		<fr>EMAIL COTATIONS</fr>
+		<es>EMAIL COTIZACIONES</es>
+	</maildevis>
 	<mailres>
 		<fr>EMAIL RESAS</fr>
 		<es>EMAIL RESERVAS</es>
@@ -286,70 +298,10 @@
 		<fr>SUPPRIMER BASE</fr>
 		<es>SUPRIMIR BASE</es>
 	</supbss>
-	<err>
-		<rmn>
-			<fr>ERREUR ROOMING</fr>
-			<es>ERROR ROOMING</es>
-		</rmn>
-		<crc>
-			<fr>ERREUR DE TEXTES POUR LE CIRCUIT:&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA EL CIRCUITO:&#xA;</es>
-		</crc>
-		<mdl>
-			<fr>ERREUR DE TEXTES POUR LE(S) MODULE(S):&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA EL(LOS) MODULO(S):&#xA;</es>
-		</mdl>
-		<jrn>
-			<fr>ERREUR DE TEXTES POUR LE(S) JOURNEE(S):&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA LA(S) JORNADA(S):&#xA;</es>
-		</jrn>
-		<prs>
-			<fr>ERREUR DE TEXTES POUR LE(S) PRESTATION(S):&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA LA(S) PRESTACION(ES):&#xA;</es>
-		</prs>
-		<hbr>
-			<fr>ERREUR DE TARIFS POUR LE(S) HEBERGEMENT(S):&#xA;</fr>
-			<es>ERROR DE TARIFAS PARA EL(LOS) ALOJAMIENTO(S):&#xA;</es>
-		</hbr>
-		<mrq_bss>
-			<fr>ATTENTION! DIFFERENCES SUR LES TYPES DE MARGE OU POURCENTAGES POUR CETTE(CES) NOUVELLE(S) BASE(S)!&#xA;</fr>
-			<es>ATENCION! DIFFERENCIAS DE TIPOS DE MARGEN O DE PORCENTAJES PARA ESTA(S) NUEVA(S) BASE(S)!&#xA;</es>
-		</mrq_bss>
-		<srv>
-			<fr>ERREUR DE TARIFS POUR LE(S) SERVICE(S):&#xA;</fr>
-			<es>ERROR DE TARIFAS PARA EL(LOS) SERVICIO(S):&#xA;</es>
-		</srv>
-		<crr>
-			<fr>ERREUR DE DEVISES POUR LES TARIFS DU(ES) SERVICE(S):</fr>
-			<es>ERROR DE DIVISAS PARA LAS TARIFAS DEL(DE LOS) SERVICIO(S)</es>
-		</crr>
-		<alrt>
-			<fr>LES TARIFS DU(DES) MODULE(S) </fr>
-			<es>LAS TARIFAS DEL(LOS) MODULO(S) </es>
-		</alrt>
-		<alrt2>
-			<fr> DEVRAIENT ETRE ACTUALISES!</fr>
-			<es> DEBERIAN SER ACTUALIZADAS!</es>
-		</alrt2>
-		<nvtrf>
-			<fr>NOUVEAUX TARIFS DISPONIBLES POUR:</fr>
-			<es>NUEVAS TARIFAS DISPONIBLES PARA:</es>
-		</nvtrf>
-	</err>
-	<hbr_def>
-		<msg1>
-			<fr>NUITEE(S) DEFINIE(S)&#xA;</fr>
-			<es>NOCHE(S) DEFINIDA(S)&#xA;</es>
-		</msg1>
-		<msg2>
-			<fr>NUITEE(S) NON DEFINIE(S)&#xA;</fr>
-			<es>NOCHE(S) NO DEFINIDA(S)&#xA;</es>
-		</msg2>
-		<msg3>
-			<fr>ERREUR TARIFS HEBERGEMENT:&#xA;</fr>
-			<es>ERROR TARIFAS ALOJAMIENTO:&#xA;</es>
-		</msg3>
-	</hbr_def>
+	<err_rmn>
+		<fr>ERREUR ROOMING</fr>
+		<es>ERROR ROOMING</es>
+	</err_rmn>
 	<srv_sel>
 		<fr>SERVICES SELECTIONNÉS. Devis : sélectionner une seule base.</fr>
 		<es>SERVICIOS SELECCIONADOS. Cotización : seleccionar una sola base.</es>
@@ -362,10 +314,6 @@
 		<fr>HEBERGEMENTS EN OPTION. Devis : définir rooming.</fr>
 		<es>ALOJAMIENTOS OPCIONALES. Cotización : definir rooming.</es>
 	</hbr_opt>
-	<jour>
-		<fr>JOUR</fr>
-		<es>DIA</es>
-	</jour>
 	<jours>
 		<fr>JOURS</fr>
 		<es>DIAS</es>
@@ -755,4 +703,20 @@
 		<fr>Sélectionner une seule base ou garder les hébergements dans le catalogue pour le(s) module(s): </fr>
 		<es>Selecionar una sola base o guardar los alojamientos en el catalogo para el(los) modulo(s): </es>
 	</chk_cnf2>
+	<alt_cnf>
+		<fr>Les prestations en option n'ont pas été confirmées !</fr>
+		<es>¡Las prestaciones en opción no fueron confirmadas!</es>
+	</alt_cnf>
+	<alt_fus>
+		<fr>Les tarifs des modules suivants devraient être actualisés (changement de dates).</fr>
+		<es>Las tarifas de los modulos siguientes deberían ser actualizadas (cambio de fechas).</es>
+	</alt_fus>
+	<trsf1>
+		<fr>Erreur!&#xA;Le module précédent a des tarifs séparés ou est fusionné.</fr>
+		<es>Error!&#xA;El modulo anterior tiene tarifas separadas o está fusionado.</es>
+	</trsf1>
+	<trsf2>
+		<fr>Erreur!&#xA;Le module suivant a des tarifs indépendants.</fr>
+		<es>Error!&#xA;El modulo siguiente tiene tarifas independientes.</es>
+	</trsf2>
 </textes>

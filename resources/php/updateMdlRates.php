@@ -1,4 +1,4 @@
-<?php
+<?php //GET MODULE RATES FROM CATALOG
 $rq_dev_jrn = sel_quo("id, date, ord", "dev_jrn", "id_mdl", $id_dev_mdl, "ord");
 while($dt_dev_jrn = ftc_ass($rq_dev_jrn))
 {

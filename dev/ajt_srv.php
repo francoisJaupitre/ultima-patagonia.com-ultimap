@@ -3,13 +3,14 @@ $id_cat_srv = $_POST['id_cat_srv'];
 $id_dev_prs = $_POST['id_dev_prs'];
 $vll_srv = $_POST['vll_srv'];
 $ctg_srv = $_POST['ctg_srv'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 include("../prm/fct.php");
 include("../cfg/crr.php");
 include("../cfg/lng.php");
 $opt_srv = 1;
 $resrv = 0;
-$alt = $err = $err_srv = '';
+$alt = array();
+$err = $err_srv = '';
 if($id_cat_srv==0){
 	$dt_dev_prs = ftc_ass(select("id_jrn","dev_prs","id",$id_dev_prs));
 	$dt_dev_jrn = ftc_ass(select("id_mdl","dev_jrn","id",$dt_dev_prs['id_jrn']));
@@ -33,12 +34,12 @@ else{
 	$dt_dev_mdl = ftc_ass(select("id_crc","dev_mdl","id",$id_dev_mdl));
 	$dt_dev_crc = ftc_ass(select("crr","dev_crc","id",$dt_dev_mdl['id_crc']));
 	$id_crr_crc = $dt_dev_crc['crr'];
-	include("ins_srv.php");
+	include("../resources/php/setSrvData.php");
 	if($err_srv != ''){$err = $txt->err->srv->$id_lng.$err_srv;}
 	if(isset($lst_nvtrf)){
 		$err .= $txt->err->nvtrf->$id_lng."\n";
 		foreach($lst_nvtrf as $nom){$err .= "-> ".$nom."\n";}
 	}
-	echo $err."|".$alt;
+	echo $err."|".implode(", \n", $alt);
 }
 ?>

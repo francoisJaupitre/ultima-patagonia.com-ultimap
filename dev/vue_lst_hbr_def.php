@@ -5,7 +5,7 @@ $flg_enter = true;
 foreach($hbr_def[$id_lng] as $hbr_def_id => $nom){
 	if(substr(upnoac($nom),0,strlen($src))==$src){
 ?>
-	<li <?php if($flg_enter){echo 'id="enter_hbr_def" style="background-color: Chocolate;"';} ?> onClick="hbr_def(<?php echo $hbr_def_id ?>);"><?php echo $nom; ?></li>
+	<li <?php if($flg_enter){echo 'id="enter_hbr_def" style="background-color: Chocolate;"';} ?> onClick="defineHbr(<?php echo $hbr_def_id ?>);"><?php echo $nom; ?></li>
 <?php
 		$flg_enter = false;
 	}

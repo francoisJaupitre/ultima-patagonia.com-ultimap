@@ -1,10 +1,15 @@
-<?php
-if($id_cat_mdl != 0)
+<?php //GET MODULE TEXTS FROM CATALOG TO QUOTATION
+if($id_cat_mdl > 0)
 {
-	$dt_cat_mdl = ftc_ass(sel_quo('nom,titre,dsc','cat_mdl LEFT JOIN cat_mdl_txt ON cat_mdl.id = cat_mdl_txt.id_mdl', array('lgg', 'cat_mdl.id'), array($id_lgg ,$id_cat_mdl)));
+	$dt_cat_mdl = ftc_ass(sel_quo(
+		'nom, titre, dsc',
+		'cat_mdl LEFT JOIN cat_mdl_txt ON cat_mdl.id = cat_mdl_txt.id_mdl',
+		array('lgg', 'cat_mdl.id'),
+		array($id_lgg , $id_cat_mdl)
+	));
 	if(empty($dt_cat_mdl['nom']))
 	{
-		$err_mdl .= $ord_mdl.",\n";
+		$err_mdl .= $ord_mdl.", \n";
 	}
 	if(!isset($dt_cat_mdl['titre']))
 	{

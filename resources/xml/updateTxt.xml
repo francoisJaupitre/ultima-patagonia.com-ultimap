@@ -1,0 +1,120 @@
+<?phpxml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE textes SYSTEM "text.dtd">
+<textes>
+  <errval>
+		<fr>Erreur valeur!</fr>
+		<es>Error valor!</es>
+		<pt>Erro valor!</pt>
+	</errval>
+	<errwebuid>
+		<fr>Identifiant déjà utilisé!</fr>
+		<es>¡Identificador ya usado!</es>
+		<pt>Identificador já usado!</pt>
+	</errwebuid>
+	<errbss>
+		<fr>Erreur base!</fr>
+		<es>Error base!</es>
+		<pt>Erro base!</pt>
+	</errbss>
+	<errbss2>
+		<fr>Erreur! Cette base existe déjà!</fr>
+		<es>Error! Ya existe esta base!</es>
+		<pt>Erro! Esta base já existe!</pt>
+	</errbss2>
+	<errbss3>
+		<fr>Erreur! Recoupement de bases!</fr>
+		<es>Error! Cruzamiento de bases!</es>
+		<pt>Erro! Cruzamento de bases!</pt>
+	</errbss3>
+	<errdat>
+		<fr>Erreur date!</fr>
+		<es>Error fecha!</es>
+		<pt>Erro data!</pt>
+	</errdat>
+	<errdat2>
+		<fr>Erreur! Cette date existe deja!</fr>
+		<es>Error! Ya existe esta fecha!</es>
+		<pt>Erro! Esta data já existe!</pt>
+	</errdat2>
+	<errdat3>
+		<fr>Erreur! Recoupement de dates!</fr>
+		<es>Error! Cruzamiento de fechas!</es>
+		<pt>Erro! Cruzamento de datas!</pt>
+	</errdat3>
+  <act_map_vll>
+    <fr>Utiliser la position enregistrée de cette ville comme emplacement sur la carte ?</fr>
+    <es>¿Usar la posición guardada de esta ciudad como ubicación en el mapa?</es>
+  </act_map_vll>
+  <act_map>
+    <fr>Actualiser automatiquement l'emplacement sur la carte ?</fr>
+    <es>¿Actualizar automaticamente la ubicación en el mapa?</es>
+  </act_map>
+  <err>
+    <mrq_bss>
+      <fr>ATTENTION! DIFFERENCES SUR LES TYPES DE MARGE OU POURCENTAGES POUR CETTE(CES) NOUVELLE(S) BASE(S)!&#xA;</fr>
+      <es>ATENCION! DIFFERENCIAS DE TIPOS DE MARGEN O DE PORCENTAJES PARA ESTA(S) NUEVA(S) BASE(S)!&#xA;</es>
+    </mrq_bss>
+    <crr>
+      <fr>ERREUR DE DEVISES POUR LES TARIFS DU(ES) SERVICE(S):</fr>
+      <es>ERROR DE DIVISAS PARA LAS TARIFAS DEL(DE LOS) SERVICIO(S)</es>
+    </crr>
+    <nvtrf>
+      <fr>NOUVEAUX TARIFS DISPONIBLES POUR:</fr>
+      <es>NUEVAS TARIFAS DISPONIBLES PARA:</es>
+    </nvtrf>
+		<crc>
+			<fr>ERREUR DE TEXTES POUR LE CIRCUIT:&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA EL CIRCUITO:&#xA;</es>
+		</crc>
+		<mdl>
+			<fr>ERREUR DE TEXTES POUR LE(S) MODULE(S):&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA EL(LOS) MODULO(S):&#xA;</es>
+		</mdl>
+		<jrn>
+			<fr>ERREUR DE TEXTES POUR LE(S) JOURNEE(S):&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA LA(S) JORNADA(S):&#xA;</es>
+		</jrn>
+		<prs>
+			<fr>ERREUR DE TEXTES POUR LE(S) PRESTATION(S):&#xA;</fr>
+			<es>ERROR DE TEXTOS PARA LA(S) PRESTACION(ES):&#xA;</es>
+		</prs>
+		<hbr>
+			<fr>ERREUR DE TARIFS POUR LE(S) HEBERGEMENT(S):&#xA;</fr>
+			<es>ERROR DE TARIFAS PARA EL(LOS) ALOJAMIENTO(S):&#xA;</es>
+		</hbr>
+    <srv>
+      <fr>ERREUR DE TARIFS POUR LE(S) SERVICE(S):&#xA;</fr>
+      <es>ERROR DE TARIFAS PARA EL(LOS) SERVICIO(S):&#xA;</es>
+    </srv>
+    <alrt>
+			<fr>LES TARIFS DU(DES) MODULE(S) </fr>
+			<es>LAS TARIFAS DEL(LOS) MODULO(S) </es>
+		</alrt>
+		<alrt2>
+			<fr> DEVRAIENT ETRE ACTUALISES!</fr>
+			<es> DEBERIAN SER ACTUALIZADAS!</es>
+		</alrt2>
+	</err>
+  <jour>
+    <fr>JOUR</fr>
+    <es>DIA</es>
+  </jour>
+  <hbr_def>
+		<msg1>
+			<fr>NUITEE(S) DEFINIE(S)&#xA;</fr>
+			<es>NOCHE(S) DEFINIDA(S)&#xA;</es>
+		</msg1>
+		<msg2>
+			<fr>NUITEE(S) NON DEFINIE(S)&#xA;</fr>
+			<es>NOCHE(S) NO DEFINIDA(S)&#xA;</es>
+		</msg2>
+		<msg3>
+			<fr>ERREUR TARIFS HEBERGEMENT:&#xA;</fr>
+			<es>ERROR TARIFAS ALOJAMIENTO:&#xA;</es>
+		</msg3>
+	</hbr_def>
+  <bss>
+    <fr>BASE(S)</fr>
+    <es>BASE(S)</es>
+  </bss>
+</textes>

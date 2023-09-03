@@ -3,7 +3,7 @@ $id_dev_mdl = $_POST['id_dev_mdl'];
 $ord_jrn = $_POST['ord_jrn'];
 $id_dev_crc = $_POST['id_dev_crc'];
 $nbj = $_POST['nbj'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 include("../prm/fct.php");
 include("../cfg/lng.php");
 $max_date = "0000-00-00";

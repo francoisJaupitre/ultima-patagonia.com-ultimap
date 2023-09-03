@@ -177,24 +177,32 @@
     "fr": "Créer une NOUVELLE VERSION de ce circuit ?",
     "es": "¿Crear una NUEVA VERSION de este circuito?"
   },
-  "mailFrn": [
+  "mailFrn": {
+    "fr": "Envoyer des demandes de DEVIS de services pour ce circuit ?",
+    "es": "¿Enviar pedidos de COTIZACIONES de servicios para este circuito?"
+  },
+  "mailFrn1": [
     {
-      "fr": "Envoyer des DEMANDES DE DEVIS/RESERVATIONS AUX FOURNISSEURS pour ce circuit ?",
-      "es": "¿Enviar PEDIDOS DE COTIZACIONES/BLOQUEOS A LOS PROVEEDORES para este circuito?"
+      "fr": "Envoyer les PRÉ-RESERVATIONS de services pour ce circuit ?",
+      "es": "¿Enviar los BLOQUEOS de servicios para este circuito?"
     },
     {
-      "fr": "Envoyer les RESERVATIONS DE SERVICES pour ce circuit ?",
-      "es": "¿Enviar las RESERVACIONES DE SERVICIOS para este circuito?"
+      "fr": "Envoyer les RESERVATIONS de services pour ce circuit ?",
+      "es": "¿Enviar las RESERVACIONES de servicios para este circuito?"
     }
   ],
-  "melHbr": [
+  "mailHbr": {
+    "fr": "Envoyer des demandes de DEVIS aux hébergements pour ce circuit ?",
+    "es": "¿Enviar pedidos de COTIZACIONES a los alojamientos para este circuito?"
+  },
+  "maillHbr1": [
     {
-      "fr": "Envoyer des DEMANDES DE DEVIS/RESERVATIONS AUX HEBERGEMENTS pour ce circuit ?",
-      "es": "¿Enviar PEDIDOS DE COTIZACIONES/BLOQUEOS A LOS ALOJAMIENTOS para este circuito?"
+      "fr": "Envoyer les PRÉ-RESERVATIONS d'hébergements pour ce circuit ?",
+      "es": "¿Enviar los BLOQUEOS de alojamientos para este circuito?"
     },
     {
-      "fr": "Envoyer les RESERVATIONS AUX HEBERGEMENTS pour ce circuit ?",
-      "es": "¿Enviar las RESERVACIONES A LOS ALOJAMIENTOS para este circuito?"
+      "fr": "Envoyer les RESERVATIONS d'hébergements pour ce circuit ?",
+      "es": "¿Enviar las RESERVACIONES de alojamientos para este circuito?"
     }
   ],
   "maj_lng": {
@@ -242,8 +250,8 @@
     "es": "Ingresas un identificador unico para el URL."
   },
   "web1": {
-    "fr": "PUBLICATION ANNULEE!&#xA;Cet url est déjà utilisé.",
-    "es": "PUBLICACIÓN CANCELADA!&#xA;Esta URL ya está en uso.",
+    "fr": "PUBLICATION ANNULEE !&#xA;Cet url est déjà utilisé.",
+    "es": "¡PUBLICACIÓN CANCELADA!&#xA;Esta URL ya está en uso.",
     "pt": "PUBLICAÇÃO CANCELADA!&#xA;Este URL já está em uso."
   },
   "dup_chm": {
@@ -295,7 +303,7 @@
     "es": "¿Está seguro de querer SUPRIMIR esta temporada?"
   },
   "cnf": {
-    "fr": "Circuit confirmé! Etes-vous sûr ?",
+    "fr": "Circuit confirmé ! Etes-vous sûr ?",
     "es": "¡Circuito confirmado! ¿Está seguro?"
   },
   "act_txt_crc": {
@@ -348,7 +356,7 @@
   },
   "act_elem_crc": {
     "fr": "Cette option remplacera tous les éléments présents dans ce circuit?&#xA;Toutes les informations seront perdues !",
-    "es": "Esta opción remplazara todos los elementos presentes en este circuito?&#xA;Todas las informaciones se borrarán!"
+    "es": "Esta opción remplazara todos los elementos presentes en este circuito?&#xA;¡Todas las informaciones se borrarán!"
   },
   "act_elem_mdl": {
     "fr": "Actualiser les éléments de ce module ?",
@@ -360,10 +368,18 @@
   },
   "act_elem_prs": {
     "fr": "Cette option remplacera tous les éléments présents dans cette prestation?&#xA;Toutes les informations seront perdues !",
-    "es": "¡Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;Todas las informaciones se borrarán!"
+    "es": "¡Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;¡Todas las informaciones se borrarán!"
   },
   "hbr_def": {
     "fr": "Sélectionner les hôtels par défaut pour chaque hébergement non défini de ce circuit ?",
     "es": "¿Seleccionar los hoteles por defecto para cada alojamiento no definido en este circuito?"
+  },
+  "cnf_ok": {
+    "fr": "Confirmer ce devis ?",
+    "es": "¿Confirmar esta cotización?"
+  },
+  "chk_rch": {
+    "fr": "TEXTE(S) NON SAUVEGARDE(S) !&#xA;Les modifications seront perdues !",
+    "es": "¡TEXTO(S) SIN GUARDAR!&#xA;¡Las modificaciones serán descartadas!"
   }
 }

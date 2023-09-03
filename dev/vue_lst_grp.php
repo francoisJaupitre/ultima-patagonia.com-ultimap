@@ -10,7 +10,7 @@ if(substr(upnoac($txt->opn->$id_lng),0,strlen($src))==$src){
 }
 if(substr(upnoac($txt->creer->$id_lng),0,strlen($src))==$src){
 ?>
-	<li <?php if($flg_enter){echo 'id="enter_grp" style="background-color: Chocolate;"';} ?> onClick="ajt_grp(<?php echo $clt_crc ?>)"><?php echo $txt->creer->$id_lng; ?></li>
+	<li <?php if($flg_enter){echo 'id="enter_grp" style="background-color: Chocolate;"';} ?> onClick="addGrp(<?php echo $clt_crc ?>)"><?php echo $txt->creer->$id_lng; ?></li>
 <?php
 	$flg_enter = false;
 }

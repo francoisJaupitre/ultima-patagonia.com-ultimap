@@ -1,9 +1,9 @@
-<?php
+<?php //ARCHIVE SEVERAL QUOTATIONS OR CONFIRMATIONS FROM MAIN MENU
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['ids']))
 {
-  include("../../prm/fct.php");
+  include("functions.php");
   include("../../prm/aut.php");
   $txt = simplexml_load_file('../../acc/txt.xml');
   $msg = '';
@@ -14,7 +14,7 @@ if(isset($data['ids']))
     {
       $msg .= $err;
       unset($err);
-    }  
+    }
   }
   if(!empty($msg))
   {

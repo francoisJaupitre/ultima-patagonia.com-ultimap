@@ -1,11 +1,11 @@
-<?php
+<?php //CREATE A COPY OF AN ELEMENT FROM CATALOG OR MAIN MENU KEEPING CHILDREN
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['cbl']) and isset($data['id']) and isset($data['nom']))
 {
 	$cbl = $data['cbl'];
 	$nom = $data['nom'];//$nom = rawurldecode($data['nom']);
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	switch($cbl)
 	{

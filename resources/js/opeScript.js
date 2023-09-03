@@ -1,4 +1,4 @@
-var id_lng
+var id_lng, flg_maj = true, upd = 0;
 
 (function()
 {
@@ -11,9 +11,9 @@ var id_lng
 
 const mailFrn = (id_res_frn, id_dev_crc) => {
 	const xhr = new XMLHttpRequest
-	xhr.open("POST","../resources/php/mailFrn.php")
+	xhr.open("POST", "../resources/php/mailFrn.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
-	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn }))
+	xhr.send(JSON.stringify({ id_dev_crc, id_res_frn, res : 1 }))
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
@@ -25,9 +25,9 @@ const mailFrn = (id_res_frn, id_dev_crc) => {
 
 const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
 	const xhr = new XMLHttpRequest
-	xhr.open("POST","../resources/php/mailHbr.php")
+	xhr.open("POST", "../resources/php/mailHbr.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
-	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm }))
+	xhr.send(JSON.stringify({ id_dev_crc, id_res_hbr, id_res_chm, res : 1 }))
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
@@ -41,7 +41,7 @@ const emailWriter = (data) => {
 	const emailFrom = data['emailFrom']
 	const emailTo = data['emailTo']
 	const emailSubject = data['emailSubject']
-	const txt = document.createElement("textarea")
+	const txt = parent.window.document.createElement("textarea")
 	txt.innerHTML = data['emailBody']
 	const emailBody = txt.value
 	const devData = { emailGRP : data['emailGRP'] }
@@ -55,9 +55,10 @@ const emailWriter = (data) => {
 		devData['emailLstHBR'] = data['emailLstHBR']
 		devData['emailHBR'] = data['emailHBR']
 	}
-	const emailBox = document.createElement("div")
+	const emailBox = parent.window.document.createElement("div")
 	emailBox.id = "emailBox"
 	emailBox.classList.add("emailPopup")
+  emailBox.innerHTML += '<div id="shadowing"></div>'
 	emailBox.innerHTML += '<div><button id="sendBtn">Send</button><button id="closeBtn">Close</button></div>'
 	emailBox.innerHTML += `<div><label for="from">From: </label><input id="from" value="${emailFrom}" /></div>`
 	emailBox.innerHTML += `<div><label for="subj">Subject: </label><input id="subj" value="${emailSubject}" /></div>`
@@ -69,67 +70,30 @@ const emailWriter = (data) => {
 		<div id="emailMessage" class="ust rich" >${emailBody}</div>
 		<div id="tool_emailMessage" class="tool"></div>
 	</div>`
-	document.body.appendChild(emailBox)
-	const emailMessage = document.getElementById("emailMessage")
+	parent.window.document.body.appendChild(emailBox)
+	const emailMessage = parent.window.document.getElementById("emailMessage")
 	emailMessage.style.pointerEvents = "auto"
-	emailMessage.onclick = () => {
-		const loader = document.getElementById(`ld_${emailMessage.id}`)
-		loader.style.display = 'block'
-		tinymce.remove(`#${emailMessage.id}`)
-		tinymce.init({
-			entity_encoding : "raw",
-			forced_root_block : "",
-			selector: `#${emailMessage.id}`,
-			inline: true,
-			fixed_toolbar_container: `#tool_${emailMessage.id}`,
-			resize: true,
-			plugins: "textcolor paste",
-			paste_auto_cleanup_on_paste : true,
-			paste_word_valid_elements: "b,strong,i,em,u",
-			paste_preprocess : (pl, o) => { o.content = stripTags( o.content,'<b><strong><i><em><u>') },
-			toolbar: 'undo redo | bold italic underline | backcolor',
-			toolbar_location: 'bottom',
-			textcolor_rows: "3",
-			textcolor_map: [
-				"FFFF00", "Yellow",
-				"7FFF00", "Light Green",
-				"00FFFF", "Cyan",
-				"FF00FF", "Magenta",
-				"0000FF", "Blue",
-				"FF0000", "Red",
-				"00008B", "Dark Blue",
-				"008B8B", "Dark Cyan",
-				"008000", "Dark Green",
-				"8B008B", "Dark Magenta",
-				"A52100", "Dark Red",
-				"808000", "Dark Yellow",
-				"808080", "Dark Gray",
-				"BFBFBF", "Light Gray",
-				"000000", "Black",
-			],
-			menubar: false,
-			setup : (elem) => {
-				elem.on('init', (e) => {
-					loader.style.display='none'
-					elem.execCommand('mceFocus', true, emailMessage.id)
-				})
-			},
-		})
-		emailMessage.onclick=null
+  emailMessage.onclick = () => {
+		window.parent.editMail()
 	}
-	const sendBtn = document.getElementById("sendBtn")
-	sendBtn.onclick = ()=>{ sendMail(devData) }
-	const closeBtn = document.getElementById("closeBtn")
-	closeBtn.onclick = ()=>{ closeEmail() }
+	const sendBtn = parent.window.document.getElementById("sendBtn")
+	sendBtn.onclick = () => {
+    window.parent.document.getElementById("emailBox").childNodes[0].style.display = 'block'
+		sendMail(devData)
+	}
+	const closeBtn = parent.window.document.getElementById("closeBtn")
+	closeBtn.onclick = () => {
+		closeEmail()
+	}
 }
 
 const sendMail = (devData) => {
 	const emailRequest = {
-		from : document.getElementById("from").value,
-		to : document.getElementById("to").value,
-		subject : document.getElementById("subj").value,
-		message : `<html><body>${emailMessage.innerHTML}</body></html>`,
-		bcc : document.getElementById("bcc").value
+    from : parent.window.document.getElementById("from").value,
+		to : parent.window.document.getElementById("to").value,
+		subject : parent.window.document.getElementById("subj").value,
+		message : `<html><body>${parent.window.document.getElementById("emailMessage").innerHTML}</body></html>`,
+		bcc : parent.window.document.getElementById("bcc").value
 	}
 	if(typeof devData['emailLstSRV'] !== 'undefined')
 	{
@@ -143,8 +107,9 @@ const sendMail = (devData) => {
 		emailRequest['id_grp'] = devData['emailGRP']
 		emailRequest['id_hbr'] = devData['emailHBR']
 	}
+  emailRequest['res'] = 1
 	const xhr = new XMLHttpRequest
-	xhr.open("POST","../resources/php/sendMail.php")
+	xhr.open("POST", "../resources/php/sendMail.php")
 	xhr.setRequestHeader("Content-Type", "application/json")
 	xhr.send(JSON.stringify(emailRequest))
 	xhr.onreadystatechange = () => {
@@ -181,14 +146,14 @@ const sendMail = (devData) => {
 }
 
 const closeEmail = () => {
-	document.getElementById("emailBox").remove()
+	parent.window.document.getElementById("emailBox").remove()
 	unload('emailPopup')
 }
 
 const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, id_dev_prs, res, id_dev_crc) => {
   load('OPE searchHbr')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/searchHbr.php")
+  xhr.open("POST", "../resources/php/searchHbr.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, id_dev_prs, id_dev_crc, cnf, res }))
   xhr.onreadystatechange = () => {
@@ -199,7 +164,7 @@ const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, i
         const rsp = JSON.parse(xhr.response)
         window.parent.box("?", rsp[0], () => {
           for(let i = 1; i < rsp.length; i++)
-            maj('dev_hbr','res',res,rsp[i])
+            updateData('dev_hbr', 'res', res, rsp[i])
         })
       }
       unload('OPE searchHbr')
@@ -210,7 +175,7 @@ const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, i
 const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc) => {
   load('OPE searchSrv')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/searchSrv.php")
+  xhr.open("POST", "../resources/php/searchSrv.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc, id_frn, cnf }))
   xhr.onreadystatechange = () => {
@@ -221,15 +186,15 @@ const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_cr
         const rsp = JSON.parse(xhr.response)
         if(id_dev_srv_vll > 0 && id_dev_srv > 0)
         {
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
-              maj('dev_srv','id_frn',id_frn,rsp[i])
+              updateData('dev_srv', 'id_frn', id_frn, rsp[i])
           })
         }
         else{
-          window.parent.box("?",rsp[0], () => {
+          window.parent.box("?", rsp[0], () => {
             for(let i = 1; i < rsp.length; i++)
-              maj('dev_srv','id_frn',0,rsp[i])
+              updateData('dev_srv', 'id_frn', 0, rsp[i])
           })
         }
       }
@@ -241,7 +206,7 @@ const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_cr
 const searchFrn = (res, id_frn, id_dev_srv, id_dev_crc) => {
   load('OPE searchFrn')
   const xhr = new XMLHttpRequest
-  xhr.open("POST","../resources/php/searchFrn.php")
+  xhr.open("POST", "../resources/php/searchFrn.php")
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify({ id_frn, id_dev_srv, id_dev_crc, res, cnf }))
   xhr.onreadystatechange = () => {
@@ -250,13 +215,95 @@ const searchFrn = (res, id_frn, id_dev_srv, id_dev_crc) => {
       if(xhr.response != 0)
       {
         const rsp = JSON.parse(xhr.response)
-        window.parent.box("?",rsp[0], () => {
+        window.parent.box("?", rsp[0], () => {
           for(let i = 1; i < rsp.length; i++)
-            maj('dev_srv', 'res', res, rsp[i])
+            updateData('dev_srv', 'res', res, rsp[i])
         })
         window.parent.act_frm('frn_ope')
       }
       unload('OPE searchFrn')
+    }
+  }
+}
+
+const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
+  if(flg_maj)
+  {
+    upd++
+    console.log('upd', upd)
+    flg_maj = false
+  }
+  if(id_sup > 0)
+    load('OPE updateData')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/updateOpeDB.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ tab, col, val, id }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      const rsp = JSON.parse(xhr.response)
+      switch(col)
+      {
+        case 'info':
+        case 'heure':
+          if(rsp[0] != 1)
+          {
+            const x = document.getElementsByClassName(`prs_res_srv${id}`)
+  					for(let i = 0; i < x.length; i++)
+            {
+              vue_elem(x[i].id, x[i].id.substr(7))
+            }
+  					const y = document.getElementsByClassName(`prs_res_hbr${id}`)
+  					for(let i=0; i < y.length; i++)
+            {
+              vue_elem(y[i].id, y[i].id.substr(7))
+            }
+  					window.parent.act_frm(`prs_dev_srv${id}`)
+  					window.parent.act_frm(`prs_dev_hbr${id}`)
+  					window.parent.act_frm('frn_ope')
+  					window.parent.act_frm('hbr_ope')
+          }
+          break
+        case 'id_frn':
+          vue_elem(`frn_srv${id}`, id)
+          vue_elem(`res_srv${id}`, id)
+          vue_elem(`cmd_srv${id}`, id)
+          window.parent.act_frm(`srv_dev_frn${id}`)
+          window.parent.act_frm(`srv_dev_srv${id}`)
+          window.parent.act_frm(`crc_dev_srv${id_dev_crc}`)
+          window.parent.act_frm('frn_ope')
+          break
+        case 'res':
+          if(tab == 'dev_srv')
+          {
+  					if(val == '-1')
+              dsp('srv', id, id_dev_crc)
+  					vue_elem(`res_srv${id}`, id)
+  					vue_elem(`frn_srv${id}`, id)
+  					window.parent.act_frm(`crc_dev_srv${id_dev_crc}`)
+  					window.parent.act_frm(`srv_dev_frn${id}`)
+  					window.parent.act_frm(`srv_dev_srv${id}`)
+  				}
+  				else if(tab == 'dev_hbr')
+          {
+  					vue_elem(`res_hbr${id}`, id)
+  					window.parent.act_frm(`hbr_dev_hbr${id}`)
+  					window.parent.act_frm(`crc_dev_hbr${id_dev_crc}`)
+  					window.parent.act_frm('hbr_ope')
+					}
+        break
+      }
+      if(rsp[0] != 1)
+        alt(rsp[0])
+    	if(!flg_maj)
+      {
+    		upd--
+    		console.log('upd',upd)
+    		flg_maj = true
+    	}
+    	if(id_sup > 0)
+        unload('OPE updateData')
     }
   }
 }

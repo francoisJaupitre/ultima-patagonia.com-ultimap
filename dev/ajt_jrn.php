@@ -4,7 +4,7 @@ $id_dev_mdl = $_POST['id_dev_mdl'];
 $ord_jrn = $_POST['ord_jrn'];
 $id_dev_crc = $_POST['id_dev_crc'];
 $id_lgg = $_POST['lgg'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 include("../prm/fct.php");
 include("../cfg/crr.php");
 include("../cfg/lng.php");
@@ -13,7 +13,8 @@ $ord_mdl = $dt_mdl['ord'];
 $id_cat_mdl = $dt_mdl['id_cat'];
 $max_date = "0000-00-00";
 $max_ord = 0;
-$err_ord = $alt = $err = $err_jrn = $err_prs = $err_hbr = $err_srv = '';
+$alt = array();
+$err_ord = $err = $err_jrn = $err_prs = $err_hbr = $err_srv = '';
 $ant_jrn = 0;
 if($ord_jrn == -1) {
 	$opt_jrn = 1;
@@ -122,7 +123,7 @@ $dt_rmn = ftc_ass($rq_rmn);
 if(!empty($dt_rmn['id'])) {$id_rmn=$dt_rmn['id'];}
 else{$id_rmn=0;}
 if($id_cat_jrn > 0) {
-	include("ins_jrn.php");
+	include("../resources/php/setJrnData.php");
 	if($err_jrn != '') {$err .= $txt->err->jrn->$id_lng.$err_jrn."\n";}
 	if($err_prs != '') {$err .= $txt->err->prs->$id_lng.$err_prs."\n";}
 	if($err_hbr != '') {$err .= $txt->err->hbr->$id_lng.$err_hbr."\n";}
@@ -134,5 +135,5 @@ if($id_cat_jrn > 0) {
 }
 else{$id_dev_jrn = insert("dev_jrn",array("id_mdl","id_cat","ord","date","opt"),array($id_dev_mdl,$id_cat_jrn,$ord_jrn,$date,$opt_jrn));}
 if($err_ord != '') {$err .= $txt->err->alrt->$id_lng.$err_ord.$txt->err->alrt2->$id_lng;}
-echo $id_dev_jrn."|".$ant_jrn."|".$err."|".$alt;
+echo $id_dev_jrn."|".$ant_jrn."|".$err."|".implode(",\n", $alt);
 ?>

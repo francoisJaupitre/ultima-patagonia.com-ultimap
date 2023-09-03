@@ -1,9 +1,9 @@
-<?php
+<?php //ARCHIVE A SINGLE QUOTATION OR CONFIRMATION FROM MAIN MENU
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data["id"]))
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	$txt = simplexml_load_file('../../acc/txt.xml');
 	$id = $data["id"];
@@ -20,13 +20,13 @@ if(isset($id))
 		while($dt_prs = ftc_ass($rq_prs))
 		{
 			$rq_srv = sel_whe("id","dev_srv","res>0 AND res<4 AND id_prs=".$dt_prs['id']);
-			if(num_rows($rq_srv)>0)
+			if(num_rows($rq_srv) > 0)
 			{
 				$err = "\n".$dt_sel['groupe'].' V'.$dt_sel['version'];
 				break;
 			}
 			$rq_hbr = sel_whe("id","dev_hbr","id_cat!=-2 AND res>0 AND res<4 AND id_prs=".$dt_prs['id']);
-			if(num_rows($rq_hbr)>0)
+			if(num_rows($rq_hbr) > 0)
 			{
 				$err = "\n".$dt_sel['groupe'].' V'.$dt_sel['version'];
 				break;

@@ -26,7 +26,7 @@ if(isset($_POST['id_dev_mdl'])){
 		$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
 	}
 }
-if($vue_mdl and $aut['dev'] and $cnf<1){
+if($vue_mdl and $aut['dev'] and $cnf < 1){
 	$cbl = "mdl";
 ?>
 <table>
@@ -68,7 +68,7 @@ if($nb_jrn['total'] >0){
 		if($ord_mdl < $nb_mdl['total']){
 ?>
 			<strong><?php echo $txt->fus->$id_lng; ?></strong>
-			<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($fus_mdl){echo('checked="checked"');} ?> onclick="if(this.checked){fus('1',<?php echo $id_dev_mdl ?>)}else{fus('0',<?php echo $id_dev_mdl ?>)};" />
+			<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="checkbox" autocomplete="off" <?php if ($fus_mdl){echo('checked="checked"');} ?> onclick="if(this.checked){prevFusion('1',<?php echo $id_dev_mdl ?>)}else{prevFusion('0',<?php echo $id_dev_mdl ?>)};" />
 <?php
 		}
 ?>

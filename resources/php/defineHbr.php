@@ -1,16 +1,17 @@
-<?php
+<?php //AUTO SELECTION OF ACCOMODATIONS IN A QUOTATION USING PREDETERMINATED CRITERIAS SET IN CITY CATALOG
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0 and isset($data['id_hbr_def']) and $data['id_hbr_def'] > 0)
 {
-	$id_dev_crc = $_POST['id_dev_crc'];
-	$id_hbr_def = $_POST['id_hbr_def'];
-	$txt = simplexml_load_file('txt.xml');
-	include("../../prm/fct.php");
+	$id_dev_crc = $data['id_dev_crc'];
+	$id_hbr_def = $data['id_hbr_def'];
+	$txt = simplexml_load_file('../xml/updateTxt.xml');
+	include("functions.php");
 	include("../../cfg/crr.php");
 	include("../../cfg/lng.php");
 	$x = $y = 0;
-	$alt = $err = $err_hbr = '';
+	$alt = array();
+	$err = $err_hbr = '';
 	$dt_dev_crc = ftc_ass(sel_quo("crr", "dev_crc", "id", $id_dev_crc));
 	$id_crr_crc = $dt_dev_crc['crr'];
 	$rq_mdl = sel_quo("id", "dev_mdl", "id_crc", $id_dev_crc);
@@ -42,7 +43,7 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0 and isset($data['id_hb
 							$res = $sel = 0;
 							$dt_res = '0000-00-00';
 							$rva = '';
-							include("../../dev/act_hbr.php");
+							include("setHbrData.php");
 							if($err_hbr != '')
 							{
 								$err .= $err_hbr;
@@ -72,9 +73,9 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0 and isset($data['id_hb
 					{
 						$cur = 1;
 						$id_crr = $id_crr_crc;
-						include("../../dev/clc_crr.php");
+						include("calculateCrrRates.php");
 						$id_dev_hbr = insert("dev_hbr", array("id_prs", "id_vll", "rgm", "crr_chm", "taux_chm", "sup_chm"), array($dt_prs['id'], $hbr_vll, $hbr_rgm, 1, $taux, $sup));
-						include("../../dev/act_hbr.php");
+						include("setHbrData.php");
 						if($err_hbr != '')
 						{
 							$err .= $err_hbr;
@@ -101,7 +102,7 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0 and isset($data['id_hb
 			$err .= "-> ".$nom."\n";
 		}
 	}
-	$qa = array($x.' '.$txt->hbr_def->msg1->$id_lng.$y.' '.$txt->hbr_def->msg2->$id_lng, $err, $alt)
+	$qa = array($x.' '.$txt->hbr_def->msg1->$id_lng.$y.' '.$txt->hbr_def->msg2->$id_lng, $err, implode(",\n", $alt));
 	echo json_encode($qa);
 }
 ?>

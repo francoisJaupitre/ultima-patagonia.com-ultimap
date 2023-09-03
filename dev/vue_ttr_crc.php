@@ -79,13 +79,15 @@ if($aut['cat'] and $id_cat_crc == 0){
 <?php
 if($aut['res']){
 ?>
-				<li onclick="mailHbr(0);"><?php echo $txt->mailshbr->$id_lng; ?></li>
-				<li onclick="mailFrn(0);"><?php echo $txt->mailsfrn->$id_lng; ?></li>
+				<li onclick="mailHbr(0, 0);"><?php echo $txt->mailsdevishbr->$id_lng; ?></li>
+				<li onclick="mailHbr(0, 1);"><?php echo $txt->mailsreshbr->$id_lng; ?></li>
+				<li onclick="mailFrn(0, 0);"><?php echo $txt->mailsdevisfrn->$id_lng; ?></li>
+				<li onclick="mailFrn(0, 1);"><?php echo $txt->mailsresfrn->$id_lng; ?></li>
 <?php
 }
 ?>
-				<li onclick="window.open('../fct/docx_hbr.php?id=<?php echo $id_dev_crc;?>&hbr=0');"><?php echo $txt->lst_hbr->$id_lng; ?></li>
-				<li onclick="window.open('../fct/docx_frn.php?id=<?php echo $id_dev_crc;?>&frn=0');"><?php echo $txt->lst_frn->$id_lng; ?></li>
+				<li onclick="window.open('../resources/php/docxHbr.php?id=<?php echo $id_dev_crc;?>&hbr=0');"><?php echo $txt->lst_hbr->$id_lng; ?></li>
+				<li onclick="window.open('../resources/php/docxFrn.php?id=<?php echo $id_dev_crc;?>&frn=0');"><?php echo $txt->lst_frn->$id_lng; ?></li>
 
 			</ul>
 			<br/>
@@ -96,8 +98,8 @@ if($aut['res']){
 <?php
 if($cnf>0){
 ?>
-				<li onclick="window.open('../fct/vch_hbr.php?id=<?php echo $id_dev_crc;?>&hbr=0');"><?php echo $txt->vchhbr->$id_lng; ?></li>
-				<li onclick="window.open('../fct/vch_frn.php?id=<?php echo $id_dev_crc;?>&frn=0');"><?php echo $txt->vchfrn->$id_lng; ?></li>
+				<li onclick="window.open('../resources/php/vchHbr.php?id=<?php echo $id_dev_crc;?>&hbr=0');"><?php echo $txt->vchhbr->$id_lng; ?></li>
+				<li onclick="window.open('../resources/php/vchFrn.php?id=<?php echo $id_dev_crc;?>&frn=0');"><?php echo $txt->vchfrn->$id_lng; ?></li>
 <?php
 }
 ?>
@@ -118,9 +120,9 @@ if($id_cat_crc != 0 and $aut['dev']){
 			<strong><?php echo $txt->aff->$id_lng; ?></strong>
 			<ul>
 				<li onclick="mdf_vue('crc','mdl','true',0);"><?php echo $txt->maxmdl->$id_lng; ?></li>
-				<li onclick="if(cls_rch('dt_crc')){mdf_vue('crc','mdl','false',0);}"><?php echo $txt->minmdl->$id_lng; ?></li>
+				<li onclick="closeRichText('dt_crc','',function(){mdf_vue('crc','mdl','false',0);})"><?php echo $txt->minmdl->$id_lng; ?></li>
 				<li onclick="mdf_vue('crc','jrn','true',0);"><?php echo $txt->maxjrn->$id_lng; ?></li>
-				<li onclick="if(cls_rch('dt_crc')){mdf_vue('crc','jrn','false',0);}"><?php echo $txt->minjrn->$id_lng; ?></li>
+				<li onclick="closeRichText('dt_crc','',function(){mdf_vue('crc','jrn','false',0);})"><?php echo $txt->minjrn->$id_lng; ?></li>
 			</ul>
 		</div>
 	</div>

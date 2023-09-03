@@ -82,7 +82,7 @@ if(isset($_POST['obj'])){
 		$rq_bss_crc = sel_quo("base","dev_crc_bss",array("vue","id_crc"),array("1",$id));
 		if(num_rows($rq_bss_crc)==1){
 			$dt_bss_crc = ftc_ass($rq_bss_crc);
-			if($dt_crc['sgl'] + ($dt_crc['dbl_mat'] + $dt_crc['dbl_twn']) * 2 + ($dt_crc['tpl_mat'] + $dt_crc['tpl_twn']) * 3 + $dt_crc['qdp'] * 4 != $dt_bss_crc['base'] + $dt_crc['ptl'] - $dt_crc['psg']) {echo $txt->err->rmn->$id_lng;}
+			if($dt_crc['sgl'] + ($dt_crc['dbl_mat'] + $dt_crc['dbl_twn']) * 2 + ($dt_crc['tpl_mat'] + $dt_crc['tpl_twn']) * 3 + $dt_crc['qdp'] * 4 != $dt_bss_crc['base'] + $dt_crc['ptl'] - $dt_crc['psg']) {echo $txt->err_rmn->$id_lng;}
 		}
 	}
 	elseif(substr($obj,0,7)=='crc_rgn'){
@@ -115,7 +115,7 @@ if(isset($_POST['obj'])){
 		$rq_bss_mdl = sel_quo("base","dev_mdl_bss",array("vue","id_mdl"),array("1",$id));
 		if(num_rows($rq_bss_mdl)==1){
 			$dt_bss_mdl = ftc_ass($rq_bss_mdl);
-			if($dt_mdl['sgl'] + ($dt_mdl['dbl_mat'] + $dt_mdl['dbl_twn']) * 2 + ($dt_mdl['tpl_mat'] + $dt_mdl['tpl_twn']) * 3 + $dt_mdl['qdp'] * 4 != $dt_bss_mdl['base'] + $dt_mdl['ptl'] - $dt_mdl['psg']) {echo $txt->err->rmn->$id_lng;}
+			if($dt_mdl['sgl'] + ($dt_mdl['dbl_mat'] + $dt_mdl['dbl_twn']) * 2 + ($dt_mdl['tpl_mat'] + $dt_mdl['tpl_twn']) * 3 + $dt_mdl['qdp'] * 4 != $dt_bss_mdl['base'] + $dt_mdl['ptl'] - $dt_mdl['psg']) {echo $txt->err_rmn->$id_lng;}
 		}
 	}
 	elseif(substr($obj,0,7)=='mdl_rgn'){

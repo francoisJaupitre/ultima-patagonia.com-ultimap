@@ -27,7 +27,7 @@ else{
 }
 if(($dt_res2['id_srv_res']==2 or $dt_res2['id_srv_rva']!='') and $dt_res['id_prs_ctg']!=19 and $dt_res['id_prs_ctg']!=20){
 ?>
-<input type="text" <?php if(!$aut['res']){echo ' disabled';} ?> placeholder="<?php echo $txt->codrva->$id_lng; ?>" style="width: 120px;" value="<?php echo stripslashes($dt_res2['id_srv_rva']) ?>" onChange="maj('dev_srv','rva',this.value,<?php echo $dt_res2['id_dev_srv'] ?>)" />
+<input type="text" <?php if(!$aut['res']){echo ' disabled';} ?> placeholder="<?php echo $txt->codrva->$id_lng; ?>" style="width: 120px;" value="<?php echo stripslashes($dt_res2['id_srv_rva']) ?>" onChange="updateData('dev_srv','rva',this.value,<?php echo $dt_res2['id_dev_srv'] ?>)" />
 <?php
 }
 ?>

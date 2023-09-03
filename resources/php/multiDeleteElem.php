@@ -1,11 +1,11 @@
-<?php
+<?php //DELETE SEVERAL ELEMENTS FROM MAIN MENU
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['ids']) and isset($data['cbl']))
 {
   $ids = $data['ids'];
   $cbl = $data['cbl'];
-  include("../../prm/fct.php");
+  include("functions.php");
   include("../../prm/aut.php");
   $txt = simplexml_load_file('../../acc/txt.xml');
   switch($cbl)
@@ -35,7 +35,7 @@ if(isset($data['ids']) and isset($data['cbl']))
       {
         $rq_crc = sel_quo("id_grp", "dev_crc", "id", $id);
         if(num_rows($rq_crc))
-        { //serveur bug erreur d'affichage (deja effacé)
+        {
           $rq_sel_mdl = sel_quo("id", "dev_mdl", "id_crc", $id);
           while($dt_sel_mdl = ftc_ass($rq_sel_mdl))
           {

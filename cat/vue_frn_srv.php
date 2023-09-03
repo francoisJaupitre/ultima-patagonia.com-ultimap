@@ -5,14 +5,14 @@ if($nb_srv['total']>0) {
 <div class="dsg">
 	<table>
 		<tr>
-			<td colspan="4" class=fwb><?php echo $txt->defsrv->$id_lng ?></td>
+			<td colspan="5" class=fwb><?php echo $txt->defsrv->$id_lng ?></td>
 			<td><img src="../prm/img/vrl.png" /></td>
 		</tr>
 <?php
 	$rq_srv = select(
-		"id,nom,info,id_vll,ctg,vrl,dt_max",
+		"id,nom,info,id_vll,ctg,vrl,dt_min,dt_max",
 		"cat_srv LEFT JOIN (
-			SELECT cat_srv_trf.id_srv AS id_srv,id_frn,MAX(dt_max) AS dt_max
+			SELECT cat_srv_trf.id_srv AS id_srv,id_frn,MAX(dt_min) AS dt_min,MAX(dt_max) AS dt_max
 			FROM cat_srv_trf_ssn
 			INNER JOIN cat_srv_trf ON cat_srv_trf_ssn.id_trf=cat_srv_trf.id
 			INNER JOIN cat_srv_trf_bss ON cat_srv_trf_bss.id_trf=cat_srv_trf.id
@@ -36,6 +36,7 @@ if($nb_srv['total']>0) {
 		if(!empty($dt_srv['info'])) {echo ' ['.$dt_srv['info'].']';}
 ?>
 			</td>
+			<td><?php if($dt_srv['dt_min']!='0000-00-00' and !empty($dt_srv['dt_min'])) {echo date("d/m/Y", strtotime($dt_srv['dt_min']));} ?></td>
 			<td style="<?php if($dt_srv['dt_max'] < date ('Y-m-d', strtotime ("+1 months"))) {echo 'color: red';} ?>"><?php if($dt_srv['dt_max']!='0000-00-00' and !empty($dt_srv['dt_max'])) {echo date("d/m/Y", strtotime($dt_srv['dt_max']));} ?></td>
 <?php
 		if($aut['adm_cat']) {

@@ -25,7 +25,7 @@ while($dt_jrn = ftc_ass($rq_jrn))
 					$dt_trf1 = ftc_all(sel_quo("*", "cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf", "id_srv", $id_cat_srv));
 				}
 				$dt_trf2 = ftc_all(sel_quo("*", "cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf INNER JOIN cat_srv_trf_ssn ON cat_srv_trf.id = cat_srv_trf_ssn.id_trf", array("def", "id_srv"), array(1, $id_cat_srv), "dt_max DESC"));
-				include("../resources/updateSrvRates.php");
+				include("../resources/php/updateSrvRates.php");
 				if($flg_trf)
 				{
 					$id_crr = $id_crr_crc;

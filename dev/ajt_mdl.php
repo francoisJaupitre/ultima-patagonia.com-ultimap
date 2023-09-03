@@ -3,7 +3,7 @@ $id_cat_mdl = $_POST['id_cat_mdl'];
 $id_rgn = $_POST['id_rgn'];
 $id_dev_crc = $_POST['id_dev_crc'];
 $id_lgg = $_POST['lgg'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 include("../prm/fct.php");
 include("../cfg/crr.php");
 include("../cfg/lng.php");
@@ -11,7 +11,8 @@ $max_mdl = ftc_num(select("MAX(ord)","dev_mdl","id_crc",$id_dev_crc));
 $i = $ord_mdl = $max_mdl[0] + 1;
 $max_date = "0000-00-00";
 $max_ord = $max_fus = 0;
-$alt = $err = $err_mdl = $err_jrn = $err_prs = $err_hbr = $err_srv = '';
+$alt = array();
+$err = $err_mdl = $err_jrn = $err_prs = $err_hbr = $err_srv = '';
 $flg_mdl = false;
 $flg_plus = true;
 while(!$flg_mdl and $i>1) {
@@ -42,7 +43,7 @@ if($id_cat_mdl != 0) {
 	$trf_mdl = $fus = 0;
 	$obj = 'mdl';
 	$ord_jrn_ant = 1;
-	include("ins_mdl.php");
+	include("../resources/php/setMdlData.php");
 	if($err_mdl != '') {$err .= $txt->err->mdl->$id_lng.$err_mdl."\n";}
 	if($err_jrn != '') {$err .= $txt->err->jrn->$id_lng.$err_jrn."\n";}
 	if($err_prs != '') {$err .= $txt->err->prs->$id_lng.$err_prs."\n";}
@@ -57,5 +58,5 @@ else{
 	$id_dev_mdl = insert("dev_mdl",array("id_crc","ord","col","vue_dbl"),array($id_dev_crc,$ord_mdl,1,1));
 	insert("dev_mdl_rgn",array("id_mdl","id_rgn"),array($id_dev_mdl,$id_rgn));
 }
-echo $id_dev_mdl."|".$err."|".$alt;
+echo $id_dev_mdl."|".$err."|".implode(",\n", $alt);
 ?>

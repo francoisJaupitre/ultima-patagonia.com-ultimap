@@ -124,7 +124,7 @@ if($psg){
 <?php
 }
 ?>
-	<span id="crc_err_rmn" class="fwb red"><?php if($bss_cnf > 0 and $sgl_crc + ($dbl_mat_crc + $dbl_twn_crc) * 2 + ($tpl_mat_crc + $tpl_twn_crc) * 3 + $qdp_crc * 4 != $bss_cnf + $ptl - $psg) {echo $txt->err->rmn->$id_lng;} ?></span>
+	<span id="crc_err_rmn" class="fwb red"><?php if($bss_cnf > 0 and $sgl_crc + ($dbl_mat_crc + $dbl_twn_crc) * 2 + ($tpl_mat_crc + $tpl_twn_crc) * 3 + $qdp_crc * 4 != $bss_cnf + $ptl - $psg) {echo $txt->err_rmn->$id_lng;} ?></span>
 	<span class="wsn fwb">
 <?php
 		if(isset($bss_crc)){

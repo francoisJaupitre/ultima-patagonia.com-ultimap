@@ -1,9 +1,9 @@
-<?php
+<?php //CHANGE ORDER OF ELEMENTS IN A QUOTATION
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and isset($data["id"]))
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	include("../../prm/lgg.php");
 	$txt = simplexml_load_file('../../dev/txt.xml');
@@ -44,9 +44,19 @@ if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and is
 						if($date != '0000-00-00')
 						{
 							$date = date ('Y-m-d', strtotime ("+$nb_k days $date"));
-							$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']);
+							$result = upd_var_noq(
+								"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+								"dev_srv.res", "3",
+								"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']
+							);
 							$msg .= $result."->res_srv_chg";
-							$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $dt_jrn['id']);
+							$result = upd_var_noq(
+								"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+								"dev_hbr.res",
+								"3",
+								"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+								$dt_jrn['id']
+							);
 							$msg .= $result."->res_hbr_chg";
 						}
 						upd_noq("dev_jrn", array("ord","date"), array($dt_jrn['ord']+$nb_k, "'".$date."'"), $dt_jrn['id']);
@@ -67,18 +77,30 @@ if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and is
 							upd_quo("dev_mdl", "fus", "NULL", $dt_mdl['id']);
 						}
 					}
-					$rq_jrn = sel_quo("id,ord,date,opt","dev_jrn","id_mdl",$dt_mdl['id']);
+					$rq_jrn = sel_quo("id, ord, date, opt", "dev_jrn", "id_mdl", $dt_mdl['id']);
 					while($dt_jrn = ftc_ass($rq_jrn))
 					{
 						$date = $dt_jrn['date'];
 						if($date != '0000-00-00')
 						{
 							$date = date ('Y-m-d', strtotime ("+$nb_j days $date"));
-							$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']);
+							$result = upd_var_noq(
+								"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+								"dev_srv.res",
+								"3", 
+								"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+								$dt_jrn['id']
+							);
 							$msg .= $result."->res_srv_chg";
-							$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $dt_jrn['id']);
+							$result = upd_var_noq(
+								"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+								"dev_hbr.res",
+								"3",
+								"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+								$dt_jrn['id']
+							);
 							$msg .= $result."->res_hbr_chg";
-							}
+						}
 						upd_noq("dev_jrn", array("ord", "date"), array($dt_jrn['ord']+$nb_j, "'".$date."'"), $dt_jrn['id']);
 						if($dt_jrn['opt'])
 						{
@@ -97,19 +119,43 @@ if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and is
 					if($date != '0000-00-00')
 					{
 						$date = date ('Y-m-d', strtotime("-$nb_i days $date"));
-						$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+							"dev_srv.res",
+							"3",
+							"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_srv_chg";
-						$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+							"dev_hbr.res",
+							"3",
+							"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_hbr_chg";
-						}
-					upd_noq("dev_jrn", array("ord","date"), array($dt_jrn['ord']-$nb_i, "'".$date."'"), $dt_jrn['id']);
+					}
+					upd_noq("dev_jrn", array("ord", "date"), array($dt_jrn['ord']-$nb_i, "'".$date."'"), $dt_jrn['id']);
 				}else{
 					if($date!='0000-00-00')
 					{
 						$date = date ('Y-m-d', strtotime ("+$nb_i days $date"));
-						$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+							"dev_srv.res",
+							"3",
+							"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_srv_chg";
-						$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+							"dev_hbr.res",
+							"3",
+							"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_hbr_chg";
 					}
 					upd_noq("dev_jrn", array("ord", "date"), array($dt_jrn['ord']+$nb_i, "'".$date."'"), $dt_jrn['id']);
@@ -140,9 +186,21 @@ if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and is
 			if($date_jrn != '0000-00-00')
 			{
 				$date = date ('Y-m-d', strtotime ("+".$val-$ord_jrn." days $date_jrn"));
-				$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $id_dev_jrn);
+				$result = upd_var_noq(
+					"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+					"dev_srv.res",
+					"3",
+					"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+					$id_dev_jrn
+				);
 				$msg .= $result."->res_srv_chg";
-				$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $id_dev_jrn);
+				$result = upd_var_noq(
+					"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+					"dev_hbr.res",
+					"3",
+					"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+					$id_dev_jrn
+				);
 				$msg .= $result."->res_hbr_chg";
 			}else{
 				$date = '0000-00-00';
@@ -157,9 +215,21 @@ if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and is
 					if($date != '0000-00-00')
 					{
 						$date = date ('Y-m-d', strtotime ("-1 days $date"));
-						$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+							"dev_srv.res",
+							"3",
+							"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_srv_chg";
-						$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+							"dev_hbr.res",
+							"3",
+							"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_hbr_chg";
 					}
 					upd_noq("dev_jrn", array("ord", "date"), array("ord-1", "'".$date."'"), $dt_jrn['id']);
@@ -170,16 +240,28 @@ if(isset($data["obj"]) and isset($data["val"]) and isset($data["id_sup"]) and is
 					if($date != '0000-00-00')
 					{
 						$date = date ('Y-m-d', strtotime ("+1 days $date"));
-						$result = upd_var_noq("dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id", "dev_srv.res", "3", "(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_srv INNER JOIN dev_prs ON dev_srv.id_prs = dev_prs.id",
+							"dev_srv.res",
+							"3",
+							"(dev_srv.res=-2 OR dev_srv.res=1 OR dev_srv.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_srv_chg";
-						$result = upd_var_noq("dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id", "dev_hbr.res", "3", "(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn", $dt_jrn['id']);
+						$result = upd_var_noq(
+							"dev_hbr INNER JOIN dev_prs ON dev_hbr.id_prs = dev_prs.id",
+							"dev_hbr.res",
+							"3",
+							"(dev_hbr.res=-2 OR dev_hbr.res=1 OR dev_hbr.res=2) AND id_jrn",
+							$dt_jrn['id']
+						);
 						$msg .= $result."->res_hbr_chg";
 					}
 					upd_noq("dev_jrn", array("ord", "date"), array("ord+1", "'".$date."'"), $dt_jrn['id']);
 				}
 				if($dt_jrn['ord'] == $ord_jrn and $dt_jrn['id'] != $id_dev_jrn)
 				{
-					upd_quo("dev_jrn","ord",$val,$dt_jrn['id']);
+					upd_quo("dev_jrn", "ord", $val, $dt_jrn['id']);
 				}
 			}
 			upd_quo("dev_jrn", "ord", $val, $id_dev_jrn);

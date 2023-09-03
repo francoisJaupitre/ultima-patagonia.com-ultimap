@@ -16,8 +16,8 @@ else{
 <?php
 	foreach($col as $col_id => $code){
 		if($id_col_mdl != $col_id){
-?>		
-			<li onClick="if(cls_rch('dsc_mdl,dt_mdl',<?php echo $id_dev_mdl ?>)){maj('dev_mdl','col',<?php echo $col_id.','.$id_dev_mdl ?>);}" style="width:50px; background:#<?php echo $code; ?>; color:#<?php echo $code; ?>;"><?php echo $code; ?></li>
+?>
+			<li onClick="closeRichText('dsc_mdl,dt_mdl',<?php echo $id_dev_mdl ?>),function(){maj('dev_mdl','col',<?php echo $col_id.','.$id_dev_mdl ?>);})" style="width:50px; background:#<?php echo $code; ?>; color:#<?php echo $code; ?>;"><?php echo $code; ?></li>
 <?php
 		}
 	}

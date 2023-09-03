@@ -1,12 +1,11 @@
-<?php
+<?php //CREATE A COPY OF A QUOTATION KEEPING SAME PARENT (GROUP)
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
-if(isset($data['id_crc']))
+if(isset($data['id_crc']) AND $data['id_crc'] > 0)
 {
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
-	$id_crc = $data['id_crc'];
-	$dt_crc = ftc_ass(sel_quo("*","dev_crc","id",$id_crc));
+	$dt_crc = ftc_ass(sel_quo("*","dev_crc","id",$data['id_crc']));
 	unset($dt_crc['id']);
 	$dt_vrs = ftc_ass(sel_quo("MAX(version) as vrs","dev_crc","id_grp",$dt_crc['id_grp']));
 	$dt_vrs['vrs']++;
@@ -15,27 +14,27 @@ if(isset($data['id_crc']))
 	$dt_crc['usr'] = $id_usr;
 	$dt_crc['cnf'] = 0;
 	$id_crc_new = insert("dev_crc",array_keys($dt_crc),array_values($dt_crc));
-	$rq_bss = sel_quo("*","dev_crc_bss","id_crc",$id_crc);
+	$rq_bss = sel_quo("*","dev_crc_bss","id_crc",$data['id_crc']);
 	while($dt_bss = ftc_ass($rq_bss))
 	{
 		unset($dt_bss['id']);
 		$dt_bss['id_crc'] = $id_crc_new;
 		insert("dev_crc_bss",array_keys($dt_bss),array_values($dt_bss));
 	}
-	$rq_vol = sel_quo("*","dev_vol","id_crc",$id_crc);
+	$rq_vol = sel_quo("*","dev_vol","id_crc",$data['id_crc']);
 	while($dt_vol = ftc_ass($rq_vol))
 	{
 		unset($dt_vol['id']);
 		$dt_vol['id_crc'] = $id_crc_new;
 		insert("dev_vol",array_keys($dt_vol),array_values($dt_vol));
 	}
-	$rq_pax = sel_quo("*","dev_crc_pax","id_crc",$id_crc);
+	$rq_pax = sel_quo("*","dev_crc_pax","id_crc",$data['id_crc']);
 	while($dt_pax = ftc_ass($rq_pax)){
 		unset($dt_pax['id']);
 		$dt_pax['id_crc'] = $id_crc_new;
 		insert("dev_crc_pax",array_keys($dt_pax),array_values($dt_pax));
 	}
-	$rq_rmn = sel_quo("*","dev_crc_rmn","id_crc",$id_crc);
+	$rq_rmn = sel_quo("*","dev_crc_rmn","id_crc",$data['id_crc']);
 	while($dt_rmn = ftc_ass($rq_rmn)){
 		$id_rmn = $dt_rmn['id'];
 		unset($dt_rmn['id']);
@@ -49,7 +48,7 @@ if(isset($data['id_crc']))
 			insert("dev_crc_rmn_pax",array_keys($dt_rmn_pax),array_values($dt_rmn_pax));
 		}
 	}
-	$rq_mdl = sel_quo("*","dev_mdl","id_crc",$id_crc);
+	$rq_mdl = sel_quo("*","dev_mdl","id_crc",$data['id_crc']);
 	while($dt_mdl = ftc_ass($rq_mdl)){
 		$id_mdl = $dt_mdl['id'];
 		unset($dt_mdl['id']);

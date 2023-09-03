@@ -369,8 +369,8 @@
 			<es>Seleccionar una sola base para el modulo </es>
 		</msg2>
 		<msg3>
-			<fr>Erreur! Date non définie, jour </fr>
-			<es>¡Error! Fecha no definida, día </es>
+			<fr>Dates non définies.</fr>
+			<es>Fechas no definidas.</es>
 		</msg3>
 		<msg4>
 			<fr>Erreur! Fournisseur non défini, jour </fr>

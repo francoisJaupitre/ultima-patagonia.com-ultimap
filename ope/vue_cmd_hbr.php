@@ -12,7 +12,7 @@ if($aut['res']){
 <?php
 }
 ?>
-			<li onclick="window.open('../fct/docx_hbr.php?id=<?php echo $dt_res['id_crc'];?>&hbr=<?php echo $dt_res2['id_cat_hbr'] ?>');document.getElementById('vue_cmd_hbr<?php echo $dt_res2['id_dev_hbr']; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
+			<li onclick="window.open('../resources/php/docxHbr.php?id=<?php echo $dt_res['id_crc'];?>&hbr=<?php echo $dt_res2['id_cat_hbr'] ?>');document.getElementById('vue_cmd_hbr<?php echo $dt_res2['id_dev_hbr']; ?>').style.display='none';"><?php echo $txt->lst_res->$id_lng; ?></li>
 		</ul>
 	</div>
 </div>

@@ -385,6 +385,7 @@ if($cbl=='dev'){
 				}
 
 				if(isset($err_hbr_jrn[$id_trf])){
+					echo '<br/>';
 					foreach(array_unique($err_hbr_jrn[$id_trf]) as $jrn){
 						if($err_hbr_def[$id_trf][$jrn]){echo '<span class="color-red">'.$txt->err->hbr_def->$id_lng.$jrn.'</span><br/>';}
 						if($err_hbr_db[$id_trf][$jrn]){echo '<span class="color-red">'.$txt->err->hbr_db->$id_lng.$jrn.'</span><br/>';}

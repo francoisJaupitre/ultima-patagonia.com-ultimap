@@ -77,12 +77,12 @@ if($aut['dev'] and $cnf<1){
 	}
 	if($ord_jrn > $min_jrn[0] and !$flg_prs_opt){
 ?>
-					<li onclick="if(cls_rch('dt_mdl')){trsf('prsavt',<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?>);}document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->trsfprsavt->$id_lng; ?></li>
+					<li onclick="closeRichText('dt_mdl','',function(){prevChangeParent('prsavt',<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?>);})"><?php echo $txt->trsfprsavt->$id_lng; ?></li>
 <?php
 	}
 	if($ord_jrn < $max_jrn[0] and !$flg_prs_opt){
 ?>
-					<li onclick="if(cls_rch('dt_mdl')){trsf('prsapr',<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?>);}document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->trsfprsapr->$id_lng; ?></li>
+					<li onclick="closeRichText('dt_mdl','',function(){prevChangeParent('prsapr',<?php echo $id_dev_prs.','.$id_dev_jrn.','.$id_dev_mdl ?>);})"><?php echo $txt->trsfprsapr->$id_lng; ?></li>
 <?php
 	}
 }

@@ -1,32 +1,3 @@
-function ajt_grp(id_clt){
-	if (window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-	else {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false); //remplazar por json
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("ajt_grp");
-	y=x[0].getElementsByTagName(id_lng);
-	var nom = prompt(y[0].childNodes[0].nodeValue);
-	if (nom == null || nom == ''){return;}
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV ajt_grp');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				vue_elem('crc_grp',id_dev_crc,'id_grp');
-				vue_elem('clt_crc',id_dev_crc,'id_grp');
-			}
-			else if(xmlhttp.status==408){ajt_grp(id_clt);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_GRP "+xmlhttp.statusText+" </span>";}
-			unload('DEV ajt_grp');
-		}
-	}
-	xmlhttp.open("POST","ajt_grp.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("nom="+encodeURIComponent(nom)+"&id_dev_crc="+id_dev_crc+"&id_clt="+id_clt);
-}
-
 function ajt_mdl(id_cat_mdl,id_cat_crc,id_rgn){
 	if(id_cat_crc>0){
 		if(sup_cat('crc',id_dev_crc)==0){return;}

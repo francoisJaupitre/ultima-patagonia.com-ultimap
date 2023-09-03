@@ -2,7 +2,7 @@
 $cbl = $_POST['cbl'];
 $base = $_POST['base'];
 $cnf = $_POST['cnf'];
-$txt = simplexml_load_file('txt.xml');
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 include("../prm/fct.php");
 include("../cfg/crr.php");
 include("../cfg/lng.php");

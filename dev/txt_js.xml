@@ -1,11 +1,6 @@
 <?phpxml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
-	<ajt_grp>
-		<fr>Entrez un nom pour ce groupe.</fr>
-		<es>Ingrese un nombre para este grupo.</es>
-		<pt>Digite um nome para este grupo.</pt>
-	</ajt_grp>
 	<ajt_jrn>
 		<fr>Entrez un nombre de jours sans services.</fr>
 		<es>Ingrese un numero de jornadas sin servicios.</es>
@@ -51,26 +46,6 @@
 		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
 		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
 	</grd2>
-	<cnf_ok>
-		<fr>CONFIRMER ce devis?</fr>
-		<es>CONFIRMAR esta cotización?</es>
-	</cnf_ok>
-	<fus>
-		<fr>Les tarifs des modules suivants devraient être actualisés (changement de dates).</fr>
-		<es>Las tarifas de los modulos siguientes deberían ser actualizadas (cambio de fechas).</es>
-	</fus>
-	<trsf1>
-		<fr>Erreur!&#xA;Le module précédent a des tarifs séparés ou est fusionné.</fr>
-		<es>Error!&#xA;El modulo anterior tiene tarifas separadas o está fusionado.</es>
-	</trsf1>
-	<trsf2>
-		<fr>Erreur! Le module suivant a des tarifs indépendants.</fr>
-		<es>Error! El modulo siguiente tiene tarifas independientes.</es>
-	</trsf2>
-	<alt_cnf>
-		<fr>Les prestations en option n'ont pas été confirmées!</fr>
-		<es>Las prestaciones en opción no fueron confirmadas!</es>
-	</alt_cnf>
 	<src_prs>
 		<fr> autre(s) journée(s)?</fr>
 		<es> otra(s) jornada(s)?</es>
@@ -156,8 +131,4 @@
 		<fr>Etes-vous sûr de vouloir QUITTER LE LIEN CATALOGUE de ce service?</fr>
 		<es>Está seguro de querer QUITAR EL VINCULO CATAOLOGO de este servicio?</es>
 	</sup_cat_srv>
-	<chk_rch>
-		<fr>TEXTE(S) NON SAUVEGARDE(S)!&#xA;Les modifications seront perdues?</fr>
-		<es>TEXTO(S) SIN GUARDAR!&#xA;Las modificaciones serán descartadas?</es>
-	</chk_rch>
 </textes>

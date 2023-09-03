@@ -1,11 +1,11 @@
-<?php
+<?php //DELETE A SINGLE ELEMENT FROM MAIN MENU OR CATALOG
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(isset($data['cbl']) and isset($data['id']))
 {
 	$cbl = $data['cbl'];
 	$id = $data['id'];
-	include("../../prm/fct.php");
+	include("functions.php");
 	include("../../prm/aut.php");
 	include("../../cfg/lng.php");
 	$txt = simplexml_load_file('../xml/mainTxt.xml');

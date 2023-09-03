@@ -1,5 +1,6 @@
 <?php
 include("../prm/fct.php");
+$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
 $tab=$_POST["tab"];
 $col=$_POST["col"];
 $val=$_POST["val"];

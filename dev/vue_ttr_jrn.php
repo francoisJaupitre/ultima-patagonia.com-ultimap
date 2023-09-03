@@ -65,7 +65,7 @@ if($id_cat_jrn>-1){
 <?php
 if($id_cat_jrn>-1){
 ?>
-			<input id="chk_jrn<?php echo $id_dev_jrn ?>" class="dev_img chk_img vue_jrn" type="checkbox" autocomplete="off" <?php if($vue_jrn==1){echo 'checked';} ?> onclick="if(cls_rch('dsc_jrn,dt_jrn',<?php echo $id_dev_jrn ?>)){chk_jrn(<?php echo $id_dev_jrn ?>);}" />
+			<input id="chk_jrn<?php echo $id_dev_jrn ?>" class="dev_img chk_img vue_jrn" type="checkbox" autocomplete="off" <?php if($vue_jrn==1){echo 'checked';} ?> onclick="closeRichText('dsc_jrn,dt_jrn',<?php echo $id_dev_jrn ?>,function(){chk_jrn(<?php echo $id_dev_jrn ?>)},function(){document.getElementById('chk_jrn<?php echo $id_dev_jrn ?>').checked = true});" />
 			<label for="chk_jrn<?php echo $id_dev_jrn ?>"><img src="../prm/img/maxi.png" /></label>
 <?php
 }
@@ -100,12 +100,12 @@ if($id_cat_jrn>-1){
 		}
 		if(!$trf_mdl and $ord_mdl > 1 and $ord_jrn == $min_jrn[0] and !$flg_jrn_opt){
 ?>
-					<li onclick="if(cls_rch('dt_crc')){trsf('jrnavt',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);}document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->trsfjrnavt->$id_lng; ?></li>
+					<li onclick="closeRichText('dt_crc','',function(){prevChangeParent('jrnavt',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);})"><?php echo $txt->trsfjrnavt->$id_lng; ?></li>
 <?php
 		}
 		if(!$trf_mdl and !$fus_mdl and $ord_mdl < $nb_mdl['total'] and $ord_jrn == $max_jrn[0] and !$flg_jrn_opt){
 ?>
-					<li onclick="if(cls_rch('dt_crc')){trsf('jrnapr',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);}document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->trsfjrnapr->$id_lng; ?></li>
+					<li onclick="closeRichText('dt_crc','',function(){prevChangeParent('jrnapr',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);})"><?php echo $txt->trsfjrnapr->$id_lng; ?></li>
 <?php
 		}
 	}

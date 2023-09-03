@@ -119,11 +119,11 @@ foreach($dt_all as $i => $dt_res){
 			}
 			else{echo ' '.stripslashes($dt_res['nom_prs']);}
 ?>
-		<div style="float: left; padding-right: 5px;"><input id="prs_heure<?php echo $dt_res['id_dev_prs'] ?>" type="time" <?php if(!$aut['res']){echo ' disabled';} ?> value="<?php if(!is_null($dt_res['hre_prs'])){echo date("H:i", strtotime($dt_res['hre_prs']));} ?>" onblur="maj('dev_prs','heure',this.value,<?php echo $dt_res['id_dev_prs'] ?>);" /></div>
+		<div style="float: left; padding-right: 5px;"><input id="prs_heure<?php echo $dt_res['id_dev_prs'] ?>" type="time" <?php if(!$aut['res']){echo ' disabled';} ?> value="<?php if(!is_null($dt_res['hre_prs'])){echo date("H:i", strtotime($dt_res['hre_prs']));} ?>" onblur="updateData('dev_prs','heure',this.value,<?php echo $dt_res['id_dev_prs'] ?>);" /></div>
 <?php
 			if($dt_res['id_prs_ctg'] !=1 and $dt_res['id_prs_ctg'] !=9  and $dt_res['id_prs_ctg'] !=11 and $dt_res['id_prs_ctg'] !=12 and $dt_res['id_prs_ctg'] !=17){
 ?>
-			<div style="display: block; overflow: hidden;"><input type="text" <?php if(!$aut['res']){echo ' disabled';} ?> placeholder="<?php echo $txt->infrva->$id_lng; ?>" style="width: 100%; text-align-last: auto;" value="<?php echo $dt_res['inf_prs'] ?>" onchange="maj('dev_prs','info',this.value,<?php echo $dt_res['id_dev_prs'] ?>)" /></div>
+			<div style="display: block; overflow: hidden;"><input type="text" <?php if(!$aut['res']){echo ' disabled';} ?> placeholder="<?php echo $txt->infrva->$id_lng; ?>" style="width: 100%; text-align-last: auto;" value="<?php echo $dt_res['inf_prs'] ?>" onchange="updateData('dev_prs','info',this.value,<?php echo $dt_res['id_dev_prs'] ?>)" /></div>
 <?php
 			}
 ?>
@@ -238,7 +238,7 @@ foreach($dt_all as $i => $dt_res){
 					$id_frn = $dt_res2['id_frn'];
 					$id_dev_srv = $dt_res2['id_dev_srv'];
 ?>
-	<td id="frn_srv<?php echo $dt_res2['id_dev_srv'] ?>" class="tbl frn_ope_frn<?php echo $dt_res2['id_frn'] ?> srv_res_frn<?php echo $dt_res2['id_dev_srv'] ?> crc_res_frn<?php echo $dt_res['id_dev_crc'] ?> dsp_frn" style="<?php if($flg_old){echo 'background: lightgrey';} ?>" rowspan="<?php echo $nb_frn ?>"><?php include("vue_srv_frn.php"); ?></td>
+	<td id="frn_srv<?php echo $dt_res2['id_dev_srv'] ?>" class="tbl frn frn_ope_frn<?php echo $dt_res2['id_frn'] ?> srv_res_frn<?php echo $dt_res2['id_dev_srv'] ?> crc_res_frn<?php echo $dt_res['id_dev_crc'] ?> dsp_frn" style="<?php if($flg_old){echo 'background: lightgrey';} ?>" rowspan="<?php echo $nb_frn ?>"><?php include("vue_srv_frn.php"); ?></td>
 <?php
 					$flg_nb_frn = false;
 				}

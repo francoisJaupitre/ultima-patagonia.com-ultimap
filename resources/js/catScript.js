@@ -300,6 +300,7 @@ const removeHbrChm = async function(id_hbr_chm)
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
       {
         if(xhr.response.length > 0)
+        {
           alt(JSON.parse(xhr.response))
         }else{
           vue_elem('hbr_chm',id_cat)
@@ -367,6 +368,7 @@ const removeHbrRgm = async function(id_hbr_chm)
         vue_elem('hbr_rgm',id_cat)
         window.parent.act_frm('hbr')
         if(xhr.response.length > 0)
+        {
           const rsp = JSON.parse(xhr.response)
           for(let i = 0; i < rsp.length; i++)
             if(rsp[i] > 0)
@@ -456,12 +458,8 @@ const updateData = (tab, col, val, id, id_sup) => {
       {
         case 'nom':
           act_tab()
-          /*act_acc()
-          window.parent.act_frm(cbl_cat)
-          window.parent.act_frm(`up_${cbl_cat}`)*/
           if(tab == 'cat_chm')
             vue_elem('hbr_chm', id_sup)
-        //break
         case 'info':
           act_acc()
           window.parent.act_frm(cbl_cat)
@@ -584,8 +582,13 @@ const updateData = (tab, col, val, id, id_sup) => {
     			if(id_sup > 0)
             vue_elem('dt_srv', id_sup)
     			else if(col == "crr")
+          {
             vue_elem(`dt_srv_crr${id}`, id)
-    			 break
+            const tdTrf = document.getElementsByClassName(`ipt_srv_trf${id}`)
+            for(let item of tdTrf)
+                vue_elem('srv_trf_bss', item.id.substr(19), item.id.substr(12, 7))
+          }
+          break
         case 'cat_srv_trf_bss':
     			if(col == 'id_frn')
           {
