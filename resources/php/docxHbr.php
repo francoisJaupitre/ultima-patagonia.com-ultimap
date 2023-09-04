@@ -78,7 +78,11 @@ if(isset($_GET['id']) and isset($_GET['hbr']))
 					$section->addText('Grupo: '.replace($nom_gpe[$id_dev])." x".$npax, $fontStyle, $paragraphStyle);
 					$dt_cat_hbr = ftc_ass(sel_quo("nom, ctg", "cat_hbr", "id", $hb));
 					$section->addText(replace($dt_cat_hbr['nom']), $fontStyle, $paragraphStyle);
-					$section->addText(replace($rsp), $fontStyle2, $paragraphStyle);
+					$dsc = explode('<br />', stripslashes(replace(nl2br(trim($rsp)))));
+					foreach($dsc as $lgn)
+					{
+						$section->addText(trim($lgn), $fontStyle2, $paragraphStyle);
+					}
 					foreach($tab_rgm[$id_dev][$hb] as $r => $rg)
 					{
 						foreach($tab_chm[$id_dev][$hb][$rg] as $j => $ch)
@@ -104,7 +108,7 @@ if(isset($_GET['id']) and isset($_GET['hbr']))
 									}
 									$id_rmn = $dt_rmn['id'];
 								}
-								if($id_rmn>0)
+								if($id_rmn > 0)
 								{
 									$flg_pax = true;
 									if($dt_mdl['trf'])
@@ -132,7 +136,7 @@ if(isset($_GET['id']) and isset($_GET['hbr']))
 												$cell = $table->addCell(1500, $cellStyle2);
 												$cell->addText(replace($txt_res->rmn->$id_lgg_hbr.':'), $fontStyle, $paragraphStyle);
 											}
-											$flg_pax = false;;
+											$flg_pax = false;
 										}
 										if($dt_rmn_pax['room'] > 0)
 										{

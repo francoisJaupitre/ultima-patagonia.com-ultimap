@@ -93,10 +93,8 @@ while($dt_dev = ftc_ass($rq_dev))
 			$date_jrn = $dt_jrn['date'];
 			if(empty($date_jrn) or $date_jrn == "0000-00-00")
 			{
-				$rsp_crc[] = $txt->res_frn->msg3->$id_lng."\n";
-				$rsp_mdl[] = $txt->res_frn->msg3->$id_lng."\n";
-				$flg_send_crc = false;
-				$flg_send_mdl = false;
+				$rsp_crc[] = $rsp_mdl[] = $txt->res_frn->msg3->$id_lng."\n";
+				$flg_send_crc = $flg_send_mdl = false;
 			}
 			$rq_prs = sel_quo("id, id_cat, ctg, res, opt, heure, info", "dev_prs", "id_jrn", $id_dev_jrn, "ord");
 			while($dt_prs = ftc_ass($rq_prs))

@@ -352,6 +352,52 @@ const addGrp = async function(id_clt)
   }
 }
 
+const addJrnNoSrv = async function(id_dev_mdl, ord_jrn)
+{
+	if(ord_jrn == 0)
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    var nbj = prompt(obj['addJrnNoSrv'][id_lng])
+    if( //IS NOT A POSITIVE INTEGER LESS THAN 30
+      isNaN(nbj) || nbj < 0 || nbj > 30
+      || (
+        function(x)
+        {
+          return (x | 0) !== x
+        }
+      )(parseFloat(nbj))
+    )
+      return
+    else
+      document.getElementById(`ipt_sel_jrn_mdl${id_dev_mdl}`).disabled = true
+  }else{
+    var nbj = 0
+  }
+  load('DEV addJrnNoSrv')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/addJrnNoSrv.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ id_dev_mdl, ord_jrn, nbj, id_dev_crc }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      vue_mdl('dt', id_dev_mdl)
+      if(ord_jrn == 0)
+      {
+        vue_mdl('end', id_dev_mdl)
+        sel_mdl('ttr_jrn_apr', id_dev_mdl)
+        sel_mdl('end_mdl_apr', id_dev_mdl)
+        vue_crc('res')
+        vue_crc('ttf')
+      }
+      const rsp = JSON.parse(xhr.response)
+      if(rsp[0] != '1')
+        alt(rsp[0])
+      unload('DEV addJrnNoSrv')
+    }
+  }
+}
+
 /* asynchronous functions above */
 
 const emailWriter = (data, res) => {

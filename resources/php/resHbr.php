@@ -220,7 +220,7 @@ while($dt_dev = ftc_ass($rq_dev))
 			$ord_jrn = $dt_jrn['ord'];
 			if(empty($date_jrn) or $date_jrn == "0000-00-00")
 			{
-				$rsp_crc[] = $txt->res_hbr->msg5->$id_lng.' '.$ord_jrn;
+				$rsp_crc[] = $txt->res_hbr->msg5->$id_lng;
 				$flg_send_crc = $flg_send_mdl = false;
 			}
 			if(($dt_jrn['ord'] == $max_jrn[0] and ($dt_mdl['fus'] == 1 or $dt_mdl['ord'] == $max_mdl[0])) or $dt_jrn['id_cat'] == -1)
@@ -402,18 +402,18 @@ while($dt_dev = ftc_ass($rq_dev))
 			}
 			if(!$flg_sel_hbr and ($id_res_hbr == 0 or $id_res_hbr == $id_cat_hbr))
 			{
-				$rsp_crc[] = $txt->err->hbr_sel->$id_lng.' '.$ord_jrn;
+				$rsp_crc[] = $txt->err->hbr_sel->$id_lng.$ord_jrn;
 			}
 		}
 		if($dt_mdl['trf'] and isset($rsp_mdl))
 		{
-			$rsp .= implode(".\n", array_unique($rsp_mdl)).".\n";
+			$rsp .= implode("\n", array_unique($rsp_mdl))."\n";
 		}
 		unset($rsp_mdl);
 	}
 	if(isset($rsp_crc))
 	{
-		$rsp .= implode(".\n", array_unique($rsp_crc)).".\n";
+		$rsp .= implode("\n", array_unique($rsp_crc))."\n";
 	}
 	unset($rsp_crc);
 	if(isset($flg_out))

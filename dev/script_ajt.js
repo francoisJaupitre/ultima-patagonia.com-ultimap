@@ -51,44 +51,6 @@ function ajt_mdl(id_cat_mdl,id_cat_crc,id_rgn){
 	xmlhttp.send("id_cat_mdl="+id_cat_mdl+"&id_rgn="+id_rgn+"&id_dev_crc="+id_dev_crc+"&lgg="+lgg);
 }
 
-function isInt(value) {
-  return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value))
-}
-function ajt_jrn_no_srv(id_dev_mdl,ord_jrn){
-	if(ord_jrn==0){
-		if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-		else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-		xhttp.open("GET","txt_js.xml",false); //remplazar por json
-		xhttp.send();
-		xmlDoc=xhttp.responseXML;
-		x=xmlDoc.getElementsByTagName("ajt_jrn");
-		y=x[0].getElementsByTagName(id_lng);
-
-		var nbj = window.prompt(y[0].childNodes[0].nodeValue);
-		if(!isInt(nbj)){return;}
-		else{$("#ipt_sel_jrn_mdl"+id_dev_mdl).attr('disabled','disabled');}
-	}
-	else{var nbj = 0;}
-	load('DEV ajt_jrn_no_srv');
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				vue_mdl('dt',id_dev_mdl);
-				if(ord_jrn==0){vue_mdl('end',id_dev_mdl);sel_mdl('ttr_jrn_apr',id_dev_mdl);sel_mdl('end_mdl_apr',id_dev_mdl);vue_crc('res');vue_crc('ttf');}
-				if(xmlhttp.responseText != 1){alt(xmlhttp.responseText);}
-			}
-			else if(xmlhttp.status==408){ajt_jrn_no_srv(id_dev_mdl,ord_jrn);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_JRN_NO_SRV "+xmlhttp.statusText+" </span>";}
-			unload('DEV ajt_jrn_no_srv');
-		}
-	}
-	xmlhttp.open("POST","ajt_jrn_no_srv.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_dev_mdl="+id_dev_mdl+"&ord_jrn="+ord_jrn+"&nbj="+nbj+"&id_dev_crc="+id_dev_crc);
-}
-
 function ajt_jrn(id_cat_jrn,id_dev_mdl,ord_jrn,id_cat_mdl,id_sel_jrn){
 	if(id_cat_mdl>0){
 		vue_cmd('sel_jrn_rpl'+id_sel_jrn); //remplacer journee dans module devis : bug creer plusieurs fois! (quand id_cat_mdl > 0 ??)

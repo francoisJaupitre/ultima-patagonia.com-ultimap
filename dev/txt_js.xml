@@ -1,11 +1,6 @@
 <?phpxml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
-	<ajt_jrn>
-		<fr>Entrez un nombre de jours sans services.</fr>
-		<es>Ingrese un numero de jornadas sin servicios.</es>
-		<pt>Digite um número de jornadas sem serviços.</pt>
-	</ajt_jrn>
 	<ajt_bss>
 		<fr>Ajouter base(s)?&#xA;Utiliser ';' et '-' pour ajouter plusieurs bases. &#xA;(ex: 2-4;6 => bases 2,3,4,6.)</fr>
 		<es>¿Añadir base(s)?&#xA;Usar ';' y '-' para añadir varias bases. &#xA;(ej: 2-4;6 => bases 2,3,4,6.)</es>

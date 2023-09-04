@@ -381,5 +381,10 @@
   "chk_rch": {
     "fr": "TEXTE(S) NON SAUVEGARDE(S) !&#xA;Les modifications seront perdues !",
     "es": "¡TEXTO(S) SIN GUARDAR!&#xA;¡Las modificaciones serán descartadas!"
+  },
+  "addJrnNoSrv": {
+    "fr": "Entrez un nombre de jours sans services.",
+    "es": "Ingrese un numero de jornadas sin servicios.",
+    "pt": "Digite um número de jornadas sem serviços."
   }
 }

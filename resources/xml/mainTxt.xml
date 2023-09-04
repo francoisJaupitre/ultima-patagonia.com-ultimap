@@ -182,8 +182,8 @@
 			<es>VALOR INCORRECTO PARA UNA TARIFA HABITACION DOBLE, DIA </es>
 		</hbr_db>
 		<hbr_sel>
-			<fr>PAS D'HEBERGEMENT SELECTIONNE, JOUR </fr>
-			<es>SIN ALOJAMIENTO SELECCIONADO, DIA </es>
+			<fr>Pas d'hébergement sélectionné, jour </fr>
+			<es>Sin alojamiento seleccionado, día </es>
 		</hbr_sel>
 		<hbr_dup>
 			<fr>HEBERGEMENT DUPLIQUE, JOUR </fr>
@@ -458,12 +458,12 @@
 			<es>¡Error! Seleccionar una sola base para el modulo</es>
 		</msg3>
 		<msg4>
-			<fr>Erreur! Rooming non défini pour le circuit </fr>
-			<es>¡Error! Rooming sin definir para el circuito </es>
+			<fr>Rooming non défini pour le circuit.</fr>
+			<es>Rooming sin definir para el circuito.</es>
 		</msg4>
 		<msg5>
-			<fr>Erreur date! jour</fr>
-			<es>¡Error fecha! día</es>
+			<fr>Dates non définies.</fr>
+			<es>Fechas no definidas.</es>
 		</msg5>
 		<msg6>
 			<fr>Erreur! Hébergement non défini ou non enregistré dans le catalogue, jour</fr>

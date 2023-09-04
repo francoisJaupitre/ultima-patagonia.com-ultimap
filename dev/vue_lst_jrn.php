@@ -12,8 +12,8 @@ if(substr(upnoac($txt->creer->$id_lng),0,strlen($src))==$src){
 	$flg_enter = false;
 }
 if(($cbl == 'jrn_mdl' or !in_array('-1',$jrn_rpl_id_cat)) and substr(upnoac($txt->nosrv->$id_lng),0,strlen($src))==$src){
-	if($cbl == 'jrn_mdl'){$event = "ajt_jrn_no_srv(".$id_dev_mdl.",0);";}
-	else{$event = "ajt_jrn_no_srv(".$id_dev_mdl.",".$ord_jrn.");";}
+	if($cbl == 'jrn_mdl'){$event = "addJrnNoSrv(".$id_dev_mdl.",0);";}
+	else{$event = "addJrnNoSrv(".$id_dev_mdl.",".$ord_jrn.");";}
 ?>
 	<li <?php if($flg_enter){echo 'id="enter_'.$cbl.$id.'" style="background-color: Chocolate;"';} ?> onClick="<?php echo $event ?>"><?php echo $txt->nosrv->$id_lng; ?></li>
 <?php
