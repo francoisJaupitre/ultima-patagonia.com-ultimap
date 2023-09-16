@@ -1,12 +1,15 @@
-var id_lng
-var cnf, aut, id_dev_crc // encapsuler ci-dessous asap
+var upd = 0 //used by root
+var flg_maj = true, id_lng, aut, id_dev_crc //encapsulate asap
 
 (function()
 {
   id_lng = parent.document.getElementById('id_lng').value
 	id_dev_crc = document.getElementById('id_dev_crc').value
+  document.getElementById('id_dev_crc').remove()
 	cnf = document.getElementById('cnf').value
+  document.getElementById('cnf').remove()
 	aut = document.getElementById('aut').value
+  document.getElementById('aut').remove()
   init()
   document.body.focus()
   const params = new URLSearchParams(document.location.search)
@@ -78,8 +81,13 @@ const mailFrn = async function(id_res_frn, res)
         }
 				alt(rsp_mel[0])
 			}else{
-				load('emailPopup')
-				emailWriter(JSON.parse(xhr.response), res)
+        const rsp = JSON.parse(xhr.response)
+        if(typeof rsp[0] !== 'undefined')
+          alt(rsp[0])
+        else{
+          load('emailPopup')
+          emailWriter(rsp, res)
+        }
 			}
 		}
 	}
@@ -132,8 +140,13 @@ const mailHbr = async function(id_res_hbr, id_res_chm, res)
         }
         alt(rsp_mel[0])
 			}else{
-				load('emailPopup')
-				emailWriter(JSON.parse(xhr.response), res)
+        const rsp = JSON.parse(xhr.response)
+        if(typeof rsp[0] !== 'undefined')
+          alt(rsp[0])
+        else{
+          load('emailPopup')
+          emailWriter(rsp, res)
+        }
 			}
 		}
 	}
@@ -391,11 +404,46 @@ const addJrnNoSrv = async function(id_dev_mdl, ord_jrn)
         vue_crc('ttf')
       }
       const rsp = JSON.parse(xhr.response)
-      if(rsp[0] != '1')
+      if(rsp[0].length > 0 && rsp[0] != '1')
         alt(rsp[0])
       unload('DEV addJrnNoSrv')
     }
   }
+}
+
+const addBss = async function(cbl, id)
+{
+  const obj = await getTxt("../resources/json/scriptText.json")
+  const base = prompt(obj['ajt_bss'][id_lng])
+  if(base == null || base == '')
+    return
+  load('DEV addBss')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/addBss.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ cbl, id, base, cnf }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response.length > 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        alt(rsp[0])
+      }
+			if(cbl == 'mdl')
+      {
+        vue_mdl('ttr', id)
+        vue_mdl('trf', id)
+        sel_jrn('dt_prs', id)
+      }else if(cbl == 'crc')
+      {
+        vue_crc('ttr')
+        vue_crc('trf')
+        sel_mdl('dt_prs')
+      }
+			vue_crc('res');
+		}
+	}
 }
 
 /* asynchronous functions above */
@@ -691,18 +739,21 @@ const searchFrn = (res, id_frn, id_dev_srv, id_dev_prs) => {
 }
 
 const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
-  if(obj == 'mdl' && !closeRichText('dsc_mdl, dt_mdl', id))
+  if(obj == 'mdl')
   {
-    vue_mdl('ttr', id)
-    return
-  }else if(obj == 'jrn' && !closeRichText('dt_mdl', id_sup))
+    closeRichText('dsc_mdl, dt_mdl', id, () => {
+      vue_mdl('ttr', id)
+    })
+  }else if(obj == 'jrn')
   {
-    vue_jrn('ttr', id)
-    return
-  }else if(obj == 'prs' && !closeRichText('dt_jrn', id_sup))
+    closeRichText('dt_mdl', id_sup, () => {
+      vue_jrn('ttr', id)
+    })
+  }else if(obj == 'prs')
   {
-    vue_prs('ttr', id)
-    return
+    closeRichText('dt_jrn', id_sup, () => {
+      vue_prs('ttr', id)
+    })
   }else if(id_cat_sup > 0)
   {
 		if(obj == 'mdl' && sup_cat('crc', id_sup) == 0)
@@ -759,28 +810,20 @@ const sortElem = (obj, val, id, id_sup, id_cat_sup, id_sup2) => {
               vue_elem(y1[i].id, y1[i].id.substr(7))
 						const x2 = document.getElementById(`jrn_dev_srv${id}`)
 						const y2 = document.getElementById(`jrn_dev_hbr${id}`)
-						if(x.length > 0 || y.length > 0 || x2 || y2)
-            {
+						if(x1.length > 0 || y1.length > 0 || x2 || y2)
               vue_crc('res')
-            }
 					}
 					vue_mdl('dt', id_sup)
           prevUpdateRates('mdl', id_sup)
 				}else if(obj == "prs")
-        {
           vue_jrn('dt', id_sup)
-        }
 			}else{
 				if(obj == "mdl")
-        {
           vue_mdl('ttr', id)
-        }else if(obj == "jrn")
-        {
+        else if(obj == "jrn")
           vue_jrn('ttr', id)
-        }else if(obj == "prs")
-        {
+        else if(obj == "prs")
           vue_prs('ttr', id)
-        }
         alt(rsp[1])
 			}
       unload('DEV sortElem')
@@ -862,9 +905,9 @@ const updateText = (obj, id, id_sup) => {
           break
       }
       const rsp = JSON.parse(xhr.response)
-  		if(rsp != 1)
+  		if(rsp[0].length > 0 && rsp[0] != 1)
       {
-        alt(rsp);
+        alt(rsp[0])
       }
       unload('DEV updateText')
   	}
@@ -886,7 +929,6 @@ const updateRates = (obj, id, id_sup) => {
   xhr.onreadystatechange = () => {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
     {
-      //const rsp = JSON.parse(xhr.response)
       switch (obj) {
         case 'crc':
           sel_mdl('dt_prs')
@@ -914,6 +956,11 @@ const updateRates = (obj, id, id_sup) => {
           break
       }
       vue_crc('res')
+      const rsp = JSON.parse(xhr.response)
+  		if(rsp[0].length > 0 && rsp[0] != 1)
+      {
+        alt(rsp[0]);
+      }
       if(obj != 'hbr_all' && obj != 'frn_all')
       {
         unload('DEV updateRates')
@@ -966,7 +1013,7 @@ const updateElem = (obj, id) => {
 }
 
 const prevConfirmation = () => {
-  if(closeRichText('crc'))
+  closeRichText('crc', '', () =>
   {
     load('DEV prevConfirmation')
     const xhr = new XMLHttpRequest
@@ -997,7 +1044,7 @@ const prevConfirmation = () => {
         unload('DEV prevConfirmation')
       }
     }
-  }
+  })
 }
 
 const fusion = (val, id_dev_mdl) => {
@@ -1011,6 +1058,7 @@ const fusion = (val, id_dev_mdl) => {
     {
       vue_crc('ttf')
       sel_jrn('ttr_jrn_lst', id_dev_mdl)
+      sel_mdl('opt_jrn_apr', id_dev_mdl)
       vue_mdl('end', id_dev_mdl)
       sel_mdl('ttr_jrn_apr', id_dev_mdl)
       sel_mdl('end_mdl_apr', id_dev_mdl)
@@ -1068,7 +1116,8 @@ const changeParent = (obj, id, id_sup, id_sup2) => {
           sel_jrn('ttr_jrn_apr1', id_sup2, id_sup)
           sel_jrn('dt_jrn_apr1', id_sup2, id_sup)
           sel_jrn('end_jrn_apr1', id_sup2, id_sup)
-        }else{
+        }else if(rsp[0].length > 0)
+        {
           alt(rsp[0])
         }
       }

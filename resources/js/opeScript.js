@@ -1,4 +1,5 @@
-var id_lng, flg_maj = true, upd = 0;
+var upd = 0 //used by root
+var flg_maj = true, id_lng //encapsulate asap
 
 (function()
 {
@@ -17,8 +18,13 @@ const mailFrn = (id_res_frn, id_dev_crc) => {
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
-			load('emailPopup')
-			emailWriter(JSON.parse(xhr.response))
+      const rsp = JSON.parse(xhr.response)
+      if(typeof rsp[0] !== 'undefined')
+        alt(rsp[0])
+      else{
+        load('emailPopup')
+        emailWriter(rsp)
+      }
 		}
 	}
 }
@@ -31,8 +37,13 @@ const mailHbr = (id_res_hbr, id_res_chm, id_dev_crc) => {
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
-			load('emailPopup')
-			emailWriter(JSON.parse(xhr.response))
+      const rsp = JSON.parse(xhr.response)
+      if(typeof rsp[0] !== 'undefined')
+        alt(rsp[0])
+      else{
+        load('emailPopup')
+        emailWriter(rsp)
+      }
 		}
 	}
 }
@@ -227,12 +238,12 @@ const searchFrn = (res, id_frn, id_dev_srv, id_dev_crc) => {
 }
 
 const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
-  if(flg_maj)
+  /*if(flg_maj)
   {
     upd++
     console.log('upd', upd)
     flg_maj = false
-  }
+  }*/
   if(id_sup > 0)
     load('OPE updateData')
   const xhr = new XMLHttpRequest
@@ -247,7 +258,7 @@ const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
       {
         case 'info':
         case 'heure':
-          if(rsp[0] != 1)
+          if(rsp[0] == 1)
           {
             const x = document.getElementsByClassName(`prs_res_srv${id}`)
   					for(let i = 0; i < x.length; i++)
@@ -296,12 +307,12 @@ const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
       }
       if(rsp[0] != 1)
         alt(rsp[0])
-    	if(!flg_maj)
+    	/*if(!flg_maj)
       {
     		upd--
     		console.log('upd',upd)
     		flg_maj = true
-    	}
+    	}*/
     	if(id_sup > 0)
         unload('OPE updateData')
     }

@@ -87,7 +87,7 @@ $mail_frt_hbr = $dt_hbr['mail_frt'];
 				<div id="hbr_txt"><?php include("vue_hbr_txt.php"); ?></div>
 			</td>
 			<td class="dsg">
-				<div id="hbr_frn" class="frn"><?php include("vue_hbr_frn.php"); ?></div>
+				<div id="hbr_frn" class="frn hbr_frn"><?php include("vue_hbr_frn.php"); ?></div>
 			</td>
 		</tr>
 	</table>
@@ -97,7 +97,7 @@ $mail_frt_hbr = $dt_hbr['mail_frt'];
 	<div id="hbr_rgm" class="hbr_rgm<?php echo $id ?>"><?php include("vue_hbr_rgm.php") ?></div>
 </div>
 <div class="div_cat2">
-	<div id="hbr_prs" class="up_prs tbl_prs"><?php include("vue_hbr_prs.php"); ?></div>
+	<div id="hbr_prs" class="list_prs_hbr up_prs tbl_prs"><?php include("vue_hbr_prs.php"); ?></div>
 	<div class="tht">
 		<div class="fwb">
 			<input type="text" id="hbr_lat<?php echo $id ?>" <?php if(!$aut['cat']) {echo ' disabled';} ?> style="width: 60px" value="<?php echo $dt_hbr['lat']; ?>" onChange="updateData('cat_hbr','lat',this.value,<?php echo $id.',0' ?>);">(N+/S-) /

@@ -57,15 +57,15 @@ if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($d
 	$err = '';
 	if($err_crc != '')
 	{
-		$err .= $txt->err->crc->$id_lng.$err_crc."\n";
+		$err .= $txt->err->crc->$id_lng.$err_crc;
 	}
 	if($err_mdl != '')
 	{
-		$err .= $txt->err->mdl->$id_lng.$err_mdl."\n";
+		$err .= $txt->err->mdl->$id_lng.$err_mdl;
 	}
 	if($err_jrn != '')
 	{
-		$err .= $txt->err->jrn->$id_lng.$err_jrn."\n";
+		$err .= $txt->err->jrn->$id_lng.$err_jrn;
 	}
 	if($err_prs != '')
 	{
@@ -73,9 +73,10 @@ if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($d
 	}
 	if($err != '')
 	{
-		echo $err;
+		$qa = array(rtrim($err,"\n"));
 	}else{
-		echo 1;
+		$qa = array(1);
 	}
+	echo json_encode($qa);
 }
 ?>

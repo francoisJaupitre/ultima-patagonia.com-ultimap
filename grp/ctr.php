@@ -31,6 +31,8 @@ if(isset($_GET['id']) and $_GET['id']>0){
 	</head>
 	<body class="usn">
 		<input type="hidden" id="id_grp" value="<?php echo $id_grp; ?>" />
+		<input type="hidden" id="autDev" value="<?php echo $aut['dev']; ?>" />
+		<input type="hidden" id="autRes" value="<?php echo $aut['res']; ?>" />
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>

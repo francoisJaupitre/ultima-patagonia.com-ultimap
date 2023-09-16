@@ -92,7 +92,6 @@ if(isset($_POST['cbl']) and isset($_POST['src']) and isset($_POST['obj']) and is
 		}
 		elseif(substr($obj,0,7)=='mdl_rgn'){
 			$id_dev_mdl = substr($obj,7);
-			$id_rgn = $id;
 			$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
 			while($dt_rgn = ftc_ass($rq_rgn)){$ids_rgn[] = $dt_rgn['id_rgn'];}
 			include("../cfg/rgn.php");
@@ -129,6 +128,12 @@ if(isset($_POST['cbl']) and isset($_POST['src']) and isset($_POST['obj']) and is
 			$id_cat_mdl = $dt_jrn['id_cat'];
 			include("vue_lst_jrn.php");
 		}
+		elseif(substr($obj,0,11)=='jrn_mdl_opt'){
+			$id_dev_mdl = substr($obj,11);
+			$dt_mdl = ftc_ass(sel_quo("id_cat","dev_mdl","id",$id_dev_mdl));
+			$id_cat_mdl = $dt_mdl['id_cat'];
+			if($id_cat_mdl > 0){include("vue_lst_jrn_mdl_opt.php");}
+		}
 		elseif(substr($obj,0,7)=='jrn_mdl'){
 			$id_vll = $id;
 			$id = $id_dev_mdl = substr($obj,7);
@@ -144,6 +149,7 @@ if(isset($_POST['cbl']) and isset($_POST['src']) and isset($_POST['obj']) and is
 			include("../cfg/vll.php");
 			include("vue_lst_vll.php");
 		}
+
 		elseif($cbl=='jrn_opt'){
 			$ids = explode('__',substr($obj,7));
 			$id_dev_mdl = $ids[0];

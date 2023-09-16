@@ -12,7 +12,7 @@ $id_dev_prs = insert(
 );
 if(empty($dt_prs['titre']))
 {
-	$err_prs .= $dt_prs['nom'].",\n";
+	$err_prs .= $dt_prs['nom']."\n";
 }
 if(!empty($dt_prs['alerte']))
 {

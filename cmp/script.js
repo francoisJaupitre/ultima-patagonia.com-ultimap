@@ -1,4 +1,4 @@
-var flg_maj = true, flg_dt_fac = rang = 1,upd = 0;
+var flg_dt_fac = rang = 1
 
 function maj(tab,col,val,id,id_sup){
 	if(flg_maj){upd++;console.log('upd '+upd);flg_maj = false;}

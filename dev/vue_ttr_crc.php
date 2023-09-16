@@ -49,7 +49,7 @@ if($aut['dev'] and $cnf<1){
 <?php
 	}
 ?>
-				<li onclick="ajt_bss('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->ajtbss->$id_lng; ?></li>
+				<li onclick="addBss('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->ajtbss->$id_lng; ?></li>
 <?php
 	if(num_rows($rq_bss_crc)>0){
 ?>

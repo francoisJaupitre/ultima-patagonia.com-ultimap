@@ -8,11 +8,12 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_hbr']) and isset($data['id
 	$id_res_chm = $data['id_res_chm'];
 	$res = $data['res'];
 	$obj = 'mail';
+	$rsp = '';
 	include("resHbr.php");
 	include("../../prm/ctg_res.php");
 	include("../../prm/usr.php");
 	$nb = 0;
-	$rsp = '';
+	//$rsp = '';
 	if(isset($lst_dev))
 	{
 		$rsp_hbr = '';
@@ -209,7 +210,8 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_hbr']) and isset($data['id
 				$rsp = $txt->mel_hbr->msg7->$id_lng;
 			}
 		}
-		echo json_encode($rsp.$rsp_hbr);
+		$qa = array($rsp.$rsp_hbr);
+		echo json_encode($qa);
 	}
 }
 ?>

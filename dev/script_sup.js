@@ -56,7 +56,7 @@ function sup(obj,id,id_sup,ok,id_cat,id_cat_sup,id_sup2,opt,id_sel_ant_obj){
 						var rsp = eval('xmlhttp_sup'+xhr).responseText.split("|");
 						if(document.getElementById('div_jrn'+id)){
 							if($('#div_jrn'+id).prev().is('br')){$('#div_jrn'+id).prev().remove();}
-							if($('#div_jrn'+id).hasClass()){
+						/*	if($('#div_jrn'+id).hasClass()){
 								var cl = $('#div_jrn'+id).attr("class").split(" ");
 								$('#div_jrn'+id).stop(true,true).slideUp();
 								if($('.'+cl[0]).length == 1){document.getElementById('opt_'+cl[0]).remove();} // bug quand on efface 2 prestations d'affilé
@@ -67,13 +67,13 @@ function sup(obj,id,id_sup,ok,id_cat,id_cat_sup,id_sup2,opt,id_sel_ant_obj){
 								}
 								else{document.getElementById('div_jrn'+id).remove();}
 							}
-							else{document.getElementById('div_jrn'+id).remove();}
+							else{*/document.getElementById('div_jrn'+id).remove();//} les options sont dans 'div_jrn'+id
 						}
 						else if(document.getElementById('div_mdl'+id_sup)){vue_mdl('dt',id_sup);}
 						vue_crc('res');vue_mdl('end',id_sup);sel_mdl('ttr_jrn_apr',id_sup);sel_mdl('end_mdl_apr',id_sup);vue_crc('ttf');
 						window.parent.act_frm('hbr_ope');
 						window.parent.act_frm('frn_ope');
-						if(rsp[0]>0){sel_jrn('ttr_jrn_apr',id_sup,rsp[0]);}
+						if(rsp[0]>0){sel_jrn('ttr_jrn_apr',id_sup,rsp[0]);} // manque ? sel_jrn('opt_jrn_apr',id_sup) & sel_mdl('opt_jrn_apr',id_sup)
 						if(id_cat>0){window.parent.act_frm('jrn_dev'+id_cat);}
 					}
 					else{

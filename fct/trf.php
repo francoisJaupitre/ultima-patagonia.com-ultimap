@@ -338,16 +338,28 @@ while($dt_mdl = ftc_ass($rq_mdl)) {
 							$net = $db_net_chm;
 							$rck = $db_rck_chm;
 							include("clc_mrq.php");
-							$cst_db_sel_hbr = $cst;
-							$trf_db_sel_hbr = $trf;
+							if(isset($cst))
+							{
+								$cst_db_sel_hbr = $cst;
+							}
+							if(isset($trf))
+							{
+								$trf_db_sel_hbr = $trf;
+							}
 							$err_hbr_db[$id_trf][$dt_jrn['ord']] = $err;
 
 							if($cbl=='dev') {
 								$net = $dt_hbr['sg_net_chm'];
 								$rck = $dt_hbr['sg_rck_chm'];
 								include("clc_mrq.php");
-								$cst_sg_sel_hbr = $cst;
-								$trf_sg_sel_hbr = $trf;
+								if(isset($cst))
+								{
+									$cst_sg_sel_hbr = $cst;
+								}
+								if(isset($trf))
+								{
+									$trf_sg_sel_hbr = $trf;
+								}
 								$err_hbr_sg[$id_trf][$dt_jrn['ord']] = $err;
 
 								$net = $dt_hbr['tp_net_chm'];
@@ -386,10 +398,11 @@ while($dt_mdl = ftc_ass($rq_mdl)) {
 									$net = abs($dt_hbr['sg_net_rgm']);
 									$rck = abs($dt_hbr['sg_rck_rgm']);
 									include("clc_mrq.php");
-									if($dt_hbr['sg_net_rgm'] >0) {
+									if($dt_hbr['sg_net_rgm'] > 0)
+									{
 										$cst_sg_sel_hbr += $cst;
 										$trf_sg_sel_hbr += $trf;
-									} else{
+									}else{
 										$cst_sg_sel_hbr -= $cst;
 										$trf_sg_sel_hbr -= $trf;
 									}
@@ -1027,7 +1040,7 @@ if(isset($map_prs)) {
 					$id_prv_prs = $id_cat_prs;
 					if($dt_cat_prs['is_out']) {$v1 = $dt_cat_lieu['id_vll'];}
 					elseif($dt_cat_lieu['id_vll']!=$v1 and $v1 != 0) {
-						$vol_id[] = $v1.'_'.$dt_cat_lieu['id_vll'];
+						$vols_id[] = $v1.'_'.$dt_cat_lieu['id_vll'];
 						$v1 = 0;
 					}
 				}

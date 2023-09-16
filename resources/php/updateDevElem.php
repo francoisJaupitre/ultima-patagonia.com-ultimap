@@ -105,7 +105,7 @@ if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($d
 				$dt_cat_mdl = ftc_ass(sel_quo("sel_mdl_jrn", "cat_mdl", "id", $id_cat_mdl));
 				if(!empty($dt_cat_mdl['sel_mdl_jrn']))
 				{
-					$sel_mdl_jrn = explode(", ", $dt_cat_mdl['sel_mdl_jrn']);
+					$sel_mdl_jrn = explode(',', $dt_cat_mdl['sel_mdl_jrn']);
 				}else{
 					unset($sel_mdl_jrn);
 				}
@@ -262,7 +262,8 @@ if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($d
 					if($flg_ins_elem and $opt_prs)
 					{
 						include("setPrsData.php");
-					}else{
+					}elseif(isset($ord_old))
+					{
 						foreach($ord_old as $i => $ord_upd)
 						{
 							upd_var_quo("dev_prs", "ord", $ord_new[$i], array("id_cat", "id_jrn"), array($ord_upd, $id_dev_jrn));
@@ -367,7 +368,7 @@ if(isset($data['obj']) and isset($data['lgg']) and $data['lgg'] > 0 and isset($d
 			$err .= "-> ".$nom."\n";
 		}
 	}
-	$qa = array($err, implode(",\n", $alt));
+	$qa = array(rtrim($err,"\n"), implode(",\n", $alt));
 	echo json_encode($qa);
 }
 ?>

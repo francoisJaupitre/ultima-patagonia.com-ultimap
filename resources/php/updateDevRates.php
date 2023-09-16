@@ -268,9 +268,10 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0)
 	}
 	if($err != '')
 	{
-		echo $err;
+		$qa = array($err);
 	}else{
-		echo 1;
+		$qa = array(1);
 	}
+	echo json_encode($qa);
 }
 ?>

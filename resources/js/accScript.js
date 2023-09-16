@@ -1,4 +1,4 @@
-var id_lng
+var id_lng //encapsulate asap
 
 (function()
 {
@@ -55,7 +55,7 @@ const addElem = async function(cbl,id_cat)
         window.parent.opn_frm(`cat/ctr.php?cbl=${cbl}&id=${rsp[0]}`)
         vue_cat(cbl)
       }
-      window.parent.act_frm(cbl)
+      //window.parent.act_frm(cbl)
       if(rsp[1] != '')
         alt(rsp[1])
       if(rsp[2] != '')
@@ -116,7 +116,7 @@ const copyElem = async function(cbl,id)
 			}else{
 				window.parent.opn_frm(`cat/ctr.php?cbl=${cbl}&id=${rsp}`)
 				vue_cat(cbl)
-				window.parent.act_frm(cbl)
+				//window.parent.act_frm(cbl)
 				window.parent.act_frm(`up_${cbl}`)
         window.parent.act_frm('ajt_prs_opt')
 			}
@@ -160,7 +160,7 @@ const deleteElem = async function(cbl,id)
 					}else{
 						vue_cat(cbl)
 						window.parent.sup_frm(`catctrphpcbl${cbl}id${id}`)
-						window.parent.act_frm(cbl)
+						//window.parent.act_frm(cbl)
 						window.parent.act_frm(`up_${cbl}`)
 					}
 				}

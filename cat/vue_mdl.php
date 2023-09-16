@@ -49,15 +49,15 @@ if($aut['cat']) {
 			<td class="td_cat2">
 				<div class="lslm text-left">
 					<strong><?php echo $txt->rgns->$id_lng; ?></strong>
-					<span id="mdl_rgn" class="rgn"><?php include("vue_mdl_rgn.php"); ?></span>
+					<span id="mdl_rgn" class="list_mdl_rgn"><?php include("vue_mdl_rgn.php"); ?></span>
 				</div>
 			</td>
 		</tr>
 	</table>
 	<hr/>
-	<div id="mdl_jrn" class="jrn dt_jrn prs" style="width: 99%"><?php include("vue_mdl_jrn.php"); ?></div>
+	<div id="mdl_jrn" class="list_mdl_jrn list_jrn_prs list_jrn" style="width: 99%"><?php include("vue_mdl_jrn.php"); ?></div>
 </div>
 <div class="div_cat3">
-	<div id="mdl_crc" class="up_crc tbl_crc"><?php include("vue_mdl_crc.php"); ?></div>
+	<div id="mdl_crc" class="list_crc_mdl up_crc tbl_crc"><?php include("vue_mdl_crc.php"); ?></div>
 	<div id="mdl_dev" class="mdl_dev<?php echo $id ?> cat_dev tbl_crc"><?php include("vue_mdl_dev.php"); ?></div>
 </div>

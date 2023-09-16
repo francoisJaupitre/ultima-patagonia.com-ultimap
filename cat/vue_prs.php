@@ -73,8 +73,8 @@ if($aut['cat']) {
 				<div id="prs_txt"><?php include("vue_prs_txt.php"); ?></div>
 				<hr/>
 				<div>
-					<div id="prs_srv" class="srv"><?php include("vue_prs_srv.php"); ?></div>
-					<div id="prs_hbr" class="hbr"><?php include("vue_prs_hbr.php"); ?></div>
+					<div id="prs_srv" class="list_prs_srv list_srv"><?php include("vue_prs_srv.php"); ?></div>
+					<div id="prs_hbr" class="list_prs_hbr"><?php include("vue_prs_hbr.php"); ?></div>
 <?php
 if($aut['cat']) {
 ?>
@@ -89,13 +89,13 @@ if($aut['cat']) {
 				<div class="lmcf text-left">
 					<div style="float: right; margin-right:15px" class="fwb"><?php echo $txt->mrk->$id_lng.'<br />'.$txt->resa->$id_lng; ?></div>
 					<div style="margin-left:30px" class="fwb"><?php echo $txt->lieux->$id_lng; ?></div>
-					<span id="prs_lieu" class="lieu"><?php include("vue_prs_lieu.php"); ?></span>
+					<span id="prs_lieu" class="list_prs_lieu"><?php include("vue_prs_lieu.php"); ?></span>
 				</div>
 			</td>
 		</tr>
 	</table>
 </div>
 <div class="div_cat2">
-	<div id="prs_jrn" class="up_jrn tbl_jrn" ><?php include("vue_prs_jrn.php"); ?></div>
+	<div id="prs_jrn" class="list_jrn_prs up_jrn tbl_jrn" ><?php include("vue_prs_jrn.php"); ?></div>
 	<div id="prs_dev" class="prs_dev<?php echo $id ?> cat_dev tbl_jrn"><?php include("vue_prs_dev.php"); ?></div>
 </div>

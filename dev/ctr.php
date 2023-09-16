@@ -85,9 +85,41 @@ if(isset($_GET['id']) and $_GET['id']>0){
 			$mrq_crc[$dt_bss_crc['id']] = $dt_bss_crc['mrq'];
 		}
 	}
-	if($cnf<1){$vue_res = 0;}
-	else{$vue_res = 1;}
-	if(isset($_GET['scrl']) and $_GET['scrl']>0){
+	$rq_mdl = select("*", "dev_mdl", "id_crc", $id_dev_crc, "ord");
+	while($dt_mdl = ftc_ass($rq_mdl))
+	{
+		$mdl_datas[$dt_mdl['id']]['id_cat'] = $last_id_cat_mdl = $dt_mdl['id_cat'];
+		$mdl_datas[$dt_mdl['id']]['ord'] = $dt_mdl['ord'];
+		$mdl_datas[$dt_mdl['id']]['nom'] = $dt_mdl['nom'];
+		$mdl_datas[$dt_mdl['id']]['titre'] = $dt_mdl['titre'];
+		$mdl_datas[$dt_mdl['id']]['dsc'] = $dt_mdl['dsc'];
+		$mdl_datas[$dt_mdl['id']]['col'] = $dt_mdl['col'];
+		$mdl_datas[$dt_mdl['id']]['fus'] = $dt_mdl['fus'];
+		$mdl_datas[$dt_mdl['id']]['trf'] = $dt_mdl['trf'];
+		$mdl_datas[$dt_mdl['id']]['vue_sgl'] = $dt_mdl['vue_sgl'];
+		$mdl_datas[$dt_mdl['id']]['vue_dbl'] = $dt_mdl['vue_dbl'];
+		$mdl_datas[$dt_mdl['id']]['vue_tpl'] = $dt_mdl['vue_tpl'];
+		$mdl_datas[$dt_mdl['id']]['vue_qdp'] = $dt_mdl['vue_qdp'];
+		$mdl_datas[$dt_mdl['id']]['com'] = $dt_mdl['com'];
+		$mdl_datas[$dt_mdl['id']]['mrq_hbr'] = $dt_mdl['mrq_hbr'];
+		$mdl_datas[$dt_mdl['id']]['ptl'] = $dt_mdl['ptl'];
+		$mdl_datas[$dt_mdl['id']]['psg'] = $dt_mdl['psg'];
+		$mdl_datas[$dt_mdl['id']]['sgl'] = $dt_mdl['sgl'];
+		$mdl_datas[$dt_mdl['id']]['dbl_mat'] = $dt_mdl['dbl_mat'];
+		$mdl_datas[$dt_mdl['id']]['dbl_twn'] = $dt_mdl['dbl_twn'];
+		$mdl_datas[$dt_mdl['id']]['tpl_mat'] = $dt_mdl['tpl_mat'];
+		$mdl_datas[$dt_mdl['id']]['tpl_twn'] = $dt_mdl['tpl_twn'];
+		$mdl_datas[$dt_mdl['id']]['qdp'] = $dt_mdl['qdp'];
+		$last_id_dev_mdl = $dt_mdl['id'];
+	}
+	if($cnf < 1)
+	{
+		$vue_res = 0;
+	}else{
+		$vue_res = 1;
+	}
+	if(isset($_GET['scrl']) and $_GET['scrl'] > 0)
+	{
 		$dt_prs = ftc_ass(sel_quo("id_mdl,id_jrn","dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id","dev_prs.id",$_GET['scrl']));
 		$id_scrll_jrn = $dt_prs['id_jrn'];
 		$id_scrll_mdl = $dt_prs['id_mdl'];

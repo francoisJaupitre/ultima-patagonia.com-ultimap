@@ -86,18 +86,19 @@ if(isset($_POST['id_dev_mdl'])){
 		$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
 	}
 }
-if($id_cat_mdl>-1){
-	if($vue_mdl == 1){
-		if(isset($jrn_datas)) {
+if($id_cat_mdl > -1)
+{
+	if($vue_mdl == 1)
+	{
+		if(isset($jrn_datas))
+		{
 			$nb_jrn = count($jrn_datas);
-			if($nb_jrn > 0){
-			//$nb_jrn = ftc_ass(select("COUNT(*) as total","dev_jrn","id_mdl",$id_dev_mdl));
-			//if($nb_jrn['total'] > 0){
+			if($nb_jrn > 0)
+			{
 				$min_jrn = ftc_num(select("MIN(ord)","dev_jrn","id_mdl",$id_dev_mdl));
 				$max_jrn = ftc_num(select("MAX(ord)","dev_jrn","id_mdl",$id_dev_mdl));
-				foreach($jrn_datas as $id_dev_jrn => $dt_jrn) {
-			//$rq_jrn = select("*","dev_jrn","id_mdl",$id_dev_mdl,"ord,opt DESC");
-			//while($dt_jrn = ftc_ass($rq_jrn)){
+				foreach($jrn_datas as $id_dev_jrn => $dt_jrn)
+				{
 					$id_cat_jrn = $dt_jrn['id_cat'];
 					$date_jrn = $dt_jrn['date'];
 					$opt_jrn = $dt_jrn['opt'];
@@ -129,7 +130,6 @@ if($id_cat_mdl>-1){
 					}
 					if($nb_jrn_opt['total'] == count($jrn_opt_id_cat)){
 ?>
-	</div>
 <?php
 						if($id_cat_jrn!=-1 and (($aut['dev'] and $cnf<1) or ($aut['res'] and $cnf>0))){
 ?>

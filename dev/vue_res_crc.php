@@ -11,51 +11,81 @@ if(isset($_POST['id_dev_crc'])){
 	include("../cfg/crr.php");
 	include("../cfg/frn.php");
 	include("../cfg/vll.php");
-	$dt_crc = ftc_ass(select("sgl,dbl_mat,dbl_twn,tpl_mat,tpl_twn,qdp,ptl,psg,crr","dev_crc","id",$id_dev_crc));
+	$dt_crc = ftc_ass(select("sgl, dbl_mat, dbl_twn, tpl_mat, tpl_twn, qdp, ptl, psg, crr", "dev_crc", "id", $id_dev_crc));
 	$id_crr_crc = $dt_crc['crr'];
+	if($vue_res)
+	{
+		$rq_bss_crc = sel_quo("*", "dev_crc_bss", "id_crc", $id_dev_crc, "base");
+		if(num_rows($rq_bss_crc) > 0)
+		{
+			while($dt_bss_crc = ftc_ass($rq_bss_crc)){
+				$bss_crc[$dt_bss_crc['id']] = $dt_bss_crc['base'];
+				$vue_bss_crc[$dt_bss_crc['id']] = $dt_bss_crc['vue'];
+			}
+		}
+		$rq_mdl = select("*", "dev_mdl", "id_crc", $id_dev_crc, "ord");
+		while($dt_mdl = ftc_ass($rq_mdl))
+		{
+			$mdl_datas[$dt_mdl['id']]['trf'] = $dt_mdl['trf'];
+			$mdl_datas[$dt_mdl['id']]['ptl'] = $dt_mdl['ptl'];
+			$mdl_datas[$dt_mdl['id']]['psg'] = $dt_mdl['psg'];
+			$mdl_datas[$dt_mdl['id']]['sgl'] = $dt_mdl['sgl'];
+			$mdl_datas[$dt_mdl['id']]['dbl_mat'] = $dt_mdl['dbl_mat'];
+			$mdl_datas[$dt_mdl['id']]['dbl_twn'] = $dt_mdl['dbl_twn'];
+			$mdl_datas[$dt_mdl['id']]['tpl_mat'] = $dt_mdl['tpl_mat'];
+			$mdl_datas[$dt_mdl['id']]['tpl_twn'] = $dt_mdl['tpl_twn'];
+			$mdl_datas[$dt_mdl['id']]['qdp'] = $dt_mdl['qdp'];
+		}
+	}
 }
-if($vue_res){
-	$dt_bss_crc = ftc_ass(select("base","dev_crc_bss","vue=1 and id_crc",$id_dev_crc,"base"));
-	$rq_mdl = select("*","dev_mdl","id_crc",$id_dev_crc,"ord");
-	while($dt_mdl = ftc_ass($rq_mdl)){
-		$id_dev_mdl = $dt_mdl['id'];
-		if($dt_mdl['trf']==1){
-			$rq_bss_mdl = select("base", "dev_mdl_bss","vue=1 and id_mdl",$id_dev_mdl,"base");
-			if(num_rows($rq_bss_mdl)==1){
+if($vue_res and isset($mdl_datas))
+{
+	foreach($mdl_datas as $id_dev_mdl => $dt_mdl)
+	{
+		if($dt_mdl['trf'])
+		{
+			$rq_bss_mdl = sel_quo("base", "dev_mdl_bss", array("vue", "id_mdl"), array(1, $id_dev_mdl), "base");
+			if(num_rows($rq_bss_mdl) == 1)
+			{
 				$dt_bss_mdl = ftc_ass($rq_bss_mdl);
 				$bss = $dt_bss_mdl['base'];
+			}else{
+				$bss = 0;
 			}
-			else{$bss=0;}
 			$sgl = $dt_mdl['sgl'];
 			$dbl_mat = $dt_mdl['dbl_mat'];
 			$dbl_twn = $dt_mdl['dbl_twn'];
 			$tpl_mat = $dt_mdl['tpl_mat'];
 			$tpl_twn = $dt_mdl['tpl_twn'];
 			$qdp = $dt_mdl['qdp'];
-			$ptl=$dt_mdl['ptl'];
-			$psg=$dt_mdl['psg'];
+			$ptl = $dt_mdl['ptl'];
+			$psg = $dt_mdl['psg'];
 		}
 		else{
-			$rq_bss_crc = select("base", "dev_crc_bss","vue=1 and id_crc",$id_dev_crc,"base");
-			if(num_rows($rq_bss_crc)==1){
-				$dt_bss_crc = ftc_ass($rq_bss_crc);
-				$bss = $dt_bss_crc['base'];
+			if(array_count_values($vue_bss_crc)[1] == 1)
+			{
+				$key = array_search(1, $vue_bss_crc);
+				$bss = $bss_crc[$key];
+			}else{
+				$bss = 0;
 			}
-			else{$bss=0;}
 			$sgl = $dt_crc['sgl'];
 			$dbl_mat = $dt_crc['dbl_mat'];
 			$dbl_twn = $dt_crc['dbl_twn'];
 			$tpl_mat = $dt_crc['tpl_mat'];
 			$tpl_twn = $dt_crc['tpl_twn'];
 			$qdp = $dt_crc['qdp'];
-			$ptl=$dt_crc['ptl'];
-			$psg=$dt_crc['psg'];
+			$ptl = $dt_crc['ptl'];
+			$psg = $dt_crc['psg'];
 		}
-		$rq_jrn = select("id, ord","dev_jrn","opt=1 AND id_mdl",$id_dev_mdl,"ord");
-		while($dt_jrn = ftc_ass($rq_jrn)){
-			$rq_prs = select("id,id_cat,res,ctg,opt,sup,taux","dev_prs","id_jrn",$dt_jrn['id'],"ord, opt");
-			while($dt_prs = ftc_ass($rq_prs)){
-				if($cnf>0){
+		$rq_jrn = sel_quo("id, ord", "dev_jrn", array("opt", "id_mdl"), array(1, $id_dev_mdl), "ord");
+		while($dt_jrn = ftc_ass($rq_jrn))
+		{
+			$rq_prs = sel_quo("id, id_cat, res, ctg, opt, sup, taux", "dev_prs", "id_jrn", $dt_jrn['id'], "ord, opt");
+			while($dt_prs = ftc_ass($rq_prs))
+			{
+				if($cnf > 0)
+				{
 					$sup_dev = $dt_prs['sup'];
 					$taux_dev= $dt_prs['taux'];
 				}
@@ -64,27 +94,27 @@ if($vue_res){
 					$taux_dev = $cfg_crr_tx[$id_crr_crc];
 				}
 				if(($dt_prs['opt']==1 and $cnf<1) or ($dt_prs['res']==1 or $dt_prs['res']==-1 and $cnf>0)){$id_cat_prs = $dt_prs['id_cat'];}
-				$rq_srv = select("*","dev_srv","opt=1 AND id_prs",$dt_prs['id']);
+				$rq_srv = select("*", "dev_srv", "opt=1 AND id_prs", $dt_prs['id']);
 				while($dt_srv = ftc_ass($rq_srv)){
 					$frs_srv = 1+$dt_srv['frs'];
 					if($dt_prs['res']==1 or $dt_prs['opt']==1){//si payé puis annulé
 						if($dt_prs['res']!=1 and $cnf>0 and $dt_prs['opt']==1){$id_frn=-1;}
 						else{$id_frn = $dt_srv['id_frn'];}
-						if(!isset($lst_frn) or !in_array($id_frn,$lst_frn)){
+						if(!isset($lst_frn) or !in_array($id_frn, $lst_frn)){
 							$lst_frn[] = $id_frn;
 							$cot_srv[$id_frn]=0;
 							$liq_frn[$id_frn]=0;
 							if($id_frn>0){
-								$dt_frn = ftc_ass(select("frs","cat_frn","id",$id_frn));
+								$dt_frn = ftc_ass(select("frs", "cat_frn", "id", $id_frn));
 								$frs_frn = 1+$dt_frn['frs'];
 							}
 							else{$frs_frn = $frs_srv;}
 						}
 						$jr_frn[$id_frn][] = $dt_jrn['ord'];
 						$jr_frn_id[$id_frn][] = $dt_jrn['id'];
-						$mdl_frn_id[$id_frn][] = $dt_mdl['id'];
+						$mdl_frn_id[$id_frn][] = $id_dev_mdl;
 						if($id_frn>0 or $dt_srv['res']!=6){$res_frn[$id_frn][] = $dt_srv['res'];}
-						$rq_srv_pay = select("*","dev_srv_pay","id_srv",$dt_srv['id']);
+						$rq_srv_pay = select("*", "dev_srv_pay", "id_srv", $dt_srv['id']);
 						while($dt_srv_pay = ftc_ass($rq_srv_pay)){
 							if($dt_srv_pay['pay']==0){
 								if($cfg_crr_sp[$dt_srv_pay['crr']]==1){$liq_frn[$id_frn] += $dt_srv_pay['liq'] * $cfg_crr_tx[$dt_srv_pay['crr']]*$frs_frn;}
@@ -99,7 +129,7 @@ if($vue_res){
 						if($dt_prs['opt']==1){
 							$sup = $dt_srv['sup'];
 							$taux = $dt_srv['taux'];
-							$dt_srv_trf = ftc_ass(select("trf_net","dev_srv_trf","id_srv = ".$dt_srv['id']." AND base",$bss));
+							$dt_srv_trf = ftc_ass(select("trf_net", "dev_srv_trf", "id_srv = ".$dt_srv['id']." AND base", $bss));
 							$cot_sr = $dt_srv_trf['trf_net'] * $bss * $frs_srv;
 							if(!$sup){
 								if($sup_dev){$cot_srv[$id_frn] += $cot_sr * $taux * $taux_dev;}
@@ -112,8 +142,8 @@ if($vue_res){
 						}
 					}
 				}
-				if($cnf>0){$rq_hbr = select("*","dev_hbr","id_prs",$dt_prs['id'],"sel DESC");}
-				else{$rq_hbr = select("*","dev_hbr","id_prs",$dt_prs['id'],"opt DESC");}
+				if($cnf>0){$rq_hbr = select("*", "dev_hbr", "id_prs", $dt_prs['id'], "sel DESC");}
+				else{$rq_hbr = select("*", "dev_hbr", "id_prs", $dt_prs['id'], "opt DESC");}
 				while($dt_hbr = ftc_ass($rq_hbr)){
 					$frs_hbr = 1+$dt_hbr['frs'];
 					if(($cnf>0 or ($cnf<1 and $dt_prs['opt']==1)) and $dt_hbr['id_cat']>-2){
@@ -121,17 +151,17 @@ if($vue_res){
 							if($dt_hbr['id_cat']>0){$id_hbr = $dt_hbr['id_cat'];}
 							else{$id_hbr = -$dt_hbr['id'];}
 							$id_chm = $dt_hbr['id_cat_chm'];
-							if($id_hbr>0 and (!isset($hbr) or !in_array($id_hbr,$hbr))){$hbr[] = $id_hbr;}
-							if(!isset($chm_hbr[$id_hbr]) or !in_array($id_chm,$chm_hbr[$id_hbr])){
+							if($id_hbr>0 and (!isset($hbr) or !in_array($id_hbr, $hbr))){$hbr[] = $id_hbr;}
+							if(!isset($chm_hbr[$id_hbr]) or !in_array($id_chm, $chm_hbr[$id_hbr])){
 								$chm_hbr[$id_hbr][] = $id_chm;
 								$cot_hbr[$id_hbr][$id_chm] = $liq_hbr[$id_hbr][$id_chm] = 0;
 							}
 							$jr_hbr[$id_hbr][$id_chm][] = $dt_jrn['ord'];
 							$jr_hbr_id[$id_hbr][$id_chm][] = $dt_jrn['id'];
-							$mdl_hbr_id[$id_hbr][$id_chm][] = $dt_mdl['id'];
+							$mdl_hbr_id[$id_hbr][$id_chm][] = $id_dev_mdl;
 							if($id_hbr<0 or $id_chm!=-2){$res_hbr[$id_hbr][$id_chm][] = $dt_hbr['res'];}
 							if(($dt_prs['res']==1 and $cnf>0) or ($dt_prs['opt']==1 and $cnf<1)){
-								$rq_hbr_pay = select("*","dev_hbr_pay","id_hbr",$dt_hbr['id']);
+								$rq_hbr_pay = select("*", "dev_hbr_pay", "id_hbr", $dt_hbr['id']);
 								while($dt_hbr_pay = ftc_ass($rq_hbr_pay)){
 									if($dt_hbr_pay['pay']==0){
 										if($cfg_crr_sp[$dt_hbr_pay['crr']]==1){$liq_hbr[$id_hbr][$id_chm] += $dt_hbr_pay['liq'] * $cfg_crr_tx[$dt_hbr_pay['crr']]*$frs_hbr;}
@@ -169,7 +199,7 @@ if($vue_res){
 							if($flg_chm_opt){$chm_hbr_opt[$id_hbr_opt][] = $id_chm_opt;}
 							$jr_hbr_opt[$id_hbr_opt][$id_chm_opt][] = $dt_jrn['ord'];
 							$jr_hbr_id_opt[$id_hbr_opt][$id_chm_opt][] = $dt_jrn['id'];
-							$mdl_hbr_id_opt[$id_hbr_opt][$id_chm_opt][] = $dt_mdl['id'];
+							$mdl_hbr_id_opt[$id_hbr_opt][$id_chm_opt][] = $id_dev_mdl;
 							if($id_hbr_opt<0 or $id_chm_opt!=2){$res_hbr_opt[$id_hbr_opt][$id_chm_opt][] = $dt_hbr['res'];}
 						}
 					}
@@ -243,7 +273,7 @@ if($vue_res){
 						}
 					}
 				}
-				unset($id_hbr,$id_chm,$id_hbr_opt,$id_chm_opt,$cot_hb);
+				unset($id_hbr, $id_chm, $id_hbr_opt, $id_chm_opt, $cot_hb);
 			}
 		}
 	}
@@ -256,12 +286,12 @@ if($vue_res){
 			}
 			if(isset($color_frn)){
 				foreach(array_unique($color_frn) as $id_res_frn){
-					if($id_res_frn<6){$color .= $col_res_srv[$id_res_frn].',';}
+					if($id_res_frn<6){$color .= $col_res_srv[$id_res_frn].', ';}
 				}
 			}
 			unset($color_frn);
-			if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
-			else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}
+			if(substr_count($color, ', ')==1){$color = "background:".substr_replace($color, "", -1);}
+			else{$color = "background: linear-gradient(".substr_replace($color, "", -1).")";}
 		}
 ?>
 			<table class="dsg w-100">
@@ -308,16 +338,16 @@ if($vue_res){
 			$cot += $cot_srv[$fr];
 			$color = '';
 			foreach(array_unique($res_frn[$fr]) as $id_res_frn) {
-				if(($cnf>0 or ($flg_res and $id_res_frn>0)) and $id_res_frn<6){$color .= $col_res_srv[$id_res_frn].',';}
+				if(($cnf>0 or ($flg_res and $id_res_frn>0)) and $id_res_frn<6){$color .= $col_res_srv[$id_res_frn].', ';}
 			}
-			if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
-			else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}
+			if(substr_count($color, ', ')==1){$color = "background:".substr_replace($color, "", -1);}
+			else{$color = "background: linear-gradient(".substr_replace($color, "", -1).")";}
 ?>
 				<tr style="font-weight: normal; <?php echo $color; ?>">
-					<td class="stl1" style="padding: 0px 5px;"><?php foreach($jr_frn[$fr] as $i => $jr){ ?><span class="lnk" onclick="scroll2(<?php echo $jr_frn_id[$fr][$i].','.$mdl_frn_id[$fr][$i]; ?>)"><?php echo $jr;?></span> - <?php } ?></td>
+					<td class="stl1" style="padding: 0px 5px;"><?php foreach($jr_frn[$fr] as $i => $jr){ ?><span class="lnk" onclick="scroll2(<?php echo $jr_frn_id[$fr][$i].', '.$mdl_frn_id[$fr][$i]; ?>)"><?php echo $jr;?></span> - <?php } ?></td>
 					<td class="stl1" style="padding: 0px 5px; position: relative;">
 <!--COMMANDES-->
-						<span <?php if($fr>0){ ?> class="lnk inf<?php echo $fr ?>frn" onmouseover="vue_elem('inf',<?php echo $fr ?>,'frn')" onclick="vue_cmd('vue_cmd_frn<?php echo $fr; ?>')" <?php } ?>><?php if($fr>0){echo stripslashes($frn[$fr]);} elseif($fr==0){echo $txt->nodef->$id_lng;} else{echo $txt->cotnocnf->$id_lng;}?></span>
+						<span <?php if($fr>0){ ?> class="lnk inf<?php echo $fr ?>frn" onmouseover="vue_elem('inf', <?php echo $fr ?>, 'frn')" onclick="vue_cmd('vue_cmd_frn<?php echo $fr; ?>')" <?php } ?>><?php if($fr>0){echo stripslashes($frn[$fr]);} elseif($fr==0){echo $txt->nodef->$id_lng;} else{echo $txt->cotnocnf->$id_lng;}?></span>
 						<div id="vue_cmd_frn<?php echo $fr; ?>" class="cmd mw200 wsn" style="text-align:left;left:50%;transform:translate(-50%);">
 							<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 							<ul>
@@ -333,7 +363,7 @@ if($vue_res){
 			}
 			if($aut['dev']){
 ?>
-								<li onclick="searchFrn(0,<?php echo $fr ?>,0);"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchFrn(0, <?php echo $fr ?>, 0);"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 			}
 ?>
@@ -347,14 +377,14 @@ if($vue_res){
 				foreach(array_unique($res_frn[$fr]) as $id_res_frn) {
 					if($id_res_frn<6){$statut .= $res_srv[$id_lng][$id_res_frn].' - ';}
 				}
-				$statut = substr_replace($statut,"",-3);
+				$statut = substr_replace($statut, "", -3);
 ?>
 					<td class="stl1" style="padding: 0px 5px;"><?php echo $statut; ?></td>
 <?php
 			}
 ?>
-					<td class="stl1" style="padding: 0px 5px;"><?php echo number_format($cot_srv[$fr],$prm_crr_dcm[1],'.',''); ?></td>
-					<td class="stl1" style="<?php if($cnf>0 and $liq_frn[$fr]<=0 and $fr>=0){echo 'background-color: tomato;';} ?> padding: 0px 5px;"><?php echo number_format($liq_frn[$fr],$prm_crr_dcm[1],'.',''); ?></td>
+					<td class="stl1" style="padding: 0px 5px;"><?php echo number_format($cot_srv[$fr], $prm_crr_dcm[1], '.', ''); ?></td>
+					<td class="stl1" style="<?php if($cnf>0 and $liq_frn[$fr]<=0 and $fr>=0){echo 'background-color: tomato;';} ?> padding: 0px 5px;"><?php echo number_format($liq_frn[$fr], $prm_crr_dcm[1], '.', ''); ?></td>
 <?php
 			if($fr!=0){
 				if($liq_frn[$fr]>0 or $fr<0){
@@ -363,7 +393,7 @@ if($vue_res){
 <?php
 					$liq += $liq_frn[$fr];
 					$dif += $cot_srv[$fr]-$liq_frn[$fr];
-					echo number_format($cot_srv[$fr]-$liq_frn[$fr],$prm_crr_dcm[1],'.','');
+					echo number_format($cot_srv[$fr]-$liq_frn[$fr], $prm_crr_dcm[1], '.', '');
 ?>
 					</td>
 <?php
@@ -393,12 +423,12 @@ if($vue_res){
 <?php
 		}
 ?>
-					<td class="stl1 usa" style="font-weight: normal; <?php if($dif<0 and $cnf>0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($cot,$prm_crr_dcm[1],'.','') ?></td>
+					<td class="stl1 usa" style="font-weight: normal; <?php if($dif<0 and $cnf>0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($cot, $prm_crr_dcm[1], '.', '') ?></td>
 <?php
 		if($cnf>0){
 ?>
-					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($liq,$prm_crr_dcm[1],'.','') ?></td>
-					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($dif,$prm_crr_dcm[1],'.','') ?></td>
+					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($liq, $prm_crr_dcm[1], '.', '') ?></td>
+					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($dif, $prm_crr_dcm[1], '.', '') ?></td>
 					<td></td>
 <?php
 		}
@@ -417,12 +447,12 @@ if($vue_res){
 				}
 				if(isset($color_chm)){
 					foreach(array_unique($color_chm) as $id_res_chm){
-						if($id_res_chm<6){$color .= $col_res_srv[$id_res_chm].',';}
+						if($id_res_chm<6){$color .= $col_res_srv[$id_res_chm].', ';}
 					}
 				}
 				unset($color_chm);
-				if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
-				else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}
+				if(substr_count($color, ', ')==1){$color = "background:".substr_replace($color, "", -1);}
+				else{$color = "background: linear-gradient(".substr_replace($color, "", -1).")";}
 			}
 		}
 ?>
@@ -470,13 +500,13 @@ if($vue_res){
 <?php
 		foreach($hbr as $hb){
 			if($hb>0){
-				$dt_hbr = ftc_ass(select("nom, id_vll","cat_hbr","id",$hb));
+				$dt_hbr = ftc_ass(select("nom, id_vll", "cat_hbr", "id", $hb));
 				$id_vll = $dt_hbr['id_vll'];
 				$hbr_nom = $dt_hbr['nom'];
 			}
 			elseif($hb<0){
 				$h = -$hb;
-				$dt_hbr = ftc_ass(select("nom, id_vll, nom_chm","dev_hbr","id",$h));
+				$dt_hbr = ftc_ass(select("nom, id_vll, nom_chm", "dev_hbr", "id", $h));
 				$id_vll = $dt_hbr['id_vll'];
 				$hbr_nom = $dt_hbr['nom'];
 			}
@@ -487,7 +517,7 @@ if($vue_res){
 			foreach($chm_hbr[$hb] as $chm){
 				if($hb>=0){
 					if($chm>0){
-						$dt_chm = ftc_ass(select("nom","cat_hbr_chm","id",$chm));
+						$dt_chm = ftc_ass(select("nom", "cat_hbr_chm", "id", $chm));
 						$chm_nom = $dt_chm['nom'];
 					}
 					elseif($chm==-1){$chm_nom = $txt->nodef->$id_lng;}
@@ -498,20 +528,20 @@ if($vue_res){
 				$jr_hbr[$hb][$chm] = array_unique($jr_hbr[$hb][$chm]);
 				$color = '';
 				foreach(array_unique($res_hbr[$hb][$chm]) as $id_res_chm) {
-					if(($cnf>0 or ($flg_res and $id_res_chm>0)) and $id_res_chm<6){$color .= $col_res_srv[$id_res_chm].',';}
+					if(($cnf>0 or ($flg_res and $id_res_chm>0)) and $id_res_chm<6){$color .= $col_res_srv[$id_res_chm].', ';}
 				}
-				if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
-				else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}
+				if(substr_count($color, ', ')==1){$color = "background:".substr_replace($color, "", -1);}
+				else{$color = "background: linear-gradient(".substr_replace($color, "", -1).")";}
 ?>
 				<tr style="font-weight: normal; <?php echo $color; ?>">
-					<td class="stl1" style="padding: 0px 5px;"><?php foreach($jr_hbr[$hb][$chm] as $i => $jr){ ?><span class="lnk" onclick="scroll2(<?php echo $jr_hbr_id[$hb][$chm][$i].','.$mdl_hbr_id[$hb][$chm][$i]; ?>)"><?php echo $jr;?></span> - <?php } ?></td>
+					<td class="stl1" style="padding: 0px 5px;"><?php foreach($jr_hbr[$hb][$chm] as $i => $jr){ ?><span class="lnk" onclick="scroll2(<?php echo $jr_hbr_id[$hb][$chm][$i].', '.$mdl_hbr_id[$hb][$chm][$i]; ?>)"><?php echo $jr;?></span> - <?php } ?></td>
 					<td class="stl1" style="padding: 0px 5px; <?php if($dif_hbr[$hb] == 2){echo "background-color: mediumorchid;";} ?>"><?php if($id_vll>0){echo stripslashes($vll[$id_vll]);} else{echo '-';} ?></td>
 					<td class="stl1" style="padding: 0px 5px; position: relative; <?php if($dif_hbr[$hb] > 0){echo "background-color: mediumorchid;";} ?>">
 <?php
 				if($hb>0){
 ?>
 <!--COMMANDES-->
-						<span class="lnk inf<?php echo $hb ?>hbr" onmouseover="vue_elem('inf',<?php echo $hb ?>,'hbr')" onclick="<?php if($chm >0){echo "vue_cmd('vue_cmd_hbr".$hb."_".$chm."')";} else{echo "window.parent.opn_frm('cat/ctr.php?cbl=hbr&id=".$hb."')";} ?>"><?php echo stripslashes($hbr_nom) ?></span>
+						<span class="lnk inf<?php echo $hb ?>hbr" onmouseover="vue_elem('inf', <?php echo $hb ?>, 'hbr')" onclick="<?php if($chm >0){echo "vue_cmd('vue_cmd_hbr".$hb."_".$chm."')";} else{echo "window.parent.opn_frm('cat/ctr.php?cbl=hbr&id=".$hb."')";} ?>"><?php echo stripslashes($hbr_nom) ?></span>
 <?php
 					if($chm>0){
 ?>
@@ -521,16 +551,16 @@ if($vue_res){
 								<li onclick="window.parent.opn_frm('cat/ctr.php?cbl=hbr&id=<?php echo $hb;?>');document.getElementById('vue_cmd_hbr<?php echo $hb.'_'.$chm; ?>').style.display='none';"><?php echo $txt->cat->$id_lng; ?></li>
 								<li onclick="window.open('../resources/php/docxHbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb;?>&chm=<?php echo $chm;?>');"><?php echo $txt->lst_res->$id_lng; ?></li>
 								<li onclick="window.open('../resources/php/vchHbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb;?>');"><?php echo $txt->vch->$id_lng; ?></li>
-								<li onclick="mailHbr(<?php echo $hb.','.$chm.',0'; ?>);"><?php echo $txt->maildevis->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb.', '.$chm.', 0'; ?>);"><?php echo $txt->maildevis->$id_lng; ?></li>
 <?php
 						if($aut['res']){
 ?>
-								<li onclick="mailHbr(<?php echo $hb.','.$chm.',1'; ?>);"><?php echo $txt->mailres->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb.', '.$chm.', 1'; ?>);"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 						}
 						if($aut['dev']){
 ?>
-								<li onclick="searchHbr(<?php echo $hb.','.$chm ?>,0,0,0,0,'updateRates');"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb.', '.$chm ?>, 0, 0, 0, 0, 'updateRates');"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 						}
 ?>
@@ -550,14 +580,14 @@ if($vue_res){
 					foreach(array_unique($res_hbr[$hb][$chm]) as $id_res_chm) {
 						if($id_res_chm<6){$statut .= $res_srv[$id_lng][$id_res_chm].' - ';}
 					}
-					$statut = substr_replace($statut,"",-3);
+					$statut = substr_replace($statut, "", -3);
 ?>
 					<td class="stl1" style="padding: 0px 5px;"><?php echo $statut; ?></td>
 <?php
 				}
 ?>
-					<td class="stl1" style="padding: 0px 5px;"><?php if($chm > -2){echo number_format($cot_hbr[$hb][$chm],$prm_crr_dcm[1],'.','');} ?></td>
-					<td class="stl1" style="<?php if($chm > -2 and $cnf > 0 and $liq_hbr[$hb][$chm] <= 0){echo 'background-color: tomato;';} ?>padding: 0px 5px;"><?php if($chm > -2 or $liq_hbr[$hb][$chm]!=0){echo number_format($liq_hbr[$hb][$chm],$prm_crr_dcm[1],'.','');} ?></td>
+					<td class="stl1" style="padding: 0px 5px;"><?php if($chm > -2){echo number_format($cot_hbr[$hb][$chm], $prm_crr_dcm[1], '.', '');} ?></td>
+					<td class="stl1" style="<?php if($chm > -2 and $cnf > 0 and $liq_hbr[$hb][$chm] <= 0){echo 'background-color: tomato;';} ?>padding: 0px 5px;"><?php if($chm > -2 or $liq_hbr[$hb][$chm]!=0){echo number_format($liq_hbr[$hb][$chm], $prm_crr_dcm[1], '.', '');} ?></td>
 
 <?php
 				if($chm > -2){
@@ -566,9 +596,9 @@ if($vue_res){
 						$liq += $liq_hbr[$hb][$chm];
 						$dif += $cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm];
 ?>
-					<td class="stl1" style="<?php if($chm > -2 and number_format($cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm],$prm_crr_dcm[1],'.','')<0){echo 'background-color: tomato;';} if($chm > -2 and number_format($cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm],$prm_crr_dcm[1],'.','')>0 and $liq_hbr[$hb][$chm]!=0){echo 'background-color: skyblue;';} ?>padding: 0px 5px;">
+					<td class="stl1" style="<?php if($chm > -2 and number_format($cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm], $prm_crr_dcm[1], '.', '')<0){echo 'background-color: tomato;';} if($chm > -2 and number_format($cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm], $prm_crr_dcm[1], '.', '')>0 and $liq_hbr[$hb][$chm]!=0){echo 'background-color: skyblue;';} ?>padding: 0px 5px;">
 <?php
-						echo number_format($cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm],$prm_crr_dcm[1],'.','');
+						echo number_format($cot_hbr[$hb][$chm]-$liq_hbr[$hb][$chm], $prm_crr_dcm[1], '.', '');
 					}
 					elseif($cnf>0){echo '<td style="background-color: tomato;">';}
 					else{echo '<td class="stl1"></td>';}
@@ -601,12 +631,12 @@ if($vue_res){
 <?php
 		}
 ?>
-					<td class="stl1 usa" style="font-weight: normal; <?php if($dif<0 and $cnf>0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($cot,$prm_crr_dcm[1],'.','') ?></td>
+					<td class="stl1 usa" style="font-weight: normal; <?php if($dif<0 and $cnf>0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($cot, $prm_crr_dcm[1], '.', '') ?></td>
 <?php
 		if($cnf>0){
 ?>
-					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($liq,$prm_crr_dcm[1],'.','') ?></td>
-					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($dif,$prm_crr_dcm[1],'.','') ?></td>
+					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($liq, $prm_crr_dcm[1], '.', '') ?></td>
+					<td class="stl1" style="font-weight: normal; <?php if($dif<0){echo 'background-color: tomato;';} else {echo 'background-color: skyblue;';}?>"><?php echo number_format($dif, $prm_crr_dcm[1], '.', '') ?></td>
 					<td></td>
 <?php
 		}
@@ -625,12 +655,12 @@ if($vue_res){
 				}
 				if(isset($color_chm)){
 					foreach(array_unique($color_chm) as $id_res_chm){
-						if($id_res_chm<6){$color .= $col_res_srv[$id_res_chm].',';}
+						if($id_res_chm<6){$color .= $col_res_srv[$id_res_chm].', ';}
 					}
 				}
 				unset($color_chm);
-				if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
-				else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}
+				if(substr_count($color, ', ')==1){$color = "background:".substr_replace($color, "", -1);}
+				else{$color = "background: linear-gradient(".substr_replace($color, "", -1).")";}
 			}
 		}
 
@@ -661,7 +691,7 @@ if($vue_res){
 <?php
 		foreach($hbr_opt as $hb_opt){
 			if($hb_opt!=0){
-				$dt_hbr = ftc_ass(select("nom, id_vll","cat_hbr","id",$hb_opt));
+				$dt_hbr = ftc_ass(select("nom, id_vll", "cat_hbr", "id", $hb_opt));
 				$id_vll = $dt_hbr['id_vll'];
 				$hbr_nom = $dt_hbr['nom'];
 			}
@@ -671,7 +701,7 @@ if($vue_res){
 			}
 			foreach($chm_hbr_opt[$hb_opt] as $chm_opt){
 				if($chm_opt>0){
-					$dt_chm = ftc_ass(select("nom","cat_hbr_chm","id",$chm_opt));
+					$dt_chm = ftc_ass(select("nom", "cat_hbr_chm", "id", $chm_opt));
 					$chm_nom = $dt_chm['nom'];
 				}
 				elseif($chm_opt==-1){$chm_nom = $txt->nodef->$id_lng;}
@@ -680,33 +710,33 @@ if($vue_res){
 				$jr_hbr_opt[$hb_opt][$chm_opt] = array_unique($jr_hbr_opt[$hb_opt][$chm_opt]);
 				$color = '';
 				foreach(array_unique($res_hbr_opt[$hb_opt][$chm_opt]) as $id_res_chm) {
-					if($cnf>0 and $id_res_chm<6){$color .= $col_res_srv[$id_res_chm].',';}
+					if($cnf>0 and $id_res_chm<6){$color .= $col_res_srv[$id_res_chm].', ';}
 				}
-				if(substr_count($color,',')==1){$color = "background:".substr_replace($color,"",-1);}
-				else{$color = "background: linear-gradient(".substr_replace($color,"",-1).")";}
+				if(substr_count($color, ', ')==1){$color = "background:".substr_replace($color, "", -1);}
+				else{$color = "background: linear-gradient(".substr_replace($color, "", -1).")";}
 ?>
 				<tr style="font-weight: normal; <?php echo $color; ?>">
-					<td class="stl1" style="padding: 0px 5px;"><?php foreach($jr_hbr_opt[$hb_opt][$chm_opt] as $i => $jr){ ?><span class="lnk" onclick="scroll2(<?php echo $jr_hbr_id_opt[$hb_opt][$chm_opt][$i].','.$mdl_hbr_id_opt[$hb_opt][$chm_opt][$i]; ?>)"><?php echo $jr;?></span> - <?php } ?></td>
+					<td class="stl1" style="padding: 0px 5px;"><?php foreach($jr_hbr_opt[$hb_opt][$chm_opt] as $i => $jr){ ?><span class="lnk" onclick="scroll2(<?php echo $jr_hbr_id_opt[$hb_opt][$chm_opt][$i].', '.$mdl_hbr_id_opt[$hb_opt][$chm_opt][$i]; ?>)"><?php echo $jr;?></span> - <?php } ?></td>
 					<td class="stl1" style="padding: 0px 5px;"><?php echo stripslashes($vll[$id_vll]) ?></td>
 					<td class="stl1" style="padding: 0px 5px; position: relative;">
 <!--COMMANDES-->
-						<span class="lnk inf<?php echo $hb_opt ?>hbr" onmouseover="vue_elem('inf',<?php echo $hb_opt ?>,'hbr')" onclick="vue_cmd('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>')"><?php echo stripslashes($hbr_nom) ?></span>
+						<span class="lnk inf<?php echo $hb_opt ?>hbr" onmouseover="vue_elem('inf', <?php echo $hb_opt ?>, 'hbr')" onclick="vue_cmd('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>')"><?php echo stripslashes($hbr_nom) ?></span>
 						<div id="vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>" class="cmd mw200 wsn" style="text-align:left; left:50%; transform:translate(-50%);">
 							<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 							<ul>
 								<li onclick="window.parent.opn_frm('cat/ctr.php?cbl=hbr&id=<?php echo $hb_opt;?>');document.getElementById('vue_cmd_hbr_opt<?php echo $hb_opt.'_'.$chm_opt; ?>').style.display='none';"><?php echo $txt->cat->$id_lng; ?></li>
 								<li onclick="window.open('../resources/php/docxHbr.php?id=<?php echo $id_dev_crc;?>&hbr=<?php echo $hb_opt;?>&chm=<?php echo $chm_opt;?>');"><?php echo $txt->lst_res->$id_lng; ?></li>
-								<li onclick="mailHbr(<?php echo $hb_opt.','.$chm_opt.',0'; ?>);"><?php echo $txt->maildevis->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb_opt.', '.$chm_opt.', 0'; ?>);"><?php echo $txt->maildevis->$id_lng; ?></li>
 <?php
 				if($aut['res']){
 ?>
-								<li onclick="mailHbr(<?php echo $hb_opt.','.$chm_opt.',1'; ?>);"><?php echo $txt->mailres->$id_lng; ?></li>
+								<li onclick="mailHbr(<?php echo $hb_opt.', '.$chm_opt.', 1'; ?>);"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 				}
 				if($aut['dev']){
 ?>
-								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'updateRates');"><?php echo $txt->acttrf->$id_lng; ?></li>
-								<li onclick="searchHbr(<?php echo $hb_opt.','.$chm_opt ?>,0,0,0,0,'sup');"><?php echo $txt->sup->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb_opt.', '.$chm_opt ?>, 0, 0, 0, 0, 'updateRates');"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchHbr(<?php echo $hb_opt.', '.$chm_opt ?>, 0, 0, 0, 0, 'sup');"><?php echo $txt->sup->$id_lng; ?></li>
 <?php
 				}
 ?>
@@ -717,7 +747,7 @@ if($vue_res){
 <?php
 				if($cnf<1){
 ?>
-					<td class="stl1" style="padding: 0px 5px;"><?php if($chm_opt > -2){echo number_format($cot_hbr_opt[$hb_opt][$chm_opt],$prm_crr_dcm[1],'.','');} ?></td>
+					<td class="stl1" style="padding: 0px 5px;"><?php if($chm_opt > -2){echo number_format($cot_hbr_opt[$hb_opt][$chm_opt], $prm_crr_dcm[1], '.', '');} ?></td>
 <?php
 				}
 ?>

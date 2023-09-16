@@ -50,20 +50,20 @@ if($aut['cat']) {
 			<td class="td_cat2">
 				<div class="lcrl text-left" style="min-width: 140px">
 					<span class="fwb"><?php echo $txt->vlls->$id_lng; ?></span>
-					<span id="jrn_vll" class="vll"><?php include("vue_jrn_vll.php"); ?></span>
+					<span id="jrn_vll" class="list_jrn_vll"><?php include("vue_jrn_vll.php"); ?></span>
 				</div>
 				<div class="lmcf text-left">
 					<span class="fwb"><?php echo $txt->rbk->$id_lng ?></span>
-					<span id="jrn_lieu" class="lieu"><?php include("vue_jrn_lieu.php"); ?></span>
+					<span id="jrn_lieu" class="list_jrn_lieu"><?php include("vue_jrn_lieu.php"); ?></span>
 				</div>
 			</td>
 		</tr>
 	</table>
 	<hr/>
-	<div id="jrn_prs" class="prs srv hbr" style="width: 99%"><?php include("vue_jrn_prs.php"); ?></div>
+	<div id="jrn_prs" class="list_jrn_prs list_prs_srv list_prs_hbr list_prs" style="width: 99%"><?php include("vue_jrn_prs.php"); ?></div>
 </div>
 <div class="div_cat3">
-	<div id="jrn_mdl" class="up_mdl tbl_mdl"><?php include("vue_jrn_mdl.php"); ?></div>
-	<div id="jrn_pic" class="pic"><?php include("vue_jrn_pic.php"); ?></div>
+	<div id="jrn_mdl" class="list_mdl_jrn up_mdl tbl_mdl"><?php include("vue_jrn_mdl.php"); ?></div>
+	<div id="jrn_pic" class="list_jrn_pic"><?php include("vue_jrn_pic.php"); ?></div>
 	<div id="jrn_dev" class="jrn_dev<?php echo $id ?> cat_dev tbl_mdl"><?php include("vue_jrn_dev.php"); ?></div>
 </div>

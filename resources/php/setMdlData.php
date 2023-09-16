@@ -12,13 +12,13 @@ $id_dev_mdl = insert(
 );
 if(isset($obj) and $obj == 'mdl' and !empty($dt_mdl['sel_mdl_jrn']))
 {
-	$sel_mdl_jrn = explode(", ", $dt_mdl['sel_mdl_jrn']);
+	$sel_mdl_jrn = explode(',', $dt_mdl['sel_mdl_jrn']);
 }else{
 	unset($sel_mdl_jrn);
 }
 if(empty($dt_mdl['titre']))
 {
-	$err_mdl .= $dt_mdl['nom'].",\n";
+	$err_mdl .= $dt_mdl['nom']."\n";
 }
 if(!empty($dt_mdl['alerte']))
 {

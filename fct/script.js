@@ -29,6 +29,12 @@ function vue_dt_prg(cbl,id,id_lgg){
 	$.ajax({url: 'vue_dt_prg.php',type: 'post',data: {"cbl":cbl,"id":id,"id_lgg":id_lgg},
 		success: function(responseText){
 			$("#vue_dt_prg").html(responseText);
+			if(document.getElementById("vols_id"))
+			{
+				const vols_id = document.getElementById("vols_id").value;
+				vue_vols(id, vols_id)
+				vue_crr(id);
+			}
 			unload('FCT vue_dt_prg');
 		},
 		error: function (request,status,error){
@@ -36,6 +42,36 @@ function vue_dt_prg(cbl,id,id_lgg){
 			$("#txtHint").html("<span style='background: red;'>VUE_DT_PRG ERROR</span>");console.log('VUE_DT_PRG ERROR: '+request.statusText);
 		}
 	});
+}
+
+const vue_vols = (id, vols_id) => {
+  load('FCT vue_vols')
+	const xhr = new XMLHttpRequest
+	xhr.open("POST", "vue_vols.php")
+	xhr.setRequestHeader("Content-Type", "application/json")
+	xhr.send(JSON.stringify({id, vols_id}))
+	xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+			document.getElementById("vue_vols").innerHTML = xhr.response
+			unload('FCT vue_vols')
+		}
+	}
+}
+
+const vue_crr = (id) => {
+  load('FCT vue_crr')
+	const xhr = new XMLHttpRequest
+	xhr.open("POST", "vue_crr.php")
+	xhr.setRequestHeader("Content-Type", "application/json")
+	xhr.send(JSON.stringify({id}))
+	xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+			document.getElementById("vue_crr").innerHTML = xhr.response
+			unload('FCT vue_crr')
+		}
+	}
 }
 
 function ajt_vol(id_crc,id_v1,id_v2,obj,val){

@@ -7,8 +7,8 @@ function ajt(obj,id,cbl,id_sup) {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
 				if(document.getElementById(obj)) {vue_elem(obj,id_sup);}
-				else{vue();}
-				window.parent.act_frm(cbl);
+				//else{vue();}
+				window.parent.act_frm(`lst_${obj}`)
 				act_acc();
 			}
 			else if(xmlhttp.status==408) {ajt(obj,id,cbl,id_sup);}
@@ -60,9 +60,9 @@ function ajt_mdl(id_mdl) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('crc_mdl',id_cat);
+				window.parent.act_frm('list_crc_mdl')
+				//vue_elem('crc_mdl',id_cat);
 				vue_elem('crc_txt',id_cat);//for publishing on website
-				window.parent.act_frm('up_crc');
 			}
 			else if(xmlhttp.status==408) {ajt_mdl(id_mdl);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_MDL"+xmlhttp.statusText+" </span>";}
@@ -81,8 +81,8 @@ function ajt_jrn(id_jrn) {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('mdl_jrn',id_cat);
-				window.parent.act_frm('up_mdl');
+				window.parent.act_frm('list_mdl_jrn')
+				//vue_elem('mdl_jrn',id_cat);
 			}
 			else if(xmlhttp.status==408) {ajt_jrn(id_jrn);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_JRN"+xmlhttp.statusText+" </span>";}
@@ -123,8 +123,8 @@ function ajt_srv(id_srv) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('prs_srv',id_cat);
-				window.parent.act_frm('up_prs');
+				//vue_elem('prs_srv',id_cat);
+				window.parent.act_frm('list_prs_srv');
 			}
 			else if(xmlhttp.status==408) {ajt_srv(id_srv);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_SRV"+xmlhttp.statusText+" </span>";}
@@ -194,8 +194,8 @@ function ajt_hbr(id_vll,id_rgm,id_hbr,id_chm) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('prs_hbr',id_cat);
-				window.parent.act_frm('up_prs');
+				//vue_elem('prs_hbr',id_cat);
+				window.parent.act_frm('list_prs_hbr');
 			}
 			else if(xmlhttp.status==408) {ajt_hbr(id_vll,id_rgm,id_hbr,id_chm);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_HBR"+xmlhttp.statusText+" </span>";}

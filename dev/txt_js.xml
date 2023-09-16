@@ -1,10 +1,6 @@
 <?phpxml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
-	<ajt_bss>
-		<fr>Ajouter base(s)?&#xA;Utiliser ';' et '-' pour ajouter plusieurs bases. &#xA;(ex: 2-4;6 => bases 2,3,4,6.)</fr>
-		<es>¿Añadir base(s)?&#xA;Usar ';' y '-' para añadir varias bases. &#xA;(ej: 2-4;6 => bases 2,3,4,6.)</es>
-	</ajt_bss>
 	<ajt_rmn>
 		<fr>Sélectionner une seule base!</fr>
 		<es>Selecionar una sola base!</es>

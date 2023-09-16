@@ -120,7 +120,6 @@ if(isset($_POST['obj'])){
 	}
 	elseif(substr($obj,0,7)=='mdl_rgn'){
 		$id_dev_mdl = substr($obj,7);
-		$id_rgn = $id;
 		$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
 		while($dt_rgn = ftc_ass($rq_rgn)){$ids_rgn[] = $dt_rgn['id_rgn'];}
 		$cbl = 'mdl';
@@ -178,7 +177,7 @@ if(isset($_POST['obj'])){
 		$id_sel_jrn = $ids[2];
 		$dt_jrn = ftc_ass(sel_quo("dev_jrn.id_cat AS id_cat_jrn,dev_mdl.id_cat AS id_mdl","dev_jrn INNER JOIN dev_mdl ON dev_jrn.id_mdl = dev_mdl.id",array("dev_mdl.id","dev_jrn.ord"),array($id_dev_mdl,$ord_jrn)));
 		$id_cat_jrn_sel = $dt_jrn['id_cat_jrn'];
-		$id_cat_mdl =  $dt_jrn['id_mdl'];
+		$id_cat_mdl = $dt_jrn['id_mdl'];
 		$jrn_opt_id_cat = explode('_',$id);
 		include("vue_jrn_opt.php");
 	}

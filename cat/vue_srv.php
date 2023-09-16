@@ -70,6 +70,6 @@ if($aut['cat']) {
 	<div id="dt_srv" class="dt_srv<?php echo $id ?>"><?php include("vue_dt_srv.php") ?></div>
 </div>
 <div class="div_cat2">
-	<div id="srv_prs" class="up_prs tbl_prs" ><?php include("vue_srv_prs.php"); ?></div>
+	<div id="srv_prs" class="list_prs_srv up_prs tbl_prs" ><?php include("vue_srv_prs.php"); ?></div>
 	<div id="srv_dev" class="srv_dev<?php echo $id ?> cat_dev tbl_prs"><?php include("vue_srv_dev.php"); ?></div>
 </div>

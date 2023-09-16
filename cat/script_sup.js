@@ -6,8 +6,8 @@ function sup(obj,id,cbl,id_sup) {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
 				if(document.getElementById(obj)) {vue_elem(obj,id_sup);}
-				else{vue();}
-				window.parent.act_frm(cbl);
+				//else{vue();}
+				window.parent.act_frm(`lst_${obj}`)
 				act_acc();
 				if(xmlhttp.responseText!='') {alt(xmlhttp.responseText);}
 			}
@@ -28,9 +28,9 @@ function sup_mdl(id_crc_mdl,ord) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('crc_mdl',id_cat);
+				window.parent.act_frm('list_crc_mdl')
+				//vue_elem('crc_mdl',id_cat);
 				vue_elem('crc_txt',id_cat);//for publishing on website
-				window.parent.act_frm('crc');
 			}
 			else if(xmlhttp.status==408) {sup_mdl(id_crc_mdl,ord);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR SUP_MDL "+xmlhttp.statusText+" </span>";}
@@ -49,9 +49,8 @@ function sup_jrn(id_mdl_jrn,ord) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('mdl_jrn',id_cat);
-				window.parent.act_frm('up_crc');
-				window.parent.act_frm('mdl');
+				window.parent.act_frm('list_mdl_jrn')
+				//vue_elem('mdl_jrn',id_cat);
 			}
 			else if(xmlhttp.status==408) {sup_jrn(id_mdl_jrn,ord);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR SUP_JRN "+xmlhttp.statusText+" </span>";}
@@ -92,8 +91,8 @@ function sup_prs(id_jrn_prs,ord) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('jrn_prs',id_cat);
-			//	window.parent.act_frm('dt_jrn');??
+				//vue_elem('jrn_prs',id_cat);
+				window.parent.act_frm('list_jrn_prs');
 			}
 			else if(xmlhttp.status==408) {sup_prs(id_jrn_prs,ord);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR SUP_PRS "+xmlhttp.statusText+" </span>";}
@@ -113,7 +112,6 @@ function sup_prs_opt(id_jrn_prs,ord) {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
 				vue_elem('jrn_prs',id_cat);
-			//	window.parent.act_frm('dt_jrn');??
 				window.parent.act_frm('up_jrn');
 				window.parent.act_frm('ajt_prs_opt');
 				window.parent.act_frm('prs_opt');
@@ -135,9 +133,8 @@ function sup_srv(id_prs_srv) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('prs_srv',id_cat);
-				window.parent.act_frm('up_prs');
-				window.parent.act_frm('prs');
+				//vue_elem('prs_srv',id_cat);
+				window.parent.act_frm('list_prs_srv');
 			}
 			else if(xmlhttp.status==408) {sup_srv(id_prs_srv);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR SUP_SRV "+xmlhttp.statusText+" </span>";}
@@ -156,8 +153,8 @@ function sup_hbr(id_prs_hbr) {
 	xmlhttp.onreadystatechange=function() {
 		if(xmlhttp.readyState==4) {
 			if(xmlhttp.status==200) {
-				vue_elem('prs_hbr',id_cat);
-				window.parent.act_frm('prs');
+				//vue_elem('prs_hbr',id_cat);
+				window.parent.act_frm('list_hbr');
 			}
 			else if(xmlhttp.status==408) {sup_hbr(id_prs_hbr);}
 			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR SUP_HBR "+xmlhttp.statusText+" </span>";}

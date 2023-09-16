@@ -57,6 +57,11 @@ if($nb_jrn['total']!=0) {
 					<td width="45%" class="td_cat <?php if($opt_jrn or isset($sel_mdl_jrn) and in_array($id_jrn,$sel_mdl_jrn)) {echo 'dsg';} else{echo 'dsg2';} ?>">
 						<table class="w-100">
 							<tr>
+								<td class="w-100"></td>
+								<td>web<br />+<br />devis</td>
+								<td>solo<br />devis</td>
+							<tr>
+							<tr>
 								<td>
 									<span class="lnk" onclick="window.parent.opn_frm('cat/ctr.php?cbl=jrn&id=<?php echo $id_jrn; ?>');"><?php echo stripslashes($dt_mdl_jrn['nom']); if(!empty($dt_mdl_jrn['info'])) {echo stripslashes(' ['.$dt_mdl_jrn['info'].']');} ?></span>
 									<br/>

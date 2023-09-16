@@ -1,33 +1,46 @@
-var flg_maj = true, flg_shd = false, id_grp, upd = 0;
+var flg_shd = false
 
-function maj(tab,col,val,id){
-	if(flg_maj){upd++;console.log('upd '+upd);flg_maj = false;}
-	if(window.XMLHttpRequest){eval('xmlhttp_maj'+id+col+'=new XMLHttpRequest()');}
-	else{eval('xmlhttp_maj'+id+col+'=new ActiveXObject("Microsoft.XMLHTTP")');}
-	eval('xmlhttp_maj'+id+col).onreadystatechange=function(){
-		if(eval('xmlhttp_maj'+id+col).readyState==4){
-			if(eval('xmlhttp_maj'+id+col).status==200){
-				if(col=='nomgrp'){act_tab();window.parent.act_frm('grp');}
-				else if(col=='nom' || col=='pre'){window.parent.act_frm('pax');}
-				else if(col=='dob' || col=='exp'){vue_elem('pax',id,col);}
-				else if(col=='ncn'){vue_elem('pax_ncn'+id,id_grp);}
-				else if(col=='prt'){vue_elem('pax_grp');window.parent.act_frm('pax');act_tab();}
-				else if(tab=='grp_tsk'){
-					window.parent.act_frm('tsk');
-					if(col=='date' || col=='respon' || col=='stat'){vue_elem('tsk_grp');}
-				}
-			}
-			else if(eval('xmlhttp_maj'+id+col).status==408){maj(tab,col,val,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>SAVE ERROR</span>";console.log(eval('xmlhttp_maj'+id+col).statusText);}
-			if(!flg_maj){upd--;console.log('upd '+upd);flg_maj = true;}
-		}
-	}
-	eval('xmlhttp_maj'+id+col).open("POST","maj.php",true);
-	eval('xmlhttp_maj'+id+col).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	eval('xmlhttp_maj'+id+col).send("tab="+tab+"&col="+col+"&val="+encodeURIComponent(val)+"&id="+id);
+const maj = (tab, col, val, id) => {//replaced by updateData //delete after encapsulate everything
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/updateGrpDB.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ tab, col, val, id }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      switch(col)
+      {
+        case 'nomgrp':
+          act_tab()
+          window.parent.act_frm('grp')
+          break
+        case 'prt':
+          act_tab()
+          viewPax()
+        case 'nom':
+        case 'pre':
+          window.parent.act_frm('pax')
+          break
+        case 'dob':
+        case 'exp':
+          vue_elem('pax', id, col)
+          break
+        case 'ncn':
+          vue_elem(`pax_ncn${id}`, id_grp)
+          break
+        case 'date':
+        case 'respon':
+        case 'stat':
+          vue_elem('tsk_grp')
+          break
+      }
+      if(tab == 'grp_tsk')
+        window.parent.act_frm('tsk')
+    }
+  }
 }
 
-function act_tab(){
+function act_tab(){//replaced by updateTab //delete after encapsulate everything
 	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xmlhttp.onreadystatechange=function(){
@@ -45,23 +58,6 @@ function act_tab(){
 function act_frm(cbl){
 	var elem = document.getElementsByClassName(cbl);
 	for(var i = 0; i < elem.length; i++){vue_elem(elem[i].id,id_grp);}
-}
-
-function ajt_pax(){
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load("GRP AJT PAX");
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){vue_elem('pax_grp');window.parent.act_frm('pax');act_tab();}
-			else if(xmlhttp.status==408){ajt_pax();}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_PAX "+xmlhttp.statusText+" </span>";}
-			unload("GRP AJT PAX");
-		}
-	}
-	xmlhttp.open("POST","ajt_pax.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id_grp="+id_grp);
 }
 
 function ajt_tsk(){
@@ -96,26 +92,6 @@ function ajt_fac(){
 	xmlhttp.open("POST","ajt_fac.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xmlhttp.send("id_grp="+id_grp);
-}
-
-function sup_pax(id){
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load("GRP SUP PAX");
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				if(xmlhttp.responseText==''){vue_elem('pax_grp');window.parent.act_frm('pax');act_tab();}
-				else{alt(xmlhttp.responseText);}
-			}
-			else if(xmlhttp.statu ==408){sup_pax(id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR SUP_PAX "+xmlhttp.statusText+" </span>";}
-			unload("GRP SUP PAX");
-		}
-	}
-	xmlhttp.open("POST","sup_pax.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id="+id);
 }
 
 function sup_tsk(id){
@@ -230,7 +206,7 @@ function vue_fll(cbl,obj,src){
 
 function src_pax(id_pax){
 	if(flg_shd){
-		$(".shd_pax").css({ opacity: 1 });
+		$(".tr-pax").css({ opacity: 1 });
 		$(".shd_crc").css({ opacity: 1 });
 		flg_shd = false;
 	}
@@ -239,8 +215,8 @@ function src_pax(id_pax){
 			success: function(responseText){
 				if(responseText != '0'){
 					flg_shd = true;
-					$(".shd_pax").css({ opacity: 0.5 });
-					$("#shd_pax"+id_pax).css({ opacity: 1 });
+					$(".tr-pax").css({ opacity: 0.5 });
+					$("#"+id_pax).css({ opacity: 1 });
 					$(".shd_crc").css({ opacity: 0.5 });
 					var arr_crc = responseText.split("|");
 					$.each(arr_crc, function(key,id_dev){

@@ -128,7 +128,8 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_frn']) and isset($data['re
 				$rsp = $txt->mel_frn->msg7->$id_lng;
 			}
 		}
-		echo json_encode($rsp.$rsp_srv);
+		$qa = array($rsp.$rsp_srv);
+		echo json_encode($qa);
 	}
 }
 ?>

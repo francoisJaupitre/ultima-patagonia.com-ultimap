@@ -1,5 +1,6 @@
 <?php
-if(isset($_POST['id_dev_jrn'])) {
+if(isset($_POST['id_dev_jrn']))
+{
   $id_dev_jrn = $_POST['id_dev_jrn'];
   $vue_jrn = $_POST['vue'];
 	$id_dev_crc = $_POST['id_dev_crc'];
@@ -15,7 +16,6 @@ if(isset($_POST['id_dev_jrn'])) {
 	include("../prm/res_prs.php");
 	include("../prm/res_srv.php");
 	include("../prm/rgm.php");
-	include("../cfg/vll.php");
 	include("../cfg/crr.php");
   include("../cfg/rgn.php");
 	$dt_jrn = ftc_ass(select("opt,dsc,id_mdl,id_pic,id_cat,date,ord","dev_jrn","id",$id_dev_jrn));
@@ -80,8 +80,8 @@ if(isset($_POST['id_dev_jrn'])) {
 		$rq_vll = sel_quo("id_rgn","cat_jrn_vll INNER JOIN cat_vll ON id_vll = cat_vll.id","id_jrn",$id_cat_jrn);
 		while($dt_vll = ftc_ass($rq_vll)) {$ids_rgn[] = $dt_vll['id_rgn'];}
 	}
+  include("../cfg/vll.php");
 	unset($ids_rgn,$prs_datas);
-  $id_rgn = 0;
   $rq_prs = select("id,nom,opt,ord,id_cat","dev_prs","id_jrn",$id_dev_jrn,"ord,opt DESC,nom,id");
   while($dt_prs = ftc_ass($rq_prs)){
     $prs_datas[$id_dev_jrn][$dt_prs['id']]['nom'] = $dt_prs['nom'];
@@ -92,5 +92,5 @@ if(isset($_POST['id_dev_jrn'])) {
 }
 ?>
 <table id="vue_dsc_jrn_<?php echo $id_dev_jrn ?>" class="w-100"><?php if($vue_jrn) {include("vue_dsc_jrn.php");} ?></table>
-<div id="vue_dt_jrn_<?php echo $id_dev_jrn ?>" <?php if(!$vue_jrn) {echo 'class="up_prs"';} ?> style="overflow-x: auto;"><?php include("vue_dt_jrn.php"); ?></div>
+<div id="vue_dt_jrn_<?php echo $id_dev_jrn ?>" <?php if(!$vue_jrn) {echo 'class="list_prs"';} ?> style="overflow-x: auto;"><?php include("vue_dt_jrn.php"); ?></div>
 <div id="vue_end_jrn_<?php echo $id_dev_jrn ?>" class="text-center"><?php include("vue_end_jrn.php"); ?></div>

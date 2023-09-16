@@ -12,7 +12,7 @@ $id_dev_jrn = insert(
 );
 if(empty($dt_jrn['titre']))
 {
-	$err_jrn .= $dt_jrn['nom'].",\n";
+	$err_jrn .= $dt_jrn['nom']."\n";
 }
 if(!empty($dt_jrn['alerte']))
 {

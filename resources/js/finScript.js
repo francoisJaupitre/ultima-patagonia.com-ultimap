@@ -1,4 +1,5 @@
-var id_lng
+var upd = 0 //used by root
+var flg_maj = true, id_lng //encapsulate asap
 
 (function()
 {

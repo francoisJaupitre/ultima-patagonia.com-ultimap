@@ -354,7 +354,7 @@ function vue_dev(cbl,obj,id) {
 			const ulCmd = document.getElementsByClassName("ul-cmd")
 			for(let item of ulCmd)
 			{
-				if(item.getElementsByClassName("copy-dev")[0])
+				if(item.getElementsByClassName("copy-elem")[0])
 					item.querySelector(".copy-elem").onclick = () => {
 						copyElem(cbl, item.id)
 					} //vue_dt_dev

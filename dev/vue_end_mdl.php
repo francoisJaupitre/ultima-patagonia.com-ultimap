@@ -11,28 +11,31 @@ if(isset($_POST['id_dev_mdl'])){
 	$id_cat_mdl = $dt_mdl['id_cat'];
 	$ord_mdl = $dt_mdl['ord'];
 	$fus_mdl = $dt_mdl['fus'];
-	$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
-	while($dt_rgn = ftc_ass($rq_rgn)) {$ids_rgn[] = $dt_rgn['id_rgn'];}
-	include("../cfg/vll.php");
 	include("../cfg/rgn.php");
 	$rq_jrn = select("*","dev_jrn","id_mdl",$id_dev_mdl,"ord,opt DESC");
-	while($dt_jrn = ftc_ass($rq_jrn)){
-		$jrn_datas[$dt_jrn['id']]['id_cat'] = $dt_jrn['id_cat'];
-		$jrn_datas[$dt_jrn['id']]['date'] = $dt_jrn['date'];
+	while($dt_jrn = ftc_ass($rq_jrn))
+	{
+		$jrn_datas[$dt_jrn['id']]['id_cat'] = $last_id_cat_jrn = $dt_jrn['id_cat'];
 		$jrn_datas[$dt_jrn['id']]['opt'] = $dt_jrn['opt'];
 		$jrn_datas[$dt_jrn['id']]['ord'] = $dt_jrn['ord'];
-		$jrn_datas[$dt_jrn['id']]['nom'] = $dt_jrn['nom'];
-		$jrn_datas[$dt_jrn['id']]['titre'] = $dt_jrn['titre'];
-		$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
 	}
 }
+if($last_id_cat_jrn > 0)
+{
+	$dt_vll = ftc_ass(sel_quo("id_vll", "cat_jrn_vll", "id_jrn", $last_id_cat_jrn, "ord DESC"));
+	$id_vll = $dt_vll['id_vll'];
+}
 if($vue_mdl and $aut['dev'] and $cnf < 1){
+	$rq_rgn = sel_quo("id_rgn","dev_mdl_rgn","id_mdl",$id_dev_mdl);
+	while($dt_rgn = ftc_ass($rq_rgn)) {$ids_rgn[] = $dt_rgn['id_rgn'];}
+	$id_rgn = 0;
+	include("../cfg/vll.php");
 	$cbl = "mdl";
 ?>
 <table>
 	<tr>
 		<td class="lcrl">
-			<span id="mdl_rgn<?php echo $id_dev_crc ?>" class="rgn"><?php include("vue_mdl_rgn.php"); ?></span>
+			<span id="mdl_rgn<?php echo $id_dev_mdl ?>" class="rgn"><?php include("vue_mdl_rgn.php"); ?></span>
 		</td>
 	</tr>
 	<tr>
@@ -54,8 +57,6 @@ if($vue_mdl and $aut['dev'] and $cnf < 1){
 </table>
 <?php
 }
-unset($ids_rgn);
-//$rq_jrn = select("ord","dev_jrn","opt=1 AND id_mdl",$id_dev_mdl,"ord");
 $nb_jrn = ftc_ass(select("COUNT(*) as total","dev_jrn","opt=1 AND id_mdl",$id_dev_mdl));
 if($nb_jrn['total'] >0){
 ?>
@@ -76,10 +77,10 @@ if($nb_jrn['total'] >0){
 		<td width="80%" class="dsg">
 			<strong><?php echo $nb_jrn['total'].' '.$txt->jours->$id_lng.' : '; ?></strong>
 <?php
-		foreach($jrn_datas as $id_dev_jrn => $dt_jrn) {
+		foreach($jrn_datas as $id_dev_jrn => $dt_jrn)
+		{
 			if($dt_jrn['opt']) {echo $dt_jrn['ord'].',';}
 		}
-		//while($dt_jrn = ftc_ass($rq_jrn)){echo $dt_jrn['ord'].',';}
 ?>
 		</td>
 <?php

@@ -58,7 +58,7 @@ if($aut['dev'] and $cnf<1){
 	}
 	if($trf_mdl){
 ?>
-				<li onclick="ajt_bss('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->ajtbss->$id_lng; ?></li>
+				<li onclick="addBss('mdl',<?php echo $id_dev_mdl ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->ajtbss->$id_lng; ?></li>
 <?php
 		if(num_rows($rq_bss_mdl)>0){
 ?>

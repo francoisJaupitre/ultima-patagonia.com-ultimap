@@ -12,7 +12,27 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 	include("../../prm/lgg.php");
 	$txt = simplexml_load_file('../xml/updateTxt.xml');
 	$car = substr(trim($val), 0, 1);
-	$not_col = array('nom', 'titre', 'jours', 'date', 'dt_min', 'dt_max', 'tel', 'tel_hbr', ' tel_res', 'info', 'notes', 'dsc', 'alerte', 'lon', 'lat', 'sel_mdl_jrn', 'adresse', 'notfrs');
+	$not_col = array(
+		'nom',
+		'titre',
+		'jours',
+		'date',
+		'dt_min',
+		'dt_max',
+		'tel',
+		'tel_hbr',
+		'tel_res',
+		'info',
+		'notes',
+		'dsc',
+		'alerte',
+		'lon',
+		'lat',
+		'sel_mdl_jrn',
+		'adresse',
+		'notfrs',
+		'bnq'
+	);
 	if(!in_array($col, $not_col))
 	{
 		$val = preg_replace('/\s+/', '', $val);
@@ -22,7 +42,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		for($i = 0; $i < $len; $i++)
 		{
 			$car = substr($val, $i, 1);
-			if(!(is_numeric($car) or $car == '(' or $car == ')' or $car == '+' or $car == '-' or $car == '*' or $car == '/' or $car == '.' or $car == ', '))
+			if(!(is_numeric($car) or $car == '(' or $car == ')' or $car == '+' or $car == '-' or $car == '*' or $car == '/' or $car == '.' or $car == ','))
 			{
 				$flg = false;
 				break;
@@ -30,7 +50,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 		if($flg)
 		{
-			$code = '$val = '.str_replace(', ', '.', $val).';';
+			$code = '$val = '.str_replace(',', '.', $val).';';
 			try
 			{
 				@eval($code);
@@ -198,24 +218,24 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 	}elseif($col == "dt_min" || $col == "dt_max")
 	{
-		if($val!='')
+		if($val != '')
 		{
 			$dt = explode('/', $val);
 			if(!isset($dt[2]))
 			{
 				$flg_y = true;
-				if(strtotime(date("Y").'-'.$dt[1].'-'.$dt[0])>=strtotime(date("Y-m-d")) or $col == "dt_min")
+				if(strtotime(date("Y").'-'.$dt[1].'-'.$dt[0]) >= strtotime(date("Y-m-d")) or $col == "dt_min")
 				{
-					$y=date("Y");
+					$y = date("Y");
 				}else{
-					$y=date("Y")+1;
+					$y = date("Y")+1;
 				}
 			}else{
-				$y=$dt[2];
+				$y = $dt[2];
 			}
 			$val = $y.'-'.$dt[1].'-'.$dt[0];
 		}else{
-			$val='0000-00-00';
+			$val = '0000-00-00';
 		}
 	}elseif($col == "jours" and !$val > 0)
 	{
@@ -223,7 +243,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		return ;
 	}elseif($col == 'pay' and $val == '1')
 	{
-		include("../cfg/crr.php");
+		include("../../cfg/crr.php");
 		if($tab == 'dev_srv_pay')
 		{
 			$dt_pay = ftc_ass(sel_quo("crr", "dev_srv_pay", "id", $id));

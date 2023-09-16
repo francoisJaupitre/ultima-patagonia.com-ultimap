@@ -10,7 +10,6 @@ if(isset($data['cbl']) and isset($data['id']) and isset($data['nom']))
 	switch($cbl)
 	{
 		case 'dev':
-			include("../prm/aut.php");
 			$id_crc = $data['id'];
 			$dt_crc = ftc_ass(sel_quo("*","dev_crc","id",$id_crc));
 			unset($dt_crc['id'],$dt_crc['dt_cnf']);

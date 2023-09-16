@@ -6,7 +6,7 @@ if(empty($dt_crc['titre']))
 }
 if(!$flg_txt)
 {
-  $err_crc .= $dt_crc['nom'].",\n";
+  $err_crc .= $dt_crc['nom']."\n";
 }
 if(!empty($dt_crc['alerte']))
 {
@@ -26,7 +26,7 @@ while($dt_crc_mdl = ftc_ass($rq_crc_mdl))
     $fus = 0;
   }
   $id_rmn = 0;
-  $sel_crc_jrn = explode(", ", $dt_crc_mdl['sel_mdl_jrn']);
+  $sel_crc_jrn = explode(',', $dt_crc_mdl['sel_mdl_jrn']);
   include("setMdlData.php");
   if($fus)
   {

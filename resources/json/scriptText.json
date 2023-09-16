@@ -206,9 +206,9 @@
     }
   ],
   "maj_lng": {
-		"fr": "Changer la langue d'utilisateur maintenant?&#xA;Toutes les onglets seront fermés.",
-		"es": "¿Cambiar el idioma de Ultimap ahora?&#xA;Todas las pestanas serán cerradas.",
-		"pt": "Alterar o idioma de Ultimap ahora?&#xA;Todos os guias serão fechados."
+		"fr": "Changer la langue d'utilisateur maintenant?<br>Toutes les onglets seront fermés.",
+		"es": "¿Cambiar el idioma de Ultimap ahora?<br>Todas las pestanas serán cerradas.",
+		"pt": "Alterar o idioma de Ultimap ahora?<br>Todos os guias serão fechados."
   },
   "arch_dev": {
     "fr": "Etes-vous sur de vouloir ARCHIVER ce devis ?",
@@ -250,9 +250,9 @@
     "es": "Ingresas un identificador unico para el URL."
   },
   "web1": {
-    "fr": "PUBLICATION ANNULEE !&#xA;Cet url est déjà utilisé.",
-    "es": "¡PUBLICACIÓN CANCELADA!&#xA;Esta URL ya está en uso.",
-    "pt": "PUBLICAÇÃO CANCELADA!&#xA;Este URL já está em uso."
+    "fr": "PUBLICATION ANNULEE !<br>Cet url est déjà utilisé.",
+    "es": "¡PUBLICACIÓN CANCELADA!<br>Esta URL ya está en uso.",
+    "pt": "PUBLICAÇÃO CANCELADA!<br>Este URL já está em uso."
   },
   "dup_chm": {
     "fr": "Créer une COPIE de cette chambre et ses tarifs ?",
@@ -355,8 +355,8 @@
     "es": "¿Actualizar las tarifas de este servicio?"
   },
   "act_elem_crc": {
-    "fr": "Cette option remplacera tous les éléments présents dans ce circuit?&#xA;Toutes les informations seront perdues !",
-    "es": "Esta opción remplazara todos los elementos presentes en este circuito?&#xA;¡Todas las informaciones se borrarán!"
+    "fr": "Cette option remplacera tous les éléments présents dans ce circuit?<br>Toutes les informations seront perdues !",
+    "es": "Esta opción remplazara todos los elementos presentes en este circuito?<br>¡Todas las informaciones se borrarán!"
   },
   "act_elem_mdl": {
     "fr": "Actualiser les éléments de ce module ?",
@@ -367,8 +367,8 @@
     "es": "¿Actualizar los elementos en esta jornada?"
   },
   "act_elem_prs": {
-    "fr": "Cette option remplacera tous les éléments présents dans cette prestation?&#xA;Toutes les informations seront perdues !",
-    "es": "¡Esta opción remplazara todos los elementos presentes en esta prestación?&#xA;¡Todas las informaciones se borrarán!"
+    "fr": "Cette option remplacera tous les éléments présents dans cette prestation?<br>Toutes les informations seront perdues !",
+    "es": "¡Esta opción remplazara todos los elementos presentes en esta prestación?<br>¡Todas las informaciones se borrarán!"
   },
   "hbr_def": {
     "fr": "Sélectionner les hôtels par défaut pour chaque hébergement non défini de ce circuit ?",
@@ -379,12 +379,16 @@
     "es": "¿Confirmar esta cotización?"
   },
   "chk_rch": {
-    "fr": "TEXTE(S) NON SAUVEGARDE(S) !&#xA;Les modifications seront perdues !",
-    "es": "¡TEXTO(S) SIN GUARDAR!&#xA;¡Las modificaciones serán descartadas!"
+    "fr": "TEXTE(S) NON SAUVEGARDE(S) !<br>Les modifications seront perdues !",
+    "es": "¡TEXTO(S) SIN GUARDAR!<br>¡Las modificaciones serán descartadas!"
   },
   "addJrnNoSrv": {
     "fr": "Entrez un nombre de jours sans services.",
     "es": "Ingrese un numero de jornadas sin servicios.",
     "pt": "Digite um número de jornadas sem serviços."
+  },
+  "ajt_bss": {
+    "fr": "Ajouter base(s)?'\n'Utiliser ';' et '-' pour ajouter plusieurs bases. '\n'(ex: 2-4;6 => bases 2,3,4,6.)",
+    "es": "¿Añadir base(s)?'\n'Usar ';' y '-' para añadir varias bases. '\n'(ej: 2-4;6 => bases 2,3,4,6.)"
   }
 }

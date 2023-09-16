@@ -82,7 +82,7 @@ if(isset($bss_crc)){
 }
 else{
 ?>
-		<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="button" value="<?php echo $txt->ajt->$id_lng; ?>" onclick="ajt_bss('crc',<?php echo $id_dev_crc ?>);">
+		<input <?php if(!$aut['dev']){echo ' disabled';} ?> type="button" value="<?php echo $txt->ajt->$id_lng; ?>" onclick="addBss('crc',<?php echo $id_dev_crc ?>);">
 <?php
 }
 ?>

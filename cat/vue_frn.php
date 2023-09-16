@@ -3,9 +3,9 @@ $dt_frn = ftc_ass(select("*","cat_frn","id",$id));
 ?>
 <div class="fr_w71">
 	<div style="float:right;" class="tbl_prs">
-		<div id="frn_ctg" class="dsg"><?php include("vue_frn_ctg.php"); ?></div>
+		<div id="frn_ctg_srv" class="dsg"><?php include("vue_frn_ctg_srv.php"); ?></div>
 		<hr/>
-		<div id="frn_vll" class="vll dsg"><?php include("vue_frn_vll.php"); ?></div>
+		<div id="frn_vll" class="dsg"><?php include("vue_frn_vll.php"); ?></div>
 	</div>
 	<div class="div_cat2">
 		<div class="tbl_prs">

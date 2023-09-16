@@ -34,7 +34,7 @@ $id_vll = $dt_lieu['id_vll'];
 				</table>
 				<div class="tbl_prs">
 					<div id="lieu_txt" class="lmcf"><?php include("vue_lieu_txt.php"); ?></div>
-					<div id="lieu_prs" class="up_prs"><?php include("vue_lieu_prs.php"); ?></div>
+					<div id="lieu_prs" class="list_prs_lieu"><?php include("vue_lieu_prs.php"); ?></div>
 				</div>
 			</td>
 			<td class="tbl_prs w-100">

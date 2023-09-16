@@ -1,5 +1,3 @@
-var flg_maj = true, upd = 0;
-
 function maj(tab,col,val,id,id_sup){
 	if(flg_maj){upd++;console.log('upd '+upd);flg_maj = false;}
 	if(id_sup>0){load('DEV maj');}

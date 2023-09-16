@@ -402,9 +402,9 @@ if(isset($_POST['id']) and isset($_POST['obj']) and isset($_POST['col'])) {
 		$cbl = 'frn';
 		include("vue_frn_vll.php");
 	}
-	elseif($obj=='frn_ctg') {
+	elseif($obj=='frn_ctg_srv') {
 		include("../prm/ctg_srv.php");
-		include("vue_frn_ctg.php");
+		include("vue_frn_ctg_srv.php");
 	}
 	elseif($obj=='frn_pay') {
 		include("../cfg/crr.php");

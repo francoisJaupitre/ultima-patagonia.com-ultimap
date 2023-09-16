@@ -63,35 +63,45 @@ function ajt_jrn(id_cat_jrn,id_dev_mdl,ord_jrn,id_cat_mdl,id_sel_jrn){
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	load('DEV ajt_jrn');
 	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
+		if(xmlhttp.readyState==4)
+		{
+			if(xmlhttp.status==200)
+			{
 				var rsp = xmlhttp.responseText.split("|");
-				if(ord_jrn<1){
+				if(ord_jrn < 1)
+				{
 					var div = document.createElement('div');
 					div.id = "div_jrn"+rsp[0];
-					var txt;
-					if(id_cat_jrn>-1){txt = "<div class='tbl_jrn'>";}
-					txt += "<table id='vue_ttr_jrn_"+rsp[0]+"'"
-					if(id_cat_jrn>0){
+					var txt = "<div";
+					if(id_cat_jrn>-1)
+					{
+						txt += " class='tbl_jrn'";
+					}
+					txt += "><table id='vue_ttr_jrn_"+rsp[0]+"'"
+					if(id_cat_jrn > 0)
+					{
 						txt += " class='up_jrn"+id_cat_jrn+"'";
 						window.parent.act_frm('jrn_dev'+id_cat_jrn);
 					}
 					txt += " width='100%'";
-					if(id_cat_jrn>-1){
+					if(id_cat_jrn > -1)
+					{
 						txt += "></table><div id='vue_dsc_dt_end_jrn_"+rsp[0]+"'><table id='vue_dsc_jrn_"+rsp[0]+"' width='100%'></table>";
 						txt += "<div id='vue_dt_jrn_"+rsp[0]+"' style='overflow-x: auto;'></div><div id='vue_end_jrn_"+rsp[0]+"' class='text-center'></div></div>";
 					}
-					if(aut){txt += "</div><div id='rpl_opt_jrn"+rsp[0]+"' class='text-center'><table><tr><td id='rpl_jrn"+rsp[0]+"' class='ajt_jrn_rpl'></td><td id='opt_jrn"+rsp[0]+"' class='ajt_jrn_opt'></td></tr></table></div>";}
-					else if(id_cat_jrn>-1){txt += "</div>";}
+					if(aut)
+					{
+						txt += "<div id='rpl_opt_jrn"+rsp[0]+"' class='text-center'><table><tr><td id='rpl_jrn"+rsp[0]+"' class='ajt_jrn_rpl'></td><td id='opt_jrn"+rsp[0]+"' class='ajt_jrn_opt'></td></tr></table></div>";
+					}
 					txt += "</div>";
 					div.innerHTML = txt;
 					div.style.display = 'none';
-					if(rsp[1]>0){
+					if(rsp[1] > 0)
+					{
 						var dt_mdl = document.getElementById("vue_dt_mdl_"+id_dev_mdl);
 						dt_mdl.insertBefore(div,document.getElementById('div_jrn'+rsp[1]));
 						dt_mdl.insertBefore(document.createElement("br"),document.getElementById('div_jrn'+rsp[1]));
-					}
-					else{
+					}else{
 						document.getElementById("vue_dt_mdl_"+id_dev_mdl).appendChild(document.createElement("br"));
 						document.getElementById("vue_dt_mdl_"+id_dev_mdl).appendChild(div);
 					}
@@ -206,10 +216,10 @@ function ajt_prs(id_cat_prs,id_dev_jrn,ord_prs,ctg_prs,id_cat_jrn,id_dev_mdl,id_
 					div.setAttribute('class','prs_prs'+id_dev_jrn+'_'+rsp[2]+' sel_opt');
 					txt = "<table width='100%'><tr id='vue_ttr_prs_"+rsp[0]+"' ";
 					if(id_cat_prs>0){
-						txt += "class='up_prs"+id_cat_prs+"'";
+						txt += "class='list_prs"+id_cat_prs+"'";
 						window.parent.act_frm('prs_dev'+id_cat_prs);
 					}
-					txt +="></tr><tr id='vue_dsc_prs_"+rsp[0]+"'></tr></table><span id='vue_dt_prs_"+rsp[0]+"' class='up_srv cat_hbr'></span><span id='vue_end_prs_"+rsp[0]+"'></span><div id='vue_trf_hbr_"+rsp[0]+"'></div>";
+					txt +="></tr><tr id='vue_dsc_prs_"+rsp[0]+"'></tr></table><span id='vue_dt_prs_"+rsp[0]+"' class='up_srv up_hbr'></span><span id='vue_end_prs_"+rsp[0]+"'></span><div id='vue_trf_hbr_"+rsp[0]+"'></div>";
 					div.innerHTML = txt;
 					div.style.display = 'none';
 					if(rsp[1]>0){
@@ -234,10 +244,10 @@ function ajt_prs(id_cat_prs,id_dev_jrn,ord_prs,ctg_prs,id_cat_jrn,id_dev_mdl,id_
 					div.setAttribute('class','prs_prs'+id_dev_jrn+'_'+ord_prs);
 					txt = "<table width='100%'><tr id='vue_ttr_prs_"+rsp[0]+"' ";
 					if(id_cat_prs>0){
-						txt += "class='up_prs"+id_cat_prs+"'";
+						txt += "class='list_prs"+id_cat_prs+"'";
 						window.parent.act_frm('prs_dev'+id_cat_prs);
 					}
-					txt +="></tr><tr id='vue_dsc_prs_"+rsp[0]+"'></tr></table><span id='vue_dt_prs_"+rsp[0]+"' class='up_srv cat_hbr'></span><span id='vue_end_prs_"+rsp[0]+"'></span><div id='vue_trf_hbr_"+rsp[0]+"'></div>";
+					txt +="></tr><tr id='vue_dsc_prs_"+rsp[0]+"'></tr></table><span id='vue_dt_prs_"+rsp[0]+"' class='up_srv up_hbr'></span><span id='vue_end_prs_"+rsp[0]+"'></span><div id='vue_trf_hbr_"+rsp[0]+"'></div>";
 					div.innerHTML = txt;
 					div.style.display = 'none';
 					document.getElementById("div_prs"+id_ant_prs).parentNode.insertBefore(div, document.getElementById("div_prs"+id_ant_prs).nextSibling);
@@ -360,37 +370,6 @@ function ajt_hbr(id_cat_hbr,id_cat_chm,id_hbr_vll,id_hbr_rgm,id_dev_hbr,id_dev_p
 		eval('xmlhttp_ajt_hbr_'+id_dev_hbr).setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		eval('xmlhttp_ajt_hbr_'+id_dev_hbr).send("id_cat_hbr="+id_cat_hbr+"&id_cat_chm="+id_cat_chm+"&id_hbr_vll="+id_hbr_vll+"&id_hbr_rgm="+id_hbr_rgm+"&id_dev_hbr="+id_dev_hbr+"&sel="+sel+"&res="+res+"&dt_res="+dt_res+"&rva="+rva);
 	}
-}
-
-function ajt_bss(cbl,id){
-	if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-	else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	xhttp.open("GET","txt_js.xml",false); //remplazar por json
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-	x=xmlDoc.getElementsByTagName("ajt_bss");
-	y=x[0].getElementsByTagName(id_lng);
-	var bss = prompt(y[0].childNodes[0].nodeValue);
-	if(bss == null || bss==''){return;}
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV ajt_bss');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				if(xmlhttp.responseText.length>0){alt(xmlhttp.responseText);}
-				if(cbl=='mdl'){vue_mdl('ttr',id);vue_mdl('trf',id);sel_jrn('dt_prs',id);}
-				else if(cbl=='crc'){vue_crc('ttr');vue_crc('trf');sel_mdl('dt_prs');}
-				vue_crc('res');
-			}
-			else if(xmlhttp.status==408){ajt_bss(cbl,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_BSS "+xmlhttp.statusText+" </span>";}
-			unload('DEV ajt_bss');
-		}
-	}
-	xmlhttp.open("POST","ajt_bss.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("cbl="+cbl+"&id="+id+"&base="+bss+"&cnf="+cnf);
 }
 
 function ajt_pax(cbl,id,id_sup){

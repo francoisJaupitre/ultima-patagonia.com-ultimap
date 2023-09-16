@@ -63,20 +63,20 @@
       <es>NUEVAS TARIFAS DISPONIBLES PARA:</es>
     </nvtrf>
 		<crc>
-			<fr>ERREUR DE TEXTES POUR LE CIRCUIT:&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA EL CIRCUITO:&#xA;</es>
+			<fr>ERREUR DE TEXTE POUR LE CIRCUIT:&#xA;</fr>
+			<es>ERROR DE TEXTO PARA EL CIRCUITO:&#xA;</es>
 		</crc>
 		<mdl>
-			<fr>ERREUR DE TEXTES POUR LE(S) MODULE(S):&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA EL(LOS) MODULO(S):&#xA;</es>
+			<fr>ERREUR DE TEXTE POUR LE(S) MODULE(S):&#xA;</fr>
+			<es>ERROR DE TEXTO PARA EL(LOS) MODULO(S):&#xA;</es>
 		</mdl>
 		<jrn>
-			<fr>ERREUR DE TEXTES POUR LE(S) JOURNEE(S):&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA LA(S) JORNADA(S):&#xA;</es>
+			<fr>ERREUR DE TEXTE POUR LE(S) JOURNEE(S):&#xA;</fr>
+			<es>ERROR DE TEXTO PARA LA(S) JORNADA(S):&#xA;</es>
 		</jrn>
 		<prs>
-			<fr>ERREUR DE TEXTES POUR LE(S) PRESTATION(S):&#xA;</fr>
-			<es>ERROR DE TEXTOS PARA LA(S) PRESTACION(ES):&#xA;</es>
+			<fr>ERREUR DE TEXTE POUR LE(S) PRESTATION(S):&#xA;</fr>
+			<es>ERROR DE TEXTO PARA LA(S) PRESTACION(ES):&#xA;</es>
 		</prs>
 		<hbr>
 			<fr>ERREUR DE TARIFS POUR LE(S) HEBERGEMENT(S):&#xA;</fr>

@@ -19,6 +19,7 @@ if($cbl=='dev' and $vrs>1){$ttr .= "_V".$vrs;}
 $html = '<head><link rel="stylesheet" type="text/css" href="forme.css?version='.date('Y-m-d-H-i-s', filemtime('forme.css')).'" /><link rel="stylesheet" type="text/css" href="../prm/forme.css?version='.date('Y-m-d-H-i-s', filemtime('../prm/forme.css')).'" /><link rel="stylesheet" type="text/css" href="../prm/css/'.$dir.'/tmpl'.$clt_tmpl[$id_clt].'.css?version='.date('Y-m-d-H-i-s', filemtime('../prm/css/'.$dir.'/tmpl'.$clt_tmpl[$id_clt].'.css')).'" /></head><body>';
 if(!$clt_tmpl[$id_clt]){$html .= '<footer><table style="border-top: 1px solid black; width: 100%"><tr><td><img src="../prm/img/'.$dir.'/logo2.jpg" style="width: 190px;"/></td><td class="w-100"><div class="fs1">'.$txt_prg->footer1.'</div><div class="fs1">'.$txt_prg->footer2.'</div></td></tr></table></footer>';}
 ?>
+<link rel="stylesheet" type="text/css" href="../prm/css/<?php echo $dir.'/tmpl'.$clt_tmpl[$id_clt] ?>.css?version=<?php echo date('Y-m-d-H-i-s', filemtime('../prm/css/'.$dir.'/tmpl'.$clt_tmpl[$id_clt].'.css')) ?>" />
 <div class="pge">
 <?php
 ob_start();
@@ -399,13 +400,29 @@ if($cbl=='dev'){
 ?>
 			<table>
 <?php
-				if(isset($bss[$id_trf])){
+				if(isset($bss[$id_trf]))
+				{
 					foreach($bss[$id_trf] as $i => $base){
-						if(isset($trf_db_hbr[$id_trf])) {$prx = $trf_srv[$id_trf][$i]+$trf_db_hbr[$id_trf]/2;}
-						elseif(isset($trf_srv[$id_trf][$i])){$prx = $trf_srv[$id_trf][$i];}
-						else{$prx = 0;}
-						if($ptl){$prx += $cst_db_hbr[$id_trf]/(2*$base);}
-						if($psg){$prx += ($cst_sg_hbr[$id_trf]-$cst_db_hbr[$id_trf]/2)/$base;}
+						if(isset($trf_db_hbr[$id_trf]) and isset($trf_srv[$id_trf][$i]))
+						{
+							$prx = $trf_srv[$id_trf][$i] + $trf_db_hbr[$id_trf] / 2;
+						}elseif(isset($trf_db_hbr[$id_trf]))
+						{
+							$prx = $trf_db_hbr[$id_trf] / 2;
+						}elseif(isset($trf_srv[$id_trf][$i]))
+						{
+							$prx = $trf_srv[$id_trf][$i];
+						}else{
+							$prx = 0;
+						}
+						if($ptl)
+						{
+							$prx += $cst_db_hbr[$id_trf] / (2 * $base);
+						}
+						if($psg)
+						{
+							$prx += ($cst_sg_hbr[$id_trf] - $cst_db_hbr[$id_trf] / 2) / $base;
+						}
 ?>
 				<tr>
 <?php
@@ -534,14 +551,14 @@ if($cbl=='dev'){
 <?php
 		if($clt_tmpl[$id_clt]==1 and $vue_opt and (isset($opt_srv_id) or isset($opt_prs_id))){include("vue_dt_prg_trf_opt.php");}
 	//VOLS DOMESTIQUES
-		if($vue_vols and isset($vol_id)){
+		if($vue_vols and isset($vols_id)){
 			$t=0;
 ?>
 			<span class="fs13"><?php echo $txt_prg->lst_vol->$id_lgg; ?></span>
 			<br /><br />
 			<table>
 <?php
-			foreach($vol_id as $id_vol){
+			foreach($vols_id as $id_vol){
 				if(strpos($id_vol, '_')){
 					$id_v1 = intval(strstr($id_vol, '_',true));
 					$pos = strpos($id_vol, '_');
@@ -1510,3 +1527,4 @@ if($flg_map){
 }
 ?>
 </div>
+<input type="hidden" id="vols_id" value='<?php echo json_encode($vols_id) ?>' />

@@ -1,7 +1,7 @@
 <?php //GET SOME SUPPLIER SERVICES IN QUOTATIONS AND OPERATIONS
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
-if(isset($data['id_frn']) and $data['id_frn'] > 0 and isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0  and isset($data['id_dev_srv'])  and isset($data['res'])  and isset($data['cnf']))
+if(isset($data['id_frn']) and $data['id_frn'] > 0 and isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0  and isset($data['id_dev_srv'])  and isset($data['res']) and isset($data['cnf']))
 {
 	include("functions.php");
 	if($data['res'] > -2 and $data['res'] < 6 and $data['id_dev_srv'] > 0)

@@ -1,5 +1,6 @@
 <?php
-if(isset($_POST['id_dev_jrn'])){
+if(isset($_POST['id_dev_jrn']))
+{
 	$id_dev_jrn = $_POST['id_dev_jrn'];
 	$vue_jrn = $_POST['vue'];
 	$id_dev_crc = $_POST['id_dev_crc'];
@@ -8,7 +9,7 @@ if(isset($_POST['id_dev_jrn'])){
 	include("../prm/fct.php");
 	include("../prm/aut.php");
 	include("../prm/col.php");
-	$dt_jrn = ftc_ass(select("id_cat,opt,date,ord,nom,titre,id_mdl","dev_jrn","id",$id_dev_jrn));
+	$dt_jrn = ftc_ass(select("id_cat, opt, date, ord, nom, titre, id_mdl", "dev_jrn", "id", $id_dev_jrn));
 	$id_cat_jrn = $dt_jrn['id_cat'];
 	$opt_jrn = $dt_jrn['opt'];
 	$date_jrn = $dt_jrn['date'];
@@ -16,44 +17,63 @@ if(isset($_POST['id_dev_jrn'])){
 	$nom_jrn = $dt_jrn['nom'];
 	$ttr_jrn = $dt_jrn['titre'];
 	$id_dev_mdl = $dt_jrn['id_mdl'];
-	$rq_dev_jrn = sel_quo("*","dev_jrn",array("ord","id_mdl"),array($ord_jrn,$id_dev_mdl),"opt DESC");
-	while($dt_dev_jrn = ftc_ass($rq_dev_jrn)){
+	$rq_dev_jrn = sel_quo("*", "dev_jrn", array("ord", "id_mdl"), array($ord_jrn, $id_dev_mdl),"opt DESC");
+	while($dt_dev_jrn = ftc_ass($rq_dev_jrn))
+	{
 		$jrn_opt_id_cat[] = $dt_dev_jrn['id_cat'];
 		$jrn_rpl_id_cat[] = $dt_dev_jrn['id_cat'];
 	}
-	if(!$opt_jrn){
-		$dt_sel_jrn = ftc_ass(select("id","dev_jrn","id_mdl=".$id_dev_mdl." AND opt=1 AND ord",$ord_jrn));
+	if(!$opt_jrn)
+	{
+		$dt_sel_jrn = ftc_ass(sel_quo("id", "dev_jrn", array("id_mdl", "opt", "ord"), array($id_dev_mdl, 1, $ord_jrn)));
 		$id_sel_jrn = $dt_sel_jrn['id'];
+	}else{
+		$id_sel_jrn = $id_dev_jrn;
 	}
-	$nb_jrn_opt = ftc_ass(select("COUNT(*) as total","dev_jrn","ord=".$ord_jrn." and id_mdl",$id_dev_mdl));
-	if($nb_jrn_opt['total'] > 1){$flg_jrn_opt = true;}
-	else{$flg_jrn_opt = false;}
-	$dt_mdl = ftc_ass(select("id_cat,col,ord,trf,fus","dev_mdl","id",$id_dev_mdl));
+	$nb_jrn_opt = ftc_ass(sel_quo("COUNT(*) as total","dev_jrn",array("ord", "id_mdl"), array($ord_jrn, $id_dev_mdl)));
+	if($nb_jrn_opt['total'] > 1)
+	{
+		$flg_jrn_opt = true;
+	}else{
+		$flg_jrn_opt = false;
+	}
+	$dt_mdl = ftc_ass(sel_quo("id_cat, col, ord, trf, fus", "dev_mdl", "id", $id_dev_mdl));
 	$id_cat_mdl = $dt_mdl['id_cat'];
 	$id_col_mdl = $dt_mdl['col'];
 	$trf_mdl = $dt_mdl['trf'];
 	$fus_mdl = $dt_mdl['fus'];
 	$ord_mdl = $dt_mdl['ord'];
-	$min_jrn = ftc_num(select("MIN(ord)","dev_jrn","id_mdl",$id_dev_mdl));
-	$max_jrn = ftc_num(select("MAX(ord)","dev_jrn","id_mdl",$id_dev_mdl));
-	$nb_mdl = ftc_ass(select("COUNT(*) as total","dev_mdl","id_crc",$id_dev_crc));
+	$min_jrn = ftc_num(select("MIN(ord)", "dev_jrn", "id_mdl", $id_dev_mdl));
+	$max_jrn = ftc_num(select("MAX(ord)", "dev_jrn", "id_mdl", $id_dev_mdl));
+	$nb_mdl = ftc_ass(select("COUNT(*) as total", "dev_mdl", "id_crc", $id_dev_crc));
 }
-if($id_cat_mdl>0 and $id_cat_jrn>0){
-	$rq_cat_mdl_jrn = select("opt","cat_mdl_jrn","id_mdl=".$id_cat_mdl." AND id_jrn",$id_cat_jrn);
-	if(num_rows($rq_cat_mdl_jrn)==1){
+if($id_cat_mdl > 0 and $id_cat_jrn > 0)
+{/* for sup('jrn'... opt_cat_mdl == 1 => sup_cat() enabled */
+	$dt_cat_mdl_jrn = ftc_ass(sel_quo("ord", "cat_mdl_jrn", array("id_mdl", "id_jrn"), array($id_cat_mdl, $id_cat_jrn)));
+	$ord_cat_mdl_jrn = $dt_cat_mdl_jrn['ord'];
+	$rq_cat_mdl_jrn = sel_quo("opt", "cat_mdl_jrn", array("id_mdl", "ord"), array($id_cat_mdl, $ord_cat_mdl_jrn));
+	if(num_rows($rq_cat_mdl_jrn) == 1)
+	{
 		$dt_cat_mdl_jrn = ftc_ass($rq_cat_mdl_jrn);
 		$opt_cat_mdl = $dt_cat_mdl_jrn['opt'];
+	}else{
+		$opt_cat_mdl = $opt_jrn;
 	}
-	else{$opt_cat_mdl = 1;}
+}else{
+	$opt_cat_mdl = 0;
 }
-else{$opt_cat_mdl = 0;}
-if($date_jrn!='0000-00-00'){$jour= date("D",strtotime($date_jrn));}
-else{$jour = 'x';}
+if($date_jrn != '0000-00-00')
+{
+	$jour = date("D",strtotime($date_jrn));
+}else{
+	$jour = 'x';
+}
 $nb_prs = ftc_ass(select("COUNT(*) as total","dev_prs","id_jrn",$id_dev_jrn));
 ?>
 <tr>
 <?php
-if($id_cat_jrn>-1){
+if($id_cat_jrn > -1)
+{
 ?>
 	<td onclick="scrollup();"><img src="../prm/img/up.png"></td>
 <?php
@@ -116,7 +136,7 @@ if($id_cat_jrn>-1){
 	}
 	if(($aut['dev'] and $cnf<1) or (!$opt_jrn and $aut['res'] and $cnf>0)){
 ?>
-					<li onclick="sup('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl.',0,'.$id_cat_jrn.','.$id_cat_mdl.','.$id_dev_crc.','.$opt_jrn.','.$id_sel_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->sup->$id_lng; ?></li>
+					<li onclick="sup('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl.',0,'.$id_cat_jrn.','.$id_cat_mdl.','.$id_dev_crc.','.$opt_cat_mdl.','.$id_sel_jrn ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->sup->$id_lng; ?></li>
 <?php
 	}
 ?>

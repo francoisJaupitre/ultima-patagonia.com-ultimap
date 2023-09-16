@@ -402,13 +402,13 @@ if(isset($_GET['id']) and $_GET['id']>0 and isset($_GET['cbl']) and !empty($_GET
 		else{$section->addText(stripslashes(replace($txt_prg->trf_dbl->$id_lgg.' '.$txt_prg->trf_dbl2->$id_lgg)), $fontStyle12, $paragraphStyle2);}
 		$section->addText('', $fontStyle6, $paragraphStyle2);
 		$section->addText('', $fontStyle6, $paragraphStyle2);
-		if($vue_vols and isset($vol_id)){
+		if($vue_vols and isset($vols_id)){
 	//VOLS DOMESTIQUES
 			$t=0;
 			$section->addText(stripslashes(replace($txt_prg->lst_vol->$id_lgg)), $fontStyle13, $paragraphStyle2);
 			$section ->addText('', $fontStyle9, $paragraphStyle2);
 			$table = $section->addTable($tableStyle);
-			foreach($vol_id as $id_vol){
+			foreach($vols_id as $id_vol){
 				if(strpos($id_vol, '_')){
 					$id_v1 = intval(strstr($id_vol, '_',true));
 					$pos=strpos($id_vol, '_');

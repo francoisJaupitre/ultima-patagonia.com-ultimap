@@ -175,7 +175,6 @@ const addFrame = async function(link)
 
 const closeFrame = async function(ref)
 {
-  console.log('closeFrame',ref)
   let frm_num = 0, frm_lst = []
 	if(document.getElementById(`li_${ref}`).parentNode.parentNode.classList[0] == "li_ttr")
   {
@@ -258,6 +257,8 @@ const closeFrame = async function(ref)
       const obj = await getTxt("resources/json/tabText.json")
       htm = obj[nom2.substr(pos+8,len-8)]+': '+nom1.substr(0,nom1.indexOf('<span id='))
 		}
+    console.log(`li_ttr${ref_id}`,document.getElementById(`li_ttr${ref_id}`).id)
+    console.log(`li_ttr${ref_id}`,document.getElementById(`li_ttr${ref_id}`))
 		const prevId = document.getElementById(`li_ttr${ref_id}`).previousSibling
 		document.getElementById(`li_${frm_lst[0]}`).remove()
 		document.getElementById(`li_ttr${ref_id}`).remove()
@@ -275,6 +276,13 @@ const closeFrame = async function(ref)
       sup_frm_nobug(frm_lst[0], event)
     }
 	}
+  else{
+    const li_tab = document.getElementsByClassName("li_tab")
+    for (let i = 0; i < li_tab.length; i++)
+    {
+      document.getElementById(li_tab[i].id).classList.add("li_hid")
+    }
+  }
 	if(document.getElementById(`li_${ref}`))
   {
     document.getElementById(`li_${ref}`).remove()

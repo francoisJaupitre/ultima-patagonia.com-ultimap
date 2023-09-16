@@ -22,7 +22,6 @@ function vue_frm(ref,scrl){
 	hid_frm(ref);
 	shw_frm(ref,scrl);
 	$('.chk_tab').not($('#li_'+ref).parent().siblings()).prop('checked', false);
-
 }
 
 function hid_frm(ref){

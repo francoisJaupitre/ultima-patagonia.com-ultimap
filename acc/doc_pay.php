@@ -80,7 +80,12 @@ if(isset($paiements)) {
 		$cell = $table->addCell(1500, $cellStyle);
 
 		for($i=0; $i<$paiement->count_lst_liqs();$i++) {
-			if($paiement->get_dat($paiement->get_lst_liqs($i)) != '0000-00-00') {$cell->addText(date("d/m/Y", strtotime($paiement->get_dat($paiement->get_lst_liqs($i)))), $fontStyle, $paragraphStyle);}
+			if($paiement->get_dat($paiement->get_lst_liqs($i)) != '0000-00-00')
+			{
+				$cell->addText(date("d/m/Y", strtotime($paiement->get_dat($paiement->get_lst_liqs($i)))), $fontStyle, $paragraphStyle);
+			}else{
+				$cell->addText('N/D', $fontStyle, $paragraphStyle);
+			}
 		}
 		$cell = $table->addCell(1000, $cellStyle);
 		for($i=0; $i<$paiement->count_lst_liqs();$i++) {

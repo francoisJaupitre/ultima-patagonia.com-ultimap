@@ -97,7 +97,7 @@ if($trf_mdl){
 	}
 	else{
 ?>
-		<input type="button" <?php if(!$aut['dev']){echo ' disabled';} ?> value="<?php echo $txt->ajt->$id_lng; ?>" onclick="ajt_bss('mdl',<?php echo $id_dev_mdl ?>);">
+		<input type="button" <?php if(!$aut['dev']){echo ' disabled';} ?> value="<?php echo $txt->ajt->$id_lng; ?>" onclick="addBss('mdl',<?php echo $id_dev_mdl ?>);">
 <?php
 	}
 ?>

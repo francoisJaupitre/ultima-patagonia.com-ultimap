@@ -1,12 +1,17 @@
-var id_lng, cbl_cat, id_cat, aut, url, flg_maj = true, upd = 0;
+var upd = 0 //used by root
+var flg_maj = true, id_lng, cbl_cat, id_cat, aut, url //encapsulate asap
 
 (function()
 {
   id_lng = parent.document.getElementById('id_lng').value
   cbl_cat = document.getElementById('cbl_cat').value
+  document.getElementById('cbl_cat').remove()
   id_cat = document.getElementById('id_cat').value
+  document.getElementById('id_cat').remove()
   aut = document.getElementById('aut').value
-  url = document.getElementById("url").value
+  document.getElementById('aut').remove()
+  url = document.getElementById('url').value
+  document.getElementById('url').remove()
   init()
   if(document.getElementById("adDev"))
     document.getElementById("adDev").onclick = () => { addDev(id_cat) }
@@ -47,9 +52,8 @@ const copyElem = async function(cbl, id)
       const rsp = JSON.parse(xhr.response)
 			window.parent.opn_frm(`cat/ctr.php?cbl=${cbl}&id=${rsp}`)
 			act_acc()
-			window.parent.act_frm(cbl)
 			window.parent.act_frm(`up_${cbl}`)
-      if(cbl=='prs')
+      if(cbl == 'prs')
         window.parent.act_frm('ajt_prs_opt')
 			unload('CAT copyElem')
 		}
@@ -132,8 +136,8 @@ const lightCopyElem = async function(cbl, id)
       const rsp = JSON.parse(xhr.response)
       window.parent.opn_frm(`cat/ctr.php?cbl=${cbl}&id=${rsp}`)
       act_acc()
-      window.parent.act_frm(cbl)
-      window.parent.act_frm(`up_${cbl}`)
+      //window.parent.act_frm(cbl)
+      //window.parent.act_frm(`up_${cbl}`)
       if(cbl=='prs')
         window.parent.act_frm('ajt_prs_opt')
       unload('CAT lightCopyElem')
@@ -462,7 +466,7 @@ const updateData = (tab, col, val, id, id_sup) => {
             vue_elem('hbr_chm', id_sup)
         case 'info':
           act_acc()
-          window.parent.act_frm(cbl_cat)
+          window.parent.act_frm(`list_${cbl_cat}`)
           window.parent.act_frm(`up_${cbl_cat}`)
           break
         case 'titre':
@@ -713,6 +717,7 @@ const updateData = (tab, col, val, id, id_sup) => {
     			else if(col == 'frs')
           {
     				vue_elem('frn', id, col);
+            window.parent.act_frm('hbr_frn')
     				window.parent.act_frm('crc_dev_res')
     			}
           break
@@ -809,8 +814,8 @@ const insertPrs = id_prs => {
       const rsp = JSON.parse(xhr.response)
       if(rsp == 1)
       {
-        vue_elem('jrn_prs',id_cat)
-        window.parent.act_frm('up_jrn')
+        //vue_elem('jrn_prs',id_cat)
+        window.parent.act_frm('list_jrn_prs')
       }else{
         alt(rsp)
 			}

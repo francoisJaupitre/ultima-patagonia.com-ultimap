@@ -49,13 +49,13 @@ if($aut['cat']) {
 			<td class="td_cat2">
 				<div class="lsb text-light">
 					<strong><?php echo $txt->clts->$id_lng; ?></strong>
-					<span id="crc_clt" class="clt"><?php include("vue_crc_clt.php"); ?></span>
+					<span id="crc_clt" class="list_crc_clt"><?php include("vue_crc_clt.php"); ?></span>
 				</div>
 			</td>
 		</tr>
 	</table>
 	<hr/>
-	<div id="crc_mdl" class="mdl jrn dt_jrn prs srv hbr" style="width: 99%"><?php include("vue_crc_mdl.php"); ?></div>
+	<div id="crc_mdl" class="list_crc_mdl list_mdl_jrn list_jrn_prs list_mdl" style="width: 99%"><?php include("vue_crc_mdl.php"); ?></div>
 </div>
 <div class="div_cat3">
 	<div class="up_dev tbl_crc"><?php include("vue_crc_dev.php"); ?></div>

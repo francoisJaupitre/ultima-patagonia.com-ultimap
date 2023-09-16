@@ -122,10 +122,10 @@ if($id_cat_jrn>-1){
 ?>
 <div id="div_prs<?php echo $id_dev_prs ?>" class="prs_prs<?php echo $id_dev_jrn.'_'.$ord_prs; if($opt_prs){echo ' sel_opt';} ?>">
 	<table class="w-100">
-		<tr	id="vue_ttr_prs_<?php echo $id_dev_prs ?>" <?php if($id_cat_prs>0){echo 'class="up_prs'.$id_cat_prs.'"';} ?>><?php include("vue_ttr_prs.php"); ?></tr>
+		<tr	id="vue_ttr_prs_<?php echo $id_dev_prs ?>" <?php if($id_cat_prs>0){echo 'class="list_prs'.$id_cat_prs.'"';} ?>><?php include("vue_ttr_prs.php"); ?></tr>
 		<tr id="vue_dsc_prs_<?php echo $id_dev_prs ?>"><?php include("vue_dsc_prs.php"); ?></tr>
 	</table>
-	<span id="vue_dt_prs_<?php echo $id_dev_prs ?>" class="up_srv cat_hbr"><?php include("vue_dt_prs.php"); ?></span>
+	<span id="vue_dt_prs_<?php echo $id_dev_prs ?>" class="up_srv up_hbr"><?php include("vue_dt_prs.php"); ?></span>
 	<span id="vue_end_prs_<?php echo $id_dev_prs ?>"><?php include("vue_end_prs.php"); ?></span>
 	<div id="vue_trf_hbr_<?php echo $id_dev_prs ?>"></div>
 <?php

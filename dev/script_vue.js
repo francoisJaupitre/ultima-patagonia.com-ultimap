@@ -211,8 +211,7 @@ function sel_jrn(cbl,id_dev_mdl,id_ref_jrn,vue) {
 									$('#div_jrn'+eval('arr_jrn'+id_dev_mdl+cbl+'[i]')).removeClass(cl0).addClass(cl1);
 								}
 							}
-							else if(cbl=='opt_jrn') {vue_elem('opt_jrn'+eval('arr_jrn'+id_dev_mdl+cbl+'[i]'),0);}
-							else if(cbl=='opt_jrn_apr') {vue_elem('opt_jrn'+eval('arr_jrn'+id_dev_mdl+cbl+'[i]'),0);}
+							else if(cbl=='opt_jrn' || cbl=='opt_jrn_apr') {vue_elem('opt_jrn'+eval('arr_jrn'+id_dev_mdl+cbl+'[i]'),0);}
 							else if(cbl=='vue_jrn_true') {
 								if(!$("#chk_jrn"+eval('arr_jrn'+id_dev_mdl+cbl+'[i]')).is(':checked')) {$("#chk_jrn"+eval('arr_jrn'+id_dev_mdl+cbl+'[i]')).prop('checked',true);chk_jrn(eval('arr_jrn'+id_dev_mdl+cbl+'[i]'));}
 							}
@@ -431,66 +430,70 @@ function vue_elem(obj,id,col) {
 	}
 	var idx = id;
 	if(typeof id != 'undefined' && typeof id === 'string') {idx = id.replace("-","_");}
-	if(typeof col == 'undefined') {var xhr = obj+idx;}
-	else if(typeof id === 'string') {var xhr = obj+idx+col;}
-	else{var xhr = obj+col;}
-	if($("#"+obj).length > 0) {load('DEV vue_elem '+xhr);}
-	var req = $.ajax({url: 'vue_elem.php', type: 'post', data: {"id":id,"obj":obj,"col":col,"id_dev_crc":id_dev_crc,"cnf":cnf},
-	  success: function(responseText) {
-	    if($("#"+obj+'_'+col+idx).length > 0) {
-	      $("#"+obj+'_'+col+idx).val(responseText);
-	      $("#"+obj+'_'+col+idx).css("background-color",bck);
-	    }
-	    else if($("#"+obj).length > 0) {
-	      $("#"+obj).html(responseText);
-	      if(obj.substr(0,7)=='crc_rgn') {vue_cmd('sel_mdl'+obj.substr(7));}
-	      else if(obj.substr(0,7)=='mdl_vll') {vue_cmd('sel_jrn_mdl'+obj.substr(7));}
-	      else if(obj.substr(0,11)=='jrn_vll_ctg') {
-	        var id0 = id + '';
-	        var ids = id0.split("_");
-	        if(ids[0]=='0' && ids[1]!='0') {vue_cmd('sel_vll_jrn'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]=='0') {vue_cmd('sel_ctg_prs_jrn'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]!='0') {vue_cmd('sel_prs'+obj.substr(11));}
-	      }
+	if(document.getElementById(obj) || document.getElementById(`${obj}_${col}${idx}`) || document.getElementsByClassName(`${obj}${idx}${col}`).length > 0)
+	{
+		if(typeof col == 'undefined') {var xhr = obj+idx;}
+		else if(typeof id === 'string') {var xhr = obj+idx+col;}
+		else{var xhr = obj+col;}
+		if($("#"+obj).length > 0) {load('DEV vue_elem '+xhr);}
+		var req = $.ajax({url: 'vue_elem.php', type: 'post', data: {"id":id,"obj":obj,"col":col,"id_dev_crc":id_dev_crc,"cnf":cnf},
+		success: function(responseText) {
+			if($("#"+obj+'_'+col+idx).length > 0) {
+				$("#"+obj+'_'+col+idx).val(responseText);
+				$("#"+obj+'_'+col+idx).css("background-color",bck);
+			}
+			else if($("#"+obj).length > 0) {
+				$("#"+obj).html(responseText);
+				if(obj.substr(0,7)=='crc_rgn') {vue_cmd('sel_mdl'+obj.substr(7));}
+				else if(obj.substr(0,7)=='mdl_vll') {vue_cmd('sel_jrn_mdl'+obj.substr(7));}
+				else if(obj.substr(0,11)=='jrn_vll_ctg') {
+					var id0 = id + '';
+					var ids = id0.split("_");
+					if(ids[0]=='0' && ids[1]!='0') {vue_cmd('sel_vll_jrn'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]=='0') {vue_cmd('sel_ctg_prs_jrn'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]!='0') {vue_cmd('sel_prs'+obj.substr(11));}
+				}
 				else if(obj.substr(0,11)=='vll_jrn_rpl') {vue_cmd('sel_jrn_rpl'+obj.substr(11));}
-	      else if(obj.substr(0,11)=='prs_vll_ctg') {
-	        var id0 = id + '';
-	        var ids = id0.split("_");
-	        if(ids[0]=='0' && ids[1]!='0') {vue_cmd('sel_vll_prs'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]=='0') {vue_cmd('sel_ctg_srv_prs'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]!=='0' && ids[1]!=='1') {vue_cmd('sel_srv_prs'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]=='1' && ids[3] != 0) {vue_cmd('sel_chm_prs'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]=='1' && ids[2] != 0) {vue_cmd('sel_hbr_prs'+obj.substr(11));}
-	        else if(ids[0]!='0' && ids[1]=='1') {vue_cmd('sel_rgm_prs'+obj.substr(11));}
-	      }
-	      else if(obj.substr(0,7)=='hbr_chm' && id!='-1') {vue_cmd('sel_chm_hbr'+obj.substr(7));}
-	      else if(obj.substr(0,7)=='prs_hbr') {vue_cmd('sel_chm_hbr_opt'+obj.substr(7));}
-	      unload('DEV vue_elem '+xhr);
-	    }
-	    else if($("."+obj+idx+col).length > 0) {
+				else if(obj.substr(0,11)=='prs_vll_ctg') {
+					var id0 = id + '';
+					var ids = id0.split("_");
+					if(ids[0]=='0' && ids[1]!='0') {vue_cmd('sel_vll_prs'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]=='0') {vue_cmd('sel_ctg_srv_prs'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]!=='0' && ids[1]!=='1') {vue_cmd('sel_srv_prs'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]=='1' && ids[3] != 0) {vue_cmd('sel_chm_prs'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]=='1' && ids[2] != 0) {vue_cmd('sel_hbr_prs'+obj.substr(11));}
+					else if(ids[0]!='0' && ids[1]=='1') {vue_cmd('sel_rgm_prs'+obj.substr(11));}
+				}
+				else if(obj.substr(0,7)=='hbr_chm' && id!='-1') {vue_cmd('sel_chm_hbr'+obj.substr(7));}
+				else if(obj.substr(0,7)=='prs_hbr') {vue_cmd('sel_chm_hbr_opt'+obj.substr(7));}
+				unload('DEV vue_elem '+xhr);
+			}
+			else if($("."+obj+idx+col).length > 0) {
 				$("."+obj+idx+col).prop('title',responseText);
 				$("."+obj+idx+col).unbind('mouseover');
 				$("."+obj+idx+col).css('cursor','help');
 			}
-	  },
+		},
 		error: function(request, textStatus, errorThrown) {
 			if($("#"+obj).length > 0) {unload('DEV vue_elem '+xhr);}
-      if(request.readyState == 4) {
+			if(request.readyState == 4) {
 				$("#txtHint").html("<span style='background: red;'>VUE_ELEM ERROR 1</span>");
 				console.log('VUE_ELEM HTTP error: '+request.status+'/'+request.statusText+'/'+request.textStatus+'/'+request.errorThrown);
 			}
-      else if(request.readyState == 0) {
+			else if(request.readyState == 0) {
 				$("#txtHint").html("<span style='background: red;'>VUE_ELEM ERROR 2</span>");
 				console.log('VUE_ELEM Network error: '+request.status+'/'+request.statusText+'/'+request.textStatus+'/'+request.errorThrown);
 			}
-      else{
+			else{
 				$("#txtHint").html("<span style='background: red;'>VUE_ELEM ERROR 3</span>");
 				console.log('VUE_ELEM something weird is happening: '+request.status+'/'+request.statusText+'/'+request.textStatus+'/'+request.errorThrown);
-      }
+			}
 			req && req.abort();
 			vue_elem(obj,id,col);
-    }
+		}
 	});
+	}
+
 }
 
 function vue_fll(cbl,obj,src) {

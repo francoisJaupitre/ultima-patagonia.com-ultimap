@@ -15,11 +15,10 @@ if(isset($_POST['id']) and isset($_POST['obj']) and isset($_POST['col'])){
 		include("vue_clt.php");
 	}
 	elseif($obj=='crc'){include("vue_crc.php");}
-	elseif($obj=='pax_grp'){
-		include("../prm/aut.php");
+/*	elseif($obj=='pax_grp'){ calling destination file directly
 		include("../prm/ncn.php");
 		include("vue_pax.php");
-	}
+	}*/
 	elseif(substr($obj,0,7)=='pax_ncn'){
 		$id = substr($obj,7);
 		$dt_pax = ftc_ass(sel_quo("id,ncn,prt","grp_pax","id",$id));

@@ -20,7 +20,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		for($i = 0; $i < $len; $i++)
 		{
 			$car = substr($val, $i, 1);
-			if(!(is_numeric($car) or $car == '(' or $car == ')' or $car == '+' or $car == '-' or $car == '*' or $car == '/' or $car == '.' or $car == ', '))
+			if(!(is_numeric($car) or $car == '(' or $car == ')' or $car == '+' or $car == '-' or $car == '*' or $car == '/' or $car == '.' or $car == ','))
 			{
 				$flg = false;
 				break;
@@ -28,7 +28,7 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 		if($flg)
 		{
-			$code = '$val = '.str_replace(', ', '.', $val).';';
+			$code = '$val = '.str_replace(',', '.', $val).';';
 			try
 			{
 				@eval($code);
