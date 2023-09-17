@@ -719,4 +719,8 @@
 		<fr>Erreur!&#xA;Le module suivant a des tarifs indépendants.</fr>
 		<es>Error!&#xA;El modulo siguiente tiene tarifas independientes.</es>
 	</trsf2>
+	<ajt_rmn>
+		<fr>Sélectionner une seule base!</fr>
+		<es>Selecionar una sola base!</es>
+	</ajt_rmn>
 </textes>

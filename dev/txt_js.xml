@@ -1,10 +1,6 @@
 <?phpxml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
-	<ajt_rmn>
-		<fr>Sélectionner une seule base!</fr>
-		<es>Selecionar una sola base!</es>
-	</ajt_rmn>
 	<grd_crc>
 		<fr>Entrez un nom pour GARDER ce circuit dans le catalogue.</fr>
 		<es>Ingrese un nombre para GUARDAR este circuito en el catalogo.</es>

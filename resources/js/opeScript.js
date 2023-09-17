@@ -126,8 +126,10 @@ const sendMail = (devData) => {
 	xhr.onreadystatechange = () => {
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
-			if(xhr.responseText.length > 0)
-				alt(xhr.responseText)
+			if(xhr.responseText.length > 0){
+        alt(xhr.responseText)
+        window.parent.document.getElementById("emailBox").childNodes[0].style.display = 'none'
+      }
 			else{
 				closeEmail()
 				if(typeof emailRequest['lst_srv'] !== 'undefined')
@@ -151,8 +153,8 @@ const sendMail = (devData) => {
 					window.parent.act_frm('hbr_ope')
 				}
 			}
+      //unload('emailPopup')
 		}
-		unload('emailPopup')
 	}
 }
 

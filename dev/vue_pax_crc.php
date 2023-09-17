@@ -54,7 +54,7 @@ if($vue_pax){
 		}
 		if($aut['dev'] or $aut['res']){
 ?>
-		<td onclick="ajt_rmn('crc',<?php echo $id_dev_crc ?>);"><img src="../prm/img/ajt.png" /></td>
+		<td onclick="addRmn('crc',<?php echo $id_dev_crc ?>);"><img src="../prm/img/ajt.png" /></td>
 <?php
 		}
 ?>

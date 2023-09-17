@@ -5,11 +5,11 @@ if(
 	isset($data['cbl']) and !empty($data['cbl'])
 	and isset($data['base']) and !empty($data['base'])
 	and isset($data['id']) and $data['id'] > 0
-	and isset($data['cnf']) and $data['id_dev_crc'] > 0
+	and isset($data['cnf'])
 )
 {
 	$base = $data['base'];
-	$txt = simplexml_load_file('../resources/xml/updateTxt.xml');
+	$txt = simplexml_load_file('../xml/updateTxt.xml');
 	include("functions.php");
 	include("../../cfg/crr.php");
 	include("../../cfg/lng.php");
@@ -91,7 +91,7 @@ if(
 		unset($dt_cfg['id'], $dt_cfg['nom'], $dt_cfg['frs']);
 		foreach($bss as $base)
 		{
-			if($data['cbl'] == 'crc' and !in_array($base, $bss_crc))
+			if($data['cbl'] == 'crc' and !isset($bss_crc) or !in_array($base, $bss_crc))
 			{
 				if(!empty(array_diff($dt_cfg, $dt_dev_crc)))
 				{
@@ -113,7 +113,7 @@ if(
 					}
 				}
 			}
-			elseif($data['cbl'] == 'mdl' and !in_array($base,$bss_mdl))
+			elseif($data['cbl'] == 'mdl' and !isset($bss_mdl) or !in_array($base,$bss_mdl))
 			{
 				unset($dt_cfg['ty_mrq']);
 				if(!empty(array_diff($dt_cfg, $dt_dev_mdl)))

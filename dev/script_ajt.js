@@ -393,38 +393,6 @@ function ajt_pax(cbl,id,id_sup){
 	xmlhttp.send("cbl="+cbl+"&id="+id+"&id_sup="+id_sup);
 }
 
-function ajt_rmn(cbl,id){
-	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
-	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-	load('DEV ajt_rmn');
-	xmlhttp.onreadystatechange=function(){
-		if(xmlhttp.readyState==4){
-			if(xmlhttp.status==200){
-				if(xmlhttp.responseText=='1'){
-					if(window.XMLHttpRequest){xhttp=new XMLHttpRequest();}
-					else{xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-					xhttp.open("GET","txt_js.xml",false); //remplazar por xml server side
-					xhttp.send();
-					xmlDoc=xhttp.responseXML;
-					x=xmlDoc.getElementsByTagName("ajt_rmn");
-					y=x[0].getElementsByTagName(id_lng);
-					alt(y[0].childNodes[0].nodeValue);
-				}
-				else{
-					if(cbl=='mdl'){vue_mdl('ttr',id);vue_mdl('rmn',id);sel_jrn('end_prs',id);}
-					else if(cbl=='crc'){vue_crc('ttr');vue_crc('rmn');sel_mdl('end_prs');}
-				}
-			}
-			else if(xmlhttp.status==408){ajt_rmn(cbl,id);}
-			else{document.getElementById("txtHint").innerHTML="<span style='background: red;'>ERREUR AJT_RMN "+xmlhttp.statusText+" </span>";}
-			unload('DEV ajt_rmn');
-		}
-	}
-	xmlhttp.open("POST","ajt_rmn.php",true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("cbl="+cbl+"&id="+id);
-}
-
 function ajt_rmn_pax(cbl,id_rmn,id_pax){
 	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}

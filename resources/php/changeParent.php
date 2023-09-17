@@ -6,8 +6,6 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0)
 	$id = $data["id"];
 	$obj = $data["obj"];
 	include("functions.php");
-	include("../../cfg/lng.php");
-	$txt = simplexml_load_file('../../dev/txt.xml');
 	$rsp = '';
 	if($obj == 'mdl')
 	{
@@ -43,6 +41,8 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0)
 			}
 			$rsp = '1';
 		}else{
+			include("../../cfg/lng.php");
+			$txt = simplexml_load_file('../../dev/txt.xml');
 			$rsp = $txt->trsf1->$id_lng;
 		}
 	}elseif($obj == 'jrnavt')
@@ -86,6 +86,8 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0)
 			}
 			$rsp = '1';
 		}else{
+			include("../../cfg/lng.php");
+			$txt = simplexml_load_file('../../dev/txt.xml');
 			$rsp = $txt->trsf1->$id_lng;
 		}
 	}elseif($obj == 'jrnapr')
@@ -129,6 +131,8 @@ if(isset($data['obj']) and isset($data['id']) and $data['id'] > 0)
 			}
 			$rsp = '2';
 		}else{
+			include("../../cfg/lng.php");
+			$txt = simplexml_load_file('../../dev/txt.xml');
 			$rsp = $txt->trsf2->$id_lng;
 		}
 	}elseif($obj == 'prsavt')

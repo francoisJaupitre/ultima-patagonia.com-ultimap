@@ -527,7 +527,10 @@ const sendMail = (devData, res) => {
 		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 		{
 			if(xhr.responseText.length > 0)
+      {
 				alt(xhr.responseText)
+        window.parent.document.getElementById("emailBox").childNodes[0].style.display = 'none'
+      }
 			else{
 				closeEmail()
         if(res > 0){
@@ -554,8 +557,8 @@ const sendMail = (devData, res) => {
           }
         }
 			}
-		}
-		unload('emailPopup')
+    //  unload('emailPopup')
+    }
 	}
 }
 
@@ -1122,6 +1125,35 @@ const changeParent = (obj, id, id_sup, id_sup2) => {
         }
       }
       unload('DEV changeParent')
+    }
+  }
+}
+
+const addRmn = (cbl, id) => {
+  load('DEV addRmn')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/addRmn.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ cbl, id }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response.length > 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        alt(rsp[0])
+      }else if(cbl == 'mdl')
+      {
+        vue_mdl('ttr', id)
+        vue_mdl('rmn', id)
+        sel_jrn('end_prs', id)
+      }else if(cbl == 'crc')
+      {
+        vue_crc('ttr')
+        vue_crc('rmn')
+        sel_mdl('end_prs')
+      }
+      unload('DEV addRmn')
     }
   }
 }
