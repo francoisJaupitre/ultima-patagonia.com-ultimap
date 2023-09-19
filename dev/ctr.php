@@ -153,7 +153,14 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
+<?php
+	if(file_exists('../pic/'.$dir.'/'.$pic))
+	{
+?>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
+<?php
+	}
+?>
 		<div id="div_crc">
 			<table class="tbl_crc w-100">
 				<tr id="vue_ttr_crc" <?php if($id_cat_crc>0){echo 'class="up_crc'.$id_cat_crc.'"';} ?>><?php include("vue_ttr_crc.php"); ?></tr>

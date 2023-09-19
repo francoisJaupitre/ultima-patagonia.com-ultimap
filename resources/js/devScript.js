@@ -446,6 +446,107 @@ const addBss = async function(cbl, id)
 	}
 }
 
+const saveToCat = async function(elem, id, id_sup, id_cat_hbr)
+{
+  let nom = '', nom_chm, lgg, id_vll, ctg
+  if(document.getElementById(`nom_${elem}${id}`))
+  {
+		nom = document.getElementById(`nom_${elem}${id}`).value
+		if(elem == 'hbr')
+      nom_chm = document.getElementById(`nom_chm${id}`).value
+	}
+  if(nom == '')
+  {
+    const obj = await getTxt("../resources/json/scriptText.json")
+    nom = prompt(obj[`grd_${elem}`][id_lng])
+    if(nom == null || nom == '')
+      return
+  }
+  if(document.getElementById('lgg'))
+  {
+    lgg = document.getElementById("lgg").value
+  }
+	if(document.getElementById('vll_prs0'))
+  {
+    id_vll = document.getElementById("vll_prs0").value
+  }
+	if(document.getElementById('ctg_prs0'))
+  {
+    ctg = document.getElementById("ctg_prs0").value
+  }
+  load('DEV saveToCat')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/saveToCat.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ elem, id, nom, id_cat_hbr, lgg, id_vll, ctg, nom_chm }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response.length > 1)
+      {
+        const rsp = JSON.parse(xhr.response)
+	      switch (elem) {
+          case 'crc':
+            vue_crc('ttr')
+            vue_crc('end')
+            sel_mdl('ttr_mdl')
+            sel_mdl('end_mdl')
+            sel_mdl('ttr_jrn')
+            sel_mdl('end_jrn')
+            sel_mdl('ttr_prs')
+            sel_mdl('dt_prs', id)
+            sel_mdl('end_prs')
+            window.parent.act_frm('crc')
+            break
+          case 'mdl':
+            document.getElementById(`vue_ttr_mdl_${id}`).classList.add(`cat_mdl${rsp[0]}`)
+            vue_mdl('ttr', id)
+            vue_mdl('end', id)
+            sel_jrn('ttr_jrn', id)
+            sel_jrn('end_jrn', id)
+            sel_jrn('ttr_prs', id)
+            sel_jrn('dt_prs', id)
+            sel_jrn('end_prs', id)
+            window.parent.act_frm('mdl')
+            break
+          case 'jrn':
+            document.getElementById(`vue_ttr_jrn_${id}`).classList.add(`cat_jrn${rsp[0]}`)
+            vue_jrn('ttr', id)
+            vue_jrn('end', id)
+            sel_prs('ttr_prs', id)
+            sel_prs('dt_prs', id)
+            sel_prs('end_prs', id)
+            window.parent.act_frm('jrn')
+            break
+          case 'prs':
+            document.getElementById(`vue_ttr_prs_${id}`).classList.add(`cat_prs${rsp[0]}`)
+            vue_prs('ttr', id)
+            vue_prs('dt', id)
+            vue_prs('end', id)
+            window.parent.act_frm('prs')
+            break
+          case 'srv':
+            if(id_sup > 0)
+              vue_prs('dt', id_sup)
+            break
+          case 'hbr':
+          case 'chm':
+            vue_prs('dt', id_sup)
+            vue_prs('end', id_sup)
+            vue_crc('res')
+            break
+        }
+				if(elem != 'chm')
+          window.parent.opn_frm(`cat/ctr.php?cbl=${elem}&id=${rsp[0]}`);
+        else
+          window.parent.act_frm(`hbr_chm${id_cat_hbr}`);
+				alt(rsp[1]) //obj['grd'][id_lng]
+			}else
+        alt(rsp[0]) //obj['grd2'][id_lng]
+    }
+	}
+}
+
 /* asynchronous functions above */
 
 const emailWriter = (data, res) => {

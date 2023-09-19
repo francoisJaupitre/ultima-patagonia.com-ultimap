@@ -74,7 +74,7 @@ if($aut['dev'] and $cnf<1){
 }
 if($aut['cat'] and $id_cat_mdl == 0){
 ?>
-				<li onclick="grd('mdl',<?php echo $id_dev_mdl.','.$id_dev_crc ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
+				<li onclick="saveToCat('mdl',<?php echo $id_dev_mdl.','.$id_dev_crc ?>);document.getElementById('vue_cmd_mdl<?php echo $id_dev_mdl; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
 <?php
 }
 if($aut['dev'] and $cnf<1){

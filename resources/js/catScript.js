@@ -482,6 +482,12 @@ const updateData = (tab, col, val, id, id_sup) => {
           else if(tab == 'cat_hbr')
             vue_elem('hbr_mail', id)
           break
+        case 'wap':
+          if(tab == 'cat_frn')
+            vue_elem('frn_wap', id)
+          else if(tab == 'cat_hbr')
+            vue_elem('hbr_wap', id)
+          break
         case 'mail_frt':
           vue_elem('hbr_frt_mail',id)
           break

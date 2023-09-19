@@ -11,7 +11,6 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 	include("../../prm/aut.php");
 	include("../../prm/lgg.php");
 	$txt = simplexml_load_file('../xml/updateTxt.xml');
-	$car = substr(trim($val), 0, 1);
 	$not_col = array(
 		'nom',
 		'titre',
@@ -31,7 +30,9 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		'sel_mdl_jrn',
 		'adresse',
 		'notfrs',
-		'bnq'
+		'bnq',
+		'wap',
+		'contact'
 	);
 	if(!in_array($col, $not_col))
 	{
@@ -39,10 +40,11 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		$len = strlen($val);
 		$val = str_replace('=', '+', $val);
 		$flg = true;
+		$in_car = array('(', ')', '+', '-', '*', '/', '.', ',');
 		for($i = 0; $i < $len; $i++)
 		{
 			$car = substr($val, $i, 1);
-			if(!(is_numeric($car) or $car == '(' or $car == ')' or $car == '+' or $car == '-' or $car == '*' or $car == '/' or $car == '.' or $car == ','))
+			if(!is_numeric($car) and !in_array($car, $in_car))
 			{
 				$flg = false;
 				break;
@@ -265,6 +267,9 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 			echo json_encode($txt->errwebuid->$id_lng);
 			return;
 		}
+	}elseif($col == 'wap')
+	{
+		$val = preg_replace('/[^0-9]/', '', $val);
 	}
 	if($tab == 'cat_mdl_jrn' and $col == 'opt')
 	{
@@ -284,7 +289,12 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 	{
 		if($col == 'id_vll')
 		{
-			$rq_srv_trf = sel_quo("cat_srv_trf_bss.id, id_frn", "cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf", "id_srv", $id);
+			$rq_srv_trf = sel_quo(
+				"cat_srv_trf_bss.id, id_frn",
+				"cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf",
+				"id_srv",
+				$id
+			);
 			while($dt_srv_trf = ftc_ass($rq_srv_trf))
 			{
 				if($dt_srv_trf['id_frn'] > 0)
@@ -307,7 +317,12 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		}
 		if($col == 'ctg')
 		{
-			$rq_srv_trf = sel_quo("cat_srv_trf_bss.id, id_frn", "cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf", "id_srv", $id);
+			$rq_srv_trf = sel_quo(
+				"cat_srv_trf_bss.id, id_frn",
+				"cat_srv_trf INNER JOIN cat_srv_trf_bss ON cat_srv_trf.id = cat_srv_trf_bss.id_trf",
+				"id_srv",
+				$id
+			);
 			while($dt_srv_trf = ftc_ass($rq_srv_trf))
 			{
 				if($dt_srv_trf['id_frn']!=0)
@@ -469,7 +484,11 @@ if(isset($data["tab"]) and isset($data["col"]) and isset($data["val"]) and isset
 		);
 		while($dt_trf = ftc_ass($rq_trf))
 		{
-			if(strtotime($val) >= strtotime($dt_trf['dt_min']) and strtotime($val) <= strtotime($dt_trf['dt_max']))
+			if(
+				strtotime($val) >= strtotime($dt_trf['dt_min'])
+				and $dt_trf['dt_min'] != '0000-00-00'
+				and strtotime($val) <= strtotime($dt_trf['dt_max'])
+			)
 			{
 				echo json_encode($txt->errdat2->$id_lng);
 				return;

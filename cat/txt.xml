@@ -331,6 +331,11 @@
 		<es>EMAIL RESERVAS</es>
 		<pt>EMAIL RESERVAS</pt>
 	</email>
+	<wap>
+		<fr>WHATSAPP</fr>
+		<es>WHATSAPP</es>
+		<pt>WHATSAPP</pt>
+	</wap>
 	<email_frt>
 		<fr>EMAIL RECEPTION</fr>
 		<es>EMAIL RECEPCION</es>

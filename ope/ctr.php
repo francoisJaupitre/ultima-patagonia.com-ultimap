@@ -33,7 +33,14 @@ if(isset($_GET['cnf']) and !empty($_GET['cnf'])){
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
+<?php
+	if(file_exists('../pic/'.$dir.'/'.$pic))
+	{
+?>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
+<?php
+	}
+?>
 		<span id="vue"><?php include("vue.php"); ?></span>
 		<script src='../vendor/tinymce/tinymce.min.js'></script>
 		<script src='../resources/js/common.js'></script>

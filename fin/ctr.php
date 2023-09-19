@@ -31,7 +31,14 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])) {
 	<body <?php if($cbl=='ecr') {echo 'class="usn"';} ?>>
 		<div id="shadowing"></div>
 		<div id="txtHint"><br/></div>
+<?php
+	if(file_exists('../pic/'.$dir.'/'.$pic))
+	{
+?>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
+<?php
+	}
+?>
 		<input type="hidden" id="cbl" value="<?php if($cbl=='grp') {echo 'fin_grp';}else{echo $cbl;} ?>" />
 		<input type="hidden" id="aut" value="<?php echo $aut['adm_fin']; ?>" />
 		<span id="vue_<?php echo $cbl ?>"><?php if(empty($dat_min) or $dat_min=='0000-00-00') {echo 'CONFIGUREZ DATE DE DEBUT FINANCES!';} else{include("vue.php");} ?></span>

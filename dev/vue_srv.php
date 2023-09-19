@@ -91,7 +91,7 @@ if($aut['dev']) {
 }
 if($aut['cat'] and $id_cat_srv == 0) {
 ?>
-					<li onclick="grd('srv',<?php echo $id_dev_srv.','.$id_dev_prs ?>);document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
+					<li onclick="saveToCat('srv',<?php echo $id_dev_srv.','.$id_dev_prs ?>);document.getElementById('vue_cmd_srv<?php echo $id_dev_srv; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
 <?php
 }
 if($aut['dev'] and $id_cat_prs == 0) {

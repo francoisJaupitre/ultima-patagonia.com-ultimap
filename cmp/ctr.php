@@ -29,7 +29,14 @@ if(isset($_GET['cbl']) and !empty($_GET['cbl'])){
 	<body>
 		<div id="shadowing"></div>
 		<div id="txtHint"><br/></div>
+<?php
+	if(file_exists('../pic/'.$dir.'/'.$pic))
+	{
+?>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
+<?php
+	}
+?>
 		<input type="hidden" id="cbl" value="<?php echo $cbl; ?>" />
 		<input type="hidden" id="aut" value="<?php echo $aut['maj_'.$cbl]; ?>" />
 		<span id="vue_<?php echo $cbl ?>"><?php if(empty($dat_min) or $dat_min=='0000-00-00'){echo 'CONFIGUREZ DATE INITIALE DE FINANCES!';} else{include("vue.php");} ?></span>

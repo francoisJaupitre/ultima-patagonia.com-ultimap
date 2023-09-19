@@ -33,7 +33,14 @@ if(isset($_GET['id']) and !empty($_GET['id'])){
 		<script><?php include("script.js");?></script>
 	</head>
 	<body onload="act_tab('trf',<?php echo $id ?>,'dev');">
+<?php
+	if(file_exists('../pic/'.$dir.'/'.$pic))
+	{
+?>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
+<?php
+	}
+?>
 		<div id="wrapper"><input type="button" value="<?php echo $txt->trf->act->$id_lng; ?>" onclick="document.location.replace('vue_trf.php?id=<?php echo $id;?>');" /></div>
 		<br />
 		<br />

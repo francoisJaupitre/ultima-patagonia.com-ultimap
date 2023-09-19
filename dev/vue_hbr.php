@@ -470,12 +470,12 @@ if($aut['dev']) {
 if($aut['cat']) {
 	if($id_cat_hbr == 0) {
 ?>
-						<li onclick="grd('hbr',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->grdhbr->$id_lng; ?></li>
+						<li onclick="saveToCat('hbr',<?php echo $id_dev_hbr.','.$id_dev_prs ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->grdhbr->$id_lng; ?></li>
 <?php
 	}
 	elseif($id_cat_hbr > 0 and $id_cat_chm == 0) {
 ?>
-						<li onclick="grd('chm',<?php echo $id_dev_hbr.','.$id_dev_prs.','.$id_cat_hbr ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->grdchm->$id_lng; ?></li>
+						<li onclick="saveToCat('chm',<?php echo $id_dev_hbr.','.$id_dev_prs.','.$id_cat_hbr ?>);document.getElementById('vue_cmd_hbr<?php echo $id_dev_hbr; ?>').style.display='none';"><?php echo $txt->grdchm->$id_lng; ?></li>
 <?php
 	}
 }

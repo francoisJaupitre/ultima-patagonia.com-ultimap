@@ -88,7 +88,7 @@ if($aut['dev'] and $cnf<1){
 }
 if($aut['cat'] and $id_cat_prs == 0){
 ?>
-					<li onclick="grd('prs',<?php echo $id_dev_prs.','.$id_dev_jrn ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
+					<li onclick="saveToCat('prs',<?php echo $id_dev_prs.','.$id_dev_jrn ?>);document.getElementById('vue_cmd_prs<?php echo $id_dev_prs; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
 <?php
 }
 if(($aut['dev'] and $cnf<1) or (!$opt_prs and $aut['res'] and $cnf>0)){

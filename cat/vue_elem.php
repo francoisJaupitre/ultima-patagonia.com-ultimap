@@ -281,6 +281,11 @@ if(isset($_POST['id']) and isset($_POST['obj']) and isset($_POST['col'])) {
 		$mel_hbr = $dt_hbr['mail'];
 		include("vue_hbr_mail.php");
 	}
+	elseif($obj=='hbr_wap') {
+		$dt_hbr = ftc_ass(select("wap","cat_hbr","id",$id));
+		$wap_hbr = $dt_hbr['wap'];
+		include("vue_hbr_wap.php");
+	}
 	elseif($obj=='hbr_frt_mail') {
 		$dt_hbr = ftc_ass(select("mail_frt","cat_hbr","id",$id));
 		$mail_frt_hbr = $dt_hbr['mail_frt'];
@@ -378,8 +383,12 @@ if(isset($_POST['id']) and isset($_POST['obj']) and isset($_POST['col'])) {
 		include("vue_clt_crr.php");
 	}
 	elseif($obj=='frn_mail') {
-		$dt_frn = ftc_ass(select("*","cat_frn","id",$id));
+		$dt_frn = ftc_ass(select("mail","cat_frn","id",$id));
 		include("vue_frn_mail.php");
+	}
+	elseif($obj=='frn_wap') {
+		$dt_frn = ftc_ass(select("wap","cat_frn","id",$id));
+		include("vue_frn_wap.php");
 	}
 	elseif($obj=='frn_nvtrf') {
 		$dt_frn = ftc_ass(select("nvtrf","cat_frn","id",$id));

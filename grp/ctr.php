@@ -36,7 +36,14 @@ if(isset($_GET['id']) and $_GET['id']>0){
 		<div id="shadowing"></div>
 		<div id="alert"></div>
 		<div id="txtHint"><br/></div>
+<?php
+	if(file_exists('../pic/'.$dir.'/'.$pic))
+	{
+?>
 		<div id="bck" style="background-image: url('../pic/<?php echo $dir.'/'.$pic; ?>');"></div>
+<?php
+	}
+?>
 			<div style="float:right; max-width: 80%;">
 				<div class="tbl_prs">
 					<div id="pax_grp"><?php include("vue_pax.php"); ?></div>

@@ -131,7 +131,7 @@ if($id_cat_jrn>-1){
 	}
 	if($aut['cat'] and $id_cat_jrn == 0){
 ?>
-					<li onclick="grd('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
+					<li onclick="saveToCat('jrn',<?php echo $id_dev_jrn.','.$id_dev_mdl ?>);document.getElementById('vue_cmd_jrn<?php echo $id_dev_jrn; ?>').style.display='none';"><?php echo $txt->grd->$id_lng; ?></li>
 <?php
 	}
 	if(($aut['dev'] and $cnf<1) or (!$opt_jrn and $aut['res'] and $cnf>0)){

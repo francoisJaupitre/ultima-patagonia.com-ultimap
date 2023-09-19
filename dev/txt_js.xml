@@ -1,38 +1,6 @@
 <?phpxml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
-	<grd_crc>
-		<fr>Entrez un nom pour GARDER ce circuit dans le catalogue.</fr>
-		<es>Ingrese un nombre para GUARDAR este circuito en el catalogo.</es>
-	</grd_crc>
-	<grd_mdl>
-		<fr>Entrez un nom pour GARDER ce module dans le catalogue.</fr>
-		<es>Ingrese un nombre para GUARDAR este modulo en el catalogo.</es>
-	</grd_mdl>
-	<grd_jrn>
-		<fr>Entrez un nom pour GARDER cette journée dans le catalogue.</fr>
-		<es>Ingrese un nombre para GUARDAR esta jornada en el catalogo.</es>
-	</grd_jrn>
-	<grd_prs>
-		<fr>Entrez un nom pour GARDER cette prestation dans le catalogue.</fr>
-		<es>Ingrese un nombre para GUARDAR esta prestación en el catalogo.</es>
-	</grd_prs>
-	<grd_hbr>
-		<fr>Entrez un nom pour GARDER cet hébergement dans le catalogue.</fr>
-		<es>Ingrese un nombre para GUARDAR este alojamiento en el catalogo.</es>
-	</grd_hbr>
-	<grd_srv>
-		<fr>Entrez un nom pour GARDER ce service dans le catalogue.</fr>
-		<es>Ingrese un nombre para GUARDAR este servicio en el catalogo.</es>
-	</grd_srv>
-	<grd>
-		<fr>Enregistré!</fr>
-		<es>Guardado!</es>
-	</grd>
-	<grd2>
-		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation!</fr>
-		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
-	</grd2>
 	<src_prs>
 		<fr> autre(s) journée(s)?</fr>
 		<es> otra(s) jornada(s)?</es>

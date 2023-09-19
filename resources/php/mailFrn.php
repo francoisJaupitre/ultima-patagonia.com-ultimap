@@ -37,7 +37,7 @@ if(isset($data['id_dev_crc']) and isset($data['id_res_frn']) and isset($data['re
 						$msg = '';
 						if($ctg_res_frn != 1)
 						{
-							$msg .= $txt->mail->$id_lng.' '.$ctg_res[$id_lng][$ctg_res_frn].': ';
+							$msg .= '<strong>'.$txt->mail->$id_lng.' '.$ctg_res[$id_lng][$ctg_res_frn].'</strong>';
 							if($ctg_res_frn == 2)
 							{
 								$msg .= $tel_frn;

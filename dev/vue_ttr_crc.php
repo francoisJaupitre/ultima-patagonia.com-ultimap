@@ -68,7 +68,7 @@ if($aut['dev'] and $cnf < 1)
 }
 if($aut['cat'] and $id_cat_crc == 0){
 ?>
-				<li onclick="grd('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->grd->$id_lng; ?></li>
+				<li onclick="saveToCat('crc',<?php echo $id_dev_crc ?>);"><?php echo $txt->grd->$id_lng; ?></li>
 <?php
 }
 ?>

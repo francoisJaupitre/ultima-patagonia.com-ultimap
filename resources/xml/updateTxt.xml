@@ -2,44 +2,44 @@
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
   <errval>
-		<fr>Erreur valeur!</fr>
+		<fr>Erreur valeur !</fr>
 		<es>Error valor!</es>
 		<pt>Erro valor!</pt>
 	</errval>
 	<errwebuid>
-		<fr>Identifiant déjà utilisé!</fr>
+		<fr>Identifiant déjà utilisé !</fr>
 		<es>¡Identificador ya usado!</es>
 		<pt>Identificador já usado!</pt>
 	</errwebuid>
 	<errbss>
-		<fr>Erreur base!</fr>
+		<fr>Erreur base !</fr>
 		<es>Error base!</es>
 		<pt>Erro base!</pt>
 	</errbss>
 	<errbss2>
-		<fr>Erreur! Cette base existe déjà!</fr>
-		<es>Error! Ya existe esta base!</es>
-		<pt>Erro! Esta base já existe!</pt>
+		<fr>Erreur ! Cette base existe déjà.</fr>
+		<es>Error! Ya existe esta base.</es>
+		<pt>Erro! Esta base já existe.</pt>
 	</errbss2>
 	<errbss3>
-		<fr>Erreur! Recoupement de bases!</fr>
-		<es>Error! Cruzamiento de bases!</es>
-		<pt>Erro! Cruzamento de bases!</pt>
+		<fr>Erreur ! Recoupement de bases.</fr>
+		<es>Error! Cruzamiento de bases.</es>
+		<pt>Erro! Cruzamento de bases.</pt>
 	</errbss3>
 	<errdat>
-		<fr>Erreur date!</fr>
+		<fr>Erreur date !</fr>
 		<es>Error fecha!</es>
 		<pt>Erro data!</pt>
 	</errdat>
 	<errdat2>
-		<fr>Erreur! Cette date existe deja!</fr>
-		<es>Error! Ya existe esta fecha!</es>
-		<pt>Erro! Esta data já existe!</pt>
+		<fr>Erreur ! Cette date existe deja.</fr>
+		<es>Error! Ya existe esta fecha.</es>
+		<pt>Erro! Esta data já existe.</pt>
 	</errdat2>
 	<errdat3>
-		<fr>Erreur! Recoupement de dates!</fr>
-		<es>Error! Cruzamiento de fechas!</es>
-		<pt>Erro! Cruzamento de datas!</pt>
+		<fr>Erreur ! Recoupement de dates.</fr>
+		<es>Error! Cruzamiento de fechas.</es>
+		<pt>Erro! Cruzamento de datas.</pt>
 	</errdat3>
   <act_map_vll>
     <fr>Utiliser la position enregistrée de cette ville comme emplacement sur la carte ?</fr>

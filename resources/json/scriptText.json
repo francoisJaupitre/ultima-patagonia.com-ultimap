@@ -390,5 +390,29 @@
   "ajt_bss": {
     "fr": "Ajouter base(s)?'\n'Utiliser ';' et '-' pour ajouter plusieurs bases. '\n'(ex: 2-4;6 => bases 2,3,4,6.)",
     "es": "¿Añadir base(s)?'\n'Usar ';' y '-' para añadir varias bases. '\n'(ej: 2-4;6 => bases 2,3,4,6.)"
+  },
+  "grd_crc": {
+    "fr": "Entrez un nom pour GARDER ce circuit dans le catalogue.",
+    "es": "Ingrese un nombre para GUARDAR este circuito en el catalogo."
+  },
+  "grd_mdl": {
+    "fr": "Entrez un nom pour GARDER ce module dans le catalogue.",
+    "es": "Ingrese un nombre para GUARDAR este modulo en el catalogo."
+  },
+  "grd_jrn": {
+    "fr": "Entrez un nom pour GARDER cette journée dans le catalogue.",
+    "es": "Ingrese un nombre para GUARDAR esta jornada en el catalogo."
+  },
+  "grd_prs": {
+    "fr": "Entrez un nom pour GARDER cette prestation dans le catalogue.",
+    "es": "Ingrese un nombre para GUARDAR esta prestación en el catalogo."
+  },
+  "grd_hbr": {
+    "fr": "Entrez un nom pour GARDER cet hébergement dans le catalogue.",
+    "es": "Ingrese un nombre para GUARDAR este alojamiento en el catalogo."
+  },
+  "grd_srv": {
+    "fr": "Entrez un nom pour GARDER ce service dans le catalogue.",
+    "es": "Ingrese un nombre para GUARDAR este servicio en el catalogo."
   }
 }

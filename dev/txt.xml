@@ -165,6 +165,10 @@
 		<fr>EMAIL RESAS</fr>
 		<es>EMAIL RESERVAS</es>
 	</mailres>
+	<wap>
+		<fr>WHATSAPP</fr>
+		<es>WHATSAPP</es>
+	</wap>
 	<vll>
 		<fr>VILLE</fr>
 		<es>CIUDAD</es>
@@ -686,6 +690,14 @@
 		<fr>GARDER CHAMBRE DANS LE CATALOGUE</fr>
 		<es>GUARDAR HABITACION EN EL CATALOGO</es>
 	</grdchm>
+	<grdok>
+		<fr>Enregistré !</fr>
+		<es>Guardado!</es>
+	</grdok>
+	<grderr>
+		<fr>Impossible de garder une journée contenant plusieurs fois la même prestation !</fr>
+		<es>No es posible guardar una jornada incluyendo varias veces la misma prestacion!</es>
+	</grderr>
 	<cmd>
 		<fr>COMMANDES</fr>
 		<es>COMANDOS</es>
