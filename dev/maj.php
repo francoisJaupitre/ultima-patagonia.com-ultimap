@@ -143,7 +143,7 @@ elseif($tab=='dev_mdl') {
 				if(!in_array($base,$bss_crc)) {include("sup_trf_srv.php");}
 			}
 			foreach($bss_crc as $base) {
-				if(!in_array($base,$bss_mdl)) {include("ajt_trf_srv.php");}
+				if(!in_array($base,$bss_mdl)) {include("../resources/php/addSrvRates.php");}
 			}
 			delete("dev_mdl_bss","id_mdl",$id_dev_mdl);
 			upd_quo("dev_mdl",array("vue_sgl","vue_dbl","vue_tpl","vue_qdp","ptl","psg","sgl","dbl_mat","dbl_twn","tpl_mat","tpl_twn","qdp","com","mrq_hbr"),array("0","0","0","0","0","0","0","0","0","0","0","0","0","0"),$id_dev_mdl);

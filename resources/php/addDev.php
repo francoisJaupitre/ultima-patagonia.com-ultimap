@@ -106,7 +106,7 @@ if($id_cat_crc > 0)
 				while($dt_mdl = ftc_ass($rq_mdl))
 				{
 					$id_dev_mdl = $dt_mdl['id'];
-					include("../../dev/ajt_trf_srv.php");
+					include("addSrvRates.php");
 				}
 			}
 			$ids_dev_crc[] = $id_dev_crc;
@@ -130,7 +130,7 @@ if($id_cat_crc > 0)
 			{
 				$dt_cfg = ftc_ass(sel_whe("mrq", "cfg_mrq", "bs_min <=".$base." AND bs_max >=".$base." AND id_ctg_clt=".$id_ctg_clt));
 				insert("dev_mdl_bss", array("id_mdl", "base", "vue", "mrq"), array($id_dev_mdl, $base, $vue, $dt_cfg['mrq']));
-				include("../../dev/ajt_trf_srv.php");
+				include("addSrvRates.php");
 			}
 		}
 		$ids_dev_crc[] = $id_dev_crc;

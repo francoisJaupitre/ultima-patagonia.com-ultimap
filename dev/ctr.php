@@ -172,7 +172,7 @@ if(isset($_GET['id']) and $_GET['id']>0){
 			<table class="tbl_crc w-100">
 				<tr>
 					<td class="lsb">
-						<input id="chk_res" class="dev_img chk_img" type="checkbox" autocomplete="off" <?php if($vue_res==1){echo 'checked';} ?> onclick="chk_res();" />
+						<input id="chk_res" class="dev_img chk_img" type="checkbox" autocomplete="off" <?php if($vue_res){echo 'checked';} ?> onclick="chk_res();" />
 						<label for="chk_res"><img src="../prm/img/maxi.png" /></label>
 						<strong><?php echo $txt->ress->$id_lng; ?></strong>
 					</td>

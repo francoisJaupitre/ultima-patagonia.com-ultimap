@@ -1,14 +1,17 @@
 <?php //MANAGE DAY DATAS IN A QUOTATION
 $dt_jrn = ftc_ass(sel_quo(
-	"*",
-	"cat_jrn LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg = ".$id_lgg,
+	"titre, nom, alerte, dsc, id_pic",
+	"cat_jrn
+		LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg = ".$id_lgg."
+		LEFT JOIN cat_jrn_pic ON cat_jrn.id = cat_jrn_pic.id_jrn
+	",
 	"cat_jrn.id",
 	$id_cat_jrn
 ));
 $id_dev_jrn = insert(
 	"dev_jrn",
-	array("id_mdl", "id_cat", "nom", "ord", "date", "opt", "titre", "dsc"),
-	array($id_dev_mdl, $id_cat_jrn, $dt_jrn['nom'], $ord_jrn, $date, $opt_jrn, $dt_jrn['titre'], $dt_jrn['dsc'])
+	array("id_mdl", "id_cat", "nom", "ord", "date", "opt", "titre", "dsc", "id_pic"),
+	array($id_dev_mdl, $id_cat_jrn, $dt_jrn['nom'], $ord_jrn, $date, $opt_jrn, $dt_jrn['titre'], $dt_jrn['dsc'], $dt_jrn['id_pic'])
 );
 if(empty($dt_jrn['titre']))
 {

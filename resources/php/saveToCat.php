@@ -31,7 +31,7 @@ if(
 		case 'jrn':
 			$id_dev_jrn = $data['id'];
 			$nom_jrn = $data['nom'];
-			$dt_sel_jrn = ftc_ass(sel_quo("titre, dsc", "dev_jrn", "id", $id_dev_jrn));
+			$dt_sel_jrn = ftc_ass(sel_quo("titre, dsc, id_pic", "dev_jrn", "id", $id_dev_jrn));
 			include("saveToCatJrn.php");
 			echo json_encode(array($id_cat_jrn, (string)$txt->grdok->$id_lng));
 			break;

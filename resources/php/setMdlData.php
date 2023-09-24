@@ -1,6 +1,6 @@
 <?php //MANAGE MODULE DATAS IN A QUOTATION
 $dt_mdl = ftc_ass(sel_quo(
-	"*",
+	"nom, titre, dsc, sel_mdl_jrn, alerte",
 	"cat_mdl LEFT JOIN cat_mdl_txt ON cat_mdl.id = cat_mdl_txt.id_mdl AND lgg = ".$id_lgg,
 	"cat_mdl.id",
 	$id_cat_mdl

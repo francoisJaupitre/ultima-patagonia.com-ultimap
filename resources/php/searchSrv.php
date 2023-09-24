@@ -1,29 +1,33 @@
-<?php //GET SOME SERVICES IN QUOTATIONS AND OPERATIONS
+<?php //GET OTHERS SERVICES WHEN USER CHANGE A SERVICE SUPPLIER OR A RESERVATION STATE FROM A QUOTATION OR OPERATIONS
 $request = file_get_contents("php://input");
 $data = json_decode($request, true);
 if(
 	isset($data['id_frn'])
-	and isset($data['id_dev_srv_ctg'])
-	and isset($data['id_dev_srv_vll'])
+	and isset($data['param'])
 	and isset($data['id_dev_srv']) and $data['id_dev_srv'] > 0
 	and isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0
 	and isset($data['cnf'])
 )
 {
 	include("functions.php");
-	$id_dev_srv_ctg = $data['id_dev_srv_ctg'];
-	$id_dev_srv_vll = $data['id_dev_srv_vll'];
-	if($id_dev_srv_ctg > 0 and $id_dev_srv_vll > 0)
+	$params = json_decode($data['param'], true);
+	if(isset($params['res']))
+	{
+		$xmlTxt0 = 'src_srv4';
+		$xmlTxt1 = 'src_srv3';
+	}elseif($params['ctg'] > 0 and $params['vll'] > 0)
 	{
 		$xmlTxt0 = 'src_srv1';
 		$xmlTxt1 = 'src_srv0';
+		$id_ctg = $params['ctg'];
+		$id_vll = $params['vll'];
 		$src = 0;
 	}else{
 		$xmlTxt0 = 'src_srv2';
 		$xmlTxt1 = 'src_srv0';
 		$dt_src_srv = ftc_ass(sel_quo("id_vll, ctg", "dev_srv", "id", $data['id_dev_srv']));
-		$id_dev_srv_ctg = $dt_src_srv['ctg'];
-		$id_dev_srv_vll = $dt_src_srv['id_vll'];
+		$id_ctg = $dt_src_srv['ctg'];
+		$id_vll = $dt_src_srv['id_vll'];
 		$src = $data['id_frn'];
 	}
 	$rq_mdl = sel_quo("id", "dev_mdl", "id_crc", $data['id_dev_crc']);
@@ -44,11 +48,21 @@ if(
 				while($dt_srv = ftc_ass($rq_srv))
 				{
 					if(
-						$dt_srv['id_vll'] == $id_dev_srv_vll
-						and $dt_srv['ctg'] == $id_dev_srv_ctg
-						and $dt_srv['id'] != $data['id_dev_srv']
-						and ($dt_srv['res'] == 0 or $dt_srv['res'] == 6)
-						and $dt_srv['id_frn'] == $src
+						(
+							isset($params['res'])
+							and $dt_srv['id_frn'] == $data['id_frn']
+							and $dt_srv['res'] != $params['res']
+							and $dt_srv['res'] != -1
+							and $dt_srv['res'] != 6
+							and $dt_srv['id'] != $data['id_dev_srv']
+						) or (
+							!isset($params['res'])
+							and $dt_srv['id_vll'] == $id_vll
+							and $dt_srv['ctg'] == $id_ctg
+							and $dt_srv['id'] != $data['id_dev_srv']
+							and ($dt_srv['res'] == 0 or $dt_srv['res'] == 6)
+							and $dt_srv['id_frn'] == $src
+						)
 					)
 					{
 						$arr[] = $dt_srv['id'];

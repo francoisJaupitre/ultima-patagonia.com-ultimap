@@ -1,30 +1,6 @@
 <?phpxml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE textes SYSTEM "text.dtd">
 <textes>
-	<src_prs>
-		<fr> autre(s) journée(s)?</fr>
-		<es> otra(s) jornada(s)?</es>
-	</src_prs>
-	<src_prs>
-		<fr>Ajouter cette même prestation en option pour la(les) </fr>
-		<es>Añadir esta misma prestación en opción para la(s) </es>
-	</src_prs>
-	<src_prs>
-		<fr>Sélectionner cette même prestation pour la(les) </fr>
-		<es>Seleccionar esta misma prestación para la(s) </es>
-	</src_prs>
-	<src_prs>
-		<fr>Désélectionner cette même prestation pour la(les) </fr>
-		<es>Deseleccionar esta misma prestación para la(s) </es>
-	</src_prs>
-	<src_prs>
-		<fr>Supprimer cette même prestation pour la(les) </fr>
-		<es>Suprimir esta misma prestación para la(s) </es>
-	</src_prs>
-	<src_prs>
-		<fr>Appliquer ce statut au(x)  </fr>
-		<es>Aplicar este estado a la(s) </es>
-	</src_prs>
 	<sup_mdl>
 		<fr>Etes-vous sûr de vouloir SUPPRIMER ce module?</fr>
 		<es>Está seguro de querer SUPRIMIR este modulo?</es>

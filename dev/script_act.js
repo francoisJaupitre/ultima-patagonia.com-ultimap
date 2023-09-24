@@ -81,10 +81,8 @@ function maj(tab,col,val,id,id_sup){
 				else if(col=='id_frn'){
 					vue_elem('srv_frn'+id,id);
 					vue_elem('srv_res'+id,id);
-					vue_crc('res');
 					window.parent.act_frm('srv_res_frn'+id);
 					window.parent.act_frm('srv_res_srv'+id);
-					window.parent.act_frm('frn_ope');
 				}
 				else if(col=='res'){
 					if(val=='-1'){dsp('srv',id);}

@@ -37,7 +37,7 @@ if(isset($_POST['id_dev_prs'])){
 ?>
 <table>
 	<tr>
-		<td class="dsg" width="230px">
+		<td class="dsg" width="58%">
 			<div style="float: left; padding-right: 5px;"><input id="prs_heure<?php echo $id_dev_prs ?>" type="time" <?php if(!$aut['res']){echo ' disabled';} ?> value="<?php if(!is_null($hre_prs)){echo date("H:i", strtotime($hre_prs));} ?>" onblur="maj('dev_prs','heure',this.value,<?php echo $id_dev_prs ?>);" onclick="this.focus();"/></div>
 <?php
 	if($id_ctg_prs !=1 and $id_ctg_prs !=9  and $id_ctg_prs !=11 and $id_ctg_prs !=12 and $id_ctg_prs !=17){

@@ -257,8 +257,10 @@ const closeFrame = async function(ref)
       const obj = await getTxt("resources/json/tabText.json")
       htm = obj[nom2.substr(pos+8,len-8)]+': '+nom1.substr(0,nom1.indexOf('<span id='))
 		}
-    console.log(`li_ttr${ref_id}`,document.getElementById(`li_ttr${ref_id}`).id)
-    console.log(`li_ttr${ref_id}`,document.getElementById(`li_ttr${ref_id}`))
+    if(typeof document.getElementById(`li_ttr${ref_id}`) != 'undefined')
+      console.log(`li_ttr${ref_id}`,document.getElementById(`li_ttr${ref_id}`))
+    else
+      console.log(`li_ttr${ref_id}`,'undefined')
 		const prevId = document.getElementById(`li_ttr${ref_id}`).previousSibling
 		document.getElementById(`li_${frm_lst[0]}`).remove()
 		document.getElementById(`li_ttr${ref_id}`).remove()

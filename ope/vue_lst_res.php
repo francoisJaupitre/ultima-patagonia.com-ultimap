@@ -8,11 +8,14 @@ elseif($cbl == 'hbr'){$uid .= $dt_res['id_dev_hbr'];}
 $uid .= '"';
 foreach($res_srv[$id_lng] as $res_id => $nom){
 	if($res_id != $dt_res['id_'.$cbl.'_res'] and substr(upnoac($nom),0,strlen($src)) == $src){
-		if($cbl == 'srv'){
-			$event = "updateData('dev_srv','res',".$res_id.",".$dt_res['id_dev_srv'].",".$dt_res['id_prs'].",".$dt_res['id_crc'].");";
-			if($src_frn_res_srv[$res_id] and $dt_res['id_frn'] != 0 and $res_id > -1 and $res_id < 6)
+		if($cbl == 'srv')
+		{
+			if($src_frn_res_srv[$res_id])
 			{
-				$event .= "searchFrn(".$res_id.",".$dt_res['id_frn'].",".$dt_res['id_dev_srv'].','.$dt_res['id_crc'].");";
+				$param = '{\x22res\x22:'.$res_id.'}';
+				$event = "searchSrv(".$dt_res['id_frn'].",'$param',".$dt_res['id_dev_srv'].",".$dt_res['id_crc'].")";
+			}else{
+				$event = "updateData('dev_srv','res',".$res_id.",".$dt_res['id_dev_srv'].",".$dt_res['id_prs'].",".$dt_res['id_crc'].")";
 			}
 		}
 		elseif($cbl == 'hbr'){$event = "updateData('dev_hbr','res',".$res_id.",".$dt_res['id_dev_hbr'].",".$dt_res['id_prs'].",".$dt_res['id_crc'].");searchHbr(".$dt_res['id_cat_hbr'].",".$dt_res['id_cat_chm'].",0,".$dt_res['id_rgm'].",".$dt_res['id_dev_hbr'].",0,".$res_id.','.$dt_res['id_crc'].");";}

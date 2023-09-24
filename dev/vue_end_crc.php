@@ -17,7 +17,7 @@ if(isset($_POST['id_dev_crc']))
 }
 if($last_id_cat_mdl > 0)
 {
-	$dt_rgn = ftc_ass(sel_quo("id_rgn", "cat_mdl_rgn", "id_mdl", $last_id_cat_mdl, "ord DESC"));
+	$dt_rgn = ftc_ass(sel_quo("id_rgn", "cat_mdl_rgn", "id_mdl", $last_id_cat_mdl));
 	$id_rgn = $dt_rgn['id_rgn'];
 }else if($last_id_dev_mdl > 0)
 {

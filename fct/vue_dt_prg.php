@@ -350,7 +350,8 @@ if($cbl=='dev'){
 		$flg_trf_crc = true;
 		$rq_mdl = sel_quo("*","dev_mdl","id_crc",$id,"ord");
 		while($dt_mdl = ftc_ass($rq_mdl)){
-			if($dt_mdl['trf']){
+			if($dt_mdl['trf'])
+			{
 			  $id_trf = $dt_mdl['id'];
 			  $vue_sgl = $dt_mdl['vue_sgl'];
 			  $vue_dbl = $dt_mdl['vue_dbl'];

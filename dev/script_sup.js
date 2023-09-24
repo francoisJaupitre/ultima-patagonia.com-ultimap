@@ -263,14 +263,23 @@ function sup_rmn_pax(cbl,id_rmn,id_pax){
 	xmlhttp.send("cbl="+cbl+"&id_rmn="+id_rmn+"&id_pax="+id_pax);
 }
 
-function ask_sup_cat(cbl,id,id_cat,id_sup,id_sup2,id_sup3){
-	if(cbl=='prs'){
-		if(sup_cat('jrn',id_sup,id_sup2,id_sup3)==0){$("#trfopt_prs"+id).prop('checked',true);return;}
-		maj('dev_prs','opt','0',id,id_sup);
-	}
-	else if(cbl=='jrn'){
-		if(sup_cat('mdl',id_sup,id_sup2)==0){$("#trfopt_jrn"+id).prop('checked',false);return;}
-		maj('dev_jrn','opt','0',id,id_sup);
+const ask_sup_cat = (cbl, id, id_cat, id_sup, id_sup2, id_sup3) => {
+	if(cbl == 'prs')
+	{
+		if(sup_cat('jrn', id_sup, id_sup2, id_sup3) == 0)
+		{
+			$("#trfopt_prs"+id).prop('checked', true) //change to JS
+			return
+		}
+		searchPrs(id_cat, `{"opt":0, "id_dev":${id}}`, id_sup)
+	}else if(cbl == 'jrn')
+	{
+		if(sup_cat('mdl', id_sup, id_sup2) == 0)
+		{
+			$("#trfopt_jrn"+id).prop('checked', false) //change to JS
+			return
+		}
+		maj('dev_jrn', 'opt', '0', id, id_sup);
 	}
 }
 

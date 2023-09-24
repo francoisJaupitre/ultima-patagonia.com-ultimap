@@ -101,7 +101,8 @@ while($dt_jrn = ftc_ass($rq_jrn)){
   $jrn_datas[$dt_jrn['id']]['ord'] = $dt_jrn['ord'];
   $jrn_datas[$dt_jrn['id']]['nom'] = $dt_jrn['nom'];
   $jrn_datas[$dt_jrn['id']]['titre'] = $dt_jrn['titre'];
-  $jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
+  //$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
+	//$jrn_datas[$dt_jrn['id']]['id_pic'] = $dt_jrn['id_pic'];
 }
 ?>
 <span id="vue_dsc_mdl_<?php echo $id_dev_mdl ?>"><?php if($vue_mdl) {include("vue_dsc_mdl.php");} ?></span>

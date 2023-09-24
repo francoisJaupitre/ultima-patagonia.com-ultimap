@@ -83,7 +83,8 @@ if(isset($_POST['id_dev_mdl'])){
 		$jrn_datas[$dt_jrn['id']]['ord'] = $dt_jrn['ord'];
 		$jrn_datas[$dt_jrn['id']]['nom'] = $dt_jrn['nom'];
 		$jrn_datas[$dt_jrn['id']]['titre'] = $dt_jrn['titre'];
-		$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
+		//$jrn_datas[$dt_jrn['id']]['dsc'] = $dt_jrn['dsc'];
+		//$jrn_datas[$dt_jrn['id']]['id_pic'] = $dt_jrn['id_pic'];
 	}
 }
 if($id_cat_mdl > -1)
@@ -105,7 +106,8 @@ if($id_cat_mdl > -1)
 					$ord_jrn = $dt_jrn['ord'];
 					$nom_jrn = $dt_jrn['nom'];
 					$ttr_jrn = $dt_jrn['titre'];
-					$dsc_jrn = $dt_jrn['dsc'];
+					//$dsc_jrn = $dt_jrn['dsc'];
+					//$id_pic_jrn = $dt_jrn['id_pic'];
 					$nb_jrn_opt = ftc_ass(select("COUNT(*) as total","dev_jrn","ord=".$ord_jrn." AND id_mdl",$id_dev_mdl));
 					if($nb_jrn_opt['total'] > 1){$flg_jrn_opt = true;}
 					else{$flg_jrn_opt = false;}

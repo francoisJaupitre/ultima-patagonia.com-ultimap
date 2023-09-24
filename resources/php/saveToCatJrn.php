@@ -13,6 +13,10 @@ if(num_rows($rq_jrn) > 0)
 		array("id_jrn", "lgg", "titre", "dsc"),
 		array($id_cat_jrn, $id_lgg, $dt_sel_jrn['titre'], $dt_sel_jrn['dsc'])
 	);
+	if($dt_sel_jrn['id_pic'] > 0)
+	{
+		insert("cat_jrn_pic", array("id_jrn", "id_pic"), array($id_cat_jrn, $dt_sel_jrn['id_pic']));
+	}
 	upd_quo("dev_jrn", array("id_cat", "nom"), array($id_cat_jrn, $nom_jrn), $id_dev_jrn);
 	$rq_sel_prs = sel_quo("id, id_cat, ctg, nom, titre, dsc, opt, ord", "dev_prs", "id_jrn", $id_dev_jrn, "ord");
 	while($dt_sel_prs = ftc_ass($rq_sel_prs))

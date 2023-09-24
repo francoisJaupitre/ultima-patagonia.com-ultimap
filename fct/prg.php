@@ -100,7 +100,9 @@ while($dt_mdl = ftc_ass($rq_mdl)){
 		$lst_mdl['trf'][$id_mdl] = 0;
 	}
 	$txt_mdl[1][$id_mdl] = $txt_mdl[2][$id_mdl] = '';
-	if(!empty($dt_mdl['dsc'])) {
+	if(!empty($dt_mdl['dsc']))
+	{
+		var_dump($dt_mdl['dsc']);
 		if(empty($dt_mdl['titre'])){$txt_mdl[1][$id_mdl] = $txt_prg->mdl->$id_lgg.' '.$lst_mdl['ord'][$id_mdl];}
 		else{$txt_mdl[1][$id_mdl] = $dt_mdl['titre'];}
 		$txt_mdl[2][$id_mdl]= $dt_mdl['dsc'];

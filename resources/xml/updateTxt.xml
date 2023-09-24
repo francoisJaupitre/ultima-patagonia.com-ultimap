@@ -87,12 +87,12 @@
       <es>ERROR DE TARIFAS PARA EL(LOS) SERVICIO(S):&#xA;</es>
     </srv>
     <alrt>
-			<fr>LES TARIFS DU(DES) MODULE(S) </fr>
-			<es>LAS TARIFAS DEL(LOS) MODULO(S) </es>
+			<fr>Les tarifs des modules suivants : </fr>
+			<es>Las tarifas de los modulos siguientes : </es>
 		</alrt>
 		<alrt2>
-			<fr> DEVRAIENT ETRE ACTUALISES!</fr>
-			<es> DEBERIAN SER ACTUALIZADAS!</es>
+			<fr> devraient être actualisés (changement de dates).</fr>
+			<es> deberían actualizarse (cambio de fechas).</es>
 		</alrt2>
 	</err>
   <jour>

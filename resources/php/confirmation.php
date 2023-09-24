@@ -29,23 +29,45 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0)
 			$nb_rmn_mdl = ftc_ass(sel_quo("COUNT(*) as total", "dev_mdl_rmn", "id_mdl", $id_dev_mdl));
 			if($nb_rmn_mdl['total'] == 0)
 			{
-				insert("dev_mdl_rmn", array("id_mdl", "nr"), array($id_dev_mdl, 1));
+				$id_rmn_mdl = insert("dev_mdl_rmn", "id_mdl", $id_dev_mdl);
 			}
-			$dt_rmn = ftc_ass(sel_quo("id", "dev_mdl_rmn", array("nr", "id_mdl"), array(1, $id_dev_mdl)));
-			upd_var_quo("dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id", "id_rmn", $dt_rmn['id'], array("id_rmn", "id_mdl"), array(0, $id_dev_mdl));
+			else{
+				$dt_rmn = ftc_ass(sel_quo("id", "dev_mdl_rmn", "id_mdl", $id_dev_mdl));
+				$id_rmn_mdl = $dt_rmn['id'];
+			}
+			upd_var_quo(
+				"dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id",
+				"id_rmn",
+				$id_rmn_mdl,
+				array("id_rmn", "id_mdl"),
+				array(0, $id_dev_mdl)
+			);
 		}elseif($flg_pax)
 		{
 			$nb_rmn_crc = ftc_ass(sel_quo("COUNT(*) as total", "dev_crc_rmn", "id_crc", $id_dev_crc));
 			if($nb_rmn_crc['total'] == 0)
 			{
-				insert("dev_crc_rmn", array("id_crc", "nr"), array($id_dev_crc, 1));
+				$id_rmn_crc = insert("dev_crc_rmn", "id_crc", $id_dev_crc, 1);
+			}else{
+				$dt_rmn = ftc_ass(sel_quo("id", "dev_crc_rmn", "id_crc", $id_dev_crc));
+				$id_rmn_crc = $dt_rmn['id'];
 			}
-			$dt_rmn = ftc_ass(sel_quo("id", "dev_crc_rmn", array("nr", "id_crc"), array(1, $id_dev_crc)));
-			upd_var_quo("dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id", "id_rmn", $dt_rmn['id'], array("id_rmn", "id_mdl"), array(0, $id_dev_mdl));
+			upd_var_quo(
+				"dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id",
+				"id_rmn",
+				$id_rmn_crc,
+				array("id_rmn", "id_mdl"),
+				array(0, $id_dev_mdl)
+			);
 			$flg_pax = false;
 		}else{
-			$dt_rmn = ftc_ass(sel_quo("id", "dev_crc_rmn", array("nr", "id_crc"), array(1, $id_dev_crc)));
-			upd_var_quo("dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id", "id_rmn", $dt_rmn['id'], array("id_rmn", "id_mdl"), array(0, $id_dev_mdl));
+			upd_var_quo(
+				"dev_prs INNER JOIN dev_jrn ON dev_prs.id_jrn = dev_jrn.id",
+				"id_rmn",
+				$id_rmn_crc,
+				array("id_rmn", "id_mdl"),
+				array(0, $id_dev_mdl)
+			);
 		}
 		$rq_jrn = sel_quo("id, ord, date, opt", "dev_jrn", "id_mdl", $id_dev_mdl, "ord");
 		while($dt_jrn = ftc_ass($rq_jrn))
@@ -60,7 +82,13 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0)
 				$rq_prs = sel_quo("id, res, opt, ctg", "dev_prs", "id_jrn", $id_dev_jrn);
 				while($dt_prs = ftc_ass($rq_prs))
 				{
-					if($dt_prs['ctg'] == 1 or $dt_prs['ctg'] == 9 or $dt_prs['ctg'] == 11 or $dt_prs['ctg'] == 12 or $dt_prs['ctg']== 17)
+					if(
+						$dt_prs['ctg'] == 1
+						or $dt_prs['ctg'] == 9
+						or $dt_prs['ctg'] == 11
+						or $dt_prs['ctg'] == 12
+						or $dt_prs['ctg']== 17
+					)
 					{
 							if(!isset($dat_nt1))
 							{
@@ -75,7 +103,12 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0)
 					}
 					elseif($dt_prs['res'] == 0)
 					{
-						upd_quo("dev_prs", array("res", "dt_res", "taux", "sup"), array(1, date("Y-m-d"), $cfg_crr_tx[$id_crr_crc], $cfg_crr_sp[$id_crr_crc]), $id_dev_prs);
+						upd_quo(
+							"dev_prs",
+							array("res", "dt_res", "taux", "sup"),
+							array(1, date("Y-m-d"), $cfg_crr_tx[$id_crr_crc], $cfg_crr_sp[$id_crr_crc]),
+							$id_dev_prs
+						);
 						$rq_hbr = sel_quo("id, opt", "dev_hbr", "id_prs", $id_dev_prs);
 						while($dt_hbr = ftc_ass($rq_hbr))
 						{
@@ -105,7 +138,11 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0)
 	$rq_tsk = sel_quo("*", "cfg_tsk", "", "", "ord");
 	while($dt_tsk = ftc_ass($rq_tsk))
 	{
-		if($dt_tsk['ctg_clt'] == 0 or ($dt_tsk['ctg_clt'] > 0 and $dt_tsk['ctg_clt'] == $dt_clt['id_ctg']) or ($dt_tsk['ctg_clt'] < 0 and abs($dt_tsk['ctg_clt']) != $dt_clt['id_ctg']))
+		if(
+				$dt_tsk['ctg_clt'] == 0
+				or ($dt_tsk['ctg_clt'] > 0 and $dt_tsk['ctg_clt'] == $dt_clt['id_ctg'])
+				or ($dt_tsk['ctg_clt'] < 0 and abs($dt_tsk['ctg_clt']) != $dt_clt['id_ctg'])
+			)
 		{
 			$nb = $dt_tsk['delai'];
 			if($dt_tsk['ref'] == 1)
@@ -131,13 +168,19 @@ if(isset($data['id_dev_crc']) and $data['id_dev_crc'] > 0)
 			{
 				$date = date("Y-m-d");
 			}
-			if(isset($dt_tsk['id_tsk']))
+			$rq = sel_quo(
+				"id",
+				"grp_tsk",
+				array("id_grp", "nom"),
+				array($id_grp, $dt_tsk['nom'])
+			);
+			if(num_rows($rq) == 0)
 			{
-				$rq = sel_quo("id", "grp_tsk", array("id_tsk", "id_grp", "nom"), array($dt_tsk['id_tsk'], $id_grp, $dt_tsk['nom']));
-				if(num_rows($rq) == 0)
-				{
-					insert("grp_tsk", array("id_tsk", "id_grp", "date", "nom", "respon", "usr", "dt_grp"), array($dt_tsk['id_tsk'], $id_grp, $date, $dt_tsk['nom'], $id_usr, $id_usr, date("Y-m-d")));
-				}
+				insert(
+					"grp_tsk",
+					array("id_grp", "date", "nom", "respon", "usr", "dt_grp"),
+					array($id_grp, $date, $dt_tsk['nom'], $id_usr, $id_usr, date("Y-m-d"))
+				);
 			}
 		}
 	}

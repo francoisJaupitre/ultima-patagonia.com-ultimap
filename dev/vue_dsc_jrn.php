@@ -11,7 +11,7 @@ if(isset($_POST['id_dev_jrn'])){
 	$dt_jrn = ftc_ass(select("opt,dsc,id_mdl,id_pic,id_cat","dev_jrn","id",$id_dev_jrn));
 	$opt_jrn = $dt_jrn['opt'];
 	$dsc_jrn = $dt_jrn['dsc'];
-	$id_pic = $dt_jrn['id_pic'];
+	$id_pic_jrn = $dt_jrn['id_pic'];
 	$id_dev_mdl = $dt_jrn['id_mdl'];
 	$dt_mdl = ftc_ass(select("col","dev_mdl","id",$id_dev_mdl));
 	$id_col_mdl = $dt_mdl['col'];

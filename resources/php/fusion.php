@@ -12,7 +12,7 @@ if(isset($data['val']) and isset($data['id_dev_mdl']) and $data['id_dev_mdl'] > 
 	$ord_mdl = $dt['ord'];
 	$fus_mdl = $dt['fus'];
 	$flg_msg = false;
-	if($val == 1 and $fus_mdl == 0)
+	if($val and !$fus_mdl)
 	{
 		$rq_mdl = sel_quo("id, ord", "dev_mdl", "id_crc", $id_dev_crc);
 		while($dt_mdl = ftc_ass($rq_mdl))
@@ -33,7 +33,8 @@ if(isset($data['val']) and isset($data['id_dev_mdl']) and $data['id_dev_mdl'] > 
 			}
 		}
 		upd_noq("dev_crc", "duree", "duree-1", $id_dev_crc);
-	}elseif($fus_mdl == 1)
+		upd_quo("dev_mdl", "fus", $val, $id_dev_mdl);
+	}elseif(!$val and $fus_mdl)
 	{
 		$rq_mdl = sel_quo("id, ord", "dev_mdl", "id_crc", $id_dev_crc);
 		while($dt_mdl = ftc_ass($rq_mdl))
@@ -54,8 +55,9 @@ if(isset($data['val']) and isset($data['id_dev_mdl']) and $data['id_dev_mdl'] > 
 			}
 		}
 		upd_noq("dev_crc", "duree", "duree+1", $id_dev_crc);
+		upd_quo("dev_mdl", "fus", $val, $id_dev_mdl);
 	}
-	upd_quo("dev_mdl", "fus", $val, $id_dev_mdl);
+
 	if($flg_msg)
 	{
 		$txt = simplexml_load_file('../../dev/txt.xml');

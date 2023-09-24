@@ -15,7 +15,9 @@ $not_col = array(
 	'nom',
 	'commen',
 	'duree',
-	'motscles'
+	'motscles',
+	'tel',
+	'canal'
 );
 if(!in_array($col, $not_col))
 {

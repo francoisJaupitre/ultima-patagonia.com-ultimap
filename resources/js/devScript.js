@@ -252,14 +252,18 @@ const defineHbr = async function(id_hbr_def)
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
       {
         const rsp = JSON.parse(xhr.response)
-        sel_mdl('dt_prs')
-        vue_crc('res')
         if(rsp[0].length > 0)
           alt(rsp[0])
         if(rsp[1].length > 0)
           alt(rsp[1])
         if(rsp[2].length > 0)
           alt(rsp[2])
+        //sel_mdl('dt_prs')
+        for(let i = 3; i < rsp.length; i++)
+        {
+          vue_prs('dt', rsp[i])
+        }
+        vue_crc('res')
         unload('DEV defineHbr')
       }
     }
@@ -441,7 +445,8 @@ const addBss = async function(cbl, id)
         vue_crc('trf')
         sel_mdl('dt_prs')
       }
-			vue_crc('res');
+			vue_crc('res')
+      unload('DEV addBss')
 		}
 	}
 }
@@ -537,12 +542,13 @@ const saveToCat = async function(elem, id, id_sup, id_cat_hbr)
             break
         }
 				if(elem != 'chm')
-          window.parent.opn_frm(`cat/ctr.php?cbl=${elem}&id=${rsp[0]}`);
+          window.parent.opn_frm(`cat/ctr.php?cbl=${elem}&id=${rsp[0]}`)
         else
-          window.parent.act_frm(`hbr_chm${id_cat_hbr}`);
+          window.parent.act_frm(`hbr_chm${id_cat_hbr}`)
 				alt(rsp[1]) //obj['grd'][id_lng]
 			}else
         alt(rsp[0]) //obj['grd2'][id_lng]
+      unload('DEV saveToCat')
     }
 	}
 }
@@ -766,70 +772,92 @@ const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, i
   }
 }
 
-const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv) => {
+const searchSrv = (id_frn, param, id_dev_srv) => {
+  params = JSON.parse(param)
+  if(typeof params['res'] != 'undefined' && (params['res'] < -1 || params['res'] > 5))
+  {
+    maj('dev_srv', 'res', params['res'], id_dev_srv)
+    return
+  }
   load('DEV searchSrv')
   const xhr = new XMLHttpRequest
   xhr.open("POST", "../resources/php/searchSrv.php")
   xhr.setRequestHeader("Content-Type", "application/json")
-  xhr.send(JSON.stringify({ id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc, id_frn, cnf }))
+  xhr.send(JSON.stringify({ id_frn, param, id_dev_srv, id_dev_crc, cnf }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(typeof params['res'] == 'undefined')
+        maj('dev_srv', 'id_frn', id_frn, id_dev_srv)
+      else
+        maj('dev_srv', 'res', params['res'], id_dev_srv)
+      function doFirst(resp)
+      {
+        return new Promise((resolve) => {
+          if(resp != 0)
+          {
+            const rsp = JSON.parse(resp)
+            if(typeof params['res'] != 'undefined')
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i++)
+                {
+                  maj('dev_srv', 'res', params['res'], rsp[i])
+                  sel_srv('srv', rsp[i])
+                }
+                resolve()
+              }, () => {
+                resolve()
+              })
+            }else if(params['vll'] > 0 && params['ctg'] > 0)
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i++)
+                  maj('dev_srv', 'id_frn', id_frn, rsp[i])
+                resolve()
+              }, () => {
+                resolve()
+              })
+            }else{
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i++)
+                  maj('dev_srv', 'id_frn', 0, rsp[i])
+                resolve()
+              }, () => {
+                resolve()
+              })
+            }
+          }else{
+            resolve()
+          }
+        })
+      }
+      doFirst(xhr.response).then(() => {
+        vue_crc('res');
+        window.parent.act_frm('frn_ope');
+        unload('DEV searchSrv')
+      })
+    }
+  }
+}
+
+const searchFrn = (id_frn) => {
+  load('DEV searchFrn')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/searchFrn.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ id_frn, id_dev_crc, cnf }))
   xhr.onreadystatechange = () => {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
     {
       if(xhr.response != 0)
       {
         const rsp = JSON.parse(xhr.response)
-        if(id_dev_srv_vll > 0 && id_dev_srv > 0)
-        {
-          window.parent.box("?", rsp[0], () => {
-            for(let i = 1; i < rsp.length; i++)
-              maj('dev_srv', 'id_frn', id_frn, rsp[i])
-          })
-        }else{
-          window.parent.box("?", rsp[0], () => {
-            for(let i = 1; i < rsp.length; i++)
-              maj('dev_srv', 'id_frn', 0, rsp[i])
-          })
-        }
-      }
-      unload('DEV searchSrv')
-    }
-  }
-}
-
-const searchFrn = (res, id_frn, id_dev_srv, id_dev_prs) => {
-  load('DEV searchFrn')
-  const xhr = new XMLHttpRequest
-  xhr.open("POST", "../resources/php/searchFrn.php")
-  xhr.setRequestHeader("Content-Type", "application/json")
-  xhr.send(JSON.stringify({ id_frn, id_dev_srv, id_dev_crc, res, cnf }))
-  xhr.onreadystatechange = () => {
-    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
-    {
-      if(res > -2 && res < 6 && id_dev_srv > 0)
-      {
-        if(res > -1 && xhr.response != 0)
-        {
-          const rsp = JSON.parse(xhr.response)
-          window.parent.box("?", rsp[0], () => {
-            for(let i = 1; i < rsp.length; i++)
-            {
-              maj('dev_srv', 'res', res, rsp[i])
-              sel_srv('srv', rsp[i])
-            }
-          })
-        }
-        maj('dev_srv', 'res', res, id_dev_srv, id_dev_prs)
-        vue_crc('res')
-        window.parent.act_frm('frn_ope')
-      }
-      else if(res == 0 && id_dev_srv == 0 && xhr.response != 0)
-      {
-        const rsp = JSON.parse(xhr.response)
         let ids = rsp
         window.parent.box("?", ids.shift(), () => {
-          if(cnf>0)
+          if(cnf > 0)
           {
-            window.parent.box("?", ids.shift(), ()=>{
+            window.parent.box("?", ids.shift(), () => {
               prevUpdateRates('frn_all', rsp, 0)
             })
           }else{
@@ -838,6 +866,93 @@ const searchFrn = (res, id_frn, id_dev_srv, id_dev_prs) => {
         })
       }
       unload('DEV searchFrn')
+    }
+  }
+}
+
+const searchPrs = (id_cat, param, id_dev_jrn) =>
+{
+  params = JSON.parse(param)
+  if(typeof params['ord'] != 'undefined')
+  {
+    if(params['ord'] == 0)
+    {
+      ajt_prs(id_cat, id_dev_jrn, -1)
+    }else if(typeof params['id_ant'] != 'undefined')
+    {
+      ajt_prs(id_cat, id_dev_jrn, params['ord'], 0, 0, 0, params['id_ant'])
+    }
+  }else if(typeof params['id_dev'] != 'undefined')
+  {
+    if(typeof params['opt'] != 'undefined')
+    {
+      if(typeof params['id_cat_jrn'] != 'undefined' && typeof params['id_dev_mdl'] != 'undefined' && typeof params['id_ant'] != 'undefined')
+      {
+        sup('prs', params['id_dev'], id_dev_jrn, 0, id_cat, params['id_cat_jrn'], params['id_dev_mdl'], params['opt'], params['id_ant']);
+      }else{
+        maj('dev_prs', 'opt', params['opt'], params['id_dev'], id_dev_jrn)
+      }
+    }else if(typeof params['res'] != 'undefined')
+    {
+      maj('dev_prs', 'res', params['res'], params['id_dev'])
+    }
+  }
+  load('DEV searchPrs')
+  const xhr = new XMLHttpRequest
+  xhr.open("POST", "../resources/php/searchPrs.php")
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.send(JSON.stringify({ id_cat, param, id_dev_jrn, id_dev_crc }))
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
+    {
+      if(xhr.response != 0)
+      {
+        const rsp = JSON.parse(xhr.response)
+        if(typeof params['ord'] != 'undefined')
+        {
+          if(params['ord'] == 0)
+          {
+            //ajt_opt vue_dt_jrn
+          }else if(typeof params['id_ant'] != 'undefined')
+          {
+            window.parent.box("?", rsp[0], () => {
+              for(let i = 1; i < rsp.length; i = i+2)
+                ajt_prs(id_cat, rsp[i], rsp[i+1], 0)
+            }
+          }
+        }else if(typeof params['id_dev'] != 'undefined')
+        {
+          if(typeof params['opt'] != 'undefined')
+          {
+            if(typeof params['id_cat_jrn'] != 'undefined' && typeof params['id_dev_mdl'] != 'undefined' && typeof params['id_ant'] != 'undefined')
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i = i+2)
+                  sup('prs', rsp[i], rsp[i+1], 1, id_cat)
+              }
+            }else if(params['opt'] == 0)
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i = i+2)
+                  maj('dev_prs', 'opt', '1', rsp[i], rsp[i+1])
+              }
+            }else if(params['opt'] == 1)
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i = i+2)
+                  maj('dev_prs', 'opt', '0', rsp[i], rsp[i+1])
+              }
+            }
+          }else if(typeof params['res'] != 'undefined')
+          {
+            window.parent.box("?", rsp[0], () => {
+              for(let i = 1; i < rsp.length; i++)
+                maj('dev_prs', 'res', params['res'], rsp[i])
+            }
+          }
+        }
+      }
+      unload('DEV searchPrs')
     }
   }
 }
@@ -1063,7 +1178,7 @@ const updateRates = (obj, id, id_sup) => {
       const rsp = JSON.parse(xhr.response)
   		if(rsp[0].length > 0 && rsp[0] != 1)
       {
-        alt(rsp[0]);
+        alt(rsp[0])
       }
       if(obj != 'hbr_all' && obj != 'frn_all')
       {
@@ -1083,7 +1198,7 @@ const updateElem = (obj, id) => {
   xhr.onreadystatechange = () => {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
     {
-      vue_crc('res');
+      vue_crc('res')
       switch (obj) {
         case 'crc':
           vue_crc('ttf')

@@ -720,8 +720,8 @@
 		<es>¡Las prestaciones en opción no fueron confirmadas!</es>
 	</alt_cnf>
 	<alt_fus>
-		<fr>Les tarifs des modules suivants devraient être actualisés (changement de dates).</fr>
-		<es>Las tarifas de los modulos siguientes deberían ser actualizadas (cambio de fechas).</es>
+		<fr>Les tarifs des modules suivants devraient être actualisés (fusion).</fr>
+		<es>Las tarifas de los modulos siguientes deberían actualizarse (fusión).</es>
 	</alt_fus>
 	<trsf1>
 		<fr>Erreur!&#xA;Le module précédent a des tarifs séparés ou est fusionné.</fr>

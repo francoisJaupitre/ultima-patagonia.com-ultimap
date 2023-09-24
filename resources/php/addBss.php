@@ -109,7 +109,7 @@ if(
 					if(!$dt_mdl['trf'])
 					{
 						$id_dev_mdl = $dt_mdl['id'];
-						include("../../dev/ajt_trf_srv.php");
+						include("addSrvRates.php");
 					}
 				}
 			}
@@ -126,7 +126,7 @@ if(
 					"bs_min <= ".$base." AND bs_max >= ".$base." AND id_ctg_clt = ".$id_ctg_clt
 				));
 				insert("dev_mdl_bss", array("id_mdl", "base", "vue", "mrq"), array($id_dev_mdl, $base, $vue, $dt_cfg['mrq']));
-				include("../../dev/ajt_trf_srv.php");
+				include("addSrvRates.php");
 			}
 		}
 		$err = '';

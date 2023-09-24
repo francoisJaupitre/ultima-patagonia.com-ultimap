@@ -67,7 +67,7 @@ if(!$flg_trf)
 			if($dt_trf['id_frn'] > 0)
 			{
 				$dt_frn = ftc_ass(sel_quo("nvtrf, nom, frs", "cat_frn", "id", $dt_trf['id_frn']));
-				if($dt_frn['nvtrf'] and !in_array($dt_frn['nom'], $lst_nvtrf))
+				if($dt_frn['nvtrf'] and (!isset($lst_nvtrf) or !in_array($dt_frn['nom'], $lst_nvtrf)))
 				{
 					$lst_nvtrf[] = $dt_frn['nom'];
 				}

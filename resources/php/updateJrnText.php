@@ -2,8 +2,10 @@
 if($id_cat_jrn > 0)
 {
 	$dt_cat_jrn = ftc_ass(sel_quo(
-		'nom, titre, dsc',
-		'cat_jrn LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg = '.$id_lgg,
+		'nom, titre, dsc, id_pic',
+		'cat_jrn
+			LEFT JOIN cat_jrn_txt ON cat_jrn.id = cat_jrn_txt.id_jrn AND lgg = '.$id_lgg.'
+			LEFT JOIN cat_jrn_pic ON cat_jrn.id = cat_jrn_pic.id_jrn',
 		'cat_jrn.id',
 		$id_cat_jrn
 	));
@@ -15,6 +17,10 @@ if($id_cat_jrn > 0)
 	if(empty($dt_cat_jrn['dsc']))
 	{
 		unset($dt_cat_jrn['dsc']);
+	}
+	if($dt_cat_jrn['id_pic'] == 0)
+	{
+		unset($dt_cat_jrn['id_pic']);
 	}
 	upd_quo('dev_jrn', array_keys($dt_cat_jrn), array_values($dt_cat_jrn), $id_dev_jrn);
 }

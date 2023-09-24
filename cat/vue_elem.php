@@ -13,21 +13,13 @@ if(isset($_POST['id']) and isset($_POST['obj']) and isset($_POST['col'])) {
 	}
 	elseif(substr($obj,0,7)=='crc_web') {
 		$id_crc_txt = substr($obj,7);
-		$dt_txt = ftc_ass(select("id,titre,lgg,web_uid,web_mdp","cat_crc_txt","id",$id_crc_txt));
-		if($aut['web']) {
-			$flg_web = true;
-			$rq_mdp = sel_quo("web_mdp","cat_mdl_txt INNER JOIN cat_crc_mdl ON cat_mdl_txt.id_mdl = cat_crc_mdl.id_mdl",array("id_crc","lgg"),array($id,$dt_txt['lgg']));
-			if(num_rows($rq_mdp)) {
-				while($dt_mdp = ftc_ass($rq_mdp)) {
-					if(!strlen($dt_mdp['web_mdp'])) {$flg_web = false;}
-				}
-			}
-			else{$flg_web = false;}
-		}
-		else{$flg_web = false;}
+		$dt_txt = ftc_ass(select("id, titre, lgg, web_uid, web_mdp", "cat_crc_txt", "id", $id_crc_txt));
 		$url = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$host = explode('.',$_SERVER['HTTP_HOST']);
-		if(isset($host[2])) {unset($host[0]);}
+		if(isset($host[2]))
+		{
+			unset($host[0]);
+		}
 		$url .= 'www.'.implode('.',$host).'/';
 		include("vue_crc_web.php");
 	}
@@ -59,10 +51,13 @@ if(isset($_POST['id']) and isset($_POST['obj']) and isset($_POST['col'])) {
 	}
 	elseif(substr($obj,0,7)=='mdl_web') {
 		$id_mdl_txt = substr($obj,7);
-		$dt_txt = ftc_ass(select("id,titre,lgg,web_uid,web_mdp","cat_mdl_txt","id",$id_mdl_txt));
+		$dt_txt = ftc_ass(select("id, titre, lgg, web_uid, web_mdp", "cat_mdl_txt", "id", $id_mdl_txt));
 		$url = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$host = explode('.',$_SERVER['HTTP_HOST']);
-		if(isset($host[2])) {unset($host[0]);}
+		if(isset($host[2]))
+		{
+			unset($host[0]);
+		}
 		$url .= 'www.'.implode('.',$host).'/';
 		include("vue_mdl_web.php");
 	}

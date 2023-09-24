@@ -1,8 +1,9 @@
 var upd = 0 //used by root
-var flg_maj = true, id_lng //encapsulate asap
+var flg_maj = true, id_lng, cnf //encapsulate asap
 
 (function()
 {
+  cnf = document.getElementById('cnf').value
   id_lng = parent.document.getElementById('id_lng').value
   act_tab()
   init()
@@ -185,67 +186,79 @@ const searchHbr = (id_cat_hbr, id_cat_chm, id_hbr_vll, id_hbr_rgm, id_dev_hbr, i
   }
 }
 
-const searchSrv = (id_frn, id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc) => {
+const searchSrv = (id_frn, param, id_dev_srv, id_dev_crc) => {
+  params = JSON.parse(param)
+  if(typeof params['res'] != 'undefined' && (params['res'] < -1 || params['res'] > 5))
+  {
+    updateData('dev_srv', 'res', params['res'], id_dev_srv, 0, id_dev_crc)
+    return
+  }
   load('OPE searchSrv')
   const xhr = new XMLHttpRequest
   xhr.open("POST", "../resources/php/searchSrv.php")
   xhr.setRequestHeader("Content-Type", "application/json")
-  xhr.send(JSON.stringify({ id_dev_srv_ctg, id_dev_srv_vll, id_dev_srv, id_dev_crc, id_frn, cnf }))
+  xhr.send(JSON.stringify({ id_frn, param, id_dev_srv, id_dev_crc, cnf }))
   xhr.onreadystatechange = () => {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
     {
-      if(xhr.response != 0)
+      if(typeof params['res'] == 'undefined')
+        updateData('dev_srv', 'id_frn', id_frn, id_dev_srv)
+      else
+        updateData('dev_srv', 'res', params['res'], id_dev_srv, 0, id_dev_crc)
+      function doFirst(resp)
       {
-        const rsp = JSON.parse(xhr.response)
-        if(id_dev_srv_vll > 0 && id_dev_srv > 0)
-        {
-          window.parent.box("?", rsp[0], () => {
-            for(let i = 1; i < rsp.length; i++)
-              updateData('dev_srv', 'id_frn', id_frn, rsp[i])
-          })
-        }
-        else{
-          window.parent.box("?", rsp[0], () => {
-            for(let i = 1; i < rsp.length; i++)
-              updateData('dev_srv', 'id_frn', 0, rsp[i])
-          })
-        }
-      }
-      unload('OPE searchSrv')
-    }
-  }
-}
-
-const searchFrn = (res, id_frn, id_dev_srv, id_dev_crc) => {
-  load('OPE searchFrn')
-  const xhr = new XMLHttpRequest
-  xhr.open("POST", "../resources/php/searchFrn.php")
-  xhr.setRequestHeader("Content-Type", "application/json")
-  xhr.send(JSON.stringify({ id_frn, id_dev_srv, id_dev_crc, res, cnf }))
-  xhr.onreadystatechange = () => {
-    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
-    {
-      if(xhr.response != 0)
-      {
-        const rsp = JSON.parse(xhr.response)
-        window.parent.box("?", rsp[0], () => {
-          for(let i = 1; i < rsp.length; i++)
-            updateData('dev_srv', 'res', res, rsp[i])
+        return new Promise((resolve) => {
+          if(resp != 0)
+          {
+            const rsp = JSON.parse(resp)
+            if(typeof params['res'] != 'undefined')
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i++)
+                  updateData('dev_srv', 'res', params['res'], rsp[i])
+                resolve()
+              }, () => {
+                resolve()
+              })
+            }else if(params['vll'] > 0 && params['ctg'] > 0)
+            {
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i++)
+                  updateData('dev_srv', 'id_frn', id_frn, rsp[i])
+                resolve()
+              }, () => {
+                resolve()
+              })
+            }else{
+              window.parent.box("?", rsp[0], () => {
+                for(let i = 1; i < rsp.length; i++)
+                  updateData('dev_srv', 'id_frn', 0, rsp[i])
+                resolve()
+              }, () => {
+                resolve()
+              })
+            }
+          }else{
+            resolve()
+          }
         })
-        window.parent.act_frm('frn_ope')
       }
-      unload('OPE searchFrn')
+      doFirst(xhr.response).then(() => {
+        window.parent.act_frm(`crc_dev_srv${id_dev_crc}`)
+        window.parent.act_frm('frn_ope');
+        unload('OPE searchSrv')
+      })
     }
   }
 }
 
 const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
-  /*if(flg_maj)
+  if(flg_maj)
   {
     upd++
     console.log('upd', upd)
     flg_maj = false
-  }*/
+  }
   if(id_sup > 0)
     load('OPE updateData')
   const xhr = new XMLHttpRequest
@@ -284,8 +297,8 @@ const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
           vue_elem(`cmd_srv${id}`, id)
           window.parent.act_frm(`srv_dev_frn${id}`)
           window.parent.act_frm(`srv_dev_srv${id}`)
-          window.parent.act_frm(`crc_dev_srv${id_dev_crc}`)
-          window.parent.act_frm('frn_ope')
+          //window.parent.act_frm(`crc_dev_srv${id_dev_crc}`)
+          //window.parent.act_frm('frn_ope')
           break
         case 'res':
           if(tab == 'dev_srv')
@@ -294,7 +307,6 @@ const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
               dsp('srv', id, id_dev_crc)
   					vue_elem(`res_srv${id}`, id)
   					vue_elem(`frn_srv${id}`, id)
-  					window.parent.act_frm(`crc_dev_srv${id_dev_crc}`)
   					window.parent.act_frm(`srv_dev_frn${id}`)
   					window.parent.act_frm(`srv_dev_srv${id}`)
   				}
@@ -309,12 +321,12 @@ const updateData = (tab, col, val, id, id_sup, id_dev_crc) => {
       }
       if(rsp[0] != 1)
         alt(rsp[0])
-    	/*if(!flg_maj)
+    	if(!flg_maj)
       {
     		upd--
     		console.log('upd',upd)
     		flg_maj = true
-    	}*/
+    	}
     	if(id_sup > 0)
         unload('OPE updateData')
     }

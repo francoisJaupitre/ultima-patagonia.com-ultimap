@@ -61,29 +61,48 @@
     <fr>Retirer ce même fournisseur pour le(s)</fr>
     <es>¿Retirar este mismo proveedor para el(los)</es>
   </src_srv2>
-  <src_frn0>
-    <fr>autres services de ce fournisseur ?</fr>
-    <es>otros servicios de este proveedor?</es>
-  </src_frn0>
-  <src_frn1>
-    <fr>Appliquer ce statut au(x)</fr>
-    <es>¿Aplicar este estado a el(los)</es>
-  </src_frn1>
-  <src_frn2>
+  <src_srv3>
     <fr>services de ce fournisseur pour ce groupe ?</fr>
     <es>servicios de este proveedor para este grupo?</es>
-  </src_frn2>
-  <src_frn3>
-    <fr>Actualiser les tarifs de(s)</fr>
-    <es>¿Actualizar las tarifas de la(s)</es>
-  </src_frn3>
-  <src_frn4>
+  </src_srv3>
+  <src_srv4>
+    <fr>Appliquer ce statut au(x)</fr>
+    <es>¿Aplicar este estado a el(los)</es>
+  </src_srv4>
+  <src_frn0>
     <fr>service(s) de ce fournisseur ?</fr>
     <es>servicio(s) de este proveedor?</es>
-  </src_frn4>
+  </src_frn0>
+  <src_frn1>
+    <fr>Actualiser les tarifs de(s)</fr>
+    <es>¿Actualizar las tarifas de la(s)</es>
+  </src_frn1>
+  <src_prs0>
+		<fr> autre(s) journée(s)?</fr>
+		<es> otra(s) jornada(s)?</es>
+	</src_prs0>
+	<src_prs1>
+		<fr>Ajouter cette même prestation en option pour la(les) </fr>
+		<es>Añadir esta misma prestación en opción para la(s) </es>
+	</src_prs1>
+	<src_prs2>
+		<fr>Sélectionner cette même prestation pour la(les) </fr>
+		<es>Seleccionar esta misma prestación para la(s) </es>
+	</src_prs2>
+	<src_prs3>
+		<fr>Désélectionner cette même prestation pour la(les) </fr>
+		<es>Deseleccionar esta misma prestación para la(s) </es>
+	</src_prs3>
+	<src_prs4>
+		<fr>Supprimer cette même prestation pour la(les) </fr>
+		<es>Suprimir esta misma prestación para la(s) </es>
+	</src_prs4>
+	<src_prs5>
+		<fr>Appliquer ce statut au(x)  </fr>
+		<es>Aplicar este estado a la(s) </es>
+	</src_prs5>
   <cnf>
     <fr>Circuit confirmé! Etes-vous sûr ?</fr>
     <es>¡Circuito confirmado! ¿Está seguro?</es>
   </cnf>
-
 </textes>

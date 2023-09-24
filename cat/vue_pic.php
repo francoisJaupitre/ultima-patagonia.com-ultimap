@@ -29,7 +29,7 @@ if($aut['cat']) {
 		<tr>
 			<td class="vat">
 				<div class="dsg">
-					<div id="pic_jrn" class="jrn"><?php include("vue_pic_jrn.php"); ?></div>
+					<div id="pic_jrn" class="list_jrn_pic"><?php include("vue_pic_jrn.php"); ?></div>
 					<hr/>
 					<span class="vdfp"><?php echo $txt->ajt->$id_lng.' :'; ?></span>
 					<span id="pic_vll<?php echo $id ?>" class="vll"><?php include("vue_pic_vll.php"); ?></span>

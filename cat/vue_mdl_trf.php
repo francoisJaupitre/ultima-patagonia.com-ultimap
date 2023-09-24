@@ -1,6 +1,6 @@
 <?php
 //  include("trf_mdl.php"); 'sel_mdl_jrn' n'est pas pris en compte dans fct/trf.php
-$txt_fct = simplexml_load_file('../fct/txt.xml');
+$txt_fct = simplexml_load_file('../resources/xml/mainTxt.xml');
 $flg_err_trf = false;
 if(isset($err_hbr_jrn[$id_trf])) {
   foreach(array_unique($err_hbr_jrn[$id_trf]) as $jrn) {

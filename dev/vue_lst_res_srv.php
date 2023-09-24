@@ -8,9 +8,15 @@ elseif($cbl=='hbr'){$uid .= $id_dev_hbr;}
 $uid .= '"';
 foreach($res_srv[$id_lng] as $res_id => $nom){
 	if($res_id != $id_res and substr(upnoac($nom),0,strlen($src))==$src){
-		if($cbl=='srv'){
-			if($src_frn_res_srv[$res_id]) {$event = "searchFrn(".$res_id.",".$dt_srv['id_frn'].",".$id_dev_srv.",".$id_dev_prs.");";}
-			else{$event = "maj('dev_srv','res',".$res_id.",".$id_dev_srv.",".$id_dev_prs.");";}
+		if($cbl == 'srv')
+		{
+			if($src_frn_res_srv[$res_id])
+			{
+				$param = '{\x22res\x22:'.$res_id.'}';
+				$event = "searchSrv(".$dt_srv['id_frn'].",'$param',".$id_dev_srv.")";
+			}else{
+				$event = "maj('dev_srv','res',".$res_id.",".$id_dev_srv.",".$id_dev_prs.");";
+			}
 		}
 		elseif($cbl=='hbr'){
 			$event = "maj('dev_hbr','res',".$res_id.",".$id_dev_hbr.",".$id_dev_prs.");";

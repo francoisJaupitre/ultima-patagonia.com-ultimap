@@ -1,6 +1,6 @@
 <?php //MANAGE PRESTATION DATAS IN A QUOTATION
 $dt_prs = ftc_ass(sel_quo(
-	"*",
+	"ctg, nom, titre, dsc, alerte",
 	"cat_prs LEFT JOIN cat_prs_txt ON cat_prs.id = cat_prs_txt.id_prs AND lgg = ".$id_lgg,
 	"cat_prs.id",
 	$id_cat_prs

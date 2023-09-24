@@ -126,7 +126,7 @@ if($vue_res and isset($mdl_datas))
 						$jr_frn[$id_frn][] = $dt_jrn['ord'];
 						$jr_frn_id[$id_frn][] = $dt_jrn['id'];
 						$mdl_frn_id[$id_frn][] = $id_dev_mdl;
-						if($id_frn > 0 or $dt_srv['res'] != 6)
+						if($id_frn > 0 and $dt_srv['res'] != 6)
 						{
 							$res_frn[$id_frn][] = $dt_srv['res'];
 						}
@@ -202,7 +202,7 @@ if($vue_res and isset($mdl_datas))
 								$id_hbr = -$dt_hbr['id'];
 							}
 							$id_chm = $dt_hbr['id_cat_chm'];
-							if($id_hbr > 0 and (!isset($hbr) or !in_array($id_hbr, $hbr)))
+							if(!isset($hbr) or !in_array($id_hbr, $hbr))
 							{
 								$hbr[] = $id_hbr;
 							}
@@ -462,21 +462,19 @@ if($vue_res and isset($mdl_datas))
 					$color_frn[] = $id_res_frn;
 				}
 			}
-			if(isset($color_frn))
+			if(isset($color_frn) and (count(array_unique($color_frn)) > 1 or array_unique($color_frn)[0] != 0))
 			{
 				foreach(array_unique($color_frn) as $id_res_frn)
 				{
-					if($id_res_frn < 6)
-					{
-						$color .= $col_res_srv[$id_res_frn].',';
-					}
+					$color .= $col_res_srv[$id_res_frn].',';
 				}
 			}
 			unset($color_frn);
 			if(substr_count($color, ',') == 1)
 			{
 				$color = "background:".substr_replace($color, "", -1);
-			}else{
+			}elseif(substr_count($color, ',') > 1)
+			{
 				$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
 			}
 		}
@@ -533,9 +531,10 @@ if($vue_res and isset($mdl_datas))
 			$jr_frn_id[$fr] = array_unique($jr_frn_id[$fr]);
 			$cot += $cot_srv[$fr];
 			$color = '';
+
 			foreach(array_unique($res_frn[$fr]) as $id_res_frn)
 			{
-				if(($cnf > 0 or ($flg_res and $id_res_frn > 0)) and $id_res_frn < 6)
+				if($cnf > 0 or ($id_res_frn > 0 or count(array_unique($res_frn[$fr])) > 1))
 				{
 					$color .= $col_res_srv[$id_res_frn].',';
 				}
@@ -543,7 +542,8 @@ if($vue_res and isset($mdl_datas))
 			if(substr_count($color, ',') == 1)
 			{
 				$color = "background:".substr_replace($color, "", -1);
-			}else{
+			}elseif(substr_count($color, ',') > 1)
+			{
 				$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
 			}
 ?>
@@ -595,38 +595,33 @@ if($vue_res and isset($mdl_datas))
 						>
 							<strong><?php echo $txt->cmd->$id_lng; ?></strong>
 							<ul>
-								<li
-									onclick="
-										window.parent.opn_frm('cat/ctr.php?cbl=frn&id=<?php echo $fr;?>');
-										document.getElementById('vue_cmd_frn<?php echo $fr; ?>').style.display='none';
-									"
-								>
+								<li	onclick="window.parent.opn_frm('cat/ctr.php?cbl=frn&id=<?php echo $fr;?>')">
 <?php
 			echo $txt->cat->$id_lng;
 ?>
 								</li>
-								<li onclick="window.open('../resources/php/docxFrn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>');">
+								<li onclick="window.open('../resources/php/docxFrn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>')">
 <?php
 			echo $txt->lst_res->$id_lng;
 ?>
 								</li>
-								<li onclick="window.open('../resources/php/vchFrn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>');">
+								<li onclick="window.open('../resources/php/vchFrn.php?id=<?php echo $id_dev_crc;?>&frn=<?php echo $fr;?>')">
 <?php
 			echo $txt->vch->$id_lng;
 ?>
 								</li>
-								<li onclick="mailFrn(<?php echo $fr; ?>, 0);"><?php echo $txt->maildevis->$id_lng; ?></li>
+								<li onclick="mailFrn(<?php echo $fr; ?>, 0)"><?php echo $txt->maildevis->$id_lng; ?></li>
 <?php
 			if($aut['res'])
 			{
 ?>
-								<li onclick="mailFrn(<?php echo $fr; ?>, 1);"><?php echo $txt->mailres->$id_lng; ?></li>
+								<li onclick="mailFrn(<?php echo $fr; ?>, 1)"><?php echo $txt->mailres->$id_lng; ?></li>
 <?php
 			}
 			if($aut['dev'])
 			{
 ?>
-								<li onclick="searchFrn(0, <?php echo $fr ?>, 0);"><?php echo $txt->acttrf->$id_lng; ?></li>
+								<li onclick="searchFrn(<?php echo $fr ?>)"><?php echo $txt->acttrf->$id_lng; ?></li>
 <?php
 			}
 			if($frn_wap[$fr] > 0)
@@ -641,15 +636,12 @@ if($vue_res and isset($mdl_datas))
 						</div>
 					</td>
 <?php
-			if($cnf > 0)
+			if($cnf > 0 or $flg_res)
 			{
 				$statut = '';
 				foreach(array_unique($res_frn[$fr]) as $id_res_frn)
 				{
-					if($id_res_frn < 6)
-					{
-						$statut .= $res_srv[$id_lng][$id_res_frn].' - ';
-					}
+					$statut .= $res_srv[$id_lng][$id_res_frn].' - ';
 				}
 				$statut = substr_replace($statut, "", -3);
 ?>
@@ -837,23 +829,21 @@ if($vue_res and isset($mdl_datas))
 						$color_chm[] = $id_res_chm;
 					}
 				}
-				if(isset($color_chm))
+				if(isset($color_chm) and (count(array_unique($color_chm)) > 1 or array_unique($color_chm)[0] != 0))
 				{
 					foreach(array_unique($color_chm) as $id_res_chm)
 					{
-						if($id_res_chm < 6)
-						{
-							$color .= $col_res_srv[$id_res_chm].',';
-						}
+						$color .= $col_res_srv[$id_res_chm].',';
 					}
 				}
 				unset($color_chm);
-				if(substr_count($color, ',') == 1)
-				{
-					$color = "background:".substr_replace($color, "", -1);
-				}else{
-					$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
-				}
+			}
+			if(substr_count($color, ',') == 1)
+			{
+				$color = "background:".substr_replace($color, "", -1);
+			}elseif(substr_count($color, ',') > 1)
+			{
+				$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
 			}
 		}
 ?>
@@ -958,7 +948,7 @@ if($vue_res and isset($mdl_datas))
 				$color = '';
 				foreach(array_unique($res_hbr[$hb][$chm]) as $id_res_chm)
 				{
-					if(($cnf > 0 or ($flg_res and $id_res_chm > 0)) and $id_res_chm < 6)
+					if($cnf > 0 or ($id_res_chm > 0 or count(array_unique($res_hbr[$hb][$chm])) > 1))
 					{
 						$color .= $col_res_srv[$id_res_chm].',';
 					}
@@ -966,7 +956,8 @@ if($vue_res and isset($mdl_datas))
 				if(substr_count($color, ',') == 1)
 				{
 					$color = "background:".substr_replace($color, "", -1);
-				}else{
+				}elseif(substr_count($color, ',') > 1)
+				{
 					$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
 				}
 ?>
@@ -1099,7 +1090,7 @@ if($vue_res and isset($mdl_datas))
 						</div>
 <?php
 					}
-				}elseif($hbn < 0)
+				}elseif($hbr < 0)
 				{
 					echo stripslashes($hbr_nom);
 				}else{
@@ -1118,10 +1109,7 @@ if($vue_res and isset($mdl_datas))
 					$statut = '';
 					foreach(array_unique($res_hbr[$hb][$chm]) as $id_res_chm)
 					{
-						if($id_res_chm < 6)
-						{
-							$statut .= $res_srv[$id_lng][$id_res_chm].' - ';
-						}
+						$statut .= $res_srv[$id_lng][$id_res_chm].' - ';
 					}
 					$statut = substr_replace($statut, "", -3);
 ?>
@@ -1199,7 +1187,7 @@ if($vue_res and isset($mdl_datas))
 				}else{
 					echo '<td class="stl1">-</td>';
 				}
-				if(isset($dat_hbr))
+				if(isset($dat_hbr) and isset($dat_hbr[$hb][$chm]))
 				{
 					$dat = min($dat_hbr[$hb][$chm]);
 ?>
@@ -1327,23 +1315,21 @@ if($vue_res and isset($mdl_datas))
 						$color_chm[] = $id_res_chm;
 					}
 				}
-				if(isset($color_chm))
+				if(isset($color_chm) and (count(array_unique($color_chm)) > 1 or array_unique($color_chm)[0] != 0))
 				{
 					foreach(array_unique($color_chm) as $id_res_chm)
 					{
-						if($id_res_chm < 6)
-						{
-							$color .= $col_res_srv[$id_res_chm].',';
-						}
+						$color .= $col_res_srv[$id_res_chm].',';
 					}
 				}
 				unset($color_chm);
-				if(substr_count($color, ',') == 1)
-				{
-					$color = "background:".substr_replace($color, "", -1);
-				}else{
-					$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
-				}
+			}
+			if(substr_count($color, ',') == 1)
+			{
+				$color = "background:".substr_replace($color, "", -1);
+			}elseif(substr_count($color, ',') > 1)
+			{
+				$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
 			}
 		}
 ?>
@@ -1410,7 +1396,7 @@ if($vue_res and isset($mdl_datas))
 				$color = '';
 				foreach(array_unique($res_hbr_opt[$hb_opt][$chm_opt]) as $id_res_chm)
 				{
-					if($cnf > 0 and $id_res_chm < 6)
+					if($cnf > 0 or ($id_res_chm > 0 or count(array_unique($res_hbr[$hb_opt][$chm_opt])) > 1))
 					{
 						$color .= $col_res_srv[$id_res_chm].',';
 					}
@@ -1418,7 +1404,8 @@ if($vue_res and isset($mdl_datas))
 				if(substr_count($color, ',') == 1)
 				{
 					$color = "background:".substr_replace($color, "", -1);
-				}else{
+				}elseif(substr_count($color, ',') > 1)
+				{
 					$color = "background: linear-gradient(".substr_replace($color, "", -1).")";
 				}
 ?>
@@ -1440,7 +1427,14 @@ if($vue_res and isset($mdl_datas))
 				}
 ?>
 					</td>
-					<td class="stl1" style="padding: 0px 5px;"><?php echo stripslashes($vll[$id_vll]) ?></td>
+					<td class="stl1" style="padding: 0px 5px;">
+<?php
+				if($id_vll > 0)
+				{
+					echo stripslashes($vll[$id_vll]);
+				}
+?>
+					</td>
 					<td class="stl1" style="padding: 0px 5px; position: relative;">
 <!--COMMANDES-->
 						<span

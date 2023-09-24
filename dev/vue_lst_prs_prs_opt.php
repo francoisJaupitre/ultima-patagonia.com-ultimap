@@ -11,6 +11,8 @@ if($id_cat_jrn==0){
 if(isset($rq_lst_prs_prs_opt)){
 	while($dt_lst_prs_prs_opt = ftc_ass($rq_lst_prs_prs_opt)){
 		if(!in_array($dt_lst_prs_prs_opt['id'],$prs_opt_id_cat) and substr(upnoac($dt_lst_prs_prs_opt['nom']),0,strlen($src))==$src){
+			$param = '{\x22ord\x22:0,\x22id_ant\x22:'.$id_ant_prs.'}';
+			$event = "searchPrs(".$dt_lst_prs_prs_opt['id'].",'$param',".$id_dev_jrn.")";
 ?>
 	<li <?php if($flg_enter){echo 'id="enter_prs_prs_opt'.$id_dev_jrn.'__'.$ord_prs.'__'.$id_ant_prs.'" style="background-color: Chocolate;"';} ?>>
 		<span class="dib" onClick="vue_cmd_ul('ul_prs_prs_opt<?php echo $dt_lst_prs_prs_opt['id'].'_'.$id_dev_jrn.'__'.$ord_prs.'__'.$id_ant_prs ?>','cmd_prs_prs_opt<?php echo $id_dev_jrn.'__'.$ord_prs.'__'.$id_ant_prs ?>');">
@@ -21,7 +23,7 @@ if(isset($rq_lst_prs_prs_opt)){
 ?>
 		</span>
 		<ul id="ul_prs_prs_opt<?php echo $dt_lst_prs_prs_opt['id'].'_'.$id_dev_jrn.'__'.$ord_prs.'__'.$id_ant_prs ?>" class="cmd_prs_prs_opt<?php echo $id_dev_jrn.'__'.$ord_prs.'__'.$id_ant_prs ?>" style="display: none">
-			<li onClick="ajt_prs(<?php echo $dt_lst_prs_prs_opt['id'].','.$id_dev_jrn.','.$ord_prs.',0,0,0,'.$id_ant_prs ?>);src_prs(<?php echo $dt_lst_prs_prs_opt['id'].','.$ord_prs.','.$id_dev_jrn ?>,'ajt_opt',-1);document.getElementById('sel_prs_prs_opt<?php echo $id_dev_jrn.'__'.$ord_prs.'__'.$id_ant_prs ?>').style.display='none';"><?php echo $txt->ajt->$id_lng ?></li>
+			<li onClick="<?php echo $event; ?>"><?php echo $txt->ajt->$id_lng ?></li>
 			<li onClick="window.parent.opn_frm('cat/ctr.php?cbl=prs&id=<?php echo $dt_lst_prs_prs_opt['id'] ?>');"><?php echo $txt->opn->$id_lng ?></li>
 		</ul>
 	</li>

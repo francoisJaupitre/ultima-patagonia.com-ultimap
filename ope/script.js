@@ -2,7 +2,6 @@ var rang = 1;
 var flg_dt_ope = true;
 
 function vue(){
-	var cnf = document.getElementById('cnf').value;
 	var dt_jrn = document.getElementById('dt_jrn').value;
 	var id_grp = document.getElementById('sel_grp').value;
 	var id_prs = document.getElementById('sel_prs').value;
@@ -34,7 +33,6 @@ function vue_dt_res(){
 		if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 		else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 		load('OPE vue_dt_res');
-		var cnf = document.getElementById('cnf').value;
 		var dt_jrn = document.getElementById('dt_jrn').value;
 		var id_grp = document.getElementById('sel_grp').value;
 		var id_prs = document.getElementById('sel_prs').value;
@@ -175,7 +173,6 @@ function init(){ //a mettre dans accLoad
 }
 
 function act_tab(){
-	var cnf = document.getElementById('cnf').value;
 	if(window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 	else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 	xmlhttp.onreadystatechange=function(){

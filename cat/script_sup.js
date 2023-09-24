@@ -7,7 +7,7 @@ function sup(obj,id,cbl,id_sup) {
 			if(xmlhttp.status==200) {
 				if(document.getElementById(obj)) {vue_elem(obj,id_sup);}
 				//else{vue();}
-				window.parent.act_frm(`lst_${obj}`)
+				window.parent.act_frm(`list_${obj}`)
 				act_acc();
 				if(xmlhttp.responseText!='') {alt(xmlhttp.responseText);}
 			}

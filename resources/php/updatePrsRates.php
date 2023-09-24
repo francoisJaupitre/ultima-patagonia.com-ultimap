@@ -107,7 +107,7 @@ while($dt_dev_hbr = ftc_ass($rq_dev_hbr))
 	if($id_cat_hbr > 0)
 	{
 		$dt_cat_hbr = ftc_ass(sel_quo("nvtrf, nom", "cat_hbr", "id", $id_cat_hbr));
-		if($dt_cat_hbr['nvtrf'] and !in_array($dt_cat_hbr['nom'], $lst_nvtrf))
+		if($dt_cat_hbr['nvtrf'] and (!isset($lst_nvtrf) or !in_array($dt_cat_hbr['nom'], $lst_nvtrf)))
 		{
 			$lst_nvtrf[] = $dt_cat_hbr['nom'];
 		}
